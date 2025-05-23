@@ -1,8 +1,10 @@
-- id: arXiv:2410.16523
+- id: doi:10.5220/0012893600003838
   type: paper
   description: The hypothesis that neural network training on small data subsets can approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating that comparable results to full training can be achieved with significantly reduced computational cost.
   image: images/cites/doi_10_5220_0012893600003838.png
   buttons:
+    - text: DOI
+      link: https://doi.org/10.5220/0012893600003838
     - text: arXiv
       link: https://arxiv.org/abs/2410.16523
   tags:
