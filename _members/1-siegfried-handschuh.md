@@ -1,8 +1,8 @@
 ---
-name: Prof. Siegfried Handschuh
+name: Prof. Dr. Siegfried Handschuh
 image: images/members_siegfried-handschuh.png
 role: professor
-description: Head of DS-NLP Chair
+description: Full Professor for Data Science and Natural Language Processing
 affiliation: University of St. Gallen (HSG)
 aliases:
   - S. Handschuh
