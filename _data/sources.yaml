@@ -1,3 +1,23 @@
+## Argumentative AI ## 
+- id: doi:10.1007/978-3-031-64312-5_21
+  type: paper
+  description: In this article, we present the results of an exploratory study conducted with our self-developed tool Artist. The goal of the tool is to give formative feedback to develop students' argumentation skills. We compare the feedback that two different LLMs, an open-sourced one by META and one of OpenAI's fully proprietary ones, give to students' argumentative writing. We find that, overall, students find the feedback provided by both LLMs helpful (7.51 vs. 7.65 on a scale from 1 to 10), and they rate the quality of the feedback as good to very good. We take this as a very encouraging provisional result that invites larger and more extensive studies on the topic.
+    buttons:
+    - text: Alexandria
+      link: https://www.alexandria.unisg.ch/entities/publication/b87ad72b-f9f7-4b2b-bc3f-9bad8ecf2160
+    - text: DOI
+      link: https://doi.org/10.1007/978-3-031-64312-5_21
+  tags:
+    - paper
+    - argumentative-ai
+    - argumentation
+    - llm
+    - artist
+
+
+
+  ## QDS ##
+
 - id: doi:10.5220/0012893600003838
   type: paper
   description: The hypothesis that neural network training on small data subsets can approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating that comparable results to full training can be achieved with significantly reduced computational cost.
@@ -30,5 +50,40 @@
     - transformers
     - training
     - neural-networks
-  repo: unisg-ics-dsnlp/qds
-  highlighted: true
+
+## BOOKS ##
+- id: doi:10.34156/9783791062228
+  type: book
+  description: Generative Künstliche Intelligenz beschreibt eine Klasse von KI-Systemen, die in der Lage sind, aus großen Datenmengen zu lernen und auf dieser Grundlage neue, bisher nicht gesehene Inhalte zu generieren, wie beispielsweise Texte, Bilder, Musik oder Videos. Dabei wird die Generierungskapazität der KI mit dem Ziel eingesetzt, kreative Prozesse zu unterstützen, neue Ideen zu generieren und innovative Lösungsansätze zu liefern. Trotz ihrer beeindruckenden Fähigkeiten haben generative KI-Systeme auch ihre Herausforderungen, wie die Kontrolle über den generierten Inhalt, das Verständnis von Kontext und Bedeutung sowie ethische Fragen​ im Zusammenhang mit der Nutzung von generativer KI. Der Band gibt einen Überblick über generative KI-Systeme und beleuchtet die Auswirkungen auf das Management von Innovationen, Wirtschaft, Bildung und Gesellschaft.​
+  image: images/cites/book_generativeKünstlicheIntelligenz.jpg
+  buttons:
+    - text: Schaeffer - Poeschel
+      link: https://elibrary.schaeffer-poeschel.de/book/10.34156/9783791062228
+    - text: Amazon
+      link: https://www.amazon.de/Generative-K%C3%BCnstliche-Intelligenz-Wirtschaft-Gesellschaft/dp/3791062204
+    - text: DOI
+      link: https://doi.org/10.34156/9783791062228
+  tags:
+    - book
+    - KI
+    - Artificial-Intelligence
+    - ChatGPT
+    - Wirtschaft
+    - Bildung
+    - Gesellschaft
+
+- id: doi:10.1007/978-3-031-19074-2
+  type: book
+  description: This textbook aims to point out the most important principles of data analysis from the mathematical point of view. Specifically, it selected these questions for exploring.  Which are the principles necessary to understand the implications of an application, and which are necessary to understand the conditions for the success of methods used? Theory is presented only to the degree necessary to apply it properly, striving for the balance between excessive complexity and oversimplification.  Its primary focus is on principles crucial for application success.  
+  image: images/cites/book_mathematicalFoundationsOfDS.jpeg
+  buttons:
+    - text: Springer
+      link: https://link.springer.com/book/10.1007/978-3-031-19074-2
+    - text: DOI
+      link: https://doi.org/10.1007/978-3-031-19074-2
+  tags:
+    - book
+    - nlp
+    - machine-learning
+    - mathematics
+    - data-science
