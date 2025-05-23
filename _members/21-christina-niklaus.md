@@ -1,8 +1,8 @@
 ---
-name: Prof. Dr. Christina Niklaus
-image: images/members_christina-niklaus.jpg
+name: Christina Niklaus
+image: images/members/members_christina-niklaus.jpg
 role: professor
-description: Assistant Professor
+description: Prof. Dr. | Assistant Professor
 affiliation: University of St. Gallen (HSG)
 aliases:
   - C. Niklaus

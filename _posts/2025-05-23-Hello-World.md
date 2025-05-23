@@ -2,6 +2,7 @@
 title: Welcome to the DS-NLP Lab Website!
 author: Götz-Henrik Wiegand
 image: images/HSG_Daten_01.png
+date: 2025-05-23
 tags:
   - website
   - chair

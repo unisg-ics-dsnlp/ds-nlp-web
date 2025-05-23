@@ -7,14 +7,21 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-microscope" %}Research
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 {% include section.html %}
 
-## Highlighted
+## Argumentative AI
 
-{% include citation.html lookup="Open collaborative writing with Manubot" style="rich" %}
+{% include citation.html lookup="Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing Support" style="rich" %}
+
+{% include citation.html lookup="Let’s discuss! Quality Dimensions and Annotated Datasets for Computational Argument Quality Assessment" style="rich" %}
+
+{% include section.html %}
+
+## QDS
+{% include citation.html lookup="Efficient Neural Network Training via Subset Pretraining" style="rich" %}
+
+{% include citation.html lookup="Reducing the Transformer Architecture to a Minimum" style="rich" %}
 
 {% include section.html %}
 

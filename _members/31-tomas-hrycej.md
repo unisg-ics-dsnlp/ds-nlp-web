@@ -1,8 +1,8 @@
 ---
-name: Dr. Tomas Hrycej
-image: images/members_tomas-hrycej.png
+name: Tomas Hrycej
+image: images/members/members_tomas-hrycej.png
 role: postdoc
-description: Research Assistant
+description: Dr. | Research Assistant
 affiliation: University of St. Gallen (HSG)
 aliases:
   - T. Hrycej

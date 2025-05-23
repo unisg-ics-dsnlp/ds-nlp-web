@@ -1,17 +1,27 @@
 ---
 ---
 
-# unisg-ics-dsnlp's Website
+<!-- # DS-NLP Lab Blog and Research Website -->
 
-An engaging 1-3 sentence description of your lab.
+The Data Science and Natural Language Processing (DS-NLP) Lab at the University of St. Gallen, led by Professor Siegfried Handschuh, pioneers research at the intersection of artificial intelligence, data science, and Natural Language Processing technologies. Our team focuses on advancing knowledge extraction, semantic representation, Argumentation and the societal impacts of AI-driven language systems. Through innovative projects and scholarly publications, we aim to bridge the gap between complex data and meaningful human understanding. 
 
 {% include section.html %}
+
+## Latest Blog Posts
+
+{% assign recent_posts = site.posts | sort: 'date' | reverse | slice: 0, 3 %}
+{% for post in recent_posts %}
+  {% include post-excerpt.html post=post %}
+{% endfor %}
+
+{% include section.html %}
+
 
 ## Highlights
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+The DS NLP Lab has already published various papers and publications. An overview of all publications and a few highlights can be found in the publications tab.
 
 {%
   include button.html
@@ -26,7 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/HSG_Daten_01.png"
   link="research"
   title="Our Research"
   text=text
@@ -34,12 +44,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Explore the books authored by the DS-NLP Lab team, showcasing our contributions to the fields of Artificial Intelligence, Data Science, and their societal impacts. 
 
 {%
   include button.html
-  link="projects"
-  text="Browse our projects"
+  link="books"
+  text="See our recent books"
   icon="fa-solid fa-arrow-right"
   flip=true
   style="bare"
@@ -49,7 +59,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/cites/book_generativeKünstlicheIntelligenz.jpg"
   link="projects"
   title="Our Projects"
   flip=true
@@ -59,7 +69,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+We are a steadily growing motivated team that aims to explore the world of data science and natural language processing.
 
 {%
   include button.html
@@ -74,7 +84,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/HSG_Illustration_Lecure.png"
   link="team"
   title="Our Team"
   text=text

@@ -1,8 +1,8 @@
 ---
-name: M.Sc. Götz-Henrik Wiegand
-image: images/members_götz-henrik-wiegand.jpg
+name: Götz-Henrik Wiegand
+image: images/members/members_götz-henrik-wiegand.jpg
 role: phd
-description: Research Assistant and PhD Candidate
+description: M.Sc. | Research Assistant and PhD Candidate
 affiliation: University of St. Gallen (HSG)
 aliases:
   - G-H. Wiegand
