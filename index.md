@@ -26,7 +26,7 @@ The DS NLP Lab has already published various papers and publications. An overvie
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/HSG_Daten_01.png"
   link="research"
   title="Our Research"
   text=text
