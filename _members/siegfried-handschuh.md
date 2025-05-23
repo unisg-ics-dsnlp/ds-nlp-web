@@ -1,7 +1,8 @@
 ---
 name: Prof. Siegfried Handschuh
 image: images/members_siegfried-handschuh.png
-role: 
+role: professor
+description: Head of DS-NLP Chair
 affiliation: University of St. Gallen (HSG)
 aliases:
   - S. Handschuh
