@@ -11,12 +11,6 @@ This section presents our collected research, organized by key areas of focus.
 
 {% include section.html %}
 
-## Books
-{% include citation.html lookup="Generative Künstliche Intelligenz" style="rich" %}
-
-{% include citation.html lookup="Mathematical Foundations of Data Science" style="rich" %}
-
-{% include section.html %}
 ## Argumentative AI
 
 {% include citation.html lookup="Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing Support" style="rich" %}
