@@ -12,7 +12,7 @@ We welcome inquiries from students, researchers, and industry partners intereste
 {%
   include button.html
   type="email"
-  text="siegfried.handschuh@unisg.ch"
+  text="E-Mail"
   link="siegfried.handschuh@unisg.ch"
 %}
 <!-- {%
