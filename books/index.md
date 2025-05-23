@@ -5,7 +5,7 @@ nav:
   tooltip: Published books
 ---
 
-# {% include icon.html icon="fa-solid fa-microscope" %}Books
+# {% include icon.html icon="fa-solid fa-book" %}Books
 
 Overview of the books published by our chair. 
 
