@@ -1,5 +1,5 @@
 # site properties and page defaults
-title: unisg-ics-dsnlp - Website
+title: DS-NLP Lab
 subtitle: 
 description: An engaging 1-3 sentence description of your lab.
 header: images/background.jpg
@@ -8,12 +8,12 @@ proofer: false
 
 # site social media and other links
 links:
-  email: contact@unisg-ics-dsnlp.com
-  orcid: 0000-0001-8713-9213
-  google-scholar: ETJoidYAAAAJ
-  github: unisg-ics-dsnlp
-  twitter: unisg-ics-dsnlp
-  youtube: unisg-ics-dsnlp
+  email: siegfried.handschuh@unisg.ch
+  # orcid: 0000-0001-8713-9213
+  # google-scholar: ETJoidYAAAAJ
+  # github: unisg-ics-dsnlp
+  # twitter: unisg-ics-dsnlp
+  # youtube: unisg-ics-dsnlp
 
 ### jekyll settings
 
