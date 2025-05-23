@@ -7,6 +7,8 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-microscope" %}Books
 
+Overview of the books published by our chair. 
+
 ## Generative Künstliche Intelligenz: ChatGPT und Co für Bildung, Wirtschaft und Gesellschaft
 
 {% include citation.html lookup="Generative Künstliche Intelligenz" style="rich" %}
