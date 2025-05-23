@@ -1,4 +1,5 @@
 ## Argumentative AI ## 
+#  Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing Support - Gubelmann et al.
 - id: doi:10.1007/978-3-031-64312-5_21
   type: paper
   description: In this article, we present the results of an exploratory study conducted with our self-developed tool Artist. The goal of the tool is to give formative feedback to develop students' argumentation skills. We compare the feedback that two different LLMs, an open-sourced one by META and one of OpenAI's fully proprietary ones, give to students' argumentative writing. We find that, overall, students find the feedback provided by both LLMs helpful (7.51 vs. 7.65 on a scale from 1 to 10), and they rate the quality of the feedback as good to very good. We take this as a very encouraging provisional result that invites larger and more extensive studies on the topic.
@@ -14,10 +15,25 @@
     - llm
     - artist
 
-
+- id: doi:10.18653/v1/2024.emnlp-main.1155
+  type: paper
+  description: Research in the computational assessment of Argumentation Quality has gained popularity over the last ten years. Various quality dimensions have been explored through the creation of domain-specific datasets and assessment methods. We survey the related literature (211 publications and 32 datasets), while addressing potential overlaps and blurry boundaries to related domains. This paper provides a representative overview of the state of the art in Computational Argument Quality Assessment with a focus on quality dimensions and annotated datasets. The aim of the survey is to identify research gaps and to aid future discussions and work in the domain.
+  image: images/cites/paper_ExploringTheUsefulnessofOpenandProprietyLLMsinArgumentativeWritingSupport.png
+  buttons:
+    - text: DOI
+      link: https://doi.org/10.18653/v1/2024.emnlp-main.1155
+    - text: ACL Anthology
+      link: https://aclanthology.org/2024.emnlp-main.1155/
+  tags:
+    - paper
+    - argumentative-ai
+    - argumentation
+    - llm
+    - open llm
+    - proprietary llm
 
   ## QDS ##
-
+# Efficient Neural Network Training via Subset Pretraining - Spörer et al.
 - id: doi:10.5220/0012893600003838
   type: paper
   description: The hypothesis that neural network training on small data subsets can approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating that comparable results to full training can be achieved with significantly reduced computational cost.
@@ -36,6 +52,7 @@
   repo: unisg-ics-dsnlp/qds
   highlighted: true
 
+# Reducing the Transformer Architecture to a Minimum - Bermeitinger et al.
 - id: doi:10.5220/0012891000003838
   type: paper
   description: Transformers, widely used in NLP and CV, rely on the attention mechanism to extract relevant context from sequences and scenes. While typically paired with Multi-Layer Perceptrons (MLPs) for modeling nonlinearity, the attention mechanism itself is inherently nonlinear. This raises the question of whether MLPs are necessary, especially since they hold most of the model’s parameters. Simplifications such as removing MLPs, collapsing query/key and value/projection matrices, and using symmetric similarity measures can drastically reduce parameter count. Empirical tests on MNIST, CIFAR-10, and ImageNet show that these streamlined architectures maintain performance while cutting parameters by up to 90%.
@@ -53,6 +70,7 @@
     - neural-networks
 
 ## BOOKS ##
+# Generative Künstliche Intelligenz - S. Seufert und S. Handschuh 
 - id: doi:10.34156/9783791062228
   type: book
   description: Generative Künstliche Intelligenz beschreibt eine Klasse von KI-Systemen, die in der Lage sind, aus großen Datenmengen zu lernen und auf dieser Grundlage neue, bisher nicht gesehene Inhalte zu generieren, wie beispielsweise Texte, Bilder, Musik oder Videos. Dabei wird die Generierungskapazität der KI mit dem Ziel eingesetzt, kreative Prozesse zu unterstützen, neue Ideen zu generieren und innovative Lösungsansätze zu liefern. Trotz ihrer beeindruckenden Fähigkeiten haben generative KI-Systeme auch ihre Herausforderungen, wie die Kontrolle über den generierten Inhalt, das Verständnis von Kontext und Bedeutung sowie ethische Fragen​ im Zusammenhang mit der Nutzung von generativer KI. Der Band gibt einen Überblick über generative KI-Systeme und beleuchtet die Auswirkungen auf das Management von Innovationen, Wirtschaft, Bildung und Gesellschaft.​
@@ -73,6 +91,7 @@
     - Bildung
     - Gesellschaft
 
+# Mathematical Foundations of Data Science -  Tomas Hrycej, Bernhard Bermeitinger, Matthias Cetto, Siegfried Handschuh 
 - id: doi:10.1007/978-3-031-19074-2
   type: book
   description: This textbook aims to point out the most important principles of data analysis from the mathematical point of view. Specifically, it selected these questions for exploring.  Which are the principles necessary to understand the implications of an application, and which are necessary to understand the conditions for the success of methods used? Theory is presented only to the degree necessary to apply it properly, striving for the balance between excessive complexity and oversimplification.  Its primary focus is on principles crucial for application success.  
