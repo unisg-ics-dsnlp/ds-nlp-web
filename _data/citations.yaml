@@ -2345,8 +2345,31 @@
   date: '2024-01-01'
   link: https://doi.org/g9k47b
   orcid: 0000-0002-1274-0925
-  plugin: orcid.py
-  file: orcid.yaml
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: Research in the computational assessment of Argumentation Quality has
+    gained popularity over the last ten years. Various quality dimensions have been
+    explored through the creation of domain-specific datasets and assessment methods.
+    We survey the related literature (211 publications and 32 datasets), while addressing
+    potential overlaps and blurry boundaries to related domains. This paper provides
+    a representative overview of the state of the art in Computational Argument Quality
+    Assessment with a focus on quality dimensions and annotated datasets. The aim
+    of the survey is to identify research gaps and to aid future discussions and work
+    in the domain.
+  image: images/cites/paper_ExploringTheUsefulnessofOpenandProprietyLLMsinArgumentativeWritingSupport.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.18653/v1/2024.emnlp-main.1155
+  - text: ACL Anthology
+    link: https://aclanthology.org/2024.emnlp-main.1155/
+  tags:
+  - paper
+  - argumentative-ai
+  - argumentation
+  - llm
+  - open llm
+  - proprietary llm
 - id: doi:10.1007/978-3-031-64312-5_21
   title: "Exploring the\_Usefulness of\_Open and\_Proprietary LLMs in\_Argumentative\
     \ Writing Support"
