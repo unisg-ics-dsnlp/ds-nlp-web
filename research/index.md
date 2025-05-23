@@ -7,7 +7,6 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-microscope" %}Research
 
-This section presents our collected research, organized by key areas of focus.
 
 {% include section.html %}
 
