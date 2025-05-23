@@ -1,22 +1,3 @@
-# - id: doi:10.1371/journal.pcbi.1007128
-#   type: paper
-#   description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-#   date: 2020-12-4
-#   image: https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1007128.g001&rev=2
-#   buttons:
-#     - type: manubot
-#       link: https://greenelab.github.io/meta-review/
-#     - type: source
-#       text: Manuscript Source
-#       link: https://github.com/greenelab/meta-review
-#     - type: website
-#       link: http://manubot.org/
-#   tags:
-#     - open science
-#     - collaboration
-#   repo: greenelab/meta-review
-
-
 - id: doi:10.5220/0012893600003838
   type: paper
   description: In training neural networks, it is common practice to use partial gradients computed over batches, mostly very small subsets of the training set. This approach is motivated by the argument that such a partial gradient is close to the true one, with precision growing only with the square root of the batch size. A theoretical justification is with the help of stochastic approximation theory. However, the conditions for the validity of this theory are not satisfied in the usual learning rate schedules. Batch processing is also difficult to combine with efficient second-order optimization methods. This proposal is based on another hypothesis: the loss minimum of the training set can be expected to be well-approximated by the minima of its subsets. Such subset minima can be computed in a fraction of the time necessary for optimizing over the whole training set. This hypothesis has been tested with the help of the MNIST, CIFAR-10, and CIFAR-100 image classification benchmarks, optionally extended by training data augmentation. The experiments have confirmed that results equivalent to conventional training can be reached. In summary, even small subsets are representative if the overdetermination ratio for the given model parameter set sufficiently exceeds unity. The computing expense can be reduced to a tenth or less. 
@@ -24,12 +5,10 @@
   image: images/cites/doi_10_5220_0012893600003838.png
   buttons:
     - type: Blog Post
-      link: https://unisg-ics-dsnlp.github.io/ds-nlp-web/2025/05/23/Hello-World.html #TODO: Need to write blogpost on the paper and change this link
+      link: https://unisg-ics-dsnlp.github.io/ds-nlp-web/2025/05/23/Hello-World.html
     
   tags:
     - qds
     - efficient training methods
     - transformers
     - neural networks
-  # repo: greenelab/meta-review
-
