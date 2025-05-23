@@ -34,12 +34,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Explore the books authored by the DS-NLP Lab team, showcasing our contributions to the fields of Artificial Intelligence, Data Science, and their societal impacts. 
 
 {%
   include button.html
-  link="projects"
-  text="Browse our projects"
+  link="books"
+  text="See our recent books"
   icon="fa-solid fa-arrow-right"
   flip=true
   style="bare"
@@ -49,7 +49,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/cites/book_generativeKünstlicheIntelligenz.jpg"
   link="projects"
   title="Our Projects"
   flip=true
