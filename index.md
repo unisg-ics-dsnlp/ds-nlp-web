@@ -1,9 +1,9 @@
 ---
 ---
 
-# unisg-ics-dsnlp's Website
+# DS-NLP Lab Blog and Research Website
 
-An engaging 1-3 sentence description of your lab.
+The Data Science and Natural Language Processing (DS-NLP) Lab at the University of St. Gallen, led by Professor Siegfried Handschuh, pioneers research at the intersection of artificial intelligence, data science, and Natural Language Processing technologies. Our team focuses on advancing knowledge extraction, semantic representation, Argumentation and the societal impacts of AI-driven language systems. Through innovative projects and scholarly publications, we aim to bridge the gap between complex data and meaningful human understanding. 
 
 {% include section.html %}
 
@@ -11,7 +11,7 @@ An engaging 1-3 sentence description of your lab.
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+The DS NLP Lab has already published various papers and publications. An overview of all publications and a few highlights can be found in the publications tab.
 
 {%
   include button.html
