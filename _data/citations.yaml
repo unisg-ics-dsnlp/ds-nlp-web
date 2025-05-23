@@ -2150,6 +2150,7 @@
     1 to 10), and they rate the quality of the feedback as good to very good. We take
     this as a very encouraging provisional result that invites larger and more extensive
     studies on the topic.
+  image: images/cites/paper_ExploringTheUsefulnessofOpenandProprietyLLMsinArgumentativeWritingSupport.png
   buttons:
   - text: Alexandria
     link: https://www.alexandria.unisg.ch/entities/publication/b87ad72b-f9f7-4b2b-bc3f-9bad8ecf2160
@@ -2378,7 +2379,7 @@
     Assessment with a focus on quality dimensions and annotated datasets. The aim
     of the survey is to identify research gaps and to aid future discussions and work
     in the domain.
-  image: images/cites/paper_ExploringTheUsefulnessofOpenandProprietyLLMsinArgumentativeWritingSupport.png
+  image: images/cites/paper_LetsDiscussQualityDimensionsAndAnnotatedDatasetsForComputationalArgumentQualityAssessment.png
   buttons:
   - text: DOI
     link: https://doi.org/10.18653/v1/2024.emnlp-main.1155
