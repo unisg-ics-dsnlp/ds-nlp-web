@@ -23,7 +23,7 @@ On this page you will find an overview of all blog entries in chronological orde
 
 ## Latest Blog Post
 
-{% assign latest_post = site.posts | first %}
-{% include post-excerpt.html post=latest_post %}
-
-{% include section.html %}
+{% assign recent_posts = site.posts | sort: 'date' | reverse | slice: 0, 3 %}
+{% for post in recent_posts %}
+  {% include post-excerpt.html post=post %}
+{% endfor %}
