@@ -11,7 +11,10 @@ You can find all of our open projects on our GitHub profile.
 
 [https://github.com/unisg-ics-dsnlp](https://github.com/unisg-ics-dsnlp)
 
-<!-- {% include tags.html tags="publication, resource, website" %}
+
+
+<!--  TODO: When we have Projects -> Add them here and in the _data/projects.yaml file!
+{% include tags.html tags="publication, resource, website" %}
 
 {% include search-info.html %}
 
@@ -25,4 +28,5 @@ You can find all of our open projects on our GitHub profile.
 
 ## More
 
-{% include list.html component="card" data="projects" filter="!group" style="small" %} -->
+{% include list.html component="card" data="projects" filter="!group" style="small" %}
+-->
