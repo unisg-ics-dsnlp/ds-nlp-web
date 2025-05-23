@@ -59,7 +59,7 @@ Explore the books authored by the DS-NLP Lab team, showcasing our contributions 
 
 {% capture text %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+We are a steadily growing motivated team that aims to explore the world of data science and natural language processing.
 
 {%
   include button.html
@@ -74,7 +74,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {%
   include feature.html
-  image="images/photo.jpg"
+  image="images/HSG_Illustration_Lecure.png"
   link="team"
   title="Our Team"
   text=text
