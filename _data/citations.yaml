@@ -2312,5 +2312,6 @@
   - training
   - neural-networks
   repo: unisg-ics-dsnlp/qds
+  highlighted: true
   plugin: sources.py
   file: sources.yaml
