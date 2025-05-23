@@ -16,7 +16,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 
 {% include citation.html lookup="Efficient Neural Network Training via Subset Pretraining" style="rich" %}
 
-{% include citation.html lookup="Efficient Neural Network Training via Subset Pretraining" style="rich" %}
+{% include citation.html lookup="Reducing the Transformer Architecture to a Minimum" style="rich" %}
 
 {% include section.html %}
 
