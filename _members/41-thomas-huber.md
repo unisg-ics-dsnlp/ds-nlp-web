@@ -1,8 +1,8 @@
 ---
-name: M.Sc. Thomas Huber
-image: images/mebers_thomas-huber.png
+name: Thomas Huber
+image: images/members/members_thomas-huber.png
 role: phd
-description: Research Assistant and PhD Candidate
+description: M.Sc. | Research Assistant and PhD Candidate
 affiliation: University of St. Gallen (HSG)
 aliases:
   - T. Huber

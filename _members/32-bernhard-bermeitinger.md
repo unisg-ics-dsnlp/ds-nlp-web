@@ -1,8 +1,8 @@
 ---
-name: Dr. Bernhard Bermeitinger
-image: images/members_bernhard-bermeitinger.png
+name: Bernhard Bermeitinger
+image: images/members/members_bernhard-bermeitinger.png
 role: postdoc
-description: Research Assistant
+description: Dr. | Research Assistant
 affiliation: University of St. Gallen (HSG)
 aliases:
   - B. Bermeitinger
