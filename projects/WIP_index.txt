@@ -13,7 +13,7 @@ You can find all of our open projects on our GitHub profile.
 
 
 
-<!--  TODO: When we have Projects -> Add them here and in the _data/projects.yaml file!
+
 {% include tags.html tags="publication, resource, website" %}
 
 {% include search-info.html %}
@@ -29,4 +29,3 @@ You can find all of our open projects on our GitHub profile.
 ## More
 
 {% include list.html component="card" data="projects" filter="!group" style="small" %}
--->
