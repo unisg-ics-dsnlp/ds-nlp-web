@@ -2138,8 +2138,29 @@
   date: '2024-07-02'
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/120866
   orcid: 0000-0002-2524-1850
-  plugin: orcid.py
-  file: orcid.yaml
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: In this article, we present the results of an exploratory study conducted
+    with our self-developed tool Artist. The goal of the tool is to give formative
+    feedback to develop students' argumentation skills. We compare the feedback that
+    two different LLMs, an open-sourced one by META and one of OpenAI's fully proprietary
+    ones, give to students' argumentative writing. We find that, overall, students
+    find the feedback provided by both LLMs helpful (7.51 vs. 7.65 on a scale from
+    1 to 10), and they rate the quality of the feedback as good to very good. We take
+    this as a very encouraging provisional result that invites larger and more extensive
+    studies on the topic.
+  buttons:
+  - text: Alexandria
+    link: https://www.alexandria.unisg.ch/entities/publication/b87ad72b-f9f7-4b2b-bc3f-9bad8ecf2160
+  - text: DOI
+    link: https://doi.org/10.1007/978-3-031-64312-5_21
+  tags:
+  - paper
+  - argumentative-ai
+  - argumentation
+  - llm
+  - artist
 - id: handle:20.500.14171/120123
   title: Investigating a Second-Order Optimization Strategy for Neural Networks
   authors:
@@ -2370,42 +2391,6 @@
   - llm
   - open llm
   - proprietary llm
-- id: doi:10.1007/978-3-031-64312-5_21
-  title: "Exploring the\_Usefulness of\_Open and\_Proprietary LLMs in\_Argumentative\
-    \ Writing Support"
-  authors:
-  - Reto Gubelmann
-  - Michael Burkhard
-  - Rositsa V. Ivanova
-  - Christina Niklaus
-  - Bernhard Bermeitinger
-  - Siegfried Handschuh
-  publisher: Communications in Computer and Information Science
-  date: '2024-01-01'
-  link: https://doi.org/g9k5cx
-  type: paper
-  description: In this article, we present the results of an exploratory study conducted
-    with our self-developed tool Artist. The goal of the tool is to give formative
-    feedback to develop students' argumentation skills. We compare the feedback that
-    two different LLMs, an open-sourced one by META and one of OpenAI's fully proprietary
-    ones, give to students' argumentative writing. We find that, overall, students
-    find the feedback provided by both LLMs helpful (7.51 vs. 7.65 on a scale from
-    1 to 10), and they rate the quality of the feedback as good to very good. We take
-    this as a very encouraging provisional result that invites larger and more extensive
-    studies on the topic.
-  buttons:
-  - text: Alexandria
-    link: https://www.alexandria.unisg.ch/entities/publication/b87ad72b-f9f7-4b2b-bc3f-9bad8ecf2160
-  - text: DOI
-    link: https://doi.org/10.1007/978-3-031-64312-5_21
-  tags:
-  - paper
-  - argumentative-ai
-  - argumentation
-  - llm
-  - artist
-  plugin: sources.py
-  file: sources.yaml
 - id: doi:10.34156/9783791062228
   title: "Generative K\xFCnstliche Intelligenz"
   authors: []
