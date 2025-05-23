@@ -2142,8 +2142,27 @@
   date: '2024-01-01'
   link: https://doi.org/g9k467
   orcid: 0000-0002-2524-1850
-  plugin: orcid.py
-  file: orcid.yaml
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: The hypothesis that neural network training on small data subsets can
+    approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating
+    that comparable results to full training can be achieved with significantly reduced
+    computational cost.
+  image: images/cites/doi_10_5220_0012893600003838.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5220/0012893600003838
+  - text: arXiv
+    link: https://arxiv.org/abs/2410.16523
+  tags:
+  - paper
+  - qds
+  - transformers
+  - training
+  - neural-networks
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
 - id: doi:10.5220/0012891000003838
   title: Reducing the Transformer Architecture to a Minimum
   authors:
@@ -2285,33 +2304,3 @@
   orcid: 0000-0002-1274-0925
   plugin: orcid.py
   file: orcid.yaml
-- id: arXiv:2410.16523
-  title: Efficient Neural Network Training via Subset Pretraining
-  authors:
-  - "Jan Sp\xF6rer"
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Niklas Limacher
-  - Siegfried Handschuh
-  publisher: arXiv
-  date: '2024-11-25'
-  link: https://arxiv.org/abs/2410.16523
-  type: paper
-  description: The hypothesis that neural network training on small data subsets can
-    approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating
-    that comparable results to full training can be achieved with significantly reduced
-    computational cost.
-  image: images/cites/doi_10_5220_0012893600003838.png
-  buttons:
-  - text: arXiv
-    link: https://arxiv.org/abs/2410.16523
-  tags:
-  - paper
-  - qds
-  - transformers
-  - training
-  - neural-networks
-  repo: unisg-ics-dsnlp/qds
-  highlighted: true
-  plugin: sources.py
-  file: sources.yaml
