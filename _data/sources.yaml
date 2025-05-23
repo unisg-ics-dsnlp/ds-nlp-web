@@ -39,6 +39,7 @@
 - id: doi:10.5220/0012891000003838
   type: paper
   description: Transformers, widely used in NLP and CV, rely on the attention mechanism to extract relevant context from sequences and scenes. While typically paired with Multi-Layer Perceptrons (MLPs) for modeling nonlinearity, the attention mechanism itself is inherently nonlinear. This raises the question of whether MLPs are necessary, especially since they hold most of the model’s parameters. Simplifications such as removing MLPs, collapsing query/key and value/projection matrices, and using symmetric similarity measures can drastically reduce parameter count. Empirical tests on MNIST, CIFAR-10, and ImageNet show that these streamlined architectures maintain performance while cutting parameters by up to 90%.
+  image: images/cites/paper_ReducingTransformerArchitectureToAMinimum.png
   buttons:
     - text: DOI
       link: https://doi.org/10.5220/0012891000003838
