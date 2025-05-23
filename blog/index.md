@@ -21,9 +21,4 @@ On this page you will find an overview of all blog entries in chronological orde
 
 {% include section.html %}
 
-## Latest Blog Post
 
-{% assign recent_posts = site.posts | sort: 'date' | reverse | slice: 0, 3 %}
-{% for post in recent_posts %}
-  {% include post-excerpt.html post=post %}
-{% endfor %}
