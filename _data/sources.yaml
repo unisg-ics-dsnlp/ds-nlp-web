@@ -6,7 +6,6 @@
   buttons:
     - type: Blog Post
       link: https://unisg-ics-dsnlp.github.io/ds-nlp-web/2025/05/23/Hello-World.html
-    
   tags:
     - qds
     - efficient training methods
