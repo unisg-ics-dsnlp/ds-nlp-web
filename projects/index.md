@@ -7,10 +7,11 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-wrench" %}Projects
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+You can find all of our open projects on our GitHub profile. 
 
-{% include tags.html tags="publication, resource, website" %}
+[https://github.com/unisg-ics-dsnlp](https://github.com/unisg-ics-dsnlp)
+
+<!-- {% include tags.html tags="publication, resource, website" %}
 
 {% include search-info.html %}
 
@@ -24,4 +25,4 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 
 ## More
 
-{% include list.html component="card" data="projects" filter="!group" style="small" %}
+{% include list.html component="card" data="projects" filter="!group" style="small" %} -->
