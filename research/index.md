@@ -11,15 +11,21 @@ This section presents our collected research, organized by key areas of focus.
 
 {% include section.html %}
 
-## Highlighted
+## Books
+{% include citation.html lookup="Generative Künstliche Intelligenz:" style="rich" %}
 
-### Argumentative AI
+{% include citation.html lookup="Mathematical Foundations of Data Science" style="rich" %}
+
+{% include section.html %}
+## Argumentative AI
 
 {% include citation.html lookup="Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing Support" style="rich" %}
 
 {% include citation.html lookup="Let’s discuss! Quality Dimensions and Annotated Datasets for Computational Argument Quality Assessment" style="rich" %}
 
-### QDS
+{% include section.html %}
+
+## QDS
 {% include citation.html lookup="Efficient Neural Network Training via Subset Pretraining" style="rich" %}
 
 {% include citation.html lookup="Reducing the Transformer Architecture to a Minimum" style="rich" %}
