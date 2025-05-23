@@ -9,6 +9,7 @@ aliases:
 links:
   home-page: https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/
   orcid: 0000-0002-6195-9034
+  email: siegfried.handschuh@unisg.ch
 ---
 
 Prof. Dr. Siegfried Handschuh is Full Professor of Data Science and Natural Language Processing at the Institute of Computer Science at the University of St.Gallen. He studied Computer Science in Ulm and Information Science in Konstanz.
