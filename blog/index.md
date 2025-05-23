@@ -19,3 +19,12 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 {% include search-info.html %}
 
 {% include list.html data="posts" component="post-excerpt" %}
+
+{% include section.html %}
+
+## Latest Blog Post
+
+{% assign latest_post = site.posts | first %}
+{% include post-excerpt.html post=latest_post %}
+
+{% include section.html %}
