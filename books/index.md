@@ -7,7 +7,6 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-book" %}Books
 
-Overview of the books published by our chair. 
 
 ## Generative Künstliche Intelligenz: ChatGPT und Co für Bildung, Wirtschaft und Gesellschaft
 
