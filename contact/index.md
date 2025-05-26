@@ -56,7 +56,7 @@ CH-9000 St.Gallen
 {% endcapture %}
 
 {% capture col2 %}
-This website is subject to the HSG wide policies. See also the pages [Data Protection Declaration](https://www.unisg.ch/en/data-protection-declaration/) and [Copyright & Disclaimer](https://www.unisg.ch/en/copyright-disclaimer/)
+This website is subject to the [HSG](https://www.unisg.ch/) wide policies. See also the pages [Data Protection Declaration](https://www.unisg.ch/en/data-protection-declaration/) and [Copyright & Disclaimer](https://www.unisg.ch/en/copyright-disclaimer/).
 
 {% endcapture %}
 
