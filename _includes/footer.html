@@ -17,7 +17,7 @@
     alt="Lab Logo" 
     style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
   >
-  &nbsp; | 
+  &nbsp; | &nbsp;
   <a 
     href="https://github.com/unisg-ics-dsnlp" 
     target="_blank" 
@@ -42,6 +42,7 @@
     </svg>
     HSG-DSNLP
   </a>
+  &nbsp;
 </div>
 
 
@@ -50,7 +51,15 @@
       {% assign key = link[0] %}
       {% assign value = link[1] %}
       {% include button.html type=key text="" link=value style="bare" %}
-    {% endfor %}
+    {% endfor %} 
+    &nbsp; | &nbsp;
+    <input
+      type="checkbox"
+      class="dark-toggle"
+      data-tooltip="Dark mode"
+      aria-label="toggle dark mode"
+      oninput="onDarkToggleChange(event)"
+    >
   </div>
 
   <div style="text-align: center;">
@@ -65,11 +74,5 @@
     </a>
   </div>
 
-  <input
-    type="checkbox"
-    class="dark-toggle"
-    data-tooltip="Dark mode"
-    aria-label="toggle dark mode"
-    oninput="onDarkToggleChange(event)"
-  >
+  
 </footer>
