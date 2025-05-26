@@ -13,7 +13,9 @@ nav:
 
 {% include section.html background="images/background.jpg" dark=true %}
 
-> "The best way to predict the future is to invent it" - Alan Kay (1971)
+<div style="text-align: center;">
+  "The best way to predict the future is to invent it" – Alan Kay (1971)
+</div>
 
 {% include section.html %}
 
