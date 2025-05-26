@@ -34,8 +34,10 @@
     {% include button.html type=key text="" link=value style="bare" %}
     {% endfor %}
     &nbsp; | &nbsp;
-    <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode"
+    <div style="display: flex; justify-content: center;">
+      <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode"
       oninput="onDarkToggleChange(event)">
+    </div>
   </div>
 
   <div style="text-align: center;">
