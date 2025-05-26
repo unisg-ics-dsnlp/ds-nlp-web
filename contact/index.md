@@ -33,7 +33,7 @@ We welcome inquiries from students, researchers, and industry partners intereste
 <div style="position: relative; width: 100%; padding-bottom: 70%; height: 0; overflow: hidden; border: 1px solid grey;">
   <iframe
     src="https://use.mazemap.com/embed.html#v=1&amp;config=unisg-profile&amp;campusid=710&amp;zlevel=7&amp;center=9.370851,47.425086&amp;zoom=16&amp;sharepoitype=poi&amp;sharepoi=1000760525&amp;utm_medium=iframe"
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 80%; border: 0;"
     frameborder="0"
     allow="geolocation"
     scrolling="no">
@@ -58,7 +58,7 @@ This website is subject to the [HSG](https://www.unisg.ch/) wide policies. See a
 {% endcapture %}
 
 {% capture col3 %}
-This website was build with the [greenelab jekyll template](https://github.com/greenelab/lab-website-template).
+This website was build with the [Lab Website Template](https://github.com/greenelab/lab-website-template).
 
 {% endcapture %}
 
