@@ -30,12 +30,7 @@ We welcome inquiries from students, researchers, and industry partners intereste
 
 {% include section.html %}
 
-
-{%
-  include figure.html
-  image="images/HSG_Bürosituation_05_RGB.png"
-  caption="contact template"
-%}
+<iframe width="600" height="420" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://use.mazemap.com/embed.html#v=1&amp;config=unisg-profile&amp;campusid=710&amp;zlevel=1&amp;center=9.371144,47.425149&amp;zoom=18.9&amp;sharepoitype=poi&amp;sharepoi=1000760525&amp;utm_medium=iframe" style="border:1px solid grey" allow="geolocation" title="Map by MazeMap"></iframe><br/><small><a href="https://www.mazemap.com/">Map by MazeMap</a></small>
 
 
 {% include cols.html col1=col1 col2=col2 %}
