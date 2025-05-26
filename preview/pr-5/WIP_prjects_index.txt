@@ -539,7 +539,7 @@
     
       
         <a
-          href="/ds-nlp-web/preview/pr-5/projects/"
+          href="/ds-nlp-web/preview/pr-5/"
           data-tooltip="Software, datasets, and more"
         >
           Projects
@@ -626,7 +626,7 @@ You can find all of our open projects on our GitHub profile.
   >
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: publication&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: publication&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;publication&quot;"
       >
@@ -634,7 +634,7 @@ You can find all of our open projects on our GitHub profile.
       </a>
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: resource&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: resource&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;resource&quot;"
       >
@@ -642,7 +642,7 @@ You can find all of our open projects on our GitHub profile.
       </a>
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: website&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: website&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;website&quot;"
       >
@@ -762,7 +762,7 @@ You can find all of our open projects on our GitHub profile.
   >
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: website&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: website&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;website&quot;"
       >
@@ -770,7 +770,7 @@ You can find all of our open projects on our GitHub profile.
       </a>
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: jekyll&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: jekyll&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;jekyll&quot;"
       >
@@ -778,7 +778,7 @@ You can find all of our open projects on our GitHub profile.
       </a>
     
       <a
-        href="/ds-nlp-web/preview/pr-5/projects/?search=&quot;tag: ds-nlp&quot;"
+        href="/ds-nlp-web/preview/pr-5/?search=&quot;tag: ds-nlp&quot;"
         class="tag"
         data-tooltip="Show items with the tag &quot;ds-nlp&quot;"
       >
