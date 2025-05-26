@@ -30,25 +30,13 @@ We welcome inquiries from students, researchers, and industry partners intereste
 
 {% include section.html %}
 
-{% capture col1 %}
 
 {%
   include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
+  image="images/HSG_Bürosituation_05_RGB.png"
+  caption="contact template"
 %}
 
-{% endcapture %}
-
-{% capture col2 %}
-
-{%
-  include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
-%}
-
-{% endcapture %}
 
 {% include cols.html col1=col1 col2=col2 %}
 
