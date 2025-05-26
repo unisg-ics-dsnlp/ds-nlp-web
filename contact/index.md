@@ -36,8 +36,7 @@ We welcome inquiries from students, researchers, and industry partners intereste
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
     frameborder="0"
     allow="geolocation"
-    scrolling="no"
-    title="Map by MazeMap">
+    scrolling="no">
   </iframe>
 </div>
 
