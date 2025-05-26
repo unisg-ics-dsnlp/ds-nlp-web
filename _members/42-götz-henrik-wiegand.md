@@ -7,6 +7,7 @@ affiliation: University of St. Gallen (HSG)
 aliases:
   - G-H. Wiegand
   - Henrik Wiegand
+  - Götz-Henrik Wiegand
 links:
   home-page: https://ics.unisg.ch/the-institute/about-us/team/detail/person-id/70e7f536-4f70-4bf1-b4ad-189c922d43dc/
   orcid: 0009-0009-0392-056X
