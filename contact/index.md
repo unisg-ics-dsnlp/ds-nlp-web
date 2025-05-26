@@ -30,8 +30,16 @@ We welcome inquiries from students, researchers, and industry partners intereste
 
 {% include section.html %}
 
-<iframe width="600" height="420" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://use.mazemap.com/embed.html#v=1&amp;config=unisg-profile&amp;campusid=710&amp;zlevel=1&amp;center=9.371144,47.425149&amp;zoom=18.9&amp;sharepoitype=poi&amp;sharepoi=1000760525&amp;utm_medium=iframe" style="border:1px solid grey" allow="geolocation" title="Map by MazeMap"></iframe><br/><small><a href="https://www.mazemap.com/">Map by MazeMap</a></small>
-
+<div style="position: relative; width: 100%; padding-bottom: 70%; height: 0; overflow: hidden; border: 1px solid grey;">
+  <iframe
+    src="https://use.mazemap.com/embed.html#v=1&amp;config=unisg-profile&amp;campusid=710&amp;zlevel=1&amp;center=9.371144,47.425149&amp;zoom=18.9&amp;sharepoitype=poi&amp;sharepoi=1000760525&amp;utm_medium=iframe"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    frameborder="0"
+    allow="geolocation"
+    scrolling="no"
+    title="Map by MazeMap">
+  </iframe>
+</div>
 
 {% include cols.html col1=col1 col2=col2 %}
 
