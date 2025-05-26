@@ -14,15 +14,26 @@
       {% assign key = link[0] %}
       {% assign value = link[1] %}
       {% include button.html type=key text="" link=value style="bare" %}
-    {% endfor %} &nbsp; | 
-    <!-- &nbsp;
+    {% endfor %} &nbsp;
+    <!-- | &nbsp;
   <img 
     src="{{ 'images/ICS_HSG-LogoWithWhiteBackground.png' | relative_url }}" 
     alt="Lab Logo" 
     style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
   >
-  &nbsp; |  -->
-  &nbsp;
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    &copy; {{ site.time | date: "%Y" }}
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing 
+    </a> @ HSG
+    &nbsp; | &nbsp;
   <a 
     href="https://github.com/unisg-ics-dsnlp" 
     target="_blank" 
@@ -48,21 +59,6 @@
     HSG-DSNLP
   </a>
   &nbsp;
-</div>
-
-
-
-
-  <div style="text-align: center;">
-    &copy; {{ site.time | date: "%Y" }}
-    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
-      Data Science and Natural Language Processing 
-    </a> @ HSG
-    &nbsp; | &nbsp;
-    Built with
-    <a href="https://github.com/greenelab/lab-website-template">
-      Lab Website Template
-    </a>
   </div>
 
   <input
