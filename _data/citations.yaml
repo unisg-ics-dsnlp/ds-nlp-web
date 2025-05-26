@@ -1,247 +1,2431 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-- id: doi:10.1093/nar/gkad1082
-  title: "The Monarch Initiative in 2024: an analytic platform integrating phenotypes,\
-    \ genes\_and diseases across species"
+- id: doi:10.1016/j.knosys.2023.110455
+  title: 'A Canonical Context-Preserving Representation for Open IE: Extracting Semantically
+    Typed Relational Tuples from Complex Sentences'
   authors:
-  - Tim E Putman
-  - Kevin Schaper
-  - Nicolas Matentzoglu
-  - "Vincent\_P Rubinetti"
-  - "Faisal\_S Alquaddoomi"
-  - Corey Cox
-  - J Harry Caufield
-  - Glass Elsarboukh
-  - Sarah Gehrke
-  - Harshad Hegde
-  - "Justin\_T Reese"
-  - Ian Braun
-  - "Richard\_M Bruskiewich"
-  - Luca Cappelletti
-  - Seth Carbon
-  - "Anita\_R Caron"
-  - "Lauren\_E Chan"
-  - "Christopher\_G Chute"
-  - "Katherina\_G Cortes"
-  - "Vin\xEDcius De\_Souza"
-  - Tommaso Fontana
-  - "Nomi\_L Harris"
-  - "Emily\_L Hartley"
-  - Eric Hurwitz
-  - "Julius\_O B Jacobsen"
-  - Madan Krishnamurthy
-  - "Bryan\_J Laraway"
-  - "James\_A McLaughlin"
-  - "Julie\_A McMurry"
-  - "Sierra\_A T Moxon"
-  - "Kathleen\_R Mullen"
-  - "Shawn\_T O\u2019Neil"
-  - "Kent\_A Shefchek"
-  - Ray Stefancsik
-  - Sabrina Toro
-  - "Nicole\_A Vasilevsky"
-  - "Ramona\_L Walls"
-  - "Patricia\_L Whetzel"
-  - David Osumi-Sutherland
-  - Damian Smedley
-  - "Peter\_N Robinson"
-  - "Christopher\_J Mungall"
-  - "Melissa\_A Haendel"
-  - "Monica\_C Munoz-Torres"
-  publisher: Nucleic Acids Research
-  date: '2023-11-24'
-  link: https://doi.org/gs6kmr
-  orcid: 0000-0002-4655-3773
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Knowledge-Based Systems
+  date: '2023-05-01'
+  link: https://doi.org/g9k438
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1101/2023.10.11.560955
-  title: Integration of 168,000 samples reveals global patterns of the human gut microbiome
+- id: doi:10.48550/arXiv.2304.10164
+  title: 'Analyzing FOMC Minutes: Accuracy and Constraints of Language Models'
   authors:
-  - Richard J. Abdill
-  - Samantha P. Graham
-  - Vincent Rubinetti
-  - Frank W. Albert
-  - Casey S. Greene
-  - Sean Davis
-  - Ran Blekhman
-  publisher: Cold Spring Harbor Laboratory
-  date: '2023-10-11'
-  link: https://doi.org/gsvf5z
-  orcid: 0000-0002-4655-3773
+  - Wonseong Kim
+  - "Jan Frederic Sp\xF6rer"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/g9k439
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1093/nar/gkad289
-  title: 'MyGeneset.info: an interactive and programmatic platform for community-curated
-    and user-created collections of genes'
+- id: doi:10.1007/978-3-031-19074-2_2
+  title: "Application-Specific Mappings and\_Measuring the Fit to Data"
   authors:
-  - Ricardo Avila
-  - Vincent Rubinetti
-  - Xinghua Zhou
-  - Dongbo Hu
-  - Zhongchao Qian
-  - Marco Alvarado Cano
-  - Everaldo Rodolpho
-  - Ginger Tsueng
-  - Casey Greene
-  - Chunlei Wu
-  publisher: Nucleic Acids Research
-  date: '2023-04-18'
-  link: https://doi.org/gr5hb5
-  orcid: 0000-0002-4655-3773
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44b
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1101/2023.01.05.522941
-  title: Hetnet connectivity search provides rapid insights into how two biomedical
-    entities are related
+- id: doi:10.1007/978-3-031-19074-2_3
+  title: Data Processing by Neural Networks
   authors:
-  - Daniel S. Himmelstein
-  - Michael Zietz
-  - Vincent Rubinetti
-  - Kyle Kloster
-  - Benjamin J. Heil
-  - Faisal Alquaddoomi
-  - Dongbo Hu
-  - David N. Nicholson
-  - Yun Hao
-  - Blair D. Sullivan
-  - Michael W. Nagle
-  - Casey S. Greene
-  publisher: Cold Spring Harbor Laboratory
-  date: '2023-01-07'
-  link: https://doi.org/grmcb9
-  orcid: 0000-0002-4655-3773
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44c
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1093/gigascience/giad047
-  title: Hetnet connectivity search provides rapid insights into how biomedical entities
-    are related
+- id: doi:10.1007/978-3-031-19074-2_1
+  title: Data Science and Its Tasks
   authors:
-  - Daniel S Himmelstein
-  - Michael Zietz
-  - Vincent Rubinetti
-  - Kyle Kloster
-  - Benjamin J Heil
-  - Faisal Alquaddoomi
-  - Dongbo Hu
-  - David N Nicholson
-  - Yun Hao
-  - Blair D Sullivan
-  - Michael W Nagle
-  - Casey S Greene
-  publisher: GigaScience
-  date: '2022-12-28'
-  link: https://doi.org/gsd85n
-  orcid: 0000-0002-4655-3773
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44d
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1101/2022.02.18.461833
-  title: 'MolEvolvR: A web-app for characterizing proteins using molecular evolution
-    and phylogeny'
+- id: doi:10.48550/arXiv.2308.00425
+  title: 'Discourse-Aware Text Simplification: From Complex Sentences to Linked Propositions'
   authors:
-  - Jacob D Krol
-  - Joseph T Burke
-  - Samuel Z Chen
-  - Lo M Sosinski
-  - Faisal S Alquaddoomi
-  - Evan P Brenner
-  - Ethan P Wolfe
-  - Vincent P Rubinetti
-  - Shaddai Amolitos
-  - Kellen M Reason
-  - John B Johnston
-  - Janani Ravi
-  publisher: Cold Spring Harbor Laboratory
-  date: '2022-02-22'
-  link: https://doi.org/gstx7j
-  orcid: 0000-0002-4655-3773
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/g9k44f
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1186/s13059-020-02021-3
-  title: Compressing gene expression data using multiple latent space dimensionalities
-    learns complementary biological representations
+- id: doi:10.1007/978-3-031-19074-2_4
+  title: "Learning and\_Generalization"
   authors:
-  - Gregory P. Way
-  - Michael Zietz
-  - Vincent Rubinetti
-  - Daniel S. Himmelstein
-  - Casey S. Greene
-  publisher: Genome Biology
-  date: '2020-05-11'
-  link: https://doi.org/gg2mjh
-  orcid: 0000-0002-4655-3773
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44g
+  orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1371/journal.pcbi.1007128
-  title: Open collaborative writing with Manubot
+- id: doi:10.1007/978-3-031-19074-2
+  title: Mathematical Foundations of Data Science
   authors:
-  - Daniel S. Himmelstein
-  - Vincent Rubinetti
-  - David R. Slochower
-  - Dongbo Hu
-  - Venkat S. Malladi
-  - Casey S. Greene
-  - Anthony Gitter
-  publisher: PLOS Computational Biology
-  date: '2020-12-04'
-  link: https://doi.org/c7np
-  orcid: 0000-0002-4655-3773
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44h
+  orcid: 0000-0002-2524-1850
+  plugin: sources.py
+  file: sources.yaml
+  type: book
+  description: This textbook aims to point out the most important principles of data
+    analysis from the mathematical point of view. Specifically, it selected these
+    questions for exploring.  Which are the principles necessary to understand the
+    implications of an application, and which are necessary to understand the conditions
+    for the success of methods used? Theory is presented only to the degree necessary
+    to apply it properly, striving for the balance between excessive complexity and
+    oversimplification.  Its primary focus is on principles crucial for application
+    success.
+  image: images/cites/book_mathematicalFoundationsOfDS.jpeg
+  buttons:
+  - text: Springer
+    link: https://link.springer.com/book/10.1007/978-3-031-19074-2
+  - text: DOI
+    link: https://doi.org/10.1007/978-3-031-19074-2
+  tags:
+  - book
+  - nlp
+  - machine-learning
+  - mathematics
+  - data-science
+- id: doi:10.1007/978-3-031-19074-2_5
+  title: "Numerical Algorithms for\_Data Science"
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44j
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-031-19074-2_7
+  title: Specific Problems of Computer Vision
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44k
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-031-19074-2_6
+  title: Specific Problems of Natural Language Processing
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Matthias Cetto
+  - Siegfried Handschuh
+  publisher: Texts in Computer Science
+  date: '2023-01-01'
+  link: https://doi.org/g9k44m
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arXiv.2209.07221
+  title: Number of Attention Heads vs Number of Transformer-Encoders in Computer Vision
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2022-01-01'
+  link: https://doi.org/g9k44n
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arXiv.2209.07219
+  title: Training Neural Networks in Single vs Double Precision
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2022-01-01'
+  link: https://doi.org/g9k44p
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/ICSC50631.2021.00039
+  title: A Comparative Study of Deep Neural Network Models on Multi-Label Text Classification
+    in Finance
+  authors:
+  - Macedo Maia
+  - Juliano Efson Sales
+  - Andre Freitas
+  - Siegfried Handschuh
+  - Markus Endres
+  publisher: 2021 IEEE 15th International Conference on Semantic Computing (ICSC)
+  date: '2021-01-01'
+  link: https://doi.org/g9k44q
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-030-86475-0_13
+  title: A Tag-Based Transformer Community Question Answering Learning-to-Rank Model
+    in the Home Improvement Domain
+  authors:
+  - Macedo Maia
+  - Siegfried Handschuh
+  - Markus Endres
+  publisher: Lecture Notes in Computer Science
+  date: '2021-01-01'
+  link: https://doi.org/g7tngx
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.2105.11178
+  title: Context-Preserving Text Simplification
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2021-01-01'
+  link: https://doi.org/g9k44r
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.2108.11215
+  title: Exploring the Promises of Transformer-Based LMs for the Representation of
+    Normative Claims in the Legal Domain
+  authors:
+  - Reto Gubelmann
+  - Peter Hongler
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2021-01-01'
+  link: https://doi.org/g9k44s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.2010.13674
+  title: A Corpus for Argumentative Writing Support in German
+  authors:
+  - Thiemo Wambsganss
+  - Christina Niklaus
+  - "Matthias S\xF6llner"
+  - Siegfried Handschuh
+  - Jan Marco Leimeister
+  publisher: arXiv
+  date: '2020-01-01'
+  link: https://doi.org/g9k44t
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-030-51310-8_4
+  title: A User-centred Analysis of Explanations for a Multi-component Semantic Parser
+  authors:
+  - Juliano Efson Sales
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2020-01-01'
+  link: https://doi.org/g6f4qt
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/3313831.3376732
+  title: 'AL: An Adaptive Learning Support System for Argumentation Skills'
+  authors:
+  - Thiemo Wambsganss
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Matthias S\xF6llner"
+  - Siegfried Handschuh
+  - Jan Marco Leimeister
+  publisher: Proceedings of the 2020 CHI Conference on Human Factors in Computing
+    Systems
+  date: '2020-04-21'
+  link: https://doi.org/g5nb3r
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/3341105.3374097
+  title: Attentive recurrent text categorisation models using word-category cross
+    embedding on financial comments
+  authors:
+  - Macedo Maia
+  - Vivian S. Silva
+  - Markus Endres
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 35th Annual ACM Symposium on Applied Computing
+  date: '2020-03-30'
+  link: https://doi.org/g9k44v
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-030-49663-0_4
+  title: 'Let the End User in Peace: UX and Usability Aspects Related to the Design
+    of Tutoring Systems'
+  authors:
+  - Juliano Sales
+  - Katerina Tzafilkou
+  - Adamantios Koumpis
+  - Thomas Gees
+  - Heinrich Zimmermann
+  - Nicolaos Protogeros
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2020-01-01'
+  link: https://doi.org/gtz29d
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.2009.12431
+  title: 'XTE: Explainable Text Entailment'
+  authors:
+  - Vivian S. Silva
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2020-01-01'
+  link: https://doi.org/g9k44w
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1909.12140
+  title: 'DisSim: A Discourse-Aware Syntactic Text Simplification Frameworkfor English
+    and German'
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - Andre Freitas
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k44x
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1909.12131
+  title: 'MinWikiSplit: A Sentence Splitting Corpus with Minimal Propositions'
+  authors:
+  - Christina Niklaus
+  - Andre Freitas
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k44z
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1907.04105
+  title: On the Semantic Interpretability of Artificial Intelligence Models
+  authors:
+  - Vivian S. Silva
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k442
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1907.08475
+  title: Representational Capacity of Deep Neural Networks -- A Computing Study
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k443
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.5220/0008364305320538
+  title: 'Representational Capacity of Deep Neural Networks: A Computing Study'
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: Proceedings of the 11th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2019-01-01'
+  link: https://doi.org/g9k445
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-030-30484-3_13
+  title: Singular Value Decomposition and Neural Networks
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2019-01-01'
+  link: https://doi.org/gpbhz5
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1906.11755
+  title: Singular Value Decomposition and Neural Networks
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k446
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1906.01038
+  title: Transforming Complex Sentences into a Semantic Hierarchy
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - Andre Freitas
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2019-01-01'
+  link: https://doi.org/g9k447
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/3301275.3302267
+  title: Vajra
+  authors:
+  - Viktor Schlegel
+  - Benedikt Lang
+  - Siegfried Handschuh
+  - "Andr\xE9 Freitas"
+  publisher: Proceedings of the 24th International Conference on Intelligent User
+    Interfaces
+  date: '2019-03-17'
+  link: https://doi.org/g9k448
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.datak.2018.06.005
+  title: Classification of composite semantic relations by a distributional-relational
+    model
+  authors:
+  - Siamak Barzegar
+  - Brian Davis
+  - Siegfried Handschuh
+  - Andre Freitas
+  publisher: Data &amp; Knowledge Engineering
+  date: '2018-09-01'
+  link: https://doi.org/gfk9vf
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1806.05599
+  title: A Survey on Open Information Extraction
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k449
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/ICSC.2018.00020
+  title: An Open Vocabulary Semantic Parser for End-User Programming Using Natural
+    Language
+  authors:
+  - Juliano Efson Sales
+  - Andre Freitas
+  - Siegfried Handschuh
+  publisher: 2018 IEEE 12th International Conference on Semantic Computing (ICSC)
+  date: '2018-01-01'
+  link: https://doi.org/g9k45b
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2139/ssrn.3199163
+  title: Annotation, Composition and Invocation of Semantic Web Services
+  authors:
+  - Sudhir Agarwal
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: SSRN Electronic Journal
+  date: '2004-01-01'
+  link: https://doi.org/g9k45c
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1806.07731
+  title: Building a Knowledge Graph from Natural Language Definitions for Interpretable
+    Text Entailment Recognition
+  authors:
+  - Vivian S. Silva
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45d
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2139/ssrn.3199470
+  title: CORAAL - Dive into Publications, Bathe in the Knowledge
+  authors:
+  - Vit Novacek
+  - Tudor Groza
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: SSRN Electronic Journal
+  date: '2010-01-01'
+  link: https://doi.org/g9k45f
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1806.07711
+  title: Categorization of Semantic Roles for Dictionary Definitions
+  authors:
+  - Vivian S. Silva
+  - Siegfried Handschuh
+  - "Andr\xE9 Freitas"
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45g
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1805.06521
+  title: Composite Semantic Relation Classification
+  authors:
+  - Siamak Barzegar
+  - Andre Freitas
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45h
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1805.09644
+  title: 'DINFRA: A One Stop Shop for Computing Multilingual Semantic Relatedness'
+  authors:
+  - Siamak Barzegar
+  - Juliano Efson Sales
+  - Andre Freitas
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45j
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/ICSC.2018.00065
+  title: 'FinSSLx: A Sentiment Analysis Model for the Financial Domain Using Text
+    Simplification'
+  authors:
+  - Macedo Maia
+  - Andre Freitas
+  - Siegfried Handschuh
+  publisher: 2018 IEEE 12th International Conference on Semantic Computing (ICSC)
+  date: '2018-01-01'
+  link: https://doi.org/gm7hzt
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1808.09463
+  title: 'Graphene: A Context-Preserving Open Information Extraction System'
+  authors:
+  - Matthias Cetto
+  - Christina Niklaus
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45k
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1807.11276
+  title: 'Graphene: Semantically-Linked Propositions in Open Information Extraction'
+  authors:
+  - Matthias Cetto
+  - Christina Niklaus
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45m
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-94274-2_59
+  title: 'Longinos/Longinas: Towards Smart, Unified Working and Living Environments
+    for the 70 to 90+'
+  authors:
+  - Amina Amara
+  - Hiba Sebei
+  - Mohamed Ali Hadj Taieb
+  - Mohamed Ben Aouicha
+  - Keith Cortis
+  - Adamantios Koumpis
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2018-01-01'
+  link: https://doi.org/g9k45n
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/ICSC.2018.00024
+  title: Multilingual Semantic Relatedness Using Lightweight Machine Translation
+  authors:
+  - Siamak Barzegar
+  - Brian Davis
+  - Siegfried Handschuh
+  - Andre Freitas
+  publisher: 2018 IEEE 12th International Conference on Semantic Computing (ICSC)
+  date: '2018-01-01'
+  link: https://doi.org/g9k45p
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2139/ssrn.3199324
+  title: 'Semantic Annotation for Knowledge Management: Requirements and a Survey
+    of the State of the Art'
+  authors:
+  - Victoria Uren
+  - Philipp Cimiano
+  - Jose Iria
+  - Siegfried Handschuh
+  - Maria Vargas-Vera
+  - Enrico Motta
+  - Fabio Ciravegna
+  publisher: SSRN Electronic Journal
+  date: '2006-01-01'
+  link: https://doi.org/g9k45q
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1805.06522
+  title: 'Semantic Relatedness for All (Languages): A Comparative Analysis of Multilingual
+    Semantic Relatedness Using Machine Translation'
+  authors:
+  - Andre Freitas
+  - Siamak Barzegar
+  - Juliano Efson Sales
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45r
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1806.07721
+  title: 'Semantic Relation Classification: Task Formalisation and Refinement'
+  authors:
+  - Vivian S. Silva
+  - "Manuela H\xFCrliman"
+  - Brian Davis
+  - Siegfried Handschuh
+  - "Andr\xE9 Freitas"
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-99127-6_35
+  title: 'The Robot Who Loved Me: Building Consciousness Models for Use in Human Robot
+    Interaction Following a Collaborative Systems Approach'
+  authors:
+  - Adamantios Koumpis
+  - Maria Christoforaki
+  - Siegfried Handschuh
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2018-01-01'
+  link: https://doi.org/g9k45t
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2139/ssrn.3199015
+  title: 'Unveiling the Hidden Bride: Deep Annotation for Mapping and Migrating Legacy
+    Data to the Semantic Web'
+  authors:
+  - Raphael Volz
+  - Siegfried Handschuh
+  - Steffen Staab
+  - Ljiljana Stojanovic
+  - Nenad Stojanovic
+  publisher: SSRN Electronic Journal
+  date: '2004-01-01'
+  link: https://doi.org/g9k45v
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.3390/mti2020012
+  title: 'Webometrics: Some Critical Issues of WWW Size Estimation Methods'
+  authors:
+  - Srinivasan Mohana Arunachalam
+  - Adamantios Koumpis
+  - Siegfried Handschuh
+  publisher: Multimodal Technologies and Interaction
+  date: '2018-04-02'
+  link: https://doi.org/g9k45w
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1806.07699
+  title: 'Word Tagging with Foundational Ontology Classes: Extending the WordNet-DOLCE
+    Mapping to Verbs'
+  authors:
+  - Vivian S. Silva
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: arXiv
+  date: '2018-01-01'
+  link: https://doi.org/g9k45x
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.48550/arxiv.1703.09013
+  title: A Sentence Simplification System for Improving Relation Extraction
+  authors:
+  - Christina Niklaus
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  - "Andr\xE9 Freitas"
+  publisher: arXiv
+  date: '2017-01-01'
+  link: https://doi.org/g9k45z
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-59569-6_49
+  title: Composite Semantic Relation Classification
+  authors:
+  - Siamak Barzegar
+  - Andre Freitas
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: Lecture Notes in Computer Science
+  date: '2017-01-01'
+  link: https://doi.org/gkmjbv
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.3233/AAC-170027
+  title: Ontological representations of rhetorical figures for argument mining
+  authors:
+  - "Jelena Mitrovi\u0107"
+  - "Cliff O\u2019Reilly"
+  - "Miljana Mladenovi\u0107"
+  - Siegfried Handschuh
+  publisher: Argument &amp; Computation
+  date: '2017-09-08'
+  link: https://doi.org/g9k452
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/s16-2025
+  title: A Compositional-Distributional Semantic Model for Searching Complex Entity
+    Categories
+  authors:
+  - Juliano Efson Sales
+  - Andre Freitas
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: Proceedings of the Fifth Joint Conference on Lexical and Computational
+    Semantics
+  date: '2016-01-01'
+  link: https://doi.org/g9k453
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-45390-3_50
+  title: A Framework for Applying Data Integration and Curation Pipelines to Support
+    Integration of Migrants and Refugees in Europe
+  authors:
+  - Oya Deniz Beyan
+  - Siegfried Handschuh
+  - Adamantios Koumpis
+  - Garyfallos Fragidis
+  - Stefan Decker
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2016-01-01'
+  link: https://doi.org/g9k454
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2993318.2993350
+  title: A Twitter Sentiment Gold Standard for the Brexit Referendum
+  authors:
+  - "Manuela H\xFCrlimann"
+  - Brian Davis
+  - Keith Cortis
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  - "Sergio Fern\xE1ndez"
+  publisher: Proceedings of the 12th International Conference on Semantic Systems
+  date: '2016-09-12'
+  link: https://doi.org/g9k455
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-45390-3_49
+  title: "Business Model Boutique: A Pr\xEAt-\xE0-Porter Solution for Business Model\
+    \ Innovation in SMEs"
+  authors:
+  - Sander Smit
+  - Garyfallos Fragidis
+  - Siegfried Handschuh
+  - Adamantios Koumpis
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2016-01-01'
+  link: https://doi.org/g9k456
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-46349-0_29
+  title: Determining Data Relevance Using Semantic Types and Graphical Interpretation
+    Cues
+  authors:
+  - Eduardo Haruo Kamioka
+  - "Andr\xE9 Freitas"
+  - Frederico Caroli
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2016-01-01'
+  link: https://doi.org/g9k457
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-46224-0_5
+  title: Neoclassica - A Multilingual Domain Ontology
+  authors:
+  - Simon Donig
+  - Maria Christoforaki
+  - Siegfried Handschuh
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2016-01-01'
+  link: https://doi.org/gntv9s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-46224-0_10
+  title: Object Classification in Images of Neoclassical Furniture Using Deep Learning
+  authors:
+  - Bernhard Bermeitinger
+  - "Andr\xE9 Freitas"
+  - Simon Donig
+  - Siegfried Handschuh
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2016-01-01'
+  link: https://doi.org/gkndzv
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.datak.2016.06.004
+  title: Preface
+  authors:
+  - Chris Biemann
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  - "Elisabeth M\xE9tais"
+  - Farid Meziane
+  publisher: Data &amp; Knowledge Engineering
+  date: '2016-11-01'
+  link: https://doi.org/g9k458
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-49004-5_14
+  title: 'Semantic Relatedness for All (Languages): A Comparative Analysis of Multilingual
+    Semantic Relatedness Using Machine Translation'
+  authors:
+  - "Andr\xE9 Freitas"
+  - Siamak Barzegar
+  - Juliano Efson Sales
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: Lecture Notes in Computer Science
+  date: '2016-01-01'
+  link: https://doi.org/gkmjb6
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/3019943.3019988
+  title: Use of the Curiosity Cabinet metaphor to support inclusive learning
+  authors:
+  - Patricia Charlton
+  - Anne Preston
+  - Charalampos Karagiannidis
+  - Christos Kouroupetroglou
+  - Muriel Grenon
+  - Siegfried Handschuh
+  - Adamantios Koumpis
+  publisher: Proceedings of the 7th International Conference on Software Development
+    and Technologies for Enhancing Accessibility and Fighting Info-exclusion
+  date: '2016-12-01'
+  link: https://doi.org/gmmgrz
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-49004-5_38
+  title: 'Word Tagging with Foundational Ontology Classes: Extending the WordNet-DOLCE
+    Mapping to Verbs'
+  authors:
+  - Vivian S. Silva
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2016-01-01'
+  link: https://doi.org/gkkt8f
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2809563.2809605
+  title: Analysis of cyberbullying tweets in trending world events
+  authors:
+  - Keith Cortis
+  - Siegfried Handschuh
+  publisher: Proceedings of the 15th International Conference on Knowledge Technologies
+    and Data-driven Business
+  date: '2015-10-21'
+  link: https://doi.org/g9k459
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2766462.2767870
+  title: DINFRA
+  authors:
+  - Siamak Barzegar
+  - Juliano Efson Sales
+  - Andre Freitas
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: Proceedings of the 38th International ACM SIGIR Conference on Research
+    and Development in Information Retrieval
+  date: '2015-08-09'
+  link: https://doi.org/gkks58
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2766462.2767871
+  title: Linse
+  authors:
+  - Juliano Efson Sales
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: Proceedings of the 38th International ACM SIGIR Conference on Research
+    and Development in Information Retrieval
+  date: '2015-08-09'
+  link: https://doi.org/g9k46b
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-24033-6_47
+  title: Random Indexing Explained with High Probability
+  authors:
+  - Behrang QasemiZadeh
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2015-01-01'
+  link: https://doi.org/g9k46c
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/DEXA.2014.51
+  title: Random Manhattan Indexing
+  authors:
+  - Behrang Q. Zadeh
+  - Siegfried Handschuh
+  publisher: 2014 25th International Workshop on Database and Expert Systems Applications
+  date: '2014-09-01'
+  link: https://doi.org/g9k46d
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.4018/978-1-4666-3610-1.ch009
+  title: ACRONYM
+  authors:
+  - Fergal Monaghan
+  - Siegfried Handschuh
+  - "David O\u2019Sullivan"
+  publisher: Semantic Web
+  date: '2013-01-01'
+  link: https://doi.org/g9k46f
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-319-03260-3_25
+  title: An Ontology-Based Technique for Online Profile Resolution
+  authors:
+  - Keith Cortis
+  - Simon Scerri
+  - Ismael Rivera
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2013-01-01'
+  link: https://doi.org/g9k46g
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/s10115-011-0473-6
+  title: From raw publications to Linked Data
+  authors:
+  - Tudor Groza
+  - Gunnar AAstrand Grimnes
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Knowledge and Information Systems
+  date: '2011-12-29'
+  link: https://doi.org/fzbctm
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-39342-6_14
+  title: Interacting with a Context-Aware Personal Information Sharing System
+  authors:
+  - Simon Scerri
+  - Andreas Schuller
+  - Ismael Rivera
+  - Judie Attard
+  - Jeremy Debattista
+  - Massimo Valla
+  - Fabian Hermann
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2013-01-01'
+  link: https://doi.org/g9k46h
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2506182.2506197
+  title: Ontology-based situation recognition for context-aware systems
+  authors:
+  - Judie Attard
+  - Simon Scerri
+  - Ismael Rivera
+  - Siegfried Handschuh
+  publisher: Proceedings of the 9th International Conference on Semantic Systems
+  date: '2013-09-04'
+  link: https://doi.org/g9k46j
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-41154-0_28
+  title: Processing Ubiquitous Personal Event Streams to Provide User-Controlled Support
+  authors:
+  - Jeremy Debattista
+  - Simon Scerri
+  - Ismael Rivera
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2013-01-01'
+  link: https://doi.org/g9k46k
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-40543-3_75
+  title: 'SEDA_Lab: Towards a Laboratory for Socio-Economic Data Analysis'
+  authors:
+  - Johnny Ryan
+  - Dirk Heilmann
+  - Siegfried Handschuh
+  publisher: IFIP Advances in Information and Communication Technology
+  date: '2013-01-01'
+  link: https://doi.org/g9k46m
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-31175-8_4
+  title: Engineering a Controlled Natural Language into Semantic MediaWiki
+  authors:
+  - Pradeep Dantuluri
+  - Brian Davis
+  - Pierre Ludwick
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2012-01-01'
+  link: https://doi.org/g9k46n
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2089094.2089097
+  title: Visual Abstraction and Ordering in Faceted Browsing of Text Collections
+  authors:
+  - Vinhtuan Thai
+  - Pierre-Yves Rouille
+  - Siegfried Handschuh
+  publisher: ACM Transactions on Intelligent Systems and Technology
+  date: '2012-02-01'
+  link: https://doi.org/g9k46q
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.4018/jswis.2011100101
+  title: ACRONYM
+  authors:
+  - Fergal Monaghan
+  - Siegfried Handschuh
+  - "David O\u2019Sullivan"
+  publisher: International Journal on Semantic Web and Information Systems
+  date: '2011-10-01'
+  link: https://doi.org/g9k46r
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1979742.1979906
+  title: Context stamp
+  authors:
+  - VinhTuan Thai
+  - Siegfried Handschuh
+  publisher: CHI '11 Extended Abstracts on Human Factors in Computing Systems
+  date: '2011-05-07'
+  link: https://doi.org/b3ckn7
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-25073-6_32
+  title: 'Getting the Meaning Right: A Complementary Distributional Layer for the
+    Web Semantics'
+  authors:
+  - "V\xEDt Nov\xE1\u010Dek"
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: '2011-01-01'
+  link: https://doi.org/bcngk8
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-25093-4_3
+  title: Linking Semantic Desktop Data to the Web of Data
+  authors:
+  - "Laura Dr\u0103gan"
+  - Renaud Delbru
+  - Tudor Groza
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: '2011-01-01'
+  link: https://doi.org/bcq62k
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2063518.2063547
+  title: Online activity graph for document importance and association
+  authors:
+  - Charlie Abela
+  - Chris Staff
+  - Siegfried Handschuh
+  publisher: Proceedings of the 7th International Conference on Semantic Systems
+  date: '2011-09-07'
+  link: https://doi.org/fjgk5w
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2063518.2063521
+  title: The semantic desktop at work
+  authors:
+  - "Laura Dr\u0103gan"
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Proceedings of the 7th International Conference on Semantic Systems
+  date: '2011-09-07'
+  link: https://doi.org/cn3t4h
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1943403.1943508
+  title: Visual interfaces to the social and semantic web (VISSW 2011)
+  authors:
+  - Siegfried Handschuh
+  - Lora Aroyo
+  - VinhTuan Thai
+  publisher: Proceedings of the 16th international conference on Intelligent user
+    interfaces
+  date: '2011-02-13'
+  link: https://doi.org/fqhhcs
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-16949-6_34
+  title: Biomedical Publication Knowledge Acquisition, Processing and Dissemination
+    with CORAAL
+  authors:
+  - "V\xEDt Nov\xE1\u010Dek"
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2010-01-01'
+  link: https://doi.org/d4nwbv
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.websem.2010.03.008
+  title: "CORAAL\u2014Dive into publications, bathe in the knowledge"
+  authors:
+  - "V\xEDt Nov\xE1\u010Dek"
+  - Tudor Groza
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: 'Web Semantics: Science, Services and Agents on the World Wide Web'
+  date: '2010-07-01'
+  link: https://doi.org/btmkzc
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1842993.1843059
+  title: Enhanced navigation and focus on TileBars with barycenter heuristic-based
+    reordering
+  authors:
+  - Vinh Tuan Thai
+  - Siegfried Handschuh
+  publisher: Proceedings of the International Conference on Advanced Visual Interfaces
+  date: '2010-05-26'
+  link: https://doi.org/bx6pp7
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/s11042-009-0448-8
+  title: Introduction to the special issue on semantic and digital media technologies
+  authors:
+  - Marcin Grzegorzek
+  - Lynda Hardman
+  - David Duce
+  - Siegfried Handschuh
+  - Michela Spagnuolo
+  publisher: Multimedia Tools and Applications
+  date: '2010-01-19'
+  link: https://doi.org/bfnh2m
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-14418-9_12
+  title: On Designing Controlled Natural Languages for Semantic Annotation
+  authors:
+  - Brian Davis
+  - Pradeep Dantuluri
+  - Laura Dragan
+  - Siegfried Handschuh
+  - Hamish Cunningham
+  publisher: Lecture Notes in Computer Science
+  date: '2010-01-01'
+  link: https://doi.org/bnc79t
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-13470-8_44
+  title: Task-Based User Modelling for Knowledge Work Support
+  authors:
+  - Charlie Abela
+  - Chris Staff
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2010-01-01'
+  link: https://doi.org/bzwj2c
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.4108/icst.collaboratecom.2010.48
+  title: Towards Consolidated Presence
+  authors:
+  - Manfred Hauswirth
+  - "J\xE9r\xF4me Euzenat"
+  - Owen Friel
+  - Keith Griffin
+  - Pat Hession
+  - Brendan Jennings
+  - Tudor Groza
+  - Siegfried Handschuh
+  - Ivana Podnar Zarko
+  - Axel Polleres
+  - Antoine Zimmermann
+  publisher: 'Proceedings of the 6th International ICST Conference on Collaborative
+    Computing: Networking, Applications, Worksharing'
+  date: '2010-01-01'
+  link: https://doi.org/g9k46s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1774088.1774377
+  title: Towards automatic extraction of epistemic items from scientific publications
+  authors:
+  - Tudor Groza
+  - Siegfried Handschuh
+  - Georgeta Bordea
+  publisher: Proceedings of the 2010 ACM Symposium on Applied Computing
+  date: '2010-03-22'
+  link: https://doi.org/c89ggw
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.4018/jswis.2010100103
+  title: Towards Controlled Natural Language for Semantic Annotation
+  authors:
+  - Brian Davis
+  - Pradeep Dantuluri
+  - Siegfried Handschuh
+  - Hamish Cunningham
+  publisher: International Journal on Semantic Web and Information Systems
+  date: '2010-10-01'
+  link: https://doi.org/ctn6bn
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-16132-2_54
+  title: Towards Ontology Matching for Intelligent Gadgets
+  authors:
+  - Oszkar Ambrus
+  - "Knud M\xF6ller"
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2010-01-01'
+  link: https://doi.org/cbfw5h
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/2002353.2002367
+  title: Visual abstraction and ordering in faceted browsing of text collections
+  authors:
+  - VinhTuan Thai
+  - Siegfried Handschuh
+  publisher: Proceedings of the first international workshop on Intelligent visual
+    interfaces for text analysis
+  date: '2010-02-07'
+  link: https://doi.org/c73tfw
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1719970.1720060
+  title: Visual interfaces to the social and semantic web (VISSW 2010)
+  authors:
+  - Siegfried Handschuh
+  - Tom Heath
+  - VinhTuan Thai
+  - Ian Dickinson
+  - Lora Aroyo
+  - Valentina Presutti
+  publisher: Proceedings of the 15th international conference on Intelligent user
+    interfaces
+  date: '2010-02-07'
+  link: https://doi.org/g9k46t
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-04930-9_52
+  title: Bridging the Gap between Linked Data and the Semantic Desktop
+  authors:
+  - Tudor Groza
+  - "Laura Dr\u0103gan"
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/b99rmr
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-02976-9_30
+  title: "CORAAL \u2013 Towards Deep Exploitation of Textual Resources in Life Sciences"
+  authors:
+  - "V\xEDt Nov\xE1\u010Dek"
+  - Tudor Groza
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/dgh73p
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-02121-3_62
+  title: Controlled Natural Language for Semantic Annotation
+  authors:
+  - Brian Davis
+  - Pradeep Varma
+  - Siegfried Handschuh
+  - Laura Dragan
+  - Hamish Cunningham
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/fkxkcr
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1502650.1502724
+  title: IVEA
+  authors:
+  - Vinh Tuan Thai
+  - Siegfried Handschuh
+  publisher: Proceedings of the 14th international conference on Intelligent user
+    interfaces
+  date: '2009-02-08'
+  link: https://doi.org/b2b43c
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/CBMS.2009.5255357
+  title: Knowledge-based search for oncological literature
+  authors:
+  - Vit Novacek
+  - Tudor Groza
+  - Siegfried Handschuh
+  publisher: 2009 22nd IEEE International Symposium on Computer-Based Medical Systems
+  date: '2009-08-01'
+  link: https://doi.org/bvjk3x
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/VAST.2009.5333436
+  title: Reordered tilebars for visual text exploration
+  authors:
+  - VinhTuan Thai
+  - Siegfried Handschuh
+  publisher: 2009 IEEE Symposium on Visual Analytics Science and Technology
+  date: '2009-01-01'
+  link: https://doi.org/bp4pqq
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-02121-3_75
+  title: "Semanta \u2013 Semantic Email in Action"
+  authors:
+  - Simon Scerri
+  - Ioana Giurgiu
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/cwwst2
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-02121-3_7
+  title: "Semanta \u2013 Semantic Email Made Easy"
+  authors:
+  - Simon Scerri
+  - Brian Davis
+  - Siegfried Handschuh
+  - Manfred Hauswirth
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/bwtwf7
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/CEC.2009.15
+  title: Semanta Supporting E-mail Workflows in Business Processes
+  authors:
+  - Simon Scerri
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: 2009 IEEE Conference on Commerce and Enterprise Computing
+  date: '2009-07-01'
+  link: https://doi.org/dx8hcc
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-642-03754-2_6
+  title: Technologies for the Social Semantic Desktop
+  authors:
+  - Michael Sintek
+  - Siegfried Handschuh
+  - Simon Scerri
+  - Ludger van Elst
+  publisher: Lecture Notes in Computer Science
+  date: '2009-01-01'
+  link: https://doi.org/dw59v3
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1502650.1502735
+  title: Visual interfaces to the social and the semantic web (VISSW 2009)
+  authors:
+  - Siegfried Handschuh
+  - Tom Heath
+  - VinhTuan Thai
+  publisher: Proceedings of the 14th international conference on Intelligent user
+    interfaces
+  date: '2009-02-08'
+  link: https://doi.org/dshvv9
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/IMCSIT.2008.4747268
+  title: A linguistic light approach to multilingualism in lexical layers for ontologies
+  authors:
+  - Alexander Troussov
+  - John Judge
+  - Mikhail Sogrin
+  - Amine Akrout
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: 2008 International Multiconference on Computer Science and Information
+    Technology
+  date: '2008-10-01'
+  link: https://doi.org/cxcz59
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/WIIAT.2008.258
+  title: Adding Provenance and Evolution Information to Modularized Argumentation
+    Models
+  authors:
+  - Tudor Groza
+  - Siegfried Handschuh
+  - John G. Breslin
+  publisher: 2008 IEEE/WIC/ACM International Conference on Web Intelligence and Intelligent
+    Agent Technology
+  date: '2008-12-01'
+  link: https://doi.org/bcv363
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-68234-9_71
+  title: 'Demo: Visual Programming for the Semantic Desktop with Konduit'
+  authors:
+  - "Knud M\xF6ller"
+  - Siegfried Handschuh
+  - "Sebastian Tr\xFCg"
+  - Laura Josan
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: ''
+  link: https://doi.org/cmgfh8
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-68234-9_13
+  title: 'IVEA: An Information Visualization Tool for Personalized Exploratory Document
+    Collection Analysis'
+  authors:
+  - VinhTuan Thai
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: ''
+  link: https://doi.org/dwsn3b
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.jbi.2008.06.003
+  title: "Infrastructure for dynamic knowledge integration\u2014Automated biomedical\
+    \ ontology extension using textual resources"
+  authors:
+  - "V\xEDt Nov\xE1\u010Dek"
+  - Loredana Laera
+  - Siegfried Handschuh
+  - Brian Davis
+  publisher: Journal of Biomedical Informatics
+  date: '2008-10-01'
+  link: https://doi.org/b9cwvv
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-68234-9_9
+  title: 'KonneXSALT: First Steps Towards a Semantic Claim Federation Infrastructure'
+  authors:
+  - Tudor Groza
+  - Siegfried Handschuh
+  - "Knud M\xF6ller"
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: ''
+  link: https://doi.org/b3hrtm
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-88564-1_4
+  title: RoundTrip Ontology Authoring
+  authors:
+  - Brian Davis
+  - Ahmad Ali Iqbal
+  - Adam Funk
+  - Valentin Tablan
+  - Kalina Bontcheva
+  - Hamish Cunningham
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2008-01-01'
+  link: https://doi.org/dcx6w7
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-68234-9_12
+  title: Semantic Email as a Communication Medium for the Social Semantic Desktop
+  authors:
+  - Simon Scerri
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: ''
+  link: https://doi.org/ct9w55
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/IV.2008.28
+  title: Tight Coupling of Personal Interests with Multi-dimensional Visualization
+    for Exploration and Analysis of Text Collections
+  authors:
+  - VinhTuan Thai
+  - Siegfried Handschuh
+  - Stefan Decker
+  publisher: 2008 12th International Conference Information Visualisation
+  date: '2008-07-01'
+  link: https://doi.org/fc8sph
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-76298-0_11
+  title: 'CLOnE: Controlled Language for Ontology Editing'
+  authors:
+  - Adam Funk
+  - Valentin Tablan
+  - Kalina Bontcheva
+  - Hamish Cunningham
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2007-01-01'
+  link: https://doi.org/dh7m3f
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-72667-8_42
+  title: 'Distributed Knowledge Representation on the Social Semantic Desktop: Named
+    Graphs, Views and Roles in NRL'
+  authors:
+  - Michael Sintek
+  - Ludger van Elst
+  - Simon Scerri
+  - Siegfried Handschuh
+  publisher: Lecture Notes in Computer Science
+  date: '2007-01-01'
+  link: https://doi.org/fjshmw
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/DEXA.2007.24
+  title: Improving Email Conversation Efficiency through Semantically Enhanced Email
+  authors:
+  - Simon Scerri
+  - Brian Davis
+  - Siegfried Handschuh
+  publisher: 18th International Conference on Database and Expert Systems Applications
+    (DEXA 2007)
+  date: '2007-09-01'
+  link: https://doi.org/ck33b7
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1242572.1242686
+  title: P-TAG
+  authors:
+  - Paul - Alexandru Chirita
+  - Stefania Costache
+  - Wolfgang Nejdl
+  - Siegfried Handschuh
+  publisher: Proceedings of the 16th international conference on World Wide Web
+  date: '2007-05-08'
+  link: https://doi.org/c7kkt9
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-76298-0_58
+  title: "Recipes for Semantic Web Dog Food \u2014 The ESWC and ISWC Metadata Projects"
+  authors:
+  - "Knud M\xF6ller"
+  - Tom Heath
+  - Siegfried Handschuh
+  - John Domingue
+  publisher: Lecture Notes in Computer Science
+  date: '2007-01-01'
+  link: https://doi.org/fqg4z5
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-72667-8_37
+  title: SALT - Semantically Annotated $\mbox{\LaTeX}$ for Scientific Publications
+  authors:
+  - Tudor Groza
+  - Siegfried Handschuh
+  - "Knud M\xF6ller"
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: ''
+  link: https://doi.org/dhhg3p
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1284420.1284462
+  title: SALT
+  authors:
+  - Tudor Groza
+  - Alexander Schutz
+  - Siegfried Handschuh
+  publisher: Proceedings of the 2007 ACM symposium on Document engineering
+  date: '2007-08-28'
+  link: https://doi.org/g9k46v
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-76298-0_15
+  title: 'SALT: Weaving the Claim Web'
+  authors:
+  - Tudor Groza
+  - "Knud M\xF6ller"
+  - Siegfried Handschuh
+  - Diana Trif
+  - Stefan Decker
+  publisher: Lecture Notes in Computer Science
+  date: '2007-01-01'
+  link: https://doi.org/dn6f7h
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/3-540-70894-4_5
+  title: Semantic Annotation of Resources in the Semantic Web
+  authors:
+  - Siegfried Handschuh
+  publisher: Semantic Web Services
+  date: ''
+  link: https://doi.org/c4kg6w
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/1284420.1284449
+  title: The salt triple
+  authors:
+  - Tudor Groza
+  - Alexander Schutz
+  - Siegfried Handschuh
+  publisher: Proceedings of the 2007 ACM symposium on Document engineering
+  date: '2007-08-28'
+  link: https://doi.org/g9k46w
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1049/ip-vis:20050059
+  title: Knowledge representation and semantic annotation of multimedia content
+  authors:
+  - K. Petridis
+  - S. Bloehdorn
+  - C. Saathoff
+  - N. Simou
+  - S. Dasiopoulou
+  - V. Tzouvaras
+  - S. Handschuh
+  - Y. Avrithis
+  - Y. Kompatsiaris
+  - S. Staab
+  publisher: IEE Proceedings - Vision, Image, and Signal Processing
+  date: '2006-01-01'
+  link: https://doi.org/b2cn8s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.websem.2005.10.002
+  title: 'Semantic annotation for knowledge management: Requirements and a survey
+    of the state of the art'
+  authors:
+  - Victoria Uren
+  - Philipp Cimiano
+  - "Jos\xE9 Iria"
+  - Siegfried Handschuh
+  - Maria Vargas-Vera
+  - Enrico Motta
+  - Fabio Ciravegna
+  publisher: Journal of Web Semantics
+  date: '2006-01-01'
+  link: https://doi.org/dsmr8s
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/11431053_40
+  title: Semantic Annotation of Images and Videos for Multimedia Analysis
+  authors:
+  - Stephan Bloehdorn
+  - Kosmas Petridis
+  - Carsten Saathoff
+  - Nikos Simou
+  - Vassilis Tzouvaras
+  - Yannis Avrithis
+  - Siegfried Handschuh
+  - Yiannis Kompatsiaris
+  - Steffen Staab
+  - Michael G. Strintzis
+  publisher: Lecture Notes in Computer Science
+  date: '2005-01-01'
+  link: https://doi.org/cfz535
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.websem.2004.07.003
+  title: Annotation, composition and invocation of semantic web services
+  authors:
+  - Sudhir Agarwal
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: Journal of Web Semantics
+  date: '2004-12-01'
+  link: https://doi.org/dfp6h8
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/988672.988735
+  title: Towards the self-annotating web
+  authors:
+  - Philipp Cimiano
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: Proceedings of the 13th international conference on World Wide Web
+  date: '2004-05-17'
+  link: https://doi.org/fkvjd6
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.websem.2003.11.005
+  title: 'Unveiling the hidden bride: deep annotation for mapping and migrating legacy
+    data to the Semantic Web'
+  authors:
+  - Raphael Volz
+  - Siegfried Handschuh
+  - Steffen Staab
+  - Ljiljana Stojanovic
+  - Nenad Stojanovic
+  publisher: Journal of Web Semantics
+  date: '2004-02-01'
+  link: https://doi.org/czvnbw
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/MIS.2003.1234768
+  title: Annotation for the Deep Web
+  authors:
+  - S. Handschuh
+  - R. Volz
+  - S. Staab
+  publisher: IEEE Intelligent Systems
+  date: '2003-09-01'
+  link: https://doi.org/cpn9cx
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/S1389-1286(03)00226-3
+  title: 'CREAM: CREAting Metadata for the Semantic Web'
+  authors:
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: Computer Networks
+  date: '2003-08-01'
+  link: https://doi.org/cr48t9
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/TCSVT.2002.808092
+  title: Introduction to the special issue on conceptual and dynamical aspects of
+    multimedia content description
+  authors:
+  - A. Tabatabai
+  - S. Panchanathan
+  - J. Smith
+  - H. Yasuda
+  - S. Handschuh
+  publisher: IEEE Transactions on Circuits and Systems for Video Technology
+  date: '2003-01-01'
+  link: https://doi.org/ftc8sh
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-39451-8_2
+  title: Leveraging Metadata Creation for the Semantic Web with CREAM
+  authors:
+  - Siegfried Handschuh
+  - Steffen Staab
+  - Rudi Studer
+  publisher: Lecture Notes in Computer Science
+  date: '2003-01-01'
+  link: https://doi.org/d9xqfj
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/775152.775214
+  title: On deep annotation
+  authors:
+  - Siegfried Handschuh
+  - Steffen Staab
+  - Raphael Volz
+  publisher: Proceedings of the twelfth international conference on World Wide Web  -
+    WWW '03
+  date: '2003-01-01'
+  link: https://doi.org/dk93g8
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/978-3-540-39718-2_14
+  title: Surfing the Service Web
+  authors:
+  - Sudhir Agarwal
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: Lecture Notes in Computer Science
+  date: '2003-01-01'
+  link: https://doi.org/dtfj44
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/511446.511506
+  title: Authoring and annotation of web pages in CREAM
+  authors:
+  - Siegfried Handschuh
+  - Steffen Staab
+  publisher: Proceedings of the 11th international conference on World Wide Web
+  date: '2002-05-07'
+  link: https://doi.org/bg96jf
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/3-540-45705-4_32
+  title: "KAON \u2014 Towards a Large Scale Semantic Web"
+  authors:
+  - Erol Bozsak
+  - Marc Ehrig
+  - Siegfried Handschuh
+  - Andreas Hotho
+  - Alexander Maedche
+  - Boris Motik
+  - Daniel Oberle
+  - Christoph Schmitz
+  - Steffen Staab
+  - Ljiljana Stojanovic
+  - Nenad Stojanovic
+  - Rudi Studer
+  - Gerd Stumme
+  - York Sure
+  - Julien Tane
+  - Raphael Volz
+  - Valentin Zacharias
+  publisher: Lecture Notes in Computer Science
+  date: '2002-01-01'
+  link: https://doi.org/d259d3
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/3-540-45810-7_32
+  title: "S-CREAM \u2014 Semi-automatic CREAtion of Metadata"
+  authors:
+  - Siegfried Handschuh
+  - Steffen Staab
+  - Fabio Ciravegna
+  publisher: Lecture Notes in Computer Science
+  date: '2002-01-01'
+  link: https://doi.org/cb4pbr
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/bfb0053495
+  title: "The NetAcademy \u2014 A new concept for online publishing and knowledge\
+    \ management"
+  authors:
+  - Siegfried Handschuh
+  - Ulrike Lechner
+  - David-Michael Lincke
+  - Beat Schmid
+  - Petra Schubert
+  - Dorian Selz
+  - Katarina Stanoevska-Slabeva
+  publisher: Lecture Notes in Computer Science
+  date: '1998-01-01'
+  link: https://doi.org/fbd5sq
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.14393/LL63-v39-2022-03
+  title: EVOLVE
+  authors:
+  - Paula Tavares Pinto
+  - "Jos\xE9 Victor de Souza"
+  - Talita Serpa
+  - Francine de Assis Silveira
+  - Marcela Marques de Freitas Lima
+  - Reto Gubelmann
+  - Siegfried Handschuh
+  - Christina Marianne Niklaus
+  publisher: Letras &amp; Letras
+  date: '2023-05-03'
+  link: https://doi.org/g9k46x
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2023.bea-1.59
+  title: 'Enhancing Educational Dialogues: A Reinforcement Learning Approach for Generating
+    AI Teacher Responses'
+  authors:
+  - Thomas Huber
+  - Christina Niklaus
+  - Siegfried Handschuh
+  publisher: Proceedings of the 18th Workshop on Innovative Use of NLP for Building
+    Educational Applications (BEA 2023)
+  date: '2023-01-01'
+  link: https://doi.org/g9k46z
+  orcid: 0000-0002-1274-0925
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2023.starsem-1.4
+  title: When Truth Matters - Addressing Pragmatic Categories in Natural Language
+    Inference (NLI) by Large Language Models (LLMs)
+  authors:
+  - Reto Gubelmann
+  - Aikaterini-lida Kalouli
+  - Christina Niklaus
+  - Siegfried Handschuh
+  publisher: Proceedings of the 12th Joint Conference on Lexical and Computational
+    Semantics (*SEM 2023)
+  date: '2023-01-01'
+  link: https://doi.org/g9k462
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2022.acl-long.599
+  title: "Modeling Persuasive Discourse to Adaptively Support Students\u2019 Argumentative\
+    \ Writing"
+  authors:
+  - Thiemo Wambsganss
+  - Christina Niklaus
+  publisher: 'Proceedings of the 60th Annual Meeting of the Association for Computational
+    Linguistics (Volume 1: Long Papers)'
+  date: '2022-01-01'
+  link: https://doi.org/grfj5x
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2021.acl-long.314
+  title: Supporting Cognitive and Emotional Empathic Writing of Students
+  authors:
+  - Thiemo Wambsganss
+  - Christina Niklaus
+  - "Matthias S\xF6llner"
+  - Siegfried Handschuh
+  - Jan Marco Leimeister
+  publisher: 'Proceedings of the 59th Annual Meeting of the Association for Computational
+    Linguistics and the 11th International Joint Conference on Natural Language Processing
+    (Volume 1: Long Papers)'
+  date: '2021-01-01'
+  link: https://doi.org/gmf9j4
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2020.coling-main.74
+  title: A Corpus for Argumentative Writing Support in German
+  authors:
+  - Thiemo Wambsganss
+  - Christina Niklaus
+  - "Matthias S\xF6llner"
+  - Siegfried Handschuh
+  - Jan Marco Leimeister
+  publisher: Proceedings of the 28th International Conference on Computational Linguistics
+  date: '2020-01-01'
+  link: https://doi.org/g9k463
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/w19-8662
+  title: 'DisSim: A Discourse-Aware Syntactic Text Simplification Framework for English
+    and German'
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 12th International Conference on Natural Language
+    Generation
+  date: '2019-01-01'
+  link: https://doi.org/g9k464
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/w19-8615
+  title: 'MinWikiSplit: A Sentence Splitting Corpus with Minimal Propositions'
+  authors:
+  - Christina Niklaus
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 12th International Conference on Natural Language
+    Generation
+  date: '2019-01-01'
+  link: https://doi.org/g9k465
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/p19-1333
+  title: Transforming Complex Sentences into a Semantic Hierarchy
+  authors:
+  - Christina Niklaus
+  - Matthias Cetto
+  - "Andr\xE9 Freitas"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 57th Annual Meeting of the Association for Computational
+    Linguistics
+  date: '2019-01-01'
+  link: https://doi.org/g9k466
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/122546
+  title: Is There an Optimal Depth of Residual Networks?
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: Communications in Computer and Information Science
+  date: '2025-05-03'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/122546
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/120866
+  title: Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing
+    Support
+  authors:
+  - Reto Gubelmann
+  - Michael Burkhard
+  - Rositsa Ivanova
+  - Christina Niklaus
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: ''
+  date: '2024-07-02'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/120866
+  orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
   type: paper
-  description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed
-    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  image: https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1007128.g001&rev=2
+  description: In this article, we present the results of an exploratory study conducted
+    with our self-developed tool Artist. The goal of the tool is to give formative
+    feedback to develop students' argumentation skills. We compare the feedback that
+    two different LLMs, an open-sourced one by META and one of OpenAI's fully proprietary
+    ones, give to students' argumentative writing. We find that, overall, students
+    find the feedback provided by both LLMs helpful (7.51 vs. 7.65 on a scale from
+    1 to 10), and they rate the quality of the feedback as good to very good. We take
+    this as a very encouraging provisional result that invites larger and more extensive
+    studies on the topic.
+  image: images/cites/paper_ExploringTheUsefulnessofOpenandProprietyLLMsinArgumentativeWritingSupport.png
   buttons:
-  - type: manubot
-    link: https://greenelab.github.io/meta-review/
-  - type: source
-    text: Manuscript Source
-    link: https://github.com/greenelab/meta-review
-  - type: website
-    link: http://manubot.org/
+  - text: Alexandria
+    link: https://www.alexandria.unisg.ch/entities/publication/b87ad72b-f9f7-4b2b-bc3f-9bad8ecf2160
+  - text: DOI
+    link: https://doi.org/10.1007/978-3-031-64312-5_21
   tags:
-  - open science
-  - collaboration
-  repo: greenelab/meta-review
-- id: doi:10.1101/573782
-  title: Sequential compression of gene expression across dimensionalities and methods
-    reveals no single best method or dimensionality
+  - paper
+  - argumentative-ai
+  - argumentation
+  - llm
+  - artist
+- id: handle:20.500.14171/120123
+  title: Investigating a Second-Order Optimization Strategy for Neural Networks
   authors:
-  - Gregory P. Way
-  - Michael Zietz
-  - Vincent Rubinetti
-  - Daniel S. Himmelstein
-  - Casey S. Greene
-  publisher: Cold Spring Harbor Laboratory
-  date: '2019-03-11'
-  link: https://doi.org/gfxjxf
-  orcid: 0000-0002-4655-3773
+  - Bernhard Bermeitinger
+  publisher: "Universit\xE4t Passau"
+  date: '2024-04-18'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/120123
+  orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1016/j.csbj.2020.05.017
-  title: Constructing knowledge graphs and their biomedical applications
+- id: doi:10.5220/0012893600003838
+  title: Efficient Neural Network Training via Subset Pretraining
   authors:
-  - David N. Nicholson
-  - Casey S. Greene
-  publisher: Computational and Structural Biotechnology Journal
-  date: '2020-01-01'
-  link: https://doi.org/gg7m48
-  image: https://ars.els-cdn.com/content/image/1-s2.0-S2001037020302804-gr1.jpg
+  - "Jan Sp\xF6rer"
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Niklas Limacher
+  - Siegfried Handschuh
+  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2024-01-01'
+  link: https://doi.org/g9k467
+  orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
-- id: doi:10.7554/eLife.32822
-  title: Sci-Hub provides access to nearly all scholarly literature
+  type: paper
+  description: The hypothesis that neural network training on small data subsets can
+    approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating
+    that comparable results to full training can be achieved with significantly reduced
+    computational cost.
+  image: images/cites/doi_10_5220_0012893600003838.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5220/0012893600003838
+  - text: arXiv
+    link: https://arxiv.org/abs/2410.16523
+  tags:
+  - paper
+  - qds
+  - transformers
+  - training
+  - neural-networks
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
+- id: doi:10.5220/0012891000003838
+  title: Reducing the Transformer Architecture to a Minimum
   authors:
-  - Daniel S Himmelstein
-  - Ariel Rodriguez Romero
-  - Jacob G Levernier
-  - Thomas Anthony Munro
-  - Stephen Reid McLaughlin
-  - Bastian Greshake Tzovaras
-  - Casey S Greene
-  publisher: eLife
-  date: '2018-03-01'
-  link: https://doi.org/ckcj
-  image: https://iiif.elifesciences.org/lax:32822%2Felife-32822-fig8-v3.tif/full/863,/0/default.webp
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Massimo Pavone
+  - Julianus Kath
+  - Siegfried Handschuh
+  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2024-01-01'
+  link: https://doi.org/g9k468
+  orcid: 0000-0002-2524-1850
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: "Transformers, widely used in NLP and CV, rely on the attention mechanism\
+    \ to extract relevant context from sequences and scenes. While typically paired\
+    \ with Multi-Layer Perceptrons (MLPs) for modeling nonlinearity, the attention\
+    \ mechanism itself is inherently nonlinear. This raises the question of whether\
+    \ MLPs are necessary, especially since they hold most of the model\u2019s parameters.\
+    \ Simplifications such as removing MLPs, collapsing query/key and value/projection\
+    \ matrices, and using symmetric similarity measures can drastically reduce parameter\
+    \ count. Empirical tests on MNIST, CIFAR-10, and ImageNet show that these streamlined\
+    \ architectures maintain performance while cutting parameters by up to 90%."
+  image: images/cites/paper_ReducingTransformerArchitectureToAMinimum.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5220/0012891000003838
+  - text: arXiv
+    link: https://arxiv.org/abs/2410.13732
+  tags:
+  - paper
+  - qds
+  - transformers
+  - training
+  - neural-networks
+- id: handle:20.500.14171/118790
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/118790
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.5220/0012203800003598
+  title: Make Deep Networks Shallow Again
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: Proceedings of the 15th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2023-01-01'
+  link: https://doi.org/g9k469
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/109017
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/109017
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/108192
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/108192
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/111574
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/111574
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/112398
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/112398
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/98270
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98270
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/98459
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98459
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/98861
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98861
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/100778
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/100778
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/103662
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/103662
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/104368
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/104368
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2024.emnlp-main.1155
+  title: "Let\u2019s discuss! Quality Dimensions and Annotated Datasets for Computational\
+    \ Argument Quality Assessment"
+  authors:
+  - Rositsa V Ivanova
+  - Thomas Huber
+  - Christina Niklaus
+  publisher: Proceedings of the 2024 Conference on Empirical Methods in Natural Language
+    Processing
+  date: '2024-01-01'
+  link: https://doi.org/g9k47b
+  orcid: 0000-0002-1274-0925
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: Research in the computational assessment of Argumentation Quality has
+    gained popularity over the last ten years. Various quality dimensions have been
+    explored through the creation of domain-specific datasets and assessment methods.
+    We survey the related literature (211 publications and 32 datasets), while addressing
+    potential overlaps and blurry boundaries to related domains. This paper provides
+    a representative overview of the state of the art in Computational Argument Quality
+    Assessment with a focus on quality dimensions and annotated datasets. The aim
+    of the survey is to identify research gaps and to aid future discussions and work
+    in the domain.
+  image: images/cites/paper_LetsDiscussQualityDimensionsAndAnnotatedDatasetsForComputationalArgumentQualityAssessment.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.18653/v1/2024.emnlp-main.1155
+  - text: ACL Anthology
+    link: https://aclanthology.org/2024.emnlp-main.1155/
+  tags:
+  - paper
+  - argumentative-ai
+  - argumentation
+  - llm
+  - open llm
+  - proprietary llm
+- id: doi:10.34156/9783791062228
+  title: "Generative K\xFCnstliche Intelligenz"
+  authors: []
+  publisher: "Sch\xE4ffer-Poeschel"
+  date: '2024-01-01'
+  link: https://doi.org/g9k5cz
+  type: book
+  description: "Generative K\xFCnstliche Intelligenz beschreibt eine Klasse von KI-Systemen,\
+    \ die in der Lage sind, aus gro\xDFen Datenmengen zu lernen und auf dieser Grundlage\
+    \ neue, bisher nicht gesehene Inhalte zu generieren, wie beispielsweise Texte,\
+    \ Bilder, Musik oder Videos. Dabei wird die Generierungskapazit\xE4t der KI mit\
+    \ dem Ziel eingesetzt, kreative Prozesse zu unterst\xFCtzen, neue Ideen zu generieren\
+    \ und innovative L\xF6sungsans\xE4tze zu liefern. Trotz ihrer beeindruckenden\
+    \ F\xE4higkeiten haben generative KI-Systeme auch ihre Herausforderungen, wie\
+    \ die Kontrolle \xFCber den generierten Inhalt, das Verst\xE4ndnis von Kontext\
+    \ und Bedeutung sowie ethische Fragen\u200B im Zusammenhang mit der Nutzung von\
+    \ generativer KI. Der Band gibt einen \xDCberblick \xFCber generative KI-Systeme\
+    \ und beleuchtet die Auswirkungen auf das Management von Innovationen, Wirtschaft,\
+    \ Bildung und Gesellschaft.\u200B"
+  image: "images/cites/book_generativeKu\u0308nstlicheIntelligenz.jpg"
+  buttons:
+  - text: Schaeffer - Poeschel
+    link: https://elibrary.schaeffer-poeschel.de/book/10.34156/9783791062228
+  - text: Amazon
+    link: https://www.amazon.de/Generative-K%C3%BCnstliche-Intelligenz-Wirtschaft-Gesellschaft/dp/3791062204
+  - text: DOI
+    link: https://doi.org/10.34156/9783791062228
+  tags:
+  - book
+  - KI
+  - Artificial-Intelligence
+  - ChatGPT
+  - Wirtschaft
+  - Bildung
+  - Gesellschaft
   plugin: sources.py
   file: sources.yaml

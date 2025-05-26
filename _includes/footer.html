@@ -23,10 +23,17 @@
     {% endfor %}
   </div>
 
-  <div>
+  <div style="text-align: center;">
     &copy; {{ site.time | date: "%Y" }}
     {{ site.title }}
-    &nbsp; | &nbsp; Built with
+    &nbsp; | &nbsp;
+    <img 
+      src="{{ 'images/ICS_HSG-LogoWithWhiteBackground.png' | relative_url }}" 
+      alt="Lab Logo" 
+      style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+    >
+    &nbsp; | &nbsp;
+    Built with
     <a href="https://github.com/greenelab/lab-website-template">
       Lab Website Template
     </a>
