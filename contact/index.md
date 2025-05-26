@@ -56,10 +56,15 @@ We welcome inquiries from students, researchers, and industry partners intereste
 
 {% capture col1 %}
 ICS-HSG
+
 Institute of Computer Science
+
 University of St.Gallen
+
 Rosenbergstrasse 30
+
 CH-9000 St.Gallen
+
 {% endcapture %}
 
 {% capture col2 %}
