@@ -55,21 +55,21 @@ We welcome inquiries from students, researchers, and industry partners intereste
 {% include section.html dark=true %}
 
 {% capture col1 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+ICS-HSG
+Institute of Computer Science
+University of St.Gallen
+Rosenbergstrasse 30
+CH-9000 St.Gallen
 {% endcapture %}
 
 {% capture col2 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+This website is subject to the HSG wide policies. See also the pages [Data Protection Declaration](https://www.unisg.ch/en/data-protection-declaration/) and [Copyright & Disclaimer](https://www.unisg.ch/en/copyright-disclaimer/)
+
 {% endcapture %}
 
 {% capture col3 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+This website was build with the [greenelab jekyll template](https://github.com/greenelab/lab-website-template).
+
 {% endcapture %}
 
 {% include cols.html col1=col1 col2=col2 col3=col3 %}
