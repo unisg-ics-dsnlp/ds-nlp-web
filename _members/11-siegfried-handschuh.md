@@ -6,6 +6,7 @@ description: Prof. Dr. | Full Professor for Data Science and Natural Language Pr
 affiliation: University of St. Gallen (HSG)
 aliases:
   - S. Handschuh
+  - Siegfried Handschuh
 links:
   home-page: https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/
   orcid: 0000-0002-6195-9034
