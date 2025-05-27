@@ -13,17 +13,17 @@ nav:
 
 {% include section.html background="images/background.jpg" dark=true %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<div style="text-align: center;">
+  "The best way to predict the future is to invent it"<br>Alan Kay (1971)
+</div>
 
 {% include section.html %}
 
 {% capture content %}
 
-{% include figure.html image="images/photo.jpg" %}
-{% include figure.html image="images/photo.jpg" %}
-{% include figure.html image="images/photo.jpg" %}
+{% include figure.html image="images/team/1_StockTeamImage.png" %}
+{% include figure.html image="images/team/2_StockTeamImage.png" %}
+{% include figure.html image="images/team/3_StockTeamImage.png" %}
 
 {% endcapture %}
 

@@ -6,6 +6,7 @@ description: Prof. Dr. | Assistant Professor
 affiliation: University of St. Gallen (HSG)
 aliases:
   - C. Niklaus
+  - Christina Niklaus
 links:
   home-page: https://ics.unisg.ch/the-institute/about-us/team/detail/person-id/28fd459a-6078-46a3-bb2f-e3bc240491df/
   orcid: 0000-0001-9344-8127

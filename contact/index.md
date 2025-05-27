@@ -30,46 +30,36 @@ We welcome inquiries from students, researchers, and industry partners intereste
 
 {% include section.html %}
 
-{% capture col1 %}
-
-{%
-  include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
-%}
-
-{% endcapture %}
-
-{% capture col2 %}
-
-{%
-  include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
-%}
-
-{% endcapture %}
+<div style="position: relative; width: 100%; padding-bottom: 70%; height: 0; overflow: hidden; border: 1px solid grey;">
+  <iframe
+    src="https://use.mazemap.com/embed.html#v=1&amp;config=unisg-profile&amp;campusid=710&amp;zlevel=7&amp;center=9.370851,47.425086&amp;zoom=16&amp;sharepoitype=poi&amp;sharepoi=1000760525&amp;utm_medium=iframe"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    frameborder="0"
+    allow="geolocation"
+    scrolling="no">
+  </iframe>
+</div>
 
 {% include cols.html col1=col1 col2=col2 %}
 
 {% include section.html dark=true %}
 
 {% capture col1 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+ICS-HSG<br>
+Institute of Computer Science<br>
+University of St.Gallen<br>
+Rosenbergstrasse 30<br>
+CH-9000 St.Gallen<br>
 {% endcapture %}
 
 {% capture col2 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+This website is subject to the [HSG](https://www.unisg.ch/) wide policies. See also the pages [Data Protection Declaration](https://www.unisg.ch/en/data-protection-declaration/) and [Copyright & Disclaimer](https://www.unisg.ch/en/copyright-disclaimer/).
+
 {% endcapture %}
 
 {% capture col3 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+This website was build with the [Lab Website Template](https://github.com/greenelab/lab-website-template).
+
 {% endcapture %}
 
 {% include cols.html col1=col1 col2=col2 col3=col3 %}

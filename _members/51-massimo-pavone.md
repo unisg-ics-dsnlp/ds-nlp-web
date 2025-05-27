@@ -6,4 +6,5 @@ description: B.Sc.| Hiwi
 affiliation: University of St. Gallen (HSG)
 aliases:
   - M. Pavone
+  - Massimo Pavone
 ---
