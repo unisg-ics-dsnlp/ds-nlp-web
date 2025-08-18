@@ -36,6 +36,8 @@
 
 ## QDS ##
 
+
+# Paper: Integrating the Attention Mechanism Into State Space Models
 - id: doi:10.1109/SDS66131.2025.00033
   type: paper
   description: This work contrasts attention mechanisms and state space models as fundamentally different model categories—finite versus infinite impulse response systems—and proposes an extension to SSMs that incorporates similarity, akin to attention, to overcome their limitations in capturing contextual relevance.
@@ -43,17 +45,33 @@
   buttons:
     - text: DOI
       link: https://doi.org/10.1109/SDS66131.2025.00033
+    - text: Alexandria
+      link: ttps://www.alexandria.unisg.ch/handle/20.500.14171/123182
   tags:
     - paper
     - qds
     - transformers
-    - neural-networks
     - attention
     - state-space-models
-    - ssm
   repo: unisg-ics-dsnlp/qds
   highlighted: true
 
+# Poster: Integrating the Attention Mechanism Into State Space Models
+- id: doi:10.5281/zenodo.16380849
+  type: poster
+  description: Poster from the SDS2025 Conference for the Paper from Hrycej et al. "Integrating the Attention Mechanism Into State Space Models".
+  image: images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
+  buttons:
+    - text: DOI
+      link: https://doi.org/10.5281/zenodo.16380849
+  tags:
+    - poster
+    - qds
+    - transformers
+    - attention
+    - state-space-models
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
 
 # Efficient Neural Network Training via Subset Pretraining - Spörer et al.
 - id: doi:10.5220/0012893600003838
