@@ -34,7 +34,27 @@
     - open llm
     - proprietary llm
 
-  ## QDS ##
+## QDS ##
+
+- id: doi:10.1109/SDS66131.2025.00033
+  type: paper
+  description: This work contrasts attention mechanisms and state space models as fundamentally different model categories—finite versus infinite impulse response systems—and proposes an extension to SSMs that incorporates similarity, akin to attention, to overcome their limitations in capturing contextual relevance.
+  image: images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
+  buttons:
+    - text: DOI
+      link: https://doi.org/10.1109/SDS66131.2025.00033
+  tags:
+    - paper
+    - qds
+    - transformers
+    - neural-networks
+    - attention
+    - state-space-models
+    - ssm
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
+
+
 # Efficient Neural Network Training via Subset Pretraining - Spörer et al.
 - id: doi:10.5220/0012893600003838
   type: paper
