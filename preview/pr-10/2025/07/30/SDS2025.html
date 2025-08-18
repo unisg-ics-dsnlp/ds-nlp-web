@@ -66,10 +66,10 @@
 
   <meta name="author" content="Götz-Henrik Wiegand">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-08-18T11:25:57+00:00">
+  <meta property="og:updated_time" content="2025-08-18T11:36:37+00:00">
   <meta property="article:published_time" content="2025-07-30T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-08-18T11:25:57+00:00">
-  <meta name="revised" content="2025-08-18T11:25:57+00:00">
+  <meta property="article:modified_time" content="2025-08-18T11:36:37+00:00">
+  <meta name="revised" content="2025-08-18T11:36:37+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Bridging Attention and State Space Models - A Systems Theory Perspective" },
       "datePublished": "2025-07-30T00:00:00+00:00",
-      "dateModified": "2025-08-18T11:25:57+00:00",
+      "dateModified": "2025-08-18T11:36:37+00:00",
     
     "name": "Bridging Attention and State Space Models - A Systems Theory Perspective",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -517,17 +517,29 @@
 
 <h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
-<p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work [1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
+<p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
 <figure class="figure">
   <a class="figure-image" aria-label="figure link">
     <img src="/ds-nlp-web/preview/pr-10/images/posts/SDS-GroupPicPoster.jpg" style="
-        width: auto;
+        width: 50%;
         max-height: unset;
       " alt="figure image" loading="lazy" onerror="this.src = '/ds-nlp-web/preview/pr-10/images/fallback.svg'; this.onerror = null;">
   </a>
   
 </figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="the-tale-of-two-architectures">The Tale of Two Architectures</h2>
 
@@ -556,6 +568,18 @@
 <p>$$y_i = h_i C \quad \text{(generate output)}$$</p>
 
 <p>Here, $h_i$ is the memory state, and matrices $A$, $B$, $C$ control how information flows through the system.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="the-hidden-connection-two-sides-of-the-same-coin">The Hidden Connection: Two Sides of the Same Coin</h2>
 
@@ -607,6 +631,18 @@
   <li>
 <strong>SSMs behave like Infinite Impulse Response (IIR) filters</strong>: They use feedback and memory, making them more parameter-efficient</li>
 </ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="the-trade-off-context-vs-efficiency">The Trade-off: Context vs Efficiency</h2>
 
@@ -638,6 +674,18 @@
 <p>Think of the memory state $h_{i-1}$ as containing a compressed representation of all past context. When a new token $x_i$ arrives, we check how well it “fits” with this accumulated context. Tokens that are highly relevant to the current context get stronger weights in the state update.</p>
 
 <p>This is like having a conversation where you pay more attention to statements that connect well with the topic you’ve been discussing, while still maintaining a continuous thread of memory.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="dynamic-system-properties">Dynamic System Properties</h2>
 
@@ -653,6 +701,18 @@
 </ul>
 
 <p>For language modeling, we want stable, non-oscillating behavior. This constrains $A$ to have real, positive eigenvalues bounded by 1, which can be achieved using diagonal matrices with sigmoid-activated elements. This insight has been crucial for modern SSM architectures like S4 [3], Mamba [5], and other recent developments [8,9].</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="looking-forward-implementation-challenges">Looking Forward: Implementation Challenges</h2>
 
@@ -668,6 +728,18 @@
 </ol>
 
 <p>However, we believe the potential benefits - combining SSMs’ efficiency with attention’s context awareness - make this a promising research direction.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -678,8 +750,138 @@
 <p>As language models continue to handle longer and longer sequences, finding efficient ways to model context becomes increasingly critical. The marriage of attention and state space concepts may be key to building the next generation of language models that are both computationally efficient and contextually aware.</p>
 
 <p>The journey from attention to state space models and back again reminds us that in machine learning, the most powerful solutions often come from understanding and combining different perspectives on the same underlying problem.</p>
+  </section>
 
-<hr>
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://www.alexandria.unisg.ch/handle/20.500.14171/123182" class="citation-image" aria-label="Integrating the Attention Mechanism Into State Space Models">
+        <img src="/ds-nlp-web/preview/pr-10/images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png" alt="Integrating the Attention Mechanism Into State Space Models" loading="lazy" onerror="this.src = '/ds-nlp-web/preview/pr-10/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      <i class="icon fa-solid fa-scroll"></i>
+
+      <a href="https://www.alexandria.unisg.ch/handle/20.500.14171/123182" class="citation-title">
+        Integrating the Attention Mechanism Into State Space Models
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Tomas Hrycej, Bernhard Bermeitinger, Siegfried Handschuh
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">2025 IEEE Swiss Conference on Data Science (SDS)</span>
+         · 
+        <span class="citation-date">18 Jul 2025</span>
+         · 
+        <span class="citation-id">handle:20.500.14171/123182</span>
+      </div>
+
+      
+        
+          <div class="citation-description">
+            This work contrasts attention mechanisms and state space models as fundamentally different model categories—finite versus infinite impulse response systems—and proposes an extension to SSMs that incorporates similarity, akin to attention, to overcome their limitations in capturing contextual relevance.
+
+          </div>
+        
+
+        
+          <div class="citation-buttons">
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://doi.org/10.1109/SDS66131.2025.00033" data-style="bare" aria-label="button">
+      
+      
+        <span>DOI</span>
+      
+    </a>
+  </div>
+
+
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="ttps://www.alexandria.unisg.ch/handle/20.500.14171/123182" data-style="bare" aria-label="button">
+      
+      
+        <span>Alexandria</span>
+      
+    </a>
+  </div>
+
+
+            
+          </div>
+        
+
+        
+          
+
+
+  <div class="tags" data-repo="unisg-ics-dsnlp/qds">
+    
+      <a href='?search="tag:%20paper"' class="tag" data-tooltip='Show items with the tag "paper"'>
+        paper
+      </a>
+    
+      <a href='?search="tag:%20qds"' class="tag" data-tooltip='Show items with the tag "qds"'>
+        qds
+      </a>
+    
+      <a href='?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='?search="tag:%20attention"' class="tag" data-tooltip='Show items with the tag "attention"'>
+        attention
+      </a>
+    
+      <a href='?search="tag:%20state-space-models"' class="tag" data-tooltip='Show items with the tag "state-space-models"'>
+        state-space-models
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <h2 id="references">References</h2>
 
@@ -700,8 +902,18 @@
 <p>[8] Smith, J., Warrington, A., &amp; Linderman, S. W. (2022). Simplified state space layers for sequence modeling. <em>arXiv preprint arXiv:2208.04933</em>, Url:  <a href="https://arxiv.org/abs/2208.04933">arxiv.org/abs/2208.04933</a></p>
 
 <p>[9] Mehta, H., Gupta, A., Cutkosky, A., &amp; Neyshabur, B. (2022). Long range language modeling via gated state spaces. <em>arXiv preprint arXiv:2206.13947</em>, Url: <a href="https://arxiv.org/abs/2206.13947">arxiv.org/abs/2206.13947</a></p>
+  </section>
 
-<hr>
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
 
 <figure class="figure">
   <a class="figure-image" aria-label="figure link">
