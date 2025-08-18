@@ -19,6 +19,7 @@ nav:
 {% include section.html %}
 
 ## Quantitative Data Science (QDS)
+
 {% include citation.html lookup="Integrating the Attention Mechanism Into State Space Models" style="rich" %}
 
 {% include citation.html lookup="Efficient Neural Network Training via Subset Pretraining" style="rich" %}
