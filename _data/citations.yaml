@@ -2112,6 +2112,99 @@
   orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
+- id: handle:20.500.14171/123182
+  title: Integrating the Attention Mechanism Into State Space Models
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: 2025 IEEE Swiss Conference on Data Science (SDS)
+  date: '2025-07-18'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123182
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.5281/zenodo.16380849
+  title: Integrating the Attention Mechanism Into State Space Models
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: Zenodo
+  date: '2025-06-27'
+  link: https://doi.org/g9vfrb
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2337/db25-1386-p
+  title: '1386-P: Machine Learning Predicts T2DM Incidence Using Basic Clinical and
+    Laboratory Parameters'
+  authors:
+  - ANDREAS LEIHERER
+  - LAURA SCHNETZER
+  - SYLVIA MINK
+  - ARTHUR MADER
+  - AXEL MUENDLEIN
+  - BERNHARD BERMEITINGER
+  - THOMAS PLATTNER
+  - ALEXANDER VONBANK
+  - BARBARA LARCHER
+  - CHRISTOPH H. SAELY
+  - PETER FRAUNBERGER
+  - HEINZ DREXEL
+  publisher: Diabetes
+  date: '2025-06-20'
+  link: https://doi.org/g9sgzt
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/123089
+  title: '425-P: Machine Learning Identifies Glypican 4 as Key Predictor of Five-Year
+    Mortality in Heart Failure Patients with Prediabetes or Diabetes'
+  authors:
+  - Andreas Leiherer
+  - Axel Muendlein
+  - Laura Schnetzer
+  - Sylvia Mink
+  - Christine Heinzle
+  - Eva Maria Brandtner
+  - Stella Gaenger
+  - Bernhard Bermeitinger
+  - Thomas Plattner
+  - Alexander Vonbank
+  - Arthur Mader
+  - Barbara Larcher
+  - Christoph H. Saely
+  - Peter Fraunberger
+  - Heinz Drexel
+  publisher: Diabetes
+  date: '2025-06-20'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123089
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.2337/db25-426-p
+  title: '426-P: Predicting Coronary Stenoses Using Machine Learning to Reduce Unnecessary
+    Angiographies'
+  authors:
+  - ANDREAS LEIHERER
+  - LAURA SCHNETZER
+  - SYLVIA MINK
+  - AXEL MUENDLEIN
+  - BERNHARD BERMEITINGER
+  - THOMAS PLATTNER
+  - ALEXANDER VONBANK
+  - ARTHUR MADER
+  - BARBARA LARCHER
+  - CHRISTOPH H. SAELY
+  - PETER FRAUNBERGER
+  - HEINZ DREXEL
+  publisher: Diabetes
+  date: '2025-06-20'
+  link: https://doi.org/g9sgzv
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
 - id: handle:20.500.14171/122546
   title: Is There an Optimal Depth of Residual Networks?
   authors:
@@ -2275,6 +2368,18 @@
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
+- id: handle:20.500.14171/123209
+  title: 'How to Compute a Shape: Optical Character Recognition for Hieratic'
+  authors:
+  - Bernhard Bermeitinger
+  - "G\xFClden Svenja A"
+  - Tobias Konrad
+  publisher: ''
+  date: '2022-02-22'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123209
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
 - id: handle:20.500.14171/109017
   title: ''
   authors: []
@@ -2338,12 +2443,39 @@
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
+- id: handle:20.500.14171/123211
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123211
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
 - id: handle:20.500.14171/100778
   title: ''
   authors: []
   publisher: ''
   date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/100778
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/123065
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123065
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/123210
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123210
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2402,6 +2534,36 @@
   - llm
   - open llm
   - proprietary llm
+- id: doi:10.1109/SDS66131.2025.00033
+  title: Integrating the Attention Mechanism Into State Space Models
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: 2025 IEEE Swiss Conference on Data Science (SDS)
+  date: '2025-06-26'
+  link: https://doi.org/g9xcn9
+  type: paper
+  description: "This work contrasts attention mechanisms and state space models as\
+    \ fundamentally different model categories\u2014finite versus infinite impulse\
+    \ response systems\u2014and proposes an extension to SSMs that incorporates similarity,\
+    \ akin to attention, to overcome their limitations in capturing contextual relevance."
+  image: images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.1109/SDS66131.2025.00033
+  tags:
+  - paper
+  - qds
+  - transformers
+  - neural-networks
+  - attention
+  - state-space-models
+  - ssm
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.34156/9783791062228
   title: "Generative K\xFCnstliche Intelligenz"
   authors: []
