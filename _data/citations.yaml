@@ -2134,8 +2134,23 @@
   date: '2025-06-27'
   link: https://doi.org/g9vfrb
   orcid: 0000-0002-2524-1850
-  plugin: orcid.py
-  file: orcid.yaml
+  plugin: sources.py
+  file: sources.yaml
+  type: poster
+  description: Poster from the SDS2025 Conference for the Paper from Hrycej et al.
+    "Integrating the Attention Mechanism Into State Space Models".
+  image: images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5281/zenodo.16380849
+  tags:
+  - poster
+  - qds
+  - transformers
+  - attention
+  - state-space-models
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
 - id: doi:10.2337/db25-1386-p
   title: '1386-P: Machine Learning Predicts T2DM Incidence Using Basic Clinical and
     Laboratory Parameters'
@@ -2552,14 +2567,14 @@
   buttons:
   - text: DOI
     link: https://doi.org/10.1109/SDS66131.2025.00033
+  - text: Alexandria
+    link: ttps://www.alexandria.unisg.ch/handle/20.500.14171/123182
   tags:
   - paper
   - qds
   - transformers
-  - neural-networks
   - attention
   - state-space-models
-  - ssm
   repo: unisg-ics-dsnlp/qds
   highlighted: true
   plugin: sources.py
