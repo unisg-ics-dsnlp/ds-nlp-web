@@ -66,10 +66,10 @@
 
   <meta name="author" content="Götz-Henrik Wiegand">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-08-18T10:39:51+00:00">
+  <meta property="og:updated_time" content="2025-08-18T10:41:25+00:00">
   <meta property="article:published_time" content="2025-07-30T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-08-18T10:39:51+00:00">
-  <meta name="revised" content="2025-08-18T10:39:51+00:00">
+  <meta property="article:modified_time" content="2025-08-18T10:41:25+00:00">
+  <meta name="revised" content="2025-08-18T10:41:25+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Bridging Attention and State Space Models - A Systems Theory Perspective" },
       "datePublished": "2025-07-30T00:00:00+00:00",
-      "dateModified": "2025-08-18T10:39:51+00:00",
+      "dateModified": "2025-08-18T10:41:25+00:00",
     
     "name": "Bridging Attention and State Space Models - A Systems Theory Perspective",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -551,11 +551,12 @@
 
 <p>The SSM update equations are elegantly simple:</p>
 
-<p>$$\begin{align}
+<p>$$
 h_i &amp;= h_{i-1} A + x_i B \quad \text{(update memory)}
-<br>
+$$
+$$
 y_i &amp;= h_i C \quad \text{(generate output)}
-\end{align}$$</p>
+$$</p>
 
 <p>Here, $h_i$ is the memory state, and matrices $A$, $B$, $C$ control how information flows through the system.</p>
 
@@ -631,10 +632,12 @@ y_i &amp;= h_i C \quad \text{(generate output)}
 
 <p>This similarity score then weights the input:</p>
 
-<p>$$\begin{align}
-h_i &amp;= h_{i-1} A + x_i g(x_i, h_{i-1}) B <br>
+<p>$$
+h_i &amp;= h_{i-1} A + x_i g(x_i, h_{i-1}) B
+$$
+$$
 y_i &amp;= h_i C
-\end{align}$$</p>
+$$</p>
 
 <h3 id="the-intuition">The Intuition</h3>
 

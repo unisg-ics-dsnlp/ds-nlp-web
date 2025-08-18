@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/ds-nlp-web/preview/pr-10/feed.xml" rel="self" type="application/atom+xml" /><link href="/ds-nlp-web/preview/pr-10/" rel="alternate" type="text/html" /><updated>2025-08-18T10:41:31+00:00</updated><id>/ds-nlp-web/preview/pr-10/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-07-30T00:00:00+00:00</published><updated>2025-08-18T10:39:51+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/ds-nlp-web/preview/pr-10/feed.xml" rel="self" type="application/atom+xml" /><link href="/ds-nlp-web/preview/pr-10/" rel="alternate" type="text/html" /><updated>2025-08-18T10:42:09+00:00</updated><id>/ds-nlp-web/preview/pr-10/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-07-30T00:00:00+00:00</published><updated>2025-08-18T10:41:25+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/07/30/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work [1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -34,11 +34,12 @@
 
 <p>The SSM update equations are elegantly simple:</p>
 
-<p>$$\begin{align}
+<p>$$
 h_i &amp;= h_{i-1} A + x_i B \quad \text{(update memory)}
-<br />
+$$
+$$
 y_i &amp;= h_i C \quad \text{(generate output)}
-\end{align}$$</p>
+$$</p>
 
 <p>Here, $h_i$ is the memory state, and matrices $A$, $B$, $C$ control how information flows through the system.</p>
 
@@ -108,10 +109,12 @@ y_i &amp;= h_i C \quad \text{(generate output)}
 
 <p>This similarity score then weights the input:</p>
 
-<p>$$\begin{align}
-h_i &amp;= h_{i-1} A + x_i g(x_i, h_{i-1}) B <br />
+<p>$$
+h_i &amp;= h_{i-1} A + x_i g(x_i, h_{i-1}) B
+$$
+$$
 y_i &amp;= h_i C
-\end{align}$$</p>
+$$</p>
 
 <h3 id="the-intuition">The Intuition</h3>
 
@@ -173,7 +176,7 @@ y_i &amp;= h_i C
 
 <p>[8] Smith, J., Warrington, A., &amp; Linderman, S. W. (2022). Simplified state space layers for sequence modeling. <em>arXiv preprint arXiv:2208.04933</em>.</p>
 
-<p>[9] Mehta, H., Gupta, A., Cutkosky, A., &amp; Neyshabur, B. (2022). Long range language modeling via gated state spaces. <em>arXiv preprint arXiv:2206.13947</em>.</p>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-2025-AttentionSSM.jpg" /><media:content medium="image" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-2025-AttentionSSM.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-08-18T10:39:51+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+<p>[9] Mehta, H., Gupta, A., Cutkosky, A., &amp; Neyshabur, B. (2022). Long range language modeling via gated state spaces. <em>arXiv preprint arXiv:2206.13947</em>.</p>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-2025-AttentionSSM.jpg" /><media:content medium="image" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-2025-AttentionSSM.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-08-18T10:41:25+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 
