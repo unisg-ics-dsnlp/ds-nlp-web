@@ -66,10 +66,10 @@
 
   <meta name="author" content="Götz-Henrik Wiegand">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-08-18T10:32:39+00:00">
+  <meta property="og:updated_time" content="2025-08-18T10:39:51+00:00">
   <meta property="article:published_time" content="2025-07-30T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-08-18T10:32:39+00:00">
-  <meta name="revised" content="2025-08-18T10:32:39+00:00">
+  <meta property="article:modified_time" content="2025-08-18T10:39:51+00:00">
+  <meta name="revised" content="2025-08-18T10:39:51+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Bridging Attention and State Space Models - A Systems Theory Perspective" },
       "datePublished": "2025-07-30T00:00:00+00:00",
-      "dateModified": "2025-08-18T10:32:39+00:00",
+      "dateModified": "2025-08-18T10:39:51+00:00",
     
     "name": "Bridging Attention and State Space Models - A Systems Theory Perspective",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -552,7 +552,8 @@
 <p>The SSM update equations are elegantly simple:</p>
 
 <p>$$\begin{align}
-h_i &amp;= h_{i-1} A + x_i B \quad \text{(update memory)}<br>
+h_i &amp;= h_{i-1} A + x_i B \quad \text{(update memory)}
+<br>
 y_i &amp;= h_i C \quad \text{(generate output)}
 \end{align}$$</p>
 
@@ -576,8 +577,6 @@ y_i &amp;= h_i C \quad \text{(generate output)}
 
 <p>Both are saying: <strong>“Take each past token, multiply it by some weight, and add them all up.”</strong></p>
 
-<h3 id="the-key-insight-its-all-about-the-weights">The Key Insight: It’s All About the Weights</h3>
-
 <p>The profound realization is that both mechanisms are computing <strong>weighted averages</strong> of past information - they just calculate the weights differently:</p>
 
 <ul>
@@ -595,7 +594,9 @@ y_i &amp;= h_i C \quad \text{(generate output)}
 <strong>SSMs</strong> are like your memory - recent events are vivid and influential, while older memories fade gradually but systematically</li>
 </ul>
 
-<h3 id="why-this-matters">Why This Matters</h3>
+<blockquote>
+  <p>Why does this matter? g</p>
+</blockquote>
 
 <p>This connection reveals that the attention vs. SSM debate isn’t about choosing completely different approaches - it’s about choosing different strategies for the same fundamental task: <strong>deciding how much weight to give to different pieces of past information</strong>.</p>
 
