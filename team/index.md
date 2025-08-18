@@ -21,9 +21,9 @@ nav:
 
 {% capture content %}
 
-{% include figure.html image="images/team/1_StockTeamImage.png" %}
 {% include figure.html image="images/team/2_StockTeamImage.png" %}
-{% include figure.html image="images/team/3_StockTeamImage.png" %}
+{% include figure.html image="images/posts/SDS-Hall.jpg" %}
+{% include figure.html image="images/posts/SDS-Poster.jpg" %}
 
 {% endcapture %}
 
