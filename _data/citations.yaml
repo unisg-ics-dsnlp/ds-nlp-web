@@ -2158,7 +2158,7 @@
   type: poster
   description: Poster from the SDS2025 Conference for the Paper from Hrycej et al.
     "Integrating the Attention Mechanism Into State Space Models".
-  image: images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
+  image: images/cites/poster_IntegratingTheAttentionMechanismIntoStateSpaceModels.png
   buttons:
   - text: DOI
     link: https://doi.org/10.5281/zenodo.16380849
