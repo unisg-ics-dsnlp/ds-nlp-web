@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/ds-nlp-web/preview/pr-10/feed.xml" rel="self" type="application/atom+xml" /><link href="/ds-nlp-web/preview/pr-10/" rel="alternate" type="text/html" /><updated>2025-08-19T08:21:01+00:00</updated><id>/ds-nlp-web/preview/pr-10/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-08-19T08:17:57+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/ds-nlp-web/preview/pr-10/feed.xml" rel="self" type="application/atom+xml" /><link href="/ds-nlp-web/preview/pr-10/" rel="alternate" type="text/html" /><updated>2025-08-20T10:59:10+00:00</updated><id>/ds-nlp-web/preview/pr-10/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-08-20T10:57:42+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -202,16 +202,16 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://www.alexandria.unisg.ch/handle/20.500.14171/123182" class="citation-image" aria-label="Integrating the Attention Mechanism Into State Space Models">
-        <img src="/ds-nlp-web/preview/pr-10/images/cites/paper_IntegratingTheAttentionMechanismIntoStateSpaceModels.png" alt="Integrating the Attention Mechanism Into State Space Models" loading="lazy" onerror="this.src = '/ds-nlp-web/preview/pr-10/images/fallback.svg'; this.onerror = null;" />
+      <a href="https://doi.org/g9vfrb" class="citation-image" aria-label="Integrating the Attention Mechanism Into State Space Models">
+        <img src="/ds-nlp-web/preview/pr-10/images/cites/poster_IntegratingTheAttentionMechanismIntoStateSpaceModels.png" alt="Integrating the Attention Mechanism Into State Space Models" loading="lazy" onerror="this.src = '/ds-nlp-web/preview/pr-10/images/fallback.svg'; this.onerror = null;" />
       </a>
     
 
     <div class="citation-text">
       
-      <i class="icon fa-solid fa-scroll"></i>
+      
 
-      <a href="https://www.alexandria.unisg.ch/handle/20.500.14171/123182" class="citation-title">
+      <a href="https://doi.org/g9vfrb" class="citation-title">
         Integrating the Attention Mechanism Into State Space Models
       </a>
 
@@ -221,17 +221,17 @@
       </div>
 
       <div class="citation-details">
-        <span class="citation-publisher">2025 IEEE Swiss Conference on Data Science (SDS)</span>
+        <span class="citation-publisher">Zenodo</span>
         &nbsp;·&nbsp;
-        <span class="citation-date">18 Jul 2025</span>
+        <span class="citation-date">27 Jun 2025</span>
         &nbsp;·&nbsp;
-        <span class="citation-id">handle:20.500.14171/123182</span>
+        <span class="citation-id">doi:10.5281/zenodo.16380849</span>
       </div>
 
       
         
           <div class="citation-description">
-            This work contrasts attention mechanisms and state space models as fundamentally different model categories—finite versus infinite impulse response systems—and proposes an extension to SSMs that incorporates similarity, akin to attention, to overcome their limitations in capturing contextual relevance.
+            Poster from the SDS2025 Conference for the Paper from Hrycej et al. “Integrating the Attention Mechanism Into State Space Models”.
 
           </div>
         
@@ -244,25 +244,10 @@
 
 
   <div class="button-wrapper">
-    <a class="button" href="https://doi.org/10.1109/SDS66131.2025.00033" data-style="bare" aria-label="button">
+    <a class="button" href="https://doi.org/10.5281/zenodo.16380849" data-style="bare" aria-label="button">
       
       
         <span>DOI</span>
-      
-    </a>
-  </div>
-
-
-            
-              
-
-
-
-  <div class="button-wrapper">
-    <a class="button" href="ttps://www.alexandria.unisg.ch/handle/20.500.14171/123182" data-style="bare" aria-label="button">
-      
-      
-        <span>Alexandria</span>
       
     </a>
   </div>
@@ -278,8 +263,8 @@
 
   <div class="tags" data-repo="unisg-ics-dsnlp/qds">
     
-      <a href="?search=&quot;tag: paper&quot;" class="tag" data-tooltip="Show items with the tag &quot;paper&quot;">
-        paper
+      <a href="?search=&quot;tag: poster&quot;" class="tag" data-tooltip="Show items with the tag &quot;poster&quot;">
+        poster
       </a>
     
       <a href="?search=&quot;tag: qds&quot;" class="tag" data-tooltip="Show items with the tag &quot;qds&quot;">
@@ -349,7 +334,7 @@
       " alt="figure image" loading="lazy" onerror="this.src = '/ds-nlp-web/preview/pr-10/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-08-19T08:17:57+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/ds-nlp-web/preview/pr-10/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-08-20T10:57:42+00:00</updated><id>/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World</id><content type="html" xml:base="/ds-nlp-web/preview/pr-10/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 
