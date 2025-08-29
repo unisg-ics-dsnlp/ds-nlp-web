@@ -2555,6 +2555,56 @@
   - llm
   - open llm
   - proprietary llm
+- id: doi:10.1109/SDS66131.2025.00025
+  title: Identification of the Most Frequently Asked Questions in Financial Analyst
+    Reports to Automate Equity Research Using Llama 3 and GPT-4
+  authors:
+  - Adria Pop
+  - "Jan Sp\xF6rer"
+  publisher: 2025 IEEE Swiss Conference on Data Science (SDS)
+  date: '2025-06-26'
+  link: https://doi.org/g9zqnv
+  type: paper
+  description: "This research dissects financial equity research reports (ERRs) by\
+    \ systematically mapping their content into categories. There is insufficient\
+    \ empirical analysis of the questions answered in ERRs. In particular, it is not\
+    \ understood how frequently certain information appears, what information is considered\
+    \ essential, and what information requires human judgment to distill into an ERR.\
+    \ The study analyzes 72 ERRs sentence-by-sentence, classifying their 4964 sentences\
+    \ into 169 unique question archetypes. We did not predefine the questions but\
+    \ derived them solely from the statements in the ERRs. This approach provides\
+    \ an unbiased view of the content of the observed ERRs. Subsequently, we used\
+    \ public corporate reports to classify the questions\u2019 potential for automation.\
+    \ Answers were labeled \u201Ctext-extractable\u201D if the answers to the question\
+    \ were accessible in corporate reports. 75.15% of the questions in ERRs can be\
+    \ automated using text extraction from text sources. Those automatable questions\
+    \ consist of 51.91% text-extractable (suited to processing by large language models,\
+    \ LLMs) and 24.24% database-extractable questions. Only 24.85% of questions require\
+    \ human judgment to answer. We empirically validate, using Llama-3-70B and GPT-4-turbo-2024-04-09\
+    \ that recent advances in language generation and infor- mation extraction enable\
+    \ the automation of approximately 80% of the statements in ERRs. Surprisingly,\
+    \ the models complement each other\u2019s strengths and weaknesses well, indicating\
+    \ strong ensemble potential. The research confirms that the current writing process\
+    \ of ERRs can likely benefit from additional automation, improving quality and\
+    \ efficiency. The research thus allows us to quantify the potential impacts of\
+    \ introducing large language models in the ERR writing process. The full question\
+    \ list, including the archetypes and their frequency, are available online (link\
+    \ removed to preserve anonymity)."
+  image: images/cites/SDS-2025-2-image.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.1109/SDS66131.2025.00025
+  - text: IEEE
+    link: https://ieeexplore.ieee.org/document/11081504
+  tags:
+  - financial-ai
+  - annual-reports
+  - equity-research
+  - machine-learning
+  - gpt-4
+  - llama-3
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.34156/9783791062228
   title: "Generative K\xFCnstliche Intelligenz"
   authors: []
