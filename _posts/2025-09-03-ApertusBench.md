@@ -2,11 +2,13 @@
 title: LLM Benchmark Evaluation - Apertus-8B 
 author: Götz-Henrik Wiegand
 image: images/posts/ApertusBench-Thumbnail.png
-date: 2025-09-04
+date: 2025-09-03
 tags:
   - transformers
   - machine-learning
-  
+  - large language models
+  - artificial intelligence
+  - switzerland
 ---
 
 # LLM Benchmark Evaluation - Apertus-8B 
