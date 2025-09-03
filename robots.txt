@@ -1,1 +1,1 @@
-Sitemap: https://unisg-ics-dsnlp.github.io/ds-nlp-web/sitemap.xml
+Sitemap: http://blog.nlp-lab.ai/sitemap.xml
