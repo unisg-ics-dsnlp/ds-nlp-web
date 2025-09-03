@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-03T22:53:42+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-03T22:43:07+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+
+<p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/SDS-GroupPicPoster.jpg" style="
+        width: 50%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-tale-of-two-architectures">The Tale of Two Architectures</h2>
+
+<h3 id="attention-mechanisms-the-context-masters">Attention Mechanisms: The Context Masters</h3>
+
+<p>The attention mechanism, popularized by the “Attention is All You Need” paper [2], works by allowing each token in a sequence to “look at” all previous tokens and decide which ones are most relevant for the current prediction.</p>
+
+<p>Think of it like this: when you’re reading a sentence and trying to understand what “it” refers to, you automatically scan back through the text to find the most likely candidate. The attention mechanism does something similar - it computes similarity scores between tokens and uses these to create weighted combinations of past information.</p>
+
+<p>Mathematically, for a token at position i, attention computes:</p>
+
+<p>$$y_i = \sum_{j=1}^{i} a_{i,j} x_j W_V W_O$$</p>
+
+<p>Where $a_{i,j}$ represents how much attention token i pays to token j, computed using query-key similarity:</p>
+
+<p>$$a_{i,j} = \text{softmax}(x_j W_K W_Q^T x_i^T)$$</p>
+
+<h3 id="state-space-models-the-memory-keepers">State Space Models: The Memory Keepers</h3>
+
+<p>State Space Models take a different approach. Instead of looking back at all previous tokens directly, they maintain a “memory state” that gets updated as each new token arrives. This state vector acts like a continuously updating summary of everything seen so far.</p>
+
+<p>The SSM update equations are elegantly simple:</p>
+
+<p>$$h_i = h_{i-1} A + x_i B \quad \text{(update memory)}$$</p>
+
+<p>$$y_i = h_i C \quad \text{(generate output)}$$</p>
+
+<p>Here, $h_i$ is the memory state, and matrices $A$, $B$, $C$ control how information flows through the system.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-hidden-connection-two-sides-of-the-same-coin">The Hidden Connection: Two Sides of the Same Coin</h2>
+
+<p>Here’s where something truly remarkable emerges from our analysis. Despite looking completely different on the surface, attention mechanisms and state space models are actually solving the same problem in surprisingly similar ways.</p>
+
+<p>When we carefully expand the mathematical equations for both approaches, something amazing happens.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/SDS-PaperFormulars-AttentionVsSSM.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p>Both are saying: <strong>“Take each past token, multiply it by some weight, and add them all up.”</strong></p>
+
+<p>The profound realization is that both mechanisms are computing <strong>weighted averages</strong> of past information - they just calculate the weights differently:</p>
+
+<ul>
+  <li><strong>Attention weights</strong> ($W_{i,j}$): “How relevant is this past token to what I’m trying to understand right now?” (content-based)</li>
+  <li><strong>SSM weights</strong> ($V_{i,j}$): “How much should this past token influence me, given how long ago it was?” (position-based with exponential decay)</li>
+</ul>
+
+<p>Think of it like this:</p>
+<ul>
+  <li><strong>Attention</strong> is like a smart librarian who picks the most relevant books for your research question, regardless of when they were written</li>
+  <li><strong>SSMs</strong> are like your memory - recent events are vivid and influential, while older memories fade gradually but systematically</li>
+</ul>
+
+<p><strong>Why does this matter?</strong></p>
+
+<p>This connection reveals that the attention vs. SSM debate isn’t about choosing completely different approaches - it’s about choosing different strategies for the same fundamental task: <strong>deciding how much weight to give to different pieces of past information</strong>.</p>
+
+<p>Understanding this similarity opens up new possibilities: What if we could combine the best of both worlds? What if we could create systems that are both computationally efficient like SSMs AND contextually smart like attention?</p>
+
+<p>From a signal processing perspective:</p>
+<ul>
+  <li><strong>Attention behaves like a Finite Impulse Response (FIR) filter</strong>: It needs separate parameters for each possible input position</li>
+  <li><strong>SSMs behave like Infinite Impulse Response (IIR) filters</strong>: They use feedback and memory, making them more parameter-efficient</li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-trade-off-context-vs-efficiency">The Trade-off: Context vs Efficiency</h2>
+
+<p>This reveals the fundamental trade-off:</p>
+
+<h3 id="attentions-strength-context-awareness">Attention’s Strength: Context Awareness</h3>
+<p>Attention excels at capturing which past tokens are contextually relevant, regardless of their position. If “John” appears 50 tokens back but is crucial for understanding the current sentence, attention can focus on it directly.</p>
+
+<h3 id="ssms-strength-computational-efficiency">SSM’s Strength: Computational Efficiency</h3>
+<p>SSMs process sequences in linear time and use far fewer parameters. Their memory state provides a compact summary of the entire past sequence, making them ideal for very long sequences where attention’s quadratic complexity becomes prohibitive. Recent advances like Mamba [5] have shown how to make SSMs even more efficient with selective state spaces.</p>
+
+<h3 id="the-limitation">The Limitation</h3>
+<p>SSMs struggle with explicit context modeling - they can’t easily decide that a distant token is more important than a recent one based on semantic similarity. This limitation has been a key motivator for recent work like Mamba [5] and other SSM variants [6,7].</p>
+
+<h2 id="our-proposed-solution-context-aware-ssms">Our Proposed Solution: Context-Aware SSMs</h2>
+
+<p>We propose enhancing SSMs with a similarity mechanism inspired by attention. Instead of measuring similarity between current and past tokens (like attention does), we measure similarity between the current token and the current memory state:</p>
+
+<p>$$g(x_i, h_{i-1}) = \sigma(x_i W_H h_{i-1}^T)$$</p>
+
+<p>This similarity score then weights the input:</p>
+
+<p>$$h_i = h_{i-1} A + x_i g(x_i, h_{i-1}) B$$</p>
+
+<p>$$y_i = h_i C$$</p>
+
+<h3 id="the-intuition">The Intuition</h3>
+
+<p>Think of the memory state $h_{i-1}$ as containing a compressed representation of all past context. When a new token $x_i$ arrives, we check how well it “fits” with this accumulated context. Tokens that are highly relevant to the current context get stronger weights in the state update.</p>
+
+<p>This is like having a conversation where you pay more attention to statements that connect well with the topic you’ve been discussing, while still maintaining a continuous thread of memory.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="dynamic-system-properties">Dynamic System Properties</h2>
+
+<p>An important insight from our analysis concerns the stability properties of SSMs. The eigenvalues of matrix $A$ determine the model’s behavior:</p>
+
+<ul>
+  <li><strong>Stable systems</strong> (eigenvalues ≤ 1): Information fades gracefully over time</li>
+  <li><strong>Unstable systems</strong> (eigenvalues &gt; 1): Information grows unboundedly, leading to numerical issues</li>
+  <li><strong>Oscillating systems</strong> (complex eigenvalues): Create periodic patterns in the output</li>
+</ul>
+
+<p>For language modeling, we want stable, non-oscillating behavior. This constrains $A$ to have real, positive eigenvalues bounded by 1, which can be achieved using diagonal matrices with sigmoid-activated elements. This insight has been crucial for modern SSM architectures like S4 [3], Mamba [5], and other recent developments [8,9].</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="looking-forward-implementation-challenges">Looking Forward: Implementation Challenges</h2>
+
+<p>While theoretically elegant, our proposed context-aware SSM extension faces several practical challenges:</p>
+
+<ol>
+  <li><strong>Training Complexity</strong>: The nonlinear similarity term may complicate gradient-based optimization</li>
+  <li><strong>Vanishing Gradients</strong>: Like other recurrent models, SSMs can suffer from vanishing gradients over long sequences</li>
+  <li><strong>Computational Overhead</strong>: Adding similarity computation increases the computational cost</li>
+</ol>
+
+<p>However, we believe the potential benefits - combining SSMs’ efficiency with attention’s context awareness - make this a promising research direction.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The relationship between attention mechanisms and state space models runs deeper than their surface-level differences suggest. Both are solving the same fundamental problem: how to selectively use past information for current predictions.</p>
+
+<p>Attention prioritizes semantic relevance, while SSMs prioritize computational efficiency. Our work suggests that we don’t have to choose - by integrating attention-like similarity measures into SSMs, we may be able to achieve the best of both worlds.</p>
+
+<p>As language models continue to handle longer and longer sequences, finding efficient ways to model context becomes increasingly critical. The marriage of attention and state space concepts may be key to building the next generation of language models that are both computationally efficient and contextually aware.</p>
+
+<p>The journey from attention to state space models and back again reminds us that in machine learning, the most powerful solutions often come from understanding and combining different perspectives on the same underlying problem.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="link-to-the-paper">Link to the Paper</h2>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/g9vfrb" class="citation-image" aria-label="Integrating the Attention Mechanism Into State Space Models">
+        <img src="/preview/pr-13/images/cites/poster_IntegratingTheAttentionMechanismIntoStateSpaceModels.png" alt="Integrating the Attention Mechanism Into State Space Models" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/g9vfrb" class="citation-title">
+        Integrating the Attention Mechanism Into State Space Models
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Tomas Hrycej, Bernhard Bermeitinger, Siegfried Handschuh
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Zenodo</span>
+        &nbsp;·&nbsp;
+        <span class="citation-date">27 Jun 2025</span>
+        &nbsp;·&nbsp;
+        <span class="citation-id">doi:10.5281/zenodo.16380849</span>
+      </div>
+
+      
+        
+          <div class="citation-description">
+            Poster from the SDS2025 Conference for the Paper from Hrycej et al. “Integrating the Attention Mechanism Into State Space Models”.
+
+          </div>
+        
+
+        
+          <div class="citation-buttons">
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://doi.org/10.5281/zenodo.16380849" data-style="bare" aria-label="button">
+      
+      
+        <span>DOI</span>
+      
+    </a>
+  </div>
+
+
+            
+          </div>
+        
+
+        
+          
+
+
+  <div class="tags" data-repo="unisg-ics-dsnlp/qds">
+    
+      <a href="?search=&quot;tag: poster&quot;" class="tag" data-tooltip="Show items with the tag &quot;poster&quot;">
+        poster
+      </a>
+    
+      <a href="?search=&quot;tag: qds&quot;" class="tag" data-tooltip="Show items with the tag &quot;qds&quot;">
+        qds
+      </a>
+    
+      <a href="?search=&quot;tag: transformers&quot;" class="tag" data-tooltip="Show items with the tag &quot;transformers&quot;">
+        transformers
+      </a>
+    
+      <a href="?search=&quot;tag: attention&quot;" class="tag" data-tooltip="Show items with the tag &quot;attention&quot;">
+        attention
+      </a>
+    
+      <a href="?search=&quot;tag: state-space-models&quot;" class="tag" data-tooltip="Show items with the tag &quot;state-space-models&quot;">
+        state-space-models
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Hrycej, T., Bermeitinger, B., &amp; Handschuh, S. (2025). Integrating the Attention Mechanism into State Space Models. <em>Proceedings of the 2025 IEEE Swiss Conference on Data Science (SDS)</em> Url: <a href="https://ieeexplore.ieee.org/document/11081496">ieeexplore.ieee.org/document/11081496</a>.</p>
+
+<p>[2] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in neural information processing systems</em>, 30, Url: <a href="https://arxiv.org/abs/1706.03762">arxiv.org/abs/1706.03762</a></p>
+
+<p>[3] Gu, A., Goel, K., &amp; Ré, C. (2021). Efficiently modeling long sequences with structured state spaces. <em>arXiv preprint arXiv:2111.00396</em>, Url: <a href="https://arxiv.org/abs/2111.00396">arxiv.org/abs/2111.00396</a></p>
+
+<p>[4] Gu, A., Johnson, I., Goel, K., Saab, K., Dao, T., Rudra, A., &amp; Ré, C. (2021). Combining recurrent, convolutional, and continuous-time models with linear state space layers. <em>Advances in neural information processing systems</em>, 34, Url: <a href="https://arxiv.org/abs/2110.13985">arxiv.org/abs/2110.13985</a></p>
+
+<p>[5] Gu, A., &amp; Dao, T. (2023). Mamba: Linear-time sequence modeling with selective state spaces. <em>arXiv preprint arXiv:2312.00752</em>, Url: <a href="https://arxiv.org/abs/2312.00752">arxiv.org/abs/2312.00752</a></p>
+
+<p>[6] Dao, T., Fu, D., Ermon, S., Rudra, A., &amp; Ré, C. (2022). FlashAttention: Fast and memory-efficient exact attention with IO-awareness. <em>Advances in Neural Information Processing Systems</em>, 35, <a href="https://arxiv.org/abs/2205.14135">arxiv.org/abs/2205.14135</a></p>
+
+<p>[7] Sieber, J., Alonso, C. A., Didier, A., Zeilinger, M. N., &amp; Orvieto, A. (2024). Understanding the differences in foundation models: Attention, state space models, and recurrent neural networks. <em>arXiv preprint arXiv:2405.15731</em>, Url: <a href="https://arxiv.org/abs/2405.15731">arxiv.org/abs/2405.15731</a></p>
+
+<p>[8] Smith, J., Warrington, A., &amp; Linderman, S. W. (2022). Simplified state space layers for sequence modeling. <em>arXiv preprint arXiv:2208.04933</em>, Url:  <a href="https://arxiv.org/abs/2208.04933">arxiv.org/abs/2208.04933</a></p>
+
+<p>[9] Mehta, H., Gupta, A., Cutkosky, A., &amp; Neyshabur, B. (2022). Long range language modeling via gated state spaces. <em>arXiv preprint arXiv:2206.13947</em>, Url: <a href="https://arxiv.org/abs/2206.13947">arxiv.org/abs/2206.13947</a></p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" style="
+        width: 30%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-03T22:43:07+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+
+<p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
+
+<p>As a research lab and chair, we are committed to pushing the boundaries of what’s possible with language and data. But we’re equally committed to openness, communication, dialogue and teaching. Whether you’re a fellow researcher, a student, an industry partner, or just curious about what we do—we’re glad you’re here.</p>
+
+<p>You’ll find updates, research highlights, team news, and project showcases.</p>
+
+<p>Thanks for visiting—and stay tuned!</p>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="website" /><category term="chair" /><summary type="html"><![CDATA[We’re excited to welcome you to the official website of our DS-NLP Lab.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/HSG_Daten_01.png" /><media:content medium="image" url="/preview/pr-13/images/HSG_Daten_01.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
