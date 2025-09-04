@@ -146,7 +146,7 @@ The following table presents our benchmark results for Apertus-8B-Instruct compa
 | Qwen2.5 7B Instruct | 53.60% | 36.33% | 38.00% | 42.59% |
 
 
-{% include figure.html image="images/posts/Apertus8B-benchmark_Musr_0_shot_grouped.png" width="50%" %}
+{% include figure.html image="images/posts/Apertus8B-benchmark_Musr_0_shot_grouped.png" %}
 
 **Paper:** [Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning](https://arxiv.org/pdf/2310.16049v2)
 
@@ -162,7 +162,7 @@ The IFEval benchmark measures different aspects of instruction following capabil
 | Phi-3 Mini 4k Instruct 4k | 44.36% | 43.41% | 30.50% | 29.39% |
 | Qwen2.5 7B Instruct | 73.98% | 68.82% | 64.51% | 58.04% |
 
-{% include figure.html image="images/posts/Apertus8B-benchmark_IFEval_0_shot_grouped.png" width="50%" %}
+{% include figure.html image="images/posts/Apertus8B-benchmark_IFEval_0_shot_grouped.png" %}
 
 #### Understanding IFEval Metrics:
 
