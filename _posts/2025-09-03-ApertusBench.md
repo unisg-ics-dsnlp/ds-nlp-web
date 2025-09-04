@@ -14,18 +14,57 @@ tags:
   - switzerland
 ---
 
-# LLM Benchmark Evaluation - Apertus-8B 
+## The Release  
+On September 2, 2025, the **Swiss AI Initiative** — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the **Apertus model family** in two sizes: **8B** and **70B parameters**.  
 
+The larger variant, **Apertus-70B**, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.  
 
-On September 2, 2025, the Swiss AI Initiative - a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters. The larger variant, Apertus-70B, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens. The models are trained solely on publicly available data, with retroactive respect for robots.txt exclusions and filtering of copyrighted, non-permissive, toxic, and personally identifiable content. They also implement the *Goldfish* loss to limit verbatim memorization. Supporting 1,811 languages, including Swiss regional languages such as *Romansh* and *Schwiizerdütsch*, the release includes both the model weights and full reproduction artifacts for the research community. 
+The models are:  
+- Trained solely on publicly available data  
+- Respectful of robots.txt exclusions (retroactively)  
+- Filtered for copyrighted, non-permissive, toxic, and personally identifiable content  
+- Equipped with the *Goldfish* loss to limit verbatim memorization  
 
-We took the opportunity to benchmark the model against other models with a few industrie standard benchmarks. The technical report already contains several benchmarks comparing the model to common open weight models and open source models. The goal of our benchmarks was to get our own impressions of the model and evaluate whether we could reproduce the benchmarks presented in the technical report.
+Apertus supports **1,811 languages**, including Swiss regional languages such as *Romansh* and *Schwiizerdütsch*. The release includes both the **model weights** and **full reproduction artifacts** for the research community.  
 
-At this point, we highly recommend everyone take a look at the technical report for the Apertus models. Unfortunately, it's relatively rare to find so many details about state-of-the-art LLM training courses.
+{% include section.html %}
 
-In this article, we want to follow the wording of the editors of the Technical Report and establish a clear distinction between open weight models and open models. Open weight models describe models whose weights and architectures have been made openly available. However, the training data, training scripts, and other things that are important for reproducibility are not published. A prominent example of this is the Llama model family from Meta.
-Open models, on the other hand, aim to make everything open. The goal is to ensure reproducibility and the sharing of knowledge in a scientific context. A prominent example of this would be the OLMO model family from the Allen Institute for AI.
-Since open models place great value on ethical datasets and are trained on a non-profit basis, these types of models have unfortunately not yet achieved the performance of typical chat applications like ChatGPT or Gemini compared to open weight and closed models (such as GPT5 from OpenAI). Despite their poor quality, training and researching open models is extremely important for our society because they conduct important open research that is not driven by profit, thus advancing the entire field of LLM Foundation Training research.
+## Benchmarking the Model  
+We took the opportunity to benchmark the model against other models using several industry-standard benchmarks.  
+
+The **technical report**[1] already contains comparisons with common open weight and open source models. Our goal was to:  
+- Get our own impressions of Apertus  
+- Evaluate whether we could reproduce the benchmarks presented in the report  
+
+At this point, we highly recommend everyone take a look at the technical report for the Apertus models. It is relatively rare to find such detailed insights into **state-of-the-art LLM trainings**.  
+
+{% include section.html background="images/background.jpg" dark=true %}
+
+## Open Weight vs. Open Models  
+In this article, we follow the terminology used by the editors of the Technical Report and draw a clear distinction:  
+
+### Open Weight Models  
+- Weights and architectures are openly available  
+- Training data, scripts, and reproducibility artifacts are not published  
+- **Example:** *Llama model family* from Meta  
+
+### Open Models  
+- Strive to make *everything* open: data, scripts, training details  
+- Aim for reproducibility and knowledge sharing in a scientific context  
+- **Example:** *OLMO model family* from the Allen Institute for AI  
+
+{% include section.html %}
+
+## Why Open Models Matter  
+Although open models often lag behind open weight and closed models (e.g., GPT-5 from OpenAI, or Gemini) in performance, they provide:  
+
+- Training on **ethical datasets**  
+- Development on a **non-profit basis**  
+- Opportunities for **open research** that is not profit-driven  
+
+Despite their current limitations in quality compared to top-tier chat applications, open models are **extremely important** for society. They advance the entire field of **LLM Foundation Training research** through transparency, reproducibility, and community-driven progress.  
+
+{% include section.html background="images/background.jpg" dark=true %}
 
 
 **Quicklinks to Alpertus Ressources:**
