@@ -78,7 +78,7 @@ Despite their current limitations in quality compared to top-tier chat applicati
 {% include section.html %}
 
 **Important disclaimer:** 
-The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with a subset of the leaderboard evaluations from [ElutherAI's Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness). The raw results and benchmark logs can be found on our Github repository [BENCHMARK RESULTS REPO](). 
+The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with a subset of the leaderboard evaluations from [ElutherAI's Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness). The raw results and benchmark logs can be found on our Github repository [unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results](https://github.com/unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results). 
 
 The benchmarks presented here are not intended to be exhaustive and are intended only to provide an overview and initial, independent assessment of the model. For more comprehensive benchmarks, please refer to the [Swiss-AI Apertus Technical Report](https://github.com/swiss-ai/apertus-tech-report).
 
