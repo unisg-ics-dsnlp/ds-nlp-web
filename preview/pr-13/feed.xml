@@ -1,14 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-04T14:31:17+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-04T14:28:22+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h1 id="llm-benchmark-evaluation---apertus-8b">LLM Benchmark Evaluation - Apertus-8B</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-04T14:38:46+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-04T14:37:12+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
+<p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
 
-<p>On September 2, 2025, the Swiss AI Initiative - a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters. The larger variant, Apertus-70B, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens. The models are trained solely on publicly available data, with retroactive respect for robots.txt exclusions and filtering of copyrighted, non-permissive, toxic, and personally identifiable content. They also implement the <em>Goldfish</em> loss to limit verbatim memorization. Supporting 1,811 languages, including Swiss regional languages such as <em>Romansh</em> and <em>Schwiizerdütsch</em>, the release includes both the model weights and full reproduction artifacts for the research community.</p>
+<p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
 
-<p>We took the opportunity to benchmark the model against other models with a few industrie standard benchmarks. The technical report already contains several benchmarks comparing the model to common open weight models and open source models. The goal of our benchmarks was to get our own impressions of the model and evaluate whether we could reproduce the benchmarks presented in the technical report.</p>
+<p>The models are:</p>
+<ul>
+  <li>Trained solely on publicly available data</li>
+  <li>Respectful of robots.txt exclusions (retroactively)</li>
+  <li>Filtered for copyrighted, non-permissive, toxic, and personally identifiable content</li>
+  <li>Equipped with the <em>Goldfish</em> loss to limit verbatim memorization</li>
+</ul>
 
-<p>At this point, we highly recommend everyone take a look at the technical report for the Apertus models. Unfortunately, it’s relatively rare to find so many details about state-of-the-art LLM training courses.</p>
+<p>Apertus supports <strong>1,811 languages</strong>, including Swiss regional languages such as <em>Romansh</em> and <em>Schwiizerdütsch</em>. The release includes both the <strong>model weights</strong> and <strong>full reproduction artifacts</strong> for the research community.</p>
 
-<p>In this article, we want to follow the wording of the editors of the Technical Report and establish a clear distinction between open weight models and open models. Open weight models describe models whose weights and architectures have been made openly available. However, the training data, training scripts, and other things that are important for reproducibility are not published. A prominent example of this is the Llama model family from Meta.
-Open models, on the other hand, aim to make everything open. The goal is to ensure reproducibility and the sharing of knowledge in a scientific context. A prominent example of this would be the OLMO model family from the Allen Institute for AI.
-Since open models place great value on ethical datasets and are trained on a non-profit basis, these types of models have unfortunately not yet achieved the performance of typical chat applications like ChatGPT or Gemini compared to open weight and closed models (such as GPT5 from OpenAI). Despite their poor quality, training and researching open models is extremely important for our society because they conduct important open research that is not driven by profit, thus advancing the entire field of LLM Foundation Training research.</p>
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmarking-the-model">Benchmarking the Model</h2>
+<p>We took the opportunity to benchmark the model against other models using several industry-standard benchmarks.</p>
+
+<p>The <strong>technical report</strong>[1] already contains comparisons with common open weight and open source models. Our goal was to:</p>
+<ul>
+  <li>Get our own impressions of Apertus</li>
+  <li>Evaluate whether we could reproduce the benchmarks presented in the report</li>
+</ul>
+
+<p>At this point, we highly recommend everyone take a look at the technical report for the Apertus models. It is relatively rare to find such detailed insights into <strong>state-of-the-art LLM trainings</strong>.</p>
+
+<!-- section break -->
+<!--
+  <background>images/background.jpg</background>
+  <dark>true</dark>
+  <size>2</size>
+-->
+
+<h2 id="open-weight-vs-open-models">Open Weight vs. Open Models</h2>
+<p>In this article, we follow the terminology used by the editors of the Technical Report and draw a clear distinction:</p>
+
+<h3 id="open-weight-models">Open Weight Models</h3>
+<ul>
+  <li>Weights and architectures are openly available</li>
+  <li>Training data, scripts, and reproducibility artifacts are not published</li>
+  <li><strong>Example:</strong> <em>Llama model family</em> from Meta</li>
+</ul>
+
+<h3 id="open-models">Open Models</h3>
+<ul>
+  <li>Strive to make <em>everything</em> open: data, scripts, training details</li>
+  <li>Aim for reproducibility and knowledge sharing in a scientific context</li>
+  <li><strong>Example:</strong> <em>OLMO model family</em> from the Allen Institute for AI</li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="why-open-models-matter">Why Open Models Matter</h2>
+<p>Although open models often lag behind open weight and closed models (e.g., GPT-5 from OpenAI, or Gemini) in performance, they provide:</p>
+
+<ul>
+  <li>Training on <strong>ethical datasets</strong></li>
+  <li>Development on a <strong>non-profit basis</strong></li>
+  <li>Opportunities for <strong>open research</strong> that is not profit-driven</li>
+</ul>
+
+<p>Despite their current limitations in quality compared to top-tier chat applications, open models are <strong>extremely important</strong> for society. They advance the entire field of <strong>LLM Foundation Training research</strong> through transparency, reproducibility, and community-driven progress.</p>
+
+<!-- section break -->
+<!--
+  <background>images/background.jpg</background>
+  <dark>true</dark>
+  <size>2</size>
+-->
 
 <p><strong>Quicklinks to Alpertus Ressources:</strong></p>
 <ul>
@@ -191,7 +261,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 <figure class="figure">
   <a class="figure-image" aria-label="figure link">
     <img src="/preview/pr-13/images/posts/Apertus8B-benchmark_Musr_0_shot_grouped.png" style="
-        width: 50%;
+        width: auto;
         max-height: unset;
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
@@ -256,7 +326,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 <figure class="figure">
   <a class="figure-image" aria-label="figure link">
     <img src="/preview/pr-13/images/posts/Apertus8B-benchmark_IFEval_0_shot_grouped.png" style="
-        width: 50%;
+        width: auto;
         max-height: unset;
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
@@ -381,7 +451,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[LLM Benchmark Evaluation - Apertus-8B]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-04T14:28:22+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-04T14:37:12+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -717,7 +787,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-04T14:28:22+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-04T14:37:12+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 
