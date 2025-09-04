@@ -1,6 +1,9 @@
 ---
 title: LLM Benchmark Evaluation - Apertus-8B 
-author: Götz-Henrik Wiegand and Michael Gaus and Prof. Siegfried Handschuh
+author: 
+  - Götz-Henrik Wiegand
+  - Michael Gaus
+  - Siegfried Handschuh
 image: images/posts/ApertusBench-Thumbnail.png
 date: 2025-09-04
 tags:
