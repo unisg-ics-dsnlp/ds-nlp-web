@@ -24,7 +24,7 @@ jobs:
         uses: crazy-max/ghaction-dump-context@v2
 
       - name: Checkout branch contents
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Ruby packages
         uses: ruby/setup-ruby@v1
