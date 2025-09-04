@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Blog | DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-16/images/icon.png">
+
+<meta name="title" content="Blog">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="Blog">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-16">
+<meta property="og:image" content="/preview/pr-16/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Blog">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-16">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-16/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta property="og:type" content="website">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "WebSite",
+    
+    "name": "Blog",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "Blog",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-16/images/icon.png" }
+    },
+    "url": "/preview/pr-16"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-16/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-16/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-16/_styles/util.css" rel="stylesheet">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-16/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-16/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-16/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-16/_scripts/search.js"></script>
+
+  <script src="/preview/pr-16/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-16/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-16/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-16/images/background.jpg')" data-dark="true">
+  <a href="/preview/pr-16/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-16/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-16/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-16/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-16/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-16/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-16/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <h1 id="blog">
+<i class="icon fa-solid fa-feather-pointed"></i>Blog</h1>
+
+<p>On this page you will find an overview of all blog entries in chronological order. The blog posts are intended to provide additional information and insights on current research topics of our research groups.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<div class="search-box">
+  <input type="text" class="search-input" oninput="onSearchInput(this)" placeholder="Search items on this page">
+  <button disabled data-tooltip="Clear search" aria-label="clear search" onclick="onSearchClear()">
+    <i class="icon fa-solid fa-magnifying-glass"></i>
+  </button>
+</div>
+
+<div class="tags">
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20website"' class="tag" data-tooltip='Show items with the tag "website"'>
+        website
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20chair"' class="tag" data-tooltip='Show items with the tag "chair"'>
+        chair
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20attention-mechanism"' class="tag" data-tooltip='Show items with the tag "attention-mechanism"'>
+        attention-mechanism
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20state-space-models"' class="tag" data-tooltip='Show items with the tag "state-space-models"'>
+        state-space-models
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-16/blog/?search="tag:%20systems-theory"' class="tag" data-tooltip='Show items with the tag "systems-theory"'>
+        systems-theory
+      </a>
+    
+  </div>
+
+<div class="search-info"></div>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/preview/pr-16/2025/08/19/SDS2025.html" class="post-excerpt-image" aria-label="Bridging Attention and State Space Models - A Systems Theory Perspective">
+        <img src="/preview/pr-16/images/posts/SDS-SSMAttentionFusion.png" alt="Bridging Attention and State Space Models - A Systems Theory Perspective" loading="lazy" onerror="this.src = '/preview/pr-16/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/preview/pr-16/2025/08/19/SDS2025.html">Bridging Attention and State Space Models - A Systems Theory Perspective</a>
+
+      <div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>August 19, 2025</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>September 04, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-16/blog?search="tag:%20attention-mechanism"' class="tag" data-tooltip='Show items with the tag "attention-mechanism"'>
+        attention-mechanism
+      </a>
+    
+      <a href='/preview/pr-16/blog?search="tag:%20state-space-models"' class="tag" data-tooltip='Show items with the tag "state-space-models"'>
+        state-space-models
+      </a>
+    
+      <a href='/preview/pr-16/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-16/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-16/blog?search="tag:%20systems-theory"' class="tag" data-tooltip='Show items with the tag "systems-theory"'>
+        systems-theory
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="Bridging Attention and State Space Models: A Systems Theory PerspectiveIn the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the Attention Mechanism that powers Transformers 2 , and the recently revived State Space Models SSMs 3,4 . While these approaches seem fundamentally different at first glance, our recent work Integrating the Attention Mechanism Into State Space Models 1 presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths. The Tale of Two ArchitecturesAttention Mechanisms: The Context MastersThe attention mechanism, popularized by the Attention is All You Need paper 2 , works by allowing each token in a sequence to look at all previous tokens and decide which ones are most relevant for the current prediction.Think of it like this: when you re reading a sentence and trying to understand what it refers to, you automatically scan back through the text to find the most likely candidate. The attention mechanism does something similar - it computes similarity scores between tokens and uses these to create weighted combinations of past information.Mathematically, for a token at position i, attention computes: y i sum j 1 i a i,j x j W V W O Where a i,j represents how much attention token i pays to token j, computed using query-key similarity: a i,j text softmax x j W K W Q T x i T State Space Models: The Memory KeepersState Space Models take a different approach. Instead of looking back at all previous tokens directly, they maintain a memory state that gets updated as each new token arrives. This state vector acts like a continuously updating summary of everything seen so far.The SSM update equations are elegantly simple: h i h i-1 A x i B quad text update memory y i h i C quad text generate output Here, h i is the memory state, and matrices A , B , C control how information flows through the system.The Hidden Connection: Two Sides of the Same CoinHere s where something truly remarkable emerges from our analysis. Despite looking completely different on the surface, attention mechanisms and state space models are actually solving the same problem in surprisingly similar ways.When we carefully expand the mathematical equations for both approaches, something amazing happens. Both are saying: Take each past token, multiply it by some weight, and add them all up. The profound realization is that both mechanisms are computing weighted averages of past information - they just calculate the weights differently: Attention weights W i,j : How relevant is this past token to what I m trying to understand right now content-based SSM weights V i,j : How much should this past token influence me, given how long ago it was position-based with exponential decay Think of it like this: Attention is like a smart librarian who picks the most relevant books for your research question, regardless of when they were written SSMs are like your memory - recent events are vivid and influential, while older memories fade gradually but systematicallyWhy does this matter This connection reveals that the attention vs. SSM debate isn t about choosing completely different approaches - it s about choosing different strategies for the same fundamental task: deciding how much weight to give to different pieces of past information.Understanding this similarity opens up new possibilities: What if we could combine the best of both worlds What if we could create systems that are both computationally efficient like SSMs AND contextually smart like attention From a signal processing perspective: Attention behaves like a Finite Impulse Response FIR filter: It needs separate parameters for each possible input position SSMs behave like Infinite Impulse Response IIR filters: They use feedback and memory, making them more parameter-efficientThe Trade-off: Context vs EfficiencyThis reveals the fundamental trade-off:Attention s Strength: Context AwarenessAttention excels at capturing which past tokens are contextually relevant, regardless of their position. If John appears 50 tokens back but is crucial for understanding the current sentence, attention can focus on it directly.SSM s Strength: Computational EfficiencySSMs process sequences in linear time and use far fewer parameters. Their memory state provides a compact summary of the entire past sequence, making them ideal for very long sequences where attention s quadratic complexity becomes prohibitive. Recent advances like Mamba 5 have shown how to make SSMs even more efficient with selective state spaces.The LimitationSSMs struggle with explicit context modeling - they can t easily decide that a distant token is more important than a recent one based on semantic similarity. This limitation has been a key motivator for recent work like Mamba 5 and other SSM variants 6,7 .Our Proposed Solution: Context-Aware SSMsWe propose enhancing SSMs with a similarity mechanism inspired by attention. Instead of measuring similarity between current and past tokens like attention does , we measure similarity between the current token and the current memory state: g x i, h i-1 sigma x i W H h i-1 T This similarity score then weights the input: h i h i-1 A x i g x i, h i-1 B y i h i C The IntuitionThink of the memory state h i-1 as containing a compressed representation of all past context. When a new token x i arrives, we check how well it fits with this accumulated context. Tokens that are highly relevant to the current context get stronger weights in the state update.This is like having a conversation where you pay more attention to statements that connect well with the topic you ve been discussing, while still maintaining a continuous thread of memory.Dynamic System PropertiesAn important insight from our analysis concerns the stability properties of SSMs. The eigenvalues of matrix A determine the model s behavior: Stable systems eigenvalues 1 : Information fades gracefully over time Unstable systems eigenvalues gt; 1 : Information grows unboundedly, leading to numerical issues Oscillating systems complex eigenvalues : Create periodic patterns in the outputFor language modeling, we want stable, non-oscillating behavior. This constrains A to have real, positive eigenvalues bounded by 1, which can be achieved using diagonal matrices with sigmoid-activated elements. This insight has been crucial for modern SSM architectures like S4 3 , Mamba 5 , and other recent developments 8,9 .Looking Forward: Implementation ChallengesWhile theoretically elegant, our proposed context-aware SSM extension faces several practical challenges: Training Complexity: The nonlinear similarity term may complicate gradient-based optimization Vanishing Gradients: Like other recurrent models, SSMs can suffer from vanishing gradients over long sequences Computational Overhead: Adding similarity computation increases the computational costHowever, we believe the potential benefits - combining SSMs efficiency with attention s context awareness - make this a promising research direction.ConclusionThe relationship between attention mechanisms and state space models runs deeper than their surface-level differences suggest. Both are solving the same fundamental problem: how to selectively use past information for current predictions.Attention prioritizes semantic relevance, while SSMs prioritize computational efficiency. Our work suggests that we don t have to choose - by integrating attention-like similarity measures into SSMs, we may be able to achieve the best of both worlds.As language models continue to handle longer and longer sequences, finding efficient ways to model context becomes increasingly critical. The marriage of attention and state space concepts may be key to building the next generation of language models that are both computationally efficient and contextually aware.The journey from attention to state space models and back again reminds us that in machine learning, the most powerful solutions often come from understanding and combining different perspectives on the same underlying problem.Link to the Paper Integrating the Attention Mechanism Into State Space Models Tomas Hrycej, Bernhard Bermeitinger, Siegfried Handschuh Zenodo nbsp; nbsp; 27 Jun 2025 nbsp; nbsp; doi:10.5281 zenodo.16380849 Poster from the SDS2025 Conference for the Paper from Hrycej et al. Integrating the Attention Mechanism Into State Space Models . DOI poster qds transformers attention state-space-models References 1 Hrycej, T., Bermeitinger, B., amp; Handschuh, S. 2025 . Integrating the Attention Mechanism into State Space Models. Proceedings of the 2025 IEEE Swiss Conference on Data Science SDS Url: ieeexplore.ieee.org document 11081496. 2 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., amp; Polosukhin, I. 2017 . Attention is all you need. Advances in neural information processing systems, 30, Url: arxiv.org abs 1706.03762 3 Gu, A., Goel, K., amp; Ré, C. 2021 . Efficiently modeling long sequences with structured state spaces. arXiv preprint arXiv:2111.00396, Url: arxiv.org abs 2111.00396 4 Gu, A., Johnson, I., Goel, K., Saab, K., Dao, T., Rudra, A., amp; Ré, C. 2021 . Combining recurrent, convolutional, and continuous-time models with linear state space layers. Advances in neural information processing systems, 34, Url: arxiv.org abs 2110.13985 5 Gu, A., amp; Dao, T. 2023 . Mamba: Linear-time sequence modeling with selective state spaces. arXiv preprint arXiv:2312.00752, Url: arxiv.org abs 2312.00752 6 Dao, T., Fu, D., Ermon, S., Rudra, A., amp; Ré, C. 2022 . FlashAttention: Fast and memory-efficient exact attention with IO-awareness. Advances in Neural Information Processing Systems, 35, arxiv.org abs 2205.14135 7 Sieber, J., Alonso, C. A., Didier, A., Zeilinger, M. N., amp; Orvieto, A. 2024 . Understanding the differences in foundation models: Attention, state space models, and recurrent neural networks. arXiv preprint arXiv:2405.15731, Url: arxiv.org abs 2405.15731 8 Smith, J., Warrington, A., amp; Linderman, S. W. 2022 . Simplified state space layers for sequence modeling. arXiv preprint arXiv:2208.04933, Url: arxiv.org abs 2208.04933 9 Mehta, H., Gupta, A., Cutkosky, A., amp; Neyshabur, B. 2022 . Long range language modeling via gated state spaces. arXiv preprint arXiv:2206.13947, Url: arxiv.org abs 2206.13947">
+        Bridging Attention and State Space Models: A Systems Theory Perspective
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/preview/pr-16/2025/05/23/Hello-World.html" class="post-excerpt-image" aria-label="Welcome to the DS-NLP Lab Website">
+        <img src="/preview/pr-16/images/HSG_Daten_01.png" alt="Welcome to the DS-NLP Lab Website" loading="lazy" onerror="this.src = '/preview/pr-16/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/preview/pr-16/2025/05/23/Hello-World.html">Welcome to the DS-NLP Lab Website!</a>
+
+      <div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>May 23, 2025</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>September 04, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-16/blog?search="tag:%20website"' class="tag" data-tooltip='Show items with the tag "website"'>
+        website
+      </a>
+    
+      <a href='/preview/pr-16/blog?search="tag:%20chair"' class="tag" data-tooltip='Show items with the tag "chair"'>
+        chair
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="We re excited to welcome you to the official website of our DS-NLP Lab.This platform marks a new chapter for us one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we re making in the different fields we are currently working on.As a research lab and chair, we are committed to pushing the boundaries of what s possible with language and data. But we re equally committed to openness, communication, dialogue and teaching. Whether you re a fellow researcher, a student, an industry partner, or just curious about what we do we re glad you re here.You ll find updates, research highlights, team news, and project showcases.Thanks for visiting and stay tuned">
+        We’re excited to welcome you to the official website of our DS-NLP Lab.
+
+      </p>
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-16/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-16/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2025
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
