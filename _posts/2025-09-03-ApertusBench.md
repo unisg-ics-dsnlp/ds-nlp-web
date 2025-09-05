@@ -29,6 +29,14 @@ Apertus supports **1,811 languages**, including Swiss regional languages such as
 
 {% include section.html %}
 
+{% capture content %}
+
+{% include figure.html image="images/posts/ApertusBench-summary_average_performance_by_benchmark.png" %}
+{% include figure.html image="images/posts/ApertusBench-summary_average_performance.png" %}
+
+{% endcapture %}
+{% include section.html %}
+
 ## Benchmarking the Model  
 We took the opportunity to benchmark the model against other models using several industry-standard benchmarks.  
 
@@ -128,10 +136,10 @@ The following table presents our benchmark results for Apertus-8B-Instruct compa
 | Model | IFEval (0-shot) [3]| MMLU-Pro (5-shot) [5] | Math-lvl-5 (4-shot) [6] | Musr (0-shot) [4] |
 |-------|-----------------|-------------------|---------------------|---------------|
 | **Apertus 8B Instruct 2509** | 44.18% | 31.14% | 5.29% | 36.00% |
-| Mistral 7B Instruct v0.3 | 44.73% | - | 2.95% | 44.33% |
-| OLMo-2 1124 7B Instruct | 57.67% | - | - | - |
-| Phi-3 Mini 4k Instruct | 29.39% | - | - | 44.00% |
-| Qwen2.5 7B Instruct | 58.04% | - | - | 42.59% |
+| OLMo-2 1124 7B Instruct | 57.67% | 29.02% | 11.71% | 39.81% |
+| Mistral 7B Instruct v0.3 | 44.73% | 30.56% | 2.95% | 44.33% |
+| Phi-3 Mini 4k Instruct | 29.39% | 39.85% | 16.99% | 44.00% |
+| Qwen2.5 7B Instruct | 58.04% | 44.72% | 37.08% | 42.59% |
 
 *Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.*
 
@@ -141,14 +149,17 @@ The following table presents our benchmark results for Apertus-8B-Instruct compa
 | Model | Murder Mysteries | Object Placements | Team Allocation | Overall |
 |-------|-----------------|-------------------|-----------------|---------|
 | **Apertus 8B Instruct 2509** | 56.00% | 24.00% | 28.00% | 36.00% |
+| OLMo-2 1124 7B Instruct | 51.60% | 36.72% | 31.20% | 39.81% |
 | Mistral 7B Instruct v0.3 | 49.00% | 34.00% | 50.00% | 44.33% |
 | Phi-3 Mini 4k Instruct 4k | 59.00% | 35.00% | 38.00% | 44.00% |
 | Qwen2.5 7B Instruct | 53.60% | 36.33% | 38.00% | 42.59% |
 
 
-{% include figure.html image="images/posts/Apertus8B-benchmark_Musr_0_shot_grouped.png" %}
+{% include figure.html image="images/posts/ApertusBench-benchmark_MuSR_grouped.png" %}
 
 **Paper:** [Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning](https://arxiv.org/pdf/2310.16049v2)
+
+
 
 ### Detailed IFEval Performance Breakdown
 
@@ -157,12 +168,12 @@ The IFEval benchmark measures different aspects of instruction following capabil
 | Model | Inst Level Loose | Inst Level Strict | Prompt Level Loose | Prompt Level Strict |
 |-------|------------------|-------------------|--------------------|--------------------|
 | **Apertus 8B Instruct 2509** | 65.35% | 57.55% | 53.23% | 44.18% |
-| Mistral 7B Instruct v0.3 | 59.59% | 56.35% | 47.13% | 44.73% |
 | OLMo-2 1124 7B Instruct | 72.42% | 67.51% | 62.85% | 57.67% |
+| Mistral 7B Instruct v0.3 | 59.59% | 56.35% | 47.13% | 44.73% |
 | Phi-3 Mini 4k Instruct 4k | 44.36% | 43.41% | 30.50% | 29.39% |
 | Qwen2.5 7B Instruct | 73.98% | 68.82% | 64.51% | 58.04% |
 
-{% include figure.html image="images/posts/Apertus8B-benchmark_IFEval_0_shot_grouped.png" %}
+{% include figure.html image="images/posts/ApertusBench-benchmark_IFEval_grouped.png" %}
 
 #### Understanding IFEval Metrics:
 
