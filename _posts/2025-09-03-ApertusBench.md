@@ -5,7 +5,7 @@ author:
   - Michael Gaus
   - Siegfried Handschuh
 image: images/posts/ApertusBench-Thumbnail.png
-date: 2025-09-04
+date: 2025-09-05
 tags:
   - transformers
   - machine-learning
