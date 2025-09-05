@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-05T11:26:12+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-05T11:19:24+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-05T11:32:21+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
 <p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
 
 <p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
@@ -20,6 +20,26 @@
   <size></size>
 -->
 
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance_by_benchmark.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
 <!-- section break -->
 <!--
   <background></background>
@@ -40,9 +60,9 @@
 
 <!-- section break -->
 <!--
-  <background>images/background.jpg</background>
+  <background></background>
   <dark>true</dark>
-  <size>2</size>
+  <size>1</size>
 -->
 
 <h2 id="open-weight-vs-open-models">Open Weight vs. Open Models</h2>
@@ -82,9 +102,9 @@
 
 <!-- section break -->
 <!--
-  <background>images/background.jpg</background>
+  <background></background>
   <dark>true</dark>
-  <size>2</size>
+  <size>1</size>
 -->
 
 <p><strong>Quicklinks to Alpertus Ressources:</strong></p>
@@ -221,69 +241,6 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 
 <p><em>Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.</em></p>
 
-<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Murder Mysteries</th>
-      <th>Object Placements</th>
-      <th>Team Allocation</th>
-      <th>Overall</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>**Apertus 8B Instruct 2509**</td>
-      <td>56.00%</td>
-      <td>24.00%</td>
-      <td>28.00%</td>
-      <td>36.00%</td>
-    </tr>
-    <tr>
-      <td>OLMo-2 1124 7B Instruct</td>
-      <td>51.60%</td>
-      <td>36.72%</td>
-      <td>31.20%</td>
-      <td>39.81%</td>
-    </tr>
-    <tr>
-      <td>Mistral 7B Instruct v0.3</td>
-      <td>49.00%</td>
-      <td>34.00%</td>
-      <td>50.00%</td>
-      <td>44.33%</td>
-    </tr>
-    <tr>
-      <td>Phi-3 Mini 4k Instruct 4k</td>
-      <td>59.00%</td>
-      <td>35.00%</td>
-      <td>38.00%</td>
-      <td>44.00%</td>
-    </tr>
-    <tr>
-      <td>Qwen2.5 7B Instruct</td>
-      <td>53.60%</td>
-      <td>36.33%</td>
-      <td>38.00%</td>
-      <td>42.59%</td>
-    </tr>
-  </tbody>
-</table>
-
-<figure class="figure">
-  <a class="figure-image" aria-label="figure link">
-    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
-        width: auto;
-        max-height: unset;
-      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
-  </a>
-  
-</figure>
-
-<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
-
 <h3 id="detailed-ifeval-performance-breakdown">Detailed IFEval Performance Breakdown</h3>
 
 <p>The IFEval benchmark measures different aspects of instruction following capability. Here’s the detailed breakdown across all evaluated metrics:</p>
@@ -365,6 +322,156 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 </ul>
 
 <p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2311.07911v1">Zhou et al. 2023: Instruction-Following Evaluation for Large Language Models</a></p>
+
+<h3 id="detailed-math-hard">Detailed Math Hard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Overall</th>
+      <th>Algebra</th>
+      <th>Counting &amp; Prob</th>
+      <th>Geometry</th>
+      <th>Intermediate Algebra</th>
+      <th>Number Theory</th>
+      <th>Prealgebra</th>
+      <th>Precalculus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>5.29%</td>
+      <td>7.82%</td>
+      <td>3.25%</td>
+      <td>3.03%</td>
+      <td>1.43%</td>
+      <td>4.55%</td>
+      <td>13.47%</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>11.71%</td>
+      <td>25.41%</td>
+      <td>8.94%</td>
+      <td>6.82%</td>
+      <td>1.43%</td>
+      <td>5.84%</td>
+      <td>21.76%</td>
+      <td>1.48%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>2.95%</td>
+      <td>4.89%</td>
+      <td>1.63%</td>
+      <td>0.00%</td>
+      <td>0.71%</td>
+      <td>1.30%</td>
+      <td>7.77%</td>
+      <td>2.22%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>16.99%</td>
+      <td>30.94%</td>
+      <td>12.20%</td>
+      <td>6.82%</td>
+      <td>2.86%</td>
+      <td>14.94%</td>
+      <td>36.27%</td>
+      <td>3.70%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>37.08%</td>
+      <td>61.89%</td>
+      <td>39.84%</td>
+      <td>26.52%</td>
+      <td>13.21%</td>
+      <td>37.01%</td>
+      <td>51.81%</td>
+      <td>17.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_Math_Hard_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2103.03874">Hendrycks et al. 2021: Measuring Mathematical Problem Solving With the MATH Dataset</a></p>
+
+<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Murder Mysteries</th>
+      <th>Object Placements</th>
+      <th>Team Allocation</th>
+      <th>Overall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>56.00%</td>
+      <td>24.00%</td>
+      <td>28.00%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>51.60%</td>
+      <td>36.72%</td>
+      <td>31.20%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>49.00%</td>
+      <td>34.00%</td>
+      <td>50.00%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>59.00%</td>
+      <td>35.00%</td>
+      <td>38.00%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>53.60%</td>
+      <td>36.33%</td>
+      <td>38.00%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
 
 <h3 id="comparison-with-official-benchmarks">Comparison with Official Benchmarks</h3>
 
@@ -465,7 +572,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-05T11:19:24+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -801,7 +908,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-05T11:19:24+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 

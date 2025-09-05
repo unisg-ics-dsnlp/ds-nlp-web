@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Götz-Henrik Wiegand", "Michael Gaus", "Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-09-05T11:19:24+00:00">
+  <meta property="og:updated_time" content="2025-09-05T11:28:44+00:00">
   <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-09-05T11:19:24+00:00">
-  <meta name="revised" content="2025-09-05T11:19:24+00:00">
+  <meta property="article:modified_time" content="2025-09-05T11:28:44+00:00">
+  <meta name="revised" content="2025-09-05T11:28:44+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "LLM Benchmark Evaluation - Apertus-8B" },
       "datePublished": "2025-09-04T00:00:00+00:00",
-      "dateModified": "2025-09-05T11:19:24+00:00",
+      "dateModified": "2025-09-05T11:28:44+00:00",
     
     "name": "LLM Benchmark Evaluation - Apertus-8B",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -556,6 +556,26 @@
   <dark></dark>
   <size></size>
 -->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance_by_benchmark.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
   </section>
 
   
@@ -585,11 +605,11 @@
   
   
 
-  <section class="background" data-size="2" data-dark="true" style="--image: url('/preview/pr-13/images/background.jpg')">
+  <section class="background" data-size="1" data-dark="true">
     <!--
-  <background>images/background.jpg</background>
+  <background></background>
   <dark>true</dark>
-  <size>2</size>
+  <size>1</size>
 -->
 
 <h2 id="open-weight-vs-open-models">Open Weight vs. Open Models</h2>
@@ -641,11 +661,11 @@
   
   
 
-  <section class="background" data-size="2" data-dark="true" style="--image: url('/preview/pr-13/images/background.jpg')">
+  <section class="background" data-size="1" data-dark="true">
     <!--
-  <background>images/background.jpg</background>
+  <background></background>
   <dark>true</dark>
-  <size>2</size>
+  <size>1</size>
 -->
 
 <p><strong>Quicklinks to Alpertus Ressources:</strong></p>
@@ -821,69 +841,6 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 
 <p><em>Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.</em></p>
 
-<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Murder Mysteries</th>
-      <th>Object Placements</th>
-      <th>Team Allocation</th>
-      <th>Overall</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Apertus 8B Instruct 2509</strong></td>
-      <td>56.00%</td>
-      <td>24.00%</td>
-      <td>28.00%</td>
-      <td>36.00%</td>
-    </tr>
-    <tr>
-      <td>OLMo-2 1124 7B Instruct</td>
-      <td>51.60%</td>
-      <td>36.72%</td>
-      <td>31.20%</td>
-      <td>39.81%</td>
-    </tr>
-    <tr>
-      <td>Mistral 7B Instruct v0.3</td>
-      <td>49.00%</td>
-      <td>34.00%</td>
-      <td>50.00%</td>
-      <td>44.33%</td>
-    </tr>
-    <tr>
-      <td>Phi-3 Mini 4k Instruct 4k</td>
-      <td>59.00%</td>
-      <td>35.00%</td>
-      <td>38.00%</td>
-      <td>44.00%</td>
-    </tr>
-    <tr>
-      <td>Qwen2.5 7B Instruct</td>
-      <td>53.60%</td>
-      <td>36.33%</td>
-      <td>38.00%</td>
-      <td>42.59%</td>
-    </tr>
-  </tbody>
-</table>
-
-<figure class="figure">
-  <a class="figure-image" aria-label="figure link">
-    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
-        width: auto;
-        max-height: unset;
-      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;">
-  </a>
-  
-</figure>
-
-<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
-
 <h3 id="detailed-ifeval-performance-breakdown">Detailed IFEval Performance Breakdown</h3>
 
 <p>The IFEval benchmark measures different aspects of instruction following capability. Here’s the detailed breakdown across all evaluated metrics:</p>
@@ -971,6 +928,156 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
 </ul>
 
 <p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2311.07911v1">Zhou et al. 2023: Instruction-Following Evaluation for Large Language Models</a></p>
+
+<h3 id="detailed-math-hard">Detailed Math Hard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Overall</th>
+      <th>Algebra</th>
+      <th>Counting &amp; Prob</th>
+      <th>Geometry</th>
+      <th>Intermediate Algebra</th>
+      <th>Number Theory</th>
+      <th>Prealgebra</th>
+      <th>Precalculus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>5.29%</td>
+      <td>7.82%</td>
+      <td>3.25%</td>
+      <td>3.03%</td>
+      <td>1.43%</td>
+      <td>4.55%</td>
+      <td>13.47%</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>11.71%</td>
+      <td>25.41%</td>
+      <td>8.94%</td>
+      <td>6.82%</td>
+      <td>1.43%</td>
+      <td>5.84%</td>
+      <td>21.76%</td>
+      <td>1.48%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>2.95%</td>
+      <td>4.89%</td>
+      <td>1.63%</td>
+      <td>0.00%</td>
+      <td>0.71%</td>
+      <td>1.30%</td>
+      <td>7.77%</td>
+      <td>2.22%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>16.99%</td>
+      <td>30.94%</td>
+      <td>12.20%</td>
+      <td>6.82%</td>
+      <td>2.86%</td>
+      <td>14.94%</td>
+      <td>36.27%</td>
+      <td>3.70%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>37.08%</td>
+      <td>61.89%</td>
+      <td>39.84%</td>
+      <td>26.52%</td>
+      <td>13.21%</td>
+      <td>37.01%</td>
+      <td>51.81%</td>
+      <td>17.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_Math_Hard_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2103.03874">Hendrycks et al. 2021: Measuring Mathematical Problem Solving With the MATH Dataset</a></p>
+
+<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Murder Mysteries</th>
+      <th>Object Placements</th>
+      <th>Team Allocation</th>
+      <th>Overall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>56.00%</td>
+      <td>24.00%</td>
+      <td>28.00%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>51.60%</td>
+      <td>36.72%</td>
+      <td>31.20%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>49.00%</td>
+      <td>34.00%</td>
+      <td>50.00%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>59.00%</td>
+      <td>35.00%</td>
+      <td>38.00%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>53.60%</td>
+      <td>36.33%</td>
+      <td>38.00%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
 
 <h3 id="comparison-with-official-benchmarks">Comparison with Official Benchmarks</h3>
 
