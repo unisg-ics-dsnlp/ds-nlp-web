@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-05T11:32:21+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-13/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-13/" rel="alternate" type="text/html" /><updated>2025-09-05T11:40:04+00:00</updated><id>/preview/pr-13/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-13/2025/09/04/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-04T00:00:00+00:00</published><updated>2025-09-05T11:36:16+00:00</updated><id>/preview/pr-13/2025/09/04/ApertusBench</id><content type="html" xml:base="/preview/pr-13/2025/09/04/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
 <p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
 
 <p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
@@ -23,16 +23,6 @@
 <figure class="figure">
   <a class="figure-image" aria-label="figure link">
     <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance_by_benchmark.png" style="
-        width: auto;
-        max-height: unset;
-      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
-  </a>
-  
-</figure>
-
-<figure class="figure">
-  <a class="figure-image" aria-label="figure link">
-    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance.png" style="
         width: auto;
         max-height: unset;
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
@@ -543,6 +533,23 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
   <size></size>
 -->
 
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-13/images/posts/ApertusBench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
 <h2 id="references">References</h2>
 
 <p>[1] Swiss AI Initiative. (2025). <em>Apertus Technical Report</em>. GitHub Repository. <a href="https://github.com/swiss-ai/apertus-tech-report">https://github.com/swiss-ai/apertus-tech-report</a></p>
@@ -572,7 +579,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-13/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-13/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-09-05T11:36:16+00:00</updated><id>/preview/pr-13/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-13/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -908,7 +915,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-13/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-05T11:28:44+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-13/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-13/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-09-05T11:36:16+00:00</updated><id>/preview/pr-13/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-13/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 
