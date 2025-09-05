@@ -144,23 +144,6 @@ The following table presents our benchmark results for Apertus-8B-Instruct compa
 *Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.*
 
 
-### Detailed Musr Sub-task Performance
-
-| Model | Murder Mysteries | Object Placements | Team Allocation | Overall |
-|-------|-----------------|-------------------|-----------------|---------|
-| **Apertus 8B Instruct 2509** | 56.00% | 24.00% | 28.00% | 36.00% |
-| OLMo-2 1124 7B Instruct | 51.60% | 36.72% | 31.20% | 39.81% |
-| Mistral 7B Instruct v0.3 | 49.00% | 34.00% | 50.00% | 44.33% |
-| Phi-3 Mini 4k Instruct 4k | 59.00% | 35.00% | 38.00% | 44.00% |
-| Qwen2.5 7B Instruct | 53.60% | 36.33% | 38.00% | 42.59% |
-
-
-{% include figure.html image="images/posts/ApertusBench-benchmark_MuSR_grouped.png" %}
-
-**Paper:** [Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning](https://arxiv.org/pdf/2310.16049v2)
-
-
-
 ### Detailed IFEval Performance Breakdown
 
 The IFEval benchmark measures different aspects of instruction following capability. Here's the detailed breakdown across all evaluated metrics:
@@ -185,6 +168,35 @@ The IFEval benchmark measures different aspects of instruction following capabil
   - *Strict*: All-or-nothing evaluation requiring complete instruction compliance
 
 **Paper:** [Zhou et al. 2023: Instruction-Following Evaluation for Large Language Models](https://arxiv.org/pdf/2311.07911v1)
+
+### Detailed Math Hard
+
+| Model | Overall | Algebra | Counting & Prob | Geometry | Intermediate Algebra | Number Theory | Prealgebra | Precalculus |
+|-------|---------|---------|------------------|----------|----------------------|--------------|-----------|-------------|
+| **Apertus 8B Instruct 2509** | 5.29% | 7.82% | 3.25% | 3.03% | 1.43% | 4.55% | 13.47% | 0.74% |
+| OLMo-2 1124 7B Instruct | 11.71% | 25.41% | 8.94% | 6.82% | 1.43% | 5.84% | 21.76% | 1.48% |
+| Mistral 7B Instruct v0.3 | 2.95% | 4.89% | 1.63% | 0.00% | 0.71% | 1.30% | 7.77% | 2.22% |
+| Phi-3 Mini 4k Instruct | 16.99% | 30.94% | 12.20% | 6.82% | 2.86% | 14.94% | 36.27% | 3.70% |
+| Qwen2.5 7B Instruct | 37.08% | 61.89% | 39.84% | 26.52% | 13.21% | 37.01% | 51.81% | 17.04% |
+
+{% include figure.html image="images/posts/ApertusBench-benchmark_Math_Hard_grouped.png" %}
+
+**Paper:** [Hendrycks et al. 2021: Measuring Mathematical Problem Solving With the MATH Dataset](https://arxiv.org/abs/2103.03874)
+
+### Detailed Musr Sub-task Performance
+
+| Model | Murder Mysteries | Object Placements | Team Allocation | Overall |
+|-------|-----------------|-------------------|-----------------|---------|
+| **Apertus 8B Instruct 2509** | 56.00% | 24.00% | 28.00% | 36.00% |
+| OLMo-2 1124 7B Instruct | 51.60% | 36.72% | 31.20% | 39.81% |
+| Mistral 7B Instruct v0.3 | 49.00% | 34.00% | 50.00% | 44.33% |
+| Phi-3 Mini 4k Instruct 4k | 59.00% | 35.00% | 38.00% | 44.00% |
+| Qwen2.5 7B Instruct | 53.60% | 36.33% | 38.00% | 42.59% |
+
+
+{% include figure.html image="images/posts/ApertusBench-benchmark_MuSR_grouped.png" %}
+
+**Paper:** [Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning](https://arxiv.org/pdf/2310.16049v2)
 
 ### Comparison with Official Benchmarks
 
