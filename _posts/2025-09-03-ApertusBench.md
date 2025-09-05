@@ -29,12 +29,10 @@ Apertus supports **1,811 languages**, including Swiss regional languages such as
 
 {% include section.html %}
 
-{% capture content %}
 
 {% include figure.html image="images/posts/ApertusBench-summary_average_performance_by_benchmark.png" %}
 {% include figure.html image="images/posts/ApertusBench-summary_average_performance.png" %}
 
-{% endcapture %}
 {% include section.html %}
 
 ## Benchmarking the Model  
@@ -46,7 +44,7 @@ The **technical report**[1] already contains comparisons with common open weight
 
 At this point, we highly recommend everyone take a look at the technical report for the Apertus models. It is relatively rare to find such detailed insights into **state-of-the-art LLM trainings**.  
 
-{% include section.html background="images/background.jpg" dark=true %}
+{% include section.html dark=true %}
 
 ## Open Weight vs. Open Models  
 In this article, we follow the terminology used by the editors of the Technical Report and draw a clear distinction:  
@@ -72,7 +70,7 @@ Although open models often lag behind open weight and closed models (e.g., GPT-5
 
 Despite their current limitations in quality compared to top-tier chat applications, open models are **extremely important** for society. They advance the entire field of **LLM Foundation Training research** through transparency, reproducibility, and community-driven progress.  
 
-{% include section.html background="images/background.jpg" dark=true %}
+{% include section.html dark=true %}
 
 
 **Quicklinks to Alpertus Ressources:**
