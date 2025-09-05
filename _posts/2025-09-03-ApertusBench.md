@@ -31,7 +31,6 @@ Apertus supports **1,811 languages**, including Swiss regional languages such as
 
 
 {% include figure.html image="images/posts/ApertusBench-summary_average_performance_by_benchmark.png" %}
-{% include figure.html image="images/posts/ApertusBench-summary_average_performance.png" %}
 
 {% include section.html %}
 
@@ -229,6 +228,10 @@ This may not necessarily mean that the results are directly comparable with the 
 - **Mathematical Reasoning**: With 5.29% on Math-lvl-5, Apertus-8B-Instruct outperforms Mistral 7B (2.95%). 
 - **Multi-domain Knowledge (MMLU-Pro)**: Achieved 31.14% accuracy across 12,032 samples
 - **Multi-step Reasoning (Musr)**: Shows room for improvement with 36.00% overall, particularly in object placement tasks (24.00%)
+
+{% include section.html %}
+
+{% include figure.html image="images/posts/ApertusBench-summary_average_performance.png" %}
 
 {% include section.html %}
 
