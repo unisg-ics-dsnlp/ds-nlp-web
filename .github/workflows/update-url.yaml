@@ -35,7 +35,7 @@ jobs:
 
       # update link to site in readme
       - name: Update readme
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const { readFileSync, writeFileSync } = require("fs");
