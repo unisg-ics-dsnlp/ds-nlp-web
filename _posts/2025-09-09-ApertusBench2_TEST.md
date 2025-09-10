@@ -1,5 +1,5 @@
 ---
-title: LLM Benchmark Evaluation - Apertus-8B 
+title: My new Title TEST!!!
 author: 
   - Götz-Henrik Wiegand
   - Michael Gaus
