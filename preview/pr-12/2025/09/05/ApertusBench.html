@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>LLM Benchmark Evaluation - Apertus-8B | DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-12/images/icon.png">
+
+<meta name="title" content="LLM Benchmark Evaluation - Apertus-8B">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="LLM Benchmark Evaluation - Apertus-8B">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-12">
+<meta property="og:image" content="/preview/pr-12/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="LLM Benchmark Evaluation - Apertus-8B">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-12">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-12/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta name="author" content='["Götz-Henrik Wiegand", "Michael Gaus", "Siegfried Handschuh"]'>
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2025-09-24T14:31:23+00:00">
+  <meta property="article:published_time" content="2025-09-05T00:00:00+00:00">
+  <meta property="article:modified_time" content="2025-09-24T14:31:23+00:00">
+  <meta name="revised" content="2025-09-24T14:31:23+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "LLM Benchmark Evaluation - Apertus-8B" },
+      "datePublished": "2025-09-05T00:00:00+00:00",
+      "dateModified": "2025-09-24T14:31:23+00:00",
+    
+    "name": "LLM Benchmark Evaluation - Apertus-8B",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "LLM Benchmark Evaluation - Apertus-8B",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-12/images/icon.png" }
+    },
+    "url": "/preview/pr-12"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-12/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-12/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-12/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-12/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-12/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-12/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-12/_scripts/search.js"></script>
+
+  <script src="/preview/pr-12/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-12/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-12/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-12/images/background.jpg')" data-dark="true">
+  <a href="/preview/pr-12/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-12/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-12/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-12/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-12/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-12/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-12/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1" style="--image: url('/preview/pr-12/images/posts/ApertusBench-Thumbnail.png')">
+    <!--
+  <background>images/posts/ApertusBench-Thumbnail.png</background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">LLM Benchmark Evaluation - Apertus-8B</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>michael gaus</span>
+        </span>
+      
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>siegfried handschuh</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>September 05, 2025</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>September 24, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-12/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-12/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-12/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-12/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-12/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<h2 id="the-release">The Release</h2>
+<p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
+
+<p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
+
+<p>The models are:</p>
+<ul>
+  <li>Trained solely on publicly available data</li>
+  <li>Respectful of robots.txt exclusions (retroactively)</li>
+  <li>Filtered for copyrighted, non-permissive, toxic, and personally identifiable content</li>
+  <li>Equipped with the <em>Goldfish</em> loss to limit verbatim memorization</li>
+</ul>
+
+<p>Apertus supports <strong>1,811 languages</strong>, including Swiss regional languages such as <em>Romansh</em> and <em>Schwiizerdütsch</em>. The release includes both the <strong>model weights</strong> and <strong>full reproduction artifacts</strong> for the research community.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-summary_average_performance_by_benchmark.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmarking-the-model">Benchmarking the Model</h2>
+<p>We took the opportunity to benchmark the model against other models using several industry-standard benchmarks.</p>
+
+<p>The <strong>technical report</strong>[1] already contains comparisons with common open weight and open source models. Our goal was to:</p>
+<ul>
+  <li>Get our own impressions of Apertus</li>
+  <li>Evaluate whether we could reproduce the benchmarks presented in the report</li>
+</ul>
+
+<p>At this point, we highly recommend everyone take a look at the technical report for the Apertus models. It is relatively rare to find such detailed insights into <strong>state-of-the-art LLM trainings</strong>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="1" data-dark="true">
+    <!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<h2 id="open-weight-vs-open-models">Open Weight vs. Open Models</h2>
+<p>In this article, we follow the terminology used by the editors of the Technical Report and draw a clear distinction:</p>
+
+<h3 id="open-weight-models">Open Weight Models</h3>
+<ul>
+  <li>Weights and architectures are openly available</li>
+  <li>Training data, scripts, and reproducibility artifacts are not published</li>
+  <li>
+<strong>Example:</strong> <em>Llama model family</em> from Meta</li>
+</ul>
+
+<h3 id="open-models">Open Models</h3>
+<ul>
+  <li>Strive to make <em>everything</em> open: data, scripts, training details</li>
+  <li>Aim for reproducibility and knowledge sharing in a scientific context</li>
+  <li>
+<strong>Example:</strong> <em>OLMO model family</em> from the Allen Institute for AI</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="why-open-models-matter">Why Open Models Matter</h2>
+<p>Although open models often lag behind open weight and closed models (e.g., GPT-5 from OpenAI, or Gemini) in performance, they provide:</p>
+
+<ul>
+  <li>Training on <strong>ethical datasets</strong>
+</li>
+  <li>Development on a <strong>non-profit basis</strong>
+</li>
+  <li>Opportunities for <strong>open research</strong> that is not profit-driven</li>
+</ul>
+
+<p>Despite their current limitations in quality compared to top-tier chat applications, open models are <strong>extremely important</strong> for society. They advance the entire field of <strong>LLM Foundation Training research</strong> through transparency, reproducibility, and community-driven progress.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="1" data-dark="true">
+    <!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<p><strong>Quicklinks to Alpertus Ressources:</strong></p>
+<ul>
+  <li>
+<strong>Technical Report</strong>: <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a>
+</li>
+  <li>
+<strong>Model Hub</strong>: <a href="https://huggingface.co/swiss-ai/">Hugging Face - Swiss AI Models</a>
+</li>
+  <li>
+<strong>Official Blog</strong>: <a href="https://www.swiss-ai.org/apertus">Swiss AI Apertus Announcement</a>
+</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<p><strong>Important disclaimer:</strong> 
+The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with a subset of the leaderboard evaluations from <a href="https://github.com/EleutherAI/lm-evaluation-harness">ElutherAI’s Language Model Evaluation Harness</a>. The raw results and benchmark logs can be found on our Github repository <a href="https://github.com/unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results">unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results</a>.</p>
+
+<p>The benchmarks presented here are not intended to be exhaustive and are intended only to provide an overview and initial, independent assessment of the model. For more comprehensive benchmarks, please refer to the <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="selected-benchmarks">Selected Benchmarks</h2>
+
+<p>We evaluated the model across four key benchmarks that test different aspects of language understanding and generation capabilities:</p>
+
+<h4 id="1-ifeval-instruction-following-evaluation">1. IFEval (Instruction Following Evaluation)</h4>
+<ul>
+  <li>
+<strong>Task Type</strong>: 0-shot, generative</li>
+  <li>
+<strong>Purpose</strong>: Measures the model’s ability to follow specific, verifiable instructions</li>
+  <li>
+<strong>Examples</strong>: Tasks involving word count constraints, keyword usage, formatting requirements</li>
+  <li>
+<strong>Why it matters</strong>: Instruction-following is crucial for practical applications where models must adhere to specific user requirements</li>
+</ul>
+
+<h4 id="2-math-lvl-5-mathematical-reasoning">2. MATH-lvl-5 (Mathematical Reasoning)</h4>
+<ul>
+  <li>
+<strong>Task Type</strong>: 4-shot, generative</li>
+  <li>
+<strong>Purpose</strong>: Tests mathematical problem-solving capabilities using challenging level-5 problems</li>
+  <li>
+<strong>Examples</strong>: Complex algebraic equations, calculus problems, geometric reasoning</li>
+  <li>
+<strong>Why it matters</strong>: Mathematical reasoning demonstrates logical thinking and step-by-step problem decomposition skills</li>
+</ul>
+
+<h4 id="3-mmlu-pro-enhanced-multi-task-language-understanding">3. MMLU-Pro (Enhanced Multi-task Language Understanding)</h4>
+<ul>
+  <li>
+<strong>Task Type</strong>: 5-shot, multiple-choice</li>
+  <li>
+<strong>Purpose</strong>: Comprehensive evaluation across diverse academic and professional domains</li>
+  <li>
+<strong>Examples</strong>: Science, history, law, medicine, engineering questions with 10 answer choices</li>
+  <li>
+<strong>Why it matters</strong>: Broad domain knowledge is essential for general-purpose language models</li>
+</ul>
+
+<h4 id="4-musr-multi-step-soft-reasoning">4. Musr (Multi-step Soft Reasoning)</h4>
+<ul>
+  <li>
+<strong>Task Type</strong>: 0-shot, multiple-choice</li>
+  <li>
+<strong>Purpose</strong>: Evaluates complex narrative reasoning across three sub-tasks:
+    <ul>
+      <li>
+<strong>Murder Mysteries</strong>: Logical deduction from narrative clues</li>
+      <li>
+<strong>Object Placements</strong>: Spatial and temporal reasoning</li>
+      <li>
+<strong>Team Allocation</strong>: Constraint satisfaction and optimization</li>
+    </ul>
+  </li>
+  <li>
+<strong>Why it matters</strong>: Tests the model’s ability to maintain context and reason through multi-step scenarios</li>
+</ul>
+
+<p>We might add more benchmarks in the future.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmark-results">Benchmark Results</h2>
+<p>Most of the Math-lvl-5 and MMLU-Pro benchmark results are still missing and will be updated gradually.</p>
+
+<h3 id="performance-comparison">Performance Comparison</h3>
+
+<p>The following table presents our benchmark results for Apertus-8B-Instruct compared to other open-weight and open models in similar parameter ranges:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>IFEval (0-shot) [3]</th>
+      <th>MMLU-Pro (5-shot) [5]</th>
+      <th>Math-lvl-5 (4-shot) [6]</th>
+      <th>Musr (0-shot) [4]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>44.18%</td>
+      <td>31.14%</td>
+      <td>5.29%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>57.67%</td>
+      <td>29.02%</td>
+      <td>11.71%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>44.73%</td>
+      <td>30.56%</td>
+      <td>2.95%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>29.39%</td>
+      <td>39.85%</td>
+      <td>16.99%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>58.04%</td>
+      <td>44.72%</td>
+      <td>37.08%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.</em></p>
+
+<h3 id="detailed-ifeval-performance-breakdown">Detailed IFEval Performance Breakdown</h3>
+
+<p>The IFEval benchmark measures different aspects of instruction following capability. Here’s the detailed breakdown across all evaluated metrics:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Inst Level Loose</th>
+      <th>Inst Level Strict</th>
+      <th>Prompt Level Loose</th>
+      <th>Prompt Level Strict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>65.35%</td>
+      <td>57.55%</td>
+      <td>53.23%</td>
+      <td>44.18%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>72.42%</td>
+      <td>67.51%</td>
+      <td>62.85%</td>
+      <td>57.67%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>59.59%</td>
+      <td>56.35%</td>
+      <td>47.13%</td>
+      <td>44.73%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>44.36%</td>
+      <td>43.41%</td>
+      <td>30.50%</td>
+      <td>29.39%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>73.98%</td>
+      <td>68.82%</td>
+      <td>64.51%</td>
+      <td>58.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-benchmark_IFEval_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<h4 id="understanding-ifeval-metrics">Understanding IFEval Metrics:</h4>
+
+<ul>
+  <li>
+<strong>Instruction Level</strong>: Evaluates individual instruction compliance within a prompt
+    <ul>
+      <li>
+<em>Loose</em>: More lenient evaluation allowing minor deviations</li>
+      <li>
+<em>Strict</em>: Rigorous evaluation requiring exact compliance</li>
+    </ul>
+  </li>
+  <li>
+<strong>Prompt Level</strong>: Evaluates overall prompt-level instruction following
+    <ul>
+      <li>
+<em>Loose</em>: Partial credit for partially followed instructions</li>
+      <li>
+<em>Strict</em>: All-or-nothing evaluation requiring complete instruction compliance</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2311.07911v1">Zhou et al. 2023: Instruction-Following Evaluation for Large Language Models</a></p>
+
+<h3 id="detailed-math-hard">Detailed Math Hard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Overall</th>
+      <th>Algebra</th>
+      <th>Counting &amp; Prob</th>
+      <th>Geometry</th>
+      <th>Intermediate Algebra</th>
+      <th>Number Theory</th>
+      <th>Prealgebra</th>
+      <th>Precalculus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>5.29%</td>
+      <td>7.82%</td>
+      <td>3.25%</td>
+      <td>3.03%</td>
+      <td>1.43%</td>
+      <td>4.55%</td>
+      <td>13.47%</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>11.71%</td>
+      <td>25.41%</td>
+      <td>8.94%</td>
+      <td>6.82%</td>
+      <td>1.43%</td>
+      <td>5.84%</td>
+      <td>21.76%</td>
+      <td>1.48%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>2.95%</td>
+      <td>4.89%</td>
+      <td>1.63%</td>
+      <td>0.00%</td>
+      <td>0.71%</td>
+      <td>1.30%</td>
+      <td>7.77%</td>
+      <td>2.22%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>16.99%</td>
+      <td>30.94%</td>
+      <td>12.20%</td>
+      <td>6.82%</td>
+      <td>2.86%</td>
+      <td>14.94%</td>
+      <td>36.27%</td>
+      <td>3.70%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>37.08%</td>
+      <td>61.89%</td>
+      <td>39.84%</td>
+      <td>26.52%</td>
+      <td>13.21%</td>
+      <td>37.01%</td>
+      <td>51.81%</td>
+      <td>17.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-benchmark_Math_Hard_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2103.03874">Hendrycks et al. 2021: Measuring Mathematical Problem Solving With the MATH Dataset</a></p>
+
+<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Murder Mysteries</th>
+      <th>Object Placements</th>
+      <th>Team Allocation</th>
+      <th>Overall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>56.00%</td>
+      <td>24.00%</td>
+      <td>28.00%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>51.60%</td>
+      <td>36.72%</td>
+      <td>31.20%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>49.00%</td>
+      <td>34.00%</td>
+      <td>50.00%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>59.00%</td>
+      <td>35.00%</td>
+      <td>38.00%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>53.60%</td>
+      <td>36.33%</td>
+      <td>38.00%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
+
+<h3 id="comparison-with-official-benchmarks">Comparison with Official Benchmarks</h3>
+
+<p>To validate our results, we compared our IFEval benchmark results with those reported in the Apertus Technical Report:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Our IFEval Results</th>
+      <th>Tech Report IFEval Results</th>
+      <th>Difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Apertus 8B Instruct 2509</strong></td>
+      <td>53.23%</td>
+      <td>71.7%*</td>
+      <td>-18.47</td>
+    </tr>
+    <tr>
+      <td><strong>OLMo-2-1124-7B-Instruct</strong></td>
+      <td>57.67%</td>
+      <td>71.0%*</td>
+      <td>-13.33%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Tech Report: Post-training evaluation using prompt-level strict accuracy (Table 19)</p>
+
+<h4 id="important-notes-on-ifeval-comparison">Important Notes on IFEval Comparison:</h4>
+
+<p>The performance differences between our results and the Tech Report can be attributed to:</p>
+
+<ol>
+  <li>
+<strong>Evaluation Implementation Differences</strong>:
+    <ul>
+      <li>Different prompt templates and formatting</li>
+      <li>Variations in instruction parsing and evaluation criteria</li>
+      <li>Potential differences in the lm-evaluation-harness versions (See <a href="https://github.com/swiss-ai/lm-evaluation-harness">github.com/swiss-ai/lm-evaluation-harness</a>)</li>
+    </ul>
+  </li>
+  <li>
+<strong>Consistency Across Models</strong>:
+    <ul>
+      <li>Both Apertus-8B-Instruct and OLMo-2-7B-Instruct show lower scores in our evaluation</li>
+      <li>The consistent gap suggests systematic differences in evaluation methodology</li>
+      <li>This highlights the importance of using identical evaluation settings for fair comparisons</li>
+    </ul>
+  </li>
+</ol>
+
+<p>This may not necessarily mean that the results are directly comparable with the official benchmarks. However, this does not affect the comparability between the models in our benchmark.</p>
+
+<h3 id="key-observations">Key Observations</h3>
+
+<ul>
+  <li>
+<strong>Instruction Following (IFEval)</strong>: Apertus-8B-Instruct shows competitive performance at 44.18%, though it trails behind models like OLMo-2 (57.67%) and Qwen2.5 (58.04%)</li>
+  <li>
+<strong>Mathematical Reasoning</strong>: With 5.29% on Math-lvl-5, Apertus-8B-Instruct outperforms Mistral 7B (2.95%).</li>
+  <li>
+<strong>Multi-domain Knowledge (MMLU-Pro)</strong>: Achieved 31.14% accuracy across 12,032 samples</li>
+  <li>
+<strong>Multi-step Reasoning (Musr)</strong>: Shows room for improvement with 36.00% overall, particularly in object placement tasks (24.00%)</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Swiss AI Initiative. (2025). <em>Apertus Technical Report</em>. GitHub Repository. <a href="https://github.com/swiss-ai/apertus-tech-report">https://github.com/swiss-ai/apertus-tech-report</a></p>
+
+<p>[2] Gao, L., Tow, J., Abbasi, B., Biderman, S., Black, S., DiPofi, A., Foster, C., Golding, L., Hsu, J., Le Noac’h, A., Li, H., McDonell, K., Muennighoff, N., Ociepa, C., Phang, J., Reynolds, L., Schoelkopf, H., Skowron, A., Sutawika, L., Tang, E., Thite, A., Wang, B., Wang, K., &amp; Zou, A. (2023). <em>A framework for few-shot language model evaluation</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.10256836">https://doi.org/10.5281/zenodo.10256836</a></p>
+
+<p>[3] Zhou, A., Yan, K., Shlapentokh-Rothman, M., Wang, H., &amp; Wang, Y. (2023). <em>Instruction-Following Evaluation for Large Language Models</em>. arXiv preprint. <a href="https://arxiv.org/abs/2311.07911">https://arxiv.org/abs/2311.07911</a></p>
+
+<p>[4] Sprague, C., Gao, L., Biderman, S., &amp; Sutawika, L. (2024). <em>MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</em>. arXiv preprint. <a href="https://arxiv.org/abs/2310.16049">https://arxiv.org/abs/2310.16049</a></p>
+
+<p>[5] Wang, Y., Ma, X., Zhang, G., Ni, Y., Chandra, A., Guo, S., Ren, W., Arulraj, A., He, X., Jiang, Z., Li, T., Ku, M., Wang, K., Zhuang, A., Fan, R., Yue, X., &amp; Chen, W. (2024). <em>MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</em>. arXiv preprint. <a href="https://arxiv.org/abs/2406.01574">https://arxiv.org/abs/2406.01574</a></p>
+
+<p>[6] Hendrycks, D., Burns, C., Kadavath, S., Arora, A., Basart, S., Tang, E., Song, D., &amp; Steinhardt, J. (2021). <em>Measuring Mathematical Problem Solving With the MATH Dataset</em>. arXiv preprint. <a href="https://arxiv.org/abs/2103.03874">https://arxiv.org/abs/2103.03874</a></p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-12/images/posts/ApertusBench-Thumbnail.png" style="
+        width: 50%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/preview/pr-12/2025/08/27/SDS2025-2.html">
+        Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-12/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-12/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2025
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>

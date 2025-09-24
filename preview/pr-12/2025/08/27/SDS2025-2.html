@@ -66,10 +66,10 @@
 
   <meta name="author" content="Jan Spörer">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-09-03T21:43:28+00:00">
+  <meta property="og:updated_time" content="2025-09-24T14:31:23+00:00">
   <meta property="article:published_time" content="2025-08-27T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-09-03T21:43:28+00:00">
-  <meta name="revised" content="2025-09-03T21:43:28+00:00">
+  <meta property="article:modified_time" content="2025-09-24T14:31:23+00:00">
+  <meta name="revised" content="2025-09-24T14:31:23+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" },
       "datePublished": "2025-08-27T00:00:00+00:00",
-      "dateModified": "2025-09-03T21:43:28+00:00",
+      "dateModified": "2025-09-24T14:31:23+00:00",
     
     "name": "Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -468,7 +468,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>September 03, 2025</span>
+      <span>September 24, 2025</span>
     </span>
   
 </div>
@@ -522,11 +522,11 @@
 -->
 
 
-<h1 id="identification-of-the-most-frequently-asked-questions-in-financial-analyst-reports-to-automate-equity-research-using-llama-3-and-gpt-4">Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4</h1>
+<h1 id="the-structure-of-financial-equity-research">The Structure of Financial Equity Research</h1>
 
-<p>Financial equity research reports (ERRs) are the way banks and independent analyst firms communicate their buy and sell recommendations about individual stocks. Typically, financial experts, so-called “analysts,” cover a basket of stock-listed companies from one or two industries over a long period of time, and update their ERRs whenever important news come out (often after quarterly reports) [36].</p>
+<p>Financial equity research reports (ERRs) are a means to communicate buy and sell recommendations about individual stocks. Banks and independent research firms write those reports to convince their clients to buy or sell stocks (earning the banks a brokerage commission), or to receive direct compensation for their research. Typically, financial experts, so-called “analysts,” cover a basket of stock-listed companies from one or two industries over a long period of time, and update their ERRs whenever important news come out (often after quarterly reports) [36].</p>
 
-<p>ERRs typically contain a stock price target as well as a buy, hold, or sell recommendation.</p>
+<p>ERRs typically contain a stock price target (e.g., a forecasted stock price of $250 per share within the next 12 months) as well as a buy, hold, or sell recommendation.</p>
 
 <p>The banks’ clients and the general market use these reports to support investment decisions in the stocks (and, to a lesser extent, bonds) of these companies.</p>
   </section>
@@ -546,13 +546,13 @@
 
 <h3 id="relevance">Relevance</h3>
 
-<p>In the financial literature, ERRs are established as important sources of information [44, 45, 46, 47, 48]. They offer some insight into the future stock performance of firms [49], so they may indeed help investors to make decisions.</p>
+<p>In the financial literature, ERRs are established as important sources of information [44, 45, 46, 47, 48]. They offer some empirically validated insights into the future stock performance of firms [49], so they may indeed help investors to make decisions.</p>
 
 <h3 id="issues-with-financial-equity-research-bias-and-cost">Issues With Financial Equity Research: Bias and Cost</h3>
 
-<p>But a problem remains: Many reports are written by banks, and banks have an inherent interest in earning commissions from trades places by their clients. This means they often want to convince (potential) clients to buy stocks, possibly introducing a reluctance to publish negative coverage [42, 43]. [36] found that only 0.5% of all reports contained sell recommendations before the dot-com bubble burst. Prior research showed less extreme results, with 14% sell recommendations between 1989 and 1991 [49], but the direction is still clear: ERRs seem to be a tad to positive and not entirely unbiased.</p>
+<p>But a problem remains: Many reports are written by banks, and banks have an inherent interest in earning commissions from trades placed by their clients. This means they often want to convince (potential) clients to buy stocks, possibly introducing a reluctance to publish negative coverage [42, 43]. [36] found that only 0.5% of all reports contained sell recommendations before the dot-com bubble burst. Prior research showed less extreme results, with 14% sell recommendations between 1989 and 1991 [49], but the direction is still clear: ERRs seem to be a tad to positive and not entirely unbiased.</p>
 
-<p>Another issue with ERRs are cost. As our results below show, much of equity research is just a presentation of financials. Overall, ERRs follow a mechanistic, descriptive pattern. It is thus questionable if significant human input is warranted and useful. Given the concerns around biasedness in equity research, the field may thus benefit from further autmation. Our paper provides the groundwork for systematic automation of equity research.</p>
+<p>Another issue with ERRs are cost. As our results below show, much of equity research is just a presentation of financials. Overall, ERRs follow a mechanistic, descriptive pattern. It is thus questionable if significant human input is warranted and useful. Given the concerns around biasedness in equity research, the field may thus benefit from further automation. Our paper provides the groundwork for systematic automation of equity research.</p>
   </section>
 
   
@@ -568,7 +568,7 @@
 
 <h2 id="the-structure-of-equity-research">The Structure of Equity Research</h2>
 
-<p>While research about the relevance and biasedness of equity research is plentiful, we know very little about what types of statements these reports make. So far, there was no systematic research into the structure of financial equity research reports – so that is where our research comes in.</p>
+<p>While research about the relevance and biasedness of equity reports is plentiful, there is little understanding about what types of contents these reports cover and to what extent the context might be automated. So far, there was no systematic research into the structure of financial equity research reports – so that is where our research comes in.</p>
 
 <p>Let’s start with the basics: Equity research reports are consistently short. Unlike annual reports, which usually have hundreds of pages, equity research is short and concise, and reports with 20 pages are long outliers already.</p>
 
@@ -1039,6 +1039,11 @@
     
   </span>
   <span>
+    
+      Next post <i class="icon fa-solid fa-angle-right"></i><br>
+      <a href="/preview/pr-12/2025/09/05/ApertusBench.html">
+        LLM Benchmark Evaluation - Apertus-8B
+      </a>
     
   </span>
 </div>
