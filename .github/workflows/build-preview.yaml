@@ -52,7 +52,7 @@ jobs:
           JEKYLL_ENV=production bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '' }}/${{ env.PREVIEWS_FOLDER }}/pr-${{ github.event.number }}"
 
       - name: Commit preview to Pages branch
-        uses: rossjrw/pr-preview-action@v1.4.7
+        uses: rossjrw/pr-preview-action@v1.6.2
         with:
           source-dir: _site
           umbrella-dir: ${{ env.PREVIEWS_FOLDER }}
