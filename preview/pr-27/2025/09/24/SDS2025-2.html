@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4 | DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-27/images/icon.png">
+
+<meta name="title" content="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-27">
+<meta property="og:image" content="/preview/pr-27/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-27">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-27/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta name="author" content="Jan Spörer">
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2025-10-07T14:20:25+00:00">
+  <meta property="article:published_time" content="2025-09-24T00:00:00+00:00">
+  <meta property="article:modified_time" content="2025-10-07T14:20:25+00:00">
+  <meta name="revised" content="2025-10-07T14:20:25+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" },
+      "datePublished": "2025-09-24T00:00:00+00:00",
+      "dateModified": "2025-10-07T14:20:25+00:00",
+    
+    "name": "Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-27/images/icon.png" }
+    },
+    "url": "/preview/pr-27"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-27/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-27/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-27/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-27/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-27/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-27/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-27/_scripts/search.js"></script>
+
+  <script src="/preview/pr-27/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-27/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-27/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-27/images/background.jpg')" data-dark="true">
+  <a href="/preview/pr-27/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-27/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-27/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-27/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-27/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-27/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-27/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1" style="--image: url('/preview/pr-27/images/posts/SDS-2025-2-cover.png')">
+    <!--
+  <background>/images/posts/SDS-2025-2-cover.png</background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>jan spörer</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>September 24, 2025</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>October 07, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-27/blog?search="tag:%20finance"' class="tag" data-tooltip='Show items with the tag "finance"'>
+        finance
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20finance-and-ai"' class="tag" data-tooltip='Show items with the tag "finance-and-ai"'>
+        finance-and-ai
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20annual-reports"' class="tag" data-tooltip='Show items with the tag "annual-reports"'>
+        annual-reports
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20equity-research"' class="tag" data-tooltip='Show items with the tag "equity-research"'>
+        equity-research
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20gpt-4"' class="tag" data-tooltip='Show items with the tag "gpt-4"'>
+        gpt-4
+      </a>
+    
+      <a href='/preview/pr-27/blog?search="tag:%20llama-3"' class="tag" data-tooltip='Show items with the tag "llama-3"'>
+        llama-3
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<h1 id="the-structure-of-financial-equity-research">The Structure of Financial Equity Research</h1>
+
+<p>Financial equity research reports (ERRs) are a means to communicate buy and sell recommendations about individual stocks. Banks and independent research firms write those reports to convince their clients to buy or sell stocks (earning the banks a brokerage commission), or to receive direct compensation for their research. Typically, financial experts, so-called “analysts,” cover a basket of stock-listed companies from one or two industries over a long period of time, and update their ERRs whenever important news come out (often after quarterly reports) [36].</p>
+
+<p>ERRs typically contain a stock price target (e.g., a forecasted stock price of $250 per share within the next 12 months) as well as a buy, hold, or sell recommendation.</p>
+
+<p>The banks’ clients and the general market use these reports to support investment decisions in the stocks (and, to a lesser extent, bonds) of these companies.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="financial-text--one-hard-nut-to-crack-for-automation">Financial Text – One Hard Nut to Crack for Automation</h2>
+
+<h3 id="relevance">Relevance</h3>
+
+<p>In the financial literature, ERRs are established as important sources of information [44, 45, 46, 47, 48]. They offer some empirically validated insights into the future stock performance of firms [49], so they may indeed help investors to make decisions.</p>
+
+<h3 id="issues-with-financial-equity-research-bias-and-cost">Issues With Financial Equity Research: Bias and Cost</h3>
+
+<p>But a problem remains: Many reports are written by banks, and banks have an inherent interest in earning commissions from trades placed by their clients. This means they often want to convince (potential) clients to buy stocks, possibly introducing a reluctance to publish negative coverage [42, 43]. [36] found that only 0.5% of all reports contained sell recommendations before the dot-com bubble burst. Prior research showed less extreme results, with 14% sell recommendations between 1989 and 1991 [49], but the direction is still clear: ERRs seem to be a tad to positive and not entirely unbiased.</p>
+
+<p>Another issue with ERRs are cost. As our results below show, much of equity research is just a presentation of financials. Overall, ERRs follow a mechanistic, descriptive pattern. It is thus questionable if significant human input is warranted and useful. Given the concerns around biasedness in equity research, the field may thus benefit from further automation. Our paper provides the groundwork for systematic automation of equity research.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-structure-of-equity-research">The Structure of Equity Research</h2>
+
+<p>While research about the relevance and biasedness of equity reports is plentiful, there is little understanding about what types of contents these reports cover and to what extent the context might be automated. So far, there was no systematic research into the structure of financial equity research reports – so that is where our research comes in. Based on 72 English equity research reports written between 2018 and 2022, covering a broad range of authors (banks) and covered companies, we empirically uncover how equity analysts write.</p>
+
+<p>Let’s start with the basics: Equity research reports are consistently short. Unlike annual reports, which usually have hundreds of pages, equity research is short and concise, and reports with 20 pages are long outliers already.</p>
+
+<p>The figures below illustrate that most reports have between 4 and 9 pages, and they do not contain more than 120 statements.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-page_counts_histogram.png" alt="Distribution of page counts of equity research reports. Most reports have between 4--9 pages. Including appendices." style="width: 30%; height: auto;">
+    <img src="/images/posts/SDS-2025-2-statement_counts_histogram_binned.png" alt="Distribution of statement counts of equity research reports. Most reports have between 30--120 statements. Including appendices." style="width: 25%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Distribution of page counts and statement counts of equity research reports. Most reports have between 4--9 pages and 30--120 statements. Including appendices.</sup>
+  </p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-histogram_grouped_by_question_category_x_type_of_display_y_occurrences.png" alt="Different types of information are systematically presented with different modes of display. Financial information is often structured enough to be displayed in tables and diagrams, while company and market overviews are usually verbal." style="width: 50%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Different types of information are systematically presented with different modes of display. Financial information is often structured enough to be displayed in tables and diagrams, while company and market overviews are usually verbal.</sup>
+  </p>
+</div>
+
+<h2 id="how-do-banks-and-independent-analysts-present-their-analyses">How Do Banks and Independent Analysts Present Their Analyses?</h2>
+
+<p>In our study <a href="https://arxiv.org/abs/2407.18327">Pop &amp; Spörer (2025)</a>, we found that text and tables are the dominant ways of conveying information in equity research reports. Diagrams, which often come in the form of stock price charts, are less relevant overall. Custom diagrams that show complex business relationships, product specifications, or market dynamics, are an absolute exception.</p>
+
+<p>Textual and tabular statement can often be expressed in various ways, and analysts switch between textual and tabular modes. Different banks tend to have different styles. Some make heavy use of tables, while others present almost all information in text form. This heavy reliance on text and tables is a potential for LLMs, as text and tables are the native domain of language models. Today’s language models can write tables in Markdown or in other machine-readable formats.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-venn_diagram_modalities_in_equity_research_reports.png" alt="There is significant overlap between presentation modes for the same statements. Textual and tabular representation modes are dominant." style="width: 20%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">There is significant overlap between presentation modes for the same statements. Textual and tabular representation modes are dominant.</sup>
+  </p>
+</div>
+
+<p>Analysts have a strong bias in favor of the type of information that they know best: Financials. This is reflected in the following diagram, which shows that most statements fall into the “Financials” category. As mentioned above, analysts usually do not take the time to present product-specific diagrams or to display market dynamics or supply chains in graphical form. The category “Product”  illustrates.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-question_categories_bars.png" alt="Statements about the income statement (profit &amp; loss -- P&amp;L) are the most frequent question subcategory in our typology. Most of the other top subcategories also fall in the Financials subcategory. An exception is the Stock Price subcategory, which is the second most important subcategory by frequency." style="width: 45%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Statements about the income statement (profit &amp; loss -- P&amp;L) are the most frequent question subcategory in our typology. Most of the other top subcategories also fall in the Financials subcategory. An exception is the Stock Price subcategory, which is the second most important subcategory by frequency.</sup>
+  </p>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="how-large-is-the-dent-that-llms-can-make-in-automating-equity-research">How Large is the Dent That LLMs Can Make in Automating Equity Research?</h2>
+
+<p>According to our research, already 55% of the statements from equity research reports are automatable, even without any use of AI/LLMs. This is due to the comprehensive data coverage that financial databases such as Bloomberg provide. Executive changes, financials, and subsidiary structures are readily available in structured format in these databases.</p>
+
+<p>Thus, to evaluate the automation potential that LLMs can still have, we substracted this 55% from the overall pie, and ended up with 30% of automation potential for LLMs. Thus, only 15% of statements in ERRs cannot be automated.</p>
+
+<p>Of these 30%, 26 percentage points were answered correctly by GPT-4, and 27 percentage points were answered correctly by Llama-3. The error rate is reduced when a perfect ensemble of these two models is assumed, as we show below.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__pie_charts_correct_incorrect.png" alt="Language models can close a gap that financial databases leave open. Still, we think that human input is still required, as we assume non-fact based statements (opinions) and strategic outlooks cannot be automated by LLMs." style="width: 50%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Language models can close a gap that financial databases leave open. Still, we think that human input is still required, as we assume non-fact based statements (opinions) and strategic outlooks cannot be automated by LLMs.</sup>
+  </p>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="potential-for-model-ensembles">Potential for Model Ensembles</h2>
+
+<p>We found that GPT-4 and Llama-3 complement each other. In our small-scale analysis, when one of the models fails to answer a question correctly, the other model almost always is able to “help out.”</p>
+
+<p>This result shows that there is potential in multi-AI (or multi-agent) systems that outperform single-model inference.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__bar_charts_correct_incorrect_counts_with_either_model_and_color.png" alt="Accuracy and error rate for GPT-4 and Llama-3. GPT-4: 52 right, 8 wrong. Llama-3: 54 right, 6 wrong. Ensemble: 59 right, 1 wrong. Shows that ensembles have promising potential." style="width: 50%; height: auto;">
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__grid_chart_correctness_when_both_models_used_in_conjunction.png" alt="The overlap diagram shows that there is almost no error overlap between GPT-4 and Llama-3." style="width: 20%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Ensembles of GPT-4 and Llama-3 have high potential as they show little error overlap.</sup>
+  </p>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The study shows some patterns in equity research worth pointing out:</p>
+
+<ul>
+
+  <li> 
+    Analysts usually do not create custom diagrams that deep-dive into product specifications, distribution or supply chains, market structures, or other complex relationships that underly the covered firms' business. In fact, only 15% of the statements financial analysts make are hard to automate by LLMs in principle, as these represent strategic outlooks or opinions. Thus, the automation potential of equity research is high, as their "human touch" is already minuscle today. 
+  </li>
+
+  <li>
+    Most of the statements in financial report relate to financial information -- which can already be found in financial databases and does not require LLMs to be extracted.
+  </li>
+
+  <li>
+    We still need to caution that analysts perform important roles that LLMs will not be able to replicate. For example, they personally meet management teams and may get subtle clues about the confidence and capabilities of these managers in these meetings.
+  </li>
+
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="outlook">Outlook</h2>
+
+<p>Today’s ERRs heavily focus on financials. This probably arises from the skill set of their authors. Most financial analysts have degrees in business and finance, and these analysts are usually no product or service experts in the industries that they cover. LLMs offer potential for more holistic coverage that takes product and service quality of the covered firms into account, introducing an underappreciated aspect to equity research.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="link-to-the-paper">Link to the Paper</h2>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/g9zqnv" class="citation-image" aria-label="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4">
+        <img src="/preview/pr-27/images/cites/SDS-2025-2-image.png" alt="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      <i class="icon fa-solid fa-scroll"></i>
+
+      <a href="https://doi.org/g9zqnv" class="citation-title">
+        Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Adria Pop, Jan Spörer
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">2025 IEEE Swiss Conference on Data Science (SDS)</span>
+         · 
+        <span class="citation-date">26 Jun 2025</span>
+         · 
+        <span class="citation-id">doi:10.1109/SDS66131.2025.00025</span>
+      </div>
+
+      
+        
+          <div class="citation-description">
+            This research dissects financial equity research reports (ERRs) by systematically mapping their content into categories. There is insufficient empirical analysis of the questions answered in ERRs. In particular, it is not understood how frequently certain information appears, what information is considered essential, and what information requires human judgment to distill into an ERR. The study analyzes 72 ERRs sentence-by-sentence, classifying their 4964 sentences into 169 unique question archetypes. We did not predefine the questions but derived them solely from the statements in the ERRs. This approach provides an unbiased view of the content of the observed ERRs. Subsequently, we used public corporate reports to classify the questions’ potential for automation. Answers were labeled “text-extractable” if the answers to the question were accessible in corporate reports. 75.15% of the questions in ERRs can be automated using text extraction from text sources. Those automatable questions consist of 51.91% text-extractable (suited to processing by large language models, LLMs) and 24.24% database-extractable questions. Only 24.85% of questions require human judgment to answer. We empirically validate, using Llama-3-70B and GPT-4-turbo-2024-04-09 that recent advances in language generation and infor- mation extraction enable the automation of approximately 80% of the statements in ERRs. Surprisingly, the models complement each other’s strengths and weaknesses well, indicating strong ensemble potential. The research confirms that the current writing process of ERRs can likely benefit from additional automation, improving quality and efficiency. The research thus allows us to quantify the potential impacts of introducing large language models in the ERR writing process. The full question list, including the archetypes and their frequency, are available online (link removed to preserve anonymity).
+
+          </div>
+        
+
+        
+          <div class="citation-buttons">
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://doi.org/10.1109/SDS66131.2025.00025" data-style="bare" aria-label="button">
+      
+      
+        <span>DOI</span>
+      
+    </a>
+  </div>
+
+
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ieeexplore.ieee.org/document/11081504" data-style="bare" aria-label="button">
+      
+      
+        <span>IEEE</span>
+      
+    </a>
+  </div>
+
+
+            
+          </div>
+        
+
+        
+          
+
+
+  <div class="tags">
+    
+      <a href='?search="tag:%20financial-ai"' class="tag" data-tooltip='Show items with the tag "financial-ai"'>
+        financial-ai
+      </a>
+    
+      <a href='?search="tag:%20annual-reports"' class="tag" data-tooltip='Show items with the tag "annual-reports"'>
+        annual-reports
+      </a>
+    
+      <a href='?search="tag:%20equity-research"' class="tag" data-tooltip='Show items with the tag "equity-research"'>
+        equity-research
+      </a>
+    
+      <a href='?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='?search="tag:%20gpt-4"' class="tag" data-tooltip='Show items with the tag "gpt-4"'>
+        gpt-4
+      </a>
+    
+      <a href='?search="tag:%20llama-3"' class="tag" data-tooltip='Show items with the tag "llama-3"'>
+        llama-3
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., et al. (2020). Language Models Are Few-Shot Learners. <em>Advances in Neural Information Processing Systems (NeurIPS).</em></p>
+
+<p>[2] Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT).</em></p>
+
+<p>[3] Fawcett, T. (2006). Introduction to Receiver Operator Curves. <em>Pattern Recognition Letters.</em></p>
+
+<p>[4] Gilbert, E. (2014). VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text. <em>International Conference on Weblogs and Social Media (ICWSM).</em></p>
+
+<p>[5] Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., &amp; Iwasawa, Y. (2022). Large Language Models Are Zero-Shot Reasoners. <em>Advances in Neural Information Processing Systems (NeurIPS).</em></p>
+
+<p>[6] Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., &amp; Neubig, G. (2023). Pre-Train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing. <em>ACM Computing Surveys.</em></p>
+
+<p>[7] Maia, M., Handschuh, S., Freitas, A., Davis, B., McDermott, R., Zarrouk, M., &amp; Balahur, A. (2018). WWW’18 Open Challenge: Financial Opinion Mining and Question Answering. <em>Companion Proceedings of the Web Conference.</em></p>
+
+<p>[8] Malo, P., Sinha, A., Korhonen, P., Wallenius, J., &amp; Takala, P. (2014). Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts. <em>Journal of the Association for Information Science and Technology.</em></p>
+
+<p>[9] Liu, Z., Huang, D., Huang, K., Li, Z., &amp; Zhao, J. (2021). FinBERT: A Pre-Trained Financial Language Representation Model for Financial Text Mining. <em>International Conference on Artificial Intelligence.</em></p>
+
+<p>[10] Woodford, M. (2005). Central Bank Communication and Policy Effectiveness. <em>National Bureau of Economic Research, Cambridge, MA, USA.</em></p>
+
+<p>[11] Hansen, S., McMahon, M., &amp; Tong, M. (2019). The Long-Run Information Effect of Central Bank Communication. <em>Journal of Monetary Economics.</em></p>
+
+<p>[12] Araci, D. (2019). FinBERT: Financial Sentiment Analysis with Pre-trained Language Models. <em>arXiv.</em></p>
+
+<p>[13] Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., &amp; Zettlemoyer, L. (2018). Deep Contextualized Word Representations. <em>Proceedings of the Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT).</em></p>
+
+<p>[14] Niklaus, C., Freitas, A., &amp; Handschuh, S. (2022). Shallow Discourse Parsing for Open Information Extraction and Text Simplification. <em>Workshop on Computational Approaches to Discourse, International Conference on Computer Linguistics.</em></p>
+
+<p>[15] Chatterjee, N., &amp; Agarwal, R. (2023). Studying the Effect of Syntactic Simplification on Text Summarization. <em>IETE Technical Review.</em></p>
+
+<p>[16] Cetto, M., Niklaus, C., Freitas, A., &amp; Handschuh, S. (2018). Graphene: A Context-Preserving Open Information Extraction System. <em>International Conference on Computational Linguistics: System Demonstrations.</em></p>
+
+<p>[17] Abdel-Nabi, H., Awajan, A., &amp; Ali, M. (2023). Deep Learning-Based Question Answering: A Survey. <em>Knowledge and Information Systems.</em></p>
+
+<p>[18] Izacard, G., Lewis, P., Lomeli, M., Hosseini, L., Petroni, F., Schick, T., Dwivedi-Yu, J., Joulin, A., Riedel, S., &amp; Grave, E. (2022). Atlas: Few-Shot Learning with Retrieval Augmented Language Models. <em>arXiv.</em></p>
+
+<p>[19] Guu, K., Lee, K., Tung, Z., Pasupat, P., &amp; Chang, M.-W. (2020). REALM: Retrieval-Augmented Language Model Pre-Training. <em>International Conference on Machine Learning (ICML), Proceedings of Machine Learning Research (PMLR).</em></p>
+
+<p>[20] Karpukhin, V., Oguz, B., Min, S., Lewis, P., Wu, L., Edunov, S., Chen, D., &amp; Yih, W.-T. (2020). Dense Passage Retrieval for Open-Domain Question Answering. <em>Conference on Empirical Methods in Natural Language Processing (EMNLP).</em></p>
+
+<p>[21] Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W.-T., Rocktäschel, T., Riedel, S., &amp; Kiela, D. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. <em>Advances in Neural Information Processing Systems.</em></p>
+
+<p>[22] Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F., et al. (2023). LLaMA: Open and Efficient Foundation Language Models. <em>arXiv.</em></p>
+
+<p>[23] Press, O., Smith, N., &amp; Lewis, M. (2022). Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation. <em>International Conference on Learning Representations (ICLR).</em></p>
+
+<p>[24] Antony, D., Abhishek, S., Singh, S., Kodagali, S., Darapaneni, N., Rao, M., Paduri, A. R., &amp; Bandalakunta Gururajarao, S. (2023). A Survey of Advanced Methods for Efficient Text Summarization. <em>IEEE Computing and Communication Workshop and Conference (CCWC).</em></p>
+
+<p>[25] Chen, S., Wong, S., Chen, L., &amp; Tian, Y. (2023). Extending Context Window of Large Language Models via Positional Interpolation. <em>arXiv.</em></p>
+
+<p>[26] Wu, S., Irsoy, O., Lu, S., Dabravolski, V., Dredze, M., Gehrmann, S., Kambadur, P., Rosenberg, D., &amp; Mann, G. (2023). BloombergGPT: A Large Language Model for Finance. <em>arXiv.</em></p>
+
+<p>[27] Fama, E., &amp; French, K. (2018). Choosing Factors. <em>Journal of Financial Economics.</em></p>
+
+<p>[28] Fama, E., &amp; French, K. (2015). A Five-Factor Asset Pricing Model. <em>Journal of Financial Economics.</em></p>
+
+<p>[29] Fama, E., &amp; French, K. (1995). Size and Book-to-Market Factors in Earnings and Returns. <em>The Journal of Finance.</em></p>
+
+<p>[30] Fama, E. (1965). The Behavior of Stock-Market Prices. <em>The Journal of Business.</em></p>
+
+<p>[31] Fama, E., &amp; French, K. (1992). The Cross-Section of Expected Stock Returns. <em>The Journal of Finance.</em></p>
+
+<p>[32] Carhart, M. (1997). On Persistence in Mutual Fund Performance. <em>The Journal of Finance.</em></p>
+
+<p>[33] Asness, C., Moskowitz, T., &amp; Pedersen, L. (2013). Value and Momentum Everywhere. <em>The Journal of Finance.</em></p>
+
+<p>[34] Dyer, T., &amp; Kim, E. (2021). Anonymous Equity Research. <em>Journal of Accounting Research.</em></p>
+
+<p>[35] Gleason, C., Johnson, B., &amp; Li, H. (2013). Valuation Model Use and the Price Target Performance of Sell-Side Equity Analysts. <em>Contemporary Accounting Research.</em></p>
+
+<p>[36] Asquith, P., Mikhail, M., &amp; Au, A. (2005). Information Content of Equity Analyst Reports. <em>Journal of Financial Economics.</em></p>
+
+<p>[37] Imam, S., Chan, J., &amp; Shah, S. (2013). Equity Valuation Models and Target Price Accuracy in Europe: Evidence From Equity Reports. <em>International Review of Financial Analysis.</em></p>
+
+<p>[38] Arand, D., Kerl, A., &amp; Walter, A. (2015). When Do Sell-Side Analyst Reports Really Matter? Shareholder Protection, Institutional Investors and the Informativeness of Equity Research. <em>European Financial Management.</em></p>
+
+<p>[39] Bonini, S., Zanetti, L., Bianchini, R., &amp; Salvi, A. (2010). Target Price Accuracy in Equity Research. <em>Journal of Business Finance &amp; Accounting.</em></p>
+
+<p>[40] Twedt, B., &amp; Rees, L. (2012). Reading Between the Lines: An Empirical Examination of Qualitative Attributes of Financial Analysts’ Reports. <em>Journal of Accounting and Public Policy.</em></p>
+
+<p>[41] Cheng, W., &amp; Ho, J. (2017). A Corpus Study of Bank Financial Analyst Reports: Semantic Fields and Metaphors. <em>International Journal of Business Communication.</em></p>
+
+<p>[42] Mikhail, M., Walther, B., &amp; Willis, R. (2004). Do Security Analysts Exhibit Persistent Differences in Stock Picking Ability? <em>Journal of Financial Economics.</em></p>
+
+<p>[43] Barber, B., Lehavy, R., McNichols, M., &amp; Trueman, B. (2001). Can Investors Profit From the Prophets? Security Analyst Recommendations and Stock Returns. <em>The Journal of Finance.</em></p>
+
+<p>[44] Bjerring, J., Lakonishok, J., &amp; Vermaelen, T. (1983). Stock Prices and Financial Analysts’ Recommendations. <em>The Journal of Finance.</em></p>
+
+<p>[45] Elton, E., Gruber, M., &amp; Grossman, S. (1986). Discrete Expectational Data and Portfolio Performance. <em>The Journal of Finance.</em></p>
+
+<p>[46] Liu, P., Smith, S., &amp; Syed, A. (1990). Stock Price Reactions to the Wall Street Journal’s Securities Recommendations. <em>Journal of Financial and Quantitative Analysis.</em></p>
+
+<p>[47] Beneish, M. (1991). Stock Prices and the Dissemination of Analysts’ Recommendation. <em>Journal of Business.</em></p>
+
+<p>[48] Stickel, S. (1995). The Anatomy of the Performance of Buy and Sell Recommendations. <em>Financial Analysts Journal.</em></p>
+
+<p>[49] Michaely, R., &amp; Womack, K. (1999). Conflict of Interest and the Credibility of Underwriter Analyst Recommendations. <em>The Review of Financial Studies.</em></p>
+
+<p>[50] Scao, T. L., Fan, A., Akiki, C., Pavlick, E., Ilić, S., Hesslow, D., Castagné, R., Luccioni, A. S., &amp; Yvon, F. (2022). Bloom: A 176b-Parameter Open-Access Multilingual Language Model. <em>arXiv.</em></p>
+
+<p>[51] Rae, J., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., et al. (2022). Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher. <em>arXiv.</em></p>
+
+<p>[52] Zhang, S., Roller, S., Goyal, N., Artetxe, M., Chen, M., Chen, S., Dewan, C., Diab, M., Li, X., &amp; Lin, X. V. (2022). OPT: Open Pre-Trained Transformer Language Models. <em>arXiv.</em></p>
+
+<p>[53] Desislavov, R., Martínez-Plumed, F., &amp; Hernández-Orallo, J. (2023). Trends in AI Inference Energy Consumption: Beyond the Performance-vs-Parameter Laws of Deep Learning. <em>Sustainable Computing: Informatics and Systems.</em></p>
+
+<p>[54] Chen, Z., Chen, W., Smiley, C., Shah, S., Borova, I., Langdon, D., Moussa, R., Beane, M., Huang, T.-H., Routledge, B., &amp; Wang, W. Y. (2021). FinQA: A Dataset of Numerical Reasoning over Financial Data. <em>Conference on Empirical Methods in Natural Language Processing (EMNLP).</em></p>
+
+<p>[55] Chen, Y., Fu, Q., Yuan, Y., Wen, Z., Fan, G., Liu, D., Zhang, D., Li, Z., &amp; Xiao, Y. (2023). Hallucination Detection: Robustly Discerning Reliable Answers in Large Language Models. <em>Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM ‘23).</em></p>
+
+<p>[56] Womack, K. (1996). Do Brokerage Analysts’ Recommendations Have Investment Value? <em>The Journal of Finance.</em></p>
+
+<p>[57] Bradshaw, M., Brown, L., &amp; Huang, K. (2013). Do Sell-Side Analysts Exhibit Differential Target Price Forecasting Ability? <em>Review of Accounting Studies.</em></p>
+
+<p>[58] Borgeaud, S., Mensch, A., Hoffmann, J., Cai, T., Rutherford, E., Millican, K., et al. (2021). Improving Language Models by Retrieving From Trillions of Tokens. <em>International Conference on Machine Learning (ICML), Proceedings of Machine Learning Research (PMLR).</em></p>
+
+<p>[59] Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y. J., Madotto, A., &amp; Fung, P. (2023). Survey of Hallucination in Natural Language Generation. <em>ACM Computing Surveys.</em></p>
+
+<p>[60] Zhu, F., Lei, W., Huang, Y., Wang, C., Zhang, S., Lv, J., Feng, F., &amp; Chua, T.-S. (2021). TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance. <em>Annual Meeting of the ACL and International Joint Conference on Natural Language Processing.</em></p>
+
+<p>[61] Coleman, B., Merkley, K., &amp; Pacelli, J. (2022). Human Versus Machine: A Comparison of Robo-Analyst and Traditional Research Analyst Investment Recommendations. <em>The Accounting Review.</em></p>
+
+<p>[62] Thai, V. T., Davis, B., O’Riain, S., O’Sullivan, D., &amp; Handschuh, S. (2008). Semantically Enhanced Passage Retrieval for Business Analysis Activity. <em>European Conference on Information Systems (ECIS).</em></p>
+
+<p>[63] Kim, A., Muhn, M., &amp; Nikolaev, V. (2024). Financial Statement Analysis with Large Language Models. <em>Chicago Booth Research Paper (forthcoming); Fama-Miller Working Paper.</em></p>
+
+<p>[64] Meta. (2024). The Llama 3 Herd of Models. <em>Technical Report.</em></p>
+
+<p>[65] OpenAI. (2023). GPT-4 Technical Report. <em>arXiv.</em></p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<div hidden="">
+  <figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-27/images/posts/SDS-2025-2-cover.png" style="
+        width: 30%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+</div>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-poster.jpg" alt="Our Ph.D. candidate Jan Spörer presented the paper." style="width: 50%; height: auto;">
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Our Ph.D. candidate Jan Spörer presented the paper.</sup>
+  </p>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/preview/pr-27/2025/09/05/ApertusBench.html">
+        LLM Benchmark Evaluation - Apertus-8B
+      </a>
+    
+  </span>
+  <span>
+    
+      Next post <i class="icon fa-solid fa-angle-right"></i><br>
+      <a href="/preview/pr-27/2025/10/07/acm-icaif-2025.html">
+        Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test
+      </a>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-27/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-27/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2025
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
