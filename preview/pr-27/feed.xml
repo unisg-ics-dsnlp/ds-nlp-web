@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/preview/pr-27/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-27/" rel="alternate" type="text/html" /><updated>2025-10-11T08:23:17+00:00</updated><id>/preview/pr-27/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test</title><link href="/preview/pr-27/2025/10/07/acm-icaif-2025.html" rel="alternate" type="text/html" title="Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test" /><published>2025-10-07T00:00:00+00:00</published><updated>2025-10-11T08:17:58+00:00</updated><id>/preview/pr-27/2025/10/07/acm-icaif-2025</id><content type="html" xml:base="/preview/pr-27/2025/10/07/acm-icaif-2025.html"><![CDATA[<h1 id="a-new-frontier-for-ai-in-finance-reading-annual-reports">A New Frontier for AI in Finance: Reading Annual Reports</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/preview/pr-27/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-27/" rel="alternate" type="text/html" /><updated>2025-10-11T08:33:49+00:00</updated><id>/preview/pr-27/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test</title><link href="/preview/pr-27/2025/10/07/acm-icaif-2025.html" rel="alternate" type="text/html" title="Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test" /><published>2025-10-07T00:00:00+00:00</published><updated>2025-10-11T08:29:02+00:00</updated><id>/preview/pr-27/2025/10/07/acm-icaif-2025</id><content type="html" xml:base="/preview/pr-27/2025/10/07/acm-icaif-2025.html"><![CDATA[<h1 id="a-new-frontier-for-ai-in-finance-reading-annual-reports">A New Frontier for AI in Finance: Reading Annual Reports</h1>
 
 <p>For financial analysts, wading through hundreds of pages of dense annual reports is a fundamental, time-consuming part of the job. Investors read these reports directly, or read secondary equity research written by financial analysts [2]. These documents, which can exceed 700 pages, are packed with financial data, regulatory disclosures, and strategic narratives that drive investment decisions. The complexity is immense; analysts must connect hundreds of financial metrics, temporal data, and subtle narrative cues to form a coherent investment thesis and use the reports to set stock price targets [5, 11] and give investment recommendations [4, 27].</p>
 
@@ -41,30 +41,54 @@
 
 <p>When the RAG system failed to find and provide the correct context from the annual report, model accuracy plummeted to a staggering <strong>0.2%</strong>.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-performance_barchart_sufficient_retrieval.png" alt="Bar chart showing the performance of eleven AI models. Gemini 2.5 Pro is the top performer with 91.6% accuracy and a 3.2% hallucination rate, outperforming the human accuracy baseline of 84.8%." style="width: 70%; height: auto;" />
-  <p style="text-align: center;">
-    <sup>Model Performance (Excluding Retriever Errors). Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-performance_barchart_sufficient_retrieval.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Model Performance (Excluding Retriever Errors). Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.
+
+    </figcaption>
+  
+</figure>
 
 <p>Our failure analysis revealed that a shocking <strong>two-thirds (66.5%) of all errors stemmed from the retriever</strong> failing to find the “needle in the haystack” [21]. In contrast, true model comprehension errors accounted for only 3% of failures. This demonstrates that future progress hinges more on solving the challenge of targeted information retrieval than on incremental improvements in model reasoning alone.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-accuracy_by_question.png" alt="Stacked bar chart showing that retriever errors are the dominant cause of failure, especially for questions about 'key financials'." style="width: 60%; height: auto;" />
-  <p style="text-align: center;">
-    <sup>Failure analysis by question type. The retriever struggles most with broad questions like "key financials," where information is often scattered across many pages.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-accuracy_by_question.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Failure analysis by question type. The retriever struggles most with broad questions like “key financials,” where information is often scattered across many pages.
+
+    </figcaption>
+  
+</figure>
 
 <p>As we have already seen in our prior research [25], models often have low error overlap, offering promising potential for LLM ensembles. LLMs can thus correct each other in some cases. This further strengthens the generative part of RAG pipelines, while making the need for better retrieval even more pressing.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-spider-chart.png" alt="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step." style="width: 60%; height: auto;" />
-  <p style="text-align: center;">
-    <sup>Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-spider-chart.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step.
+
+    </figcaption>
+  
+</figure>
 
 <!-- section break -->
 <!--
@@ -180,7 +204,7 @@
 
 <p>[25] Pop, A., &amp; Spörer, J. (2025). Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4. <em>IEEE Swiss Data Science Conference (SDS)</em>.</p>
 
-<p>[27] Womack, K. (1996). Do Brokerage Analysts’ Recommendations Have Investment Value? <em>The Journal of Finance</em>, 51(1), 137-167.</p>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="large-language-models" /><category term="machine-learning" /><category term="gemini-2.5-pro" /><category term="retrieval-augmented-generation" /><category term="graph-rag" /><category term="graphs" /><summary type="html"><![CDATA[A New Frontier for AI in Finance: Reading Annual Reports]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025.jpg" /><media:content medium="image" url="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4</title><link href="/preview/pr-27/2025/09/24/SDS2025-2.html" rel="alternate" type="text/html" title="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" /><published>2025-09-24T00:00:00+00:00</published><updated>2025-10-11T08:17:58+00:00</updated><id>/preview/pr-27/2025/09/24/SDS2025-2</id><content type="html" xml:base="/preview/pr-27/2025/09/24/SDS2025-2.html"><![CDATA[<h1 id="the-structure-of-financial-equity-research">The Structure of Financial Equity Research</h1>
+<p>[27] Womack, K. (1996). Do Brokerage Analysts’ Recommendations Have Investment Value? <em>The Journal of Finance</em>, 51(1), 137-167.</p>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="large-language-models" /><category term="machine-learning" /><category term="gemini-2.5-pro" /><category term="retrieval-augmented-generation" /><category term="graph-rag" /><category term="graphs" /><summary type="html"><![CDATA[A New Frontier for AI in Finance: Reading Annual Reports]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025.jpg" /><media:content medium="image" url="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4</title><link href="/preview/pr-27/2025/09/24/SDS2025-2.html" rel="alternate" type="text/html" title="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" /><published>2025-09-24T00:00:00+00:00</published><updated>2025-10-11T08:29:02+00:00</updated><id>/preview/pr-27/2025/09/24/SDS2025-2</id><content type="html" xml:base="/preview/pr-27/2025/09/24/SDS2025-2.html"><![CDATA[<h1 id="the-structure-of-financial-equity-research">The Structure of Financial Equity Research</h1>
 
 <p>Financial equity research reports (ERRs) are a means to communicate buy and sell recommendations about individual stocks. Banks and independent research firms write those reports to convince their clients to buy or sell stocks (earning the banks a brokerage commission), or to receive direct compensation for their research. Typically, financial experts, so-called “analysts,” cover a basket of stock-listed companies from one or two industries over a long period of time, and update their ERRs whenever important news come out (often after quarterly reports) [36].</p>
 
@@ -625,7 +649,7 @@
   <p style="text-align: center;">
     <sup style="text-align: center;">Our Ph.D. candidate Jan Spörer presented the paper.</sup>
   </p>
-</div>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="equity-research" /><category term="machine-learning" /><category term="gpt-4" /><category term="llama-3" /><summary type="html"><![CDATA[The Structure of Financial Equity Research]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/SDS-2025-2-cover.png" /><media:content medium="image" url="/preview/pr-27/images/posts/SDS-2025-2-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-27/2025/09/05/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-05T00:00:00+00:00</published><updated>2025-10-11T08:17:58+00:00</updated><id>/preview/pr-27/2025/09/05/ApertusBench</id><content type="html" xml:base="/preview/pr-27/2025/09/05/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
+</div>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="equity-research" /><category term="machine-learning" /><category term="gpt-4" /><category term="llama-3" /><summary type="html"><![CDATA[The Structure of Financial Equity Research]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/SDS-2025-2-cover.png" /><media:content medium="image" url="/preview/pr-27/images/posts/SDS-2025-2-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-27/2025/09/05/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-05T00:00:00+00:00</published><updated>2025-10-11T08:29:02+00:00</updated><id>/preview/pr-27/2025/09/05/ApertusBench</id><content type="html" xml:base="/preview/pr-27/2025/09/05/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
 <p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
 
 <p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
@@ -1206,7 +1230,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-27/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-27/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-10-11T08:17:58+00:00</updated><id>/preview/pr-27/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-27/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-27/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-27/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2025-10-11T08:29:02+00:00</updated><id>/preview/pr-27/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-27/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
 
 <p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
 
@@ -1542,7 +1566,7 @@ The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with
       " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;" />
   </a>
   
-</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-27/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-27/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-10-11T08:17:58+00:00</updated><id>/preview/pr-27/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-27/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-27/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-27/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-27/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2025-10-11T08:29:02+00:00</updated><id>/preview/pr-27/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-27/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
 
 <p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
 

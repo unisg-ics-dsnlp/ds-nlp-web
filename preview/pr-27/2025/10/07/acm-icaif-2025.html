@@ -66,10 +66,10 @@
 
   <meta name="author" content="Jan Spörer">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-10-11T08:17:58+00:00">
+  <meta property="og:updated_time" content="2025-10-11T08:29:02+00:00">
   <meta property="article:published_time" content="2025-10-07T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-10-11T08:17:58+00:00">
-  <meta name="revised" content="2025-10-11T08:17:58+00:00">
+  <meta property="article:modified_time" content="2025-10-11T08:29:02+00:00">
+  <meta name="revised" content="2025-10-11T08:29:02+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test" },
       "datePublished": "2025-10-07T00:00:00+00:00",
-      "dateModified": "2025-10-11T08:17:58+00:00",
+      "dateModified": "2025-10-11T08:29:02+00:00",
     
     "name": "Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -586,30 +586,54 @@
 
 <p>When the RAG system failed to find and provide the correct context from the annual report, model accuracy plummeted to a staggering <strong>0.2%</strong>.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-performance_barchart_sufficient_retrieval.png" alt="Bar chart showing the performance of eleven AI models. Gemini 2.5 Pro is the top performer with 91.6% accuracy and a 3.2% hallucination rate, outperforming the human accuracy baseline of 84.8%." style="width: 70%; height: auto;">
-  <p style="text-align: center;">
-    <sup>Model Performance (Excluding Retriever Errors). Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-performance_barchart_sufficient_retrieval.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Model Performance (Excluding Retriever Errors). Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.
+
+    </figcaption>
+  
+</figure>
 
 <p>Our failure analysis revealed that a shocking <strong>two-thirds (66.5%) of all errors stemmed from the retriever</strong> failing to find the “needle in the haystack” [21]. In contrast, true model comprehension errors accounted for only 3% of failures. This demonstrates that future progress hinges more on solving the challenge of targeted information retrieval than on incremental improvements in model reasoning alone.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-accuracy_by_question.png" alt="Stacked bar chart showing that retriever errors are the dominant cause of failure, especially for questions about 'key financials'." style="width: 60%; height: auto;">
-  <p style="text-align: center;">
-    <sup>Failure analysis by question type. The retriever struggles most with broad questions like "key financials," where information is often scattered across many pages.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-accuracy_by_question.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Failure analysis by question type. The retriever struggles most with broad questions like “key financials,” where information is often scattered across many pages.
+
+    </figcaption>
+  
+</figure>
 
 <p>As we have already seen in our prior research [25], models often have low error overlap, offering promising potential for LLM ensembles. LLMs can thus correct each other in some cases. This further strengthens the generative part of RAG pipelines, while making the need for better retrieval even more pressing.</p>
 
-<div style="text-align: center;">
-  <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-spider-chart.png" alt="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step." style="width: 60%; height: auto;">
-  <p style="text-align: center;">
-    <sup>Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step.</sup>
-  </p>
-</div>
+<figure class="figure">
+  <a class="figure-image" aria-label="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step.">
+    <img src="/preview/pr-27/images/posts/2025-10-07-acm-icaif-2025-spider-chart.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step." loading="lazy" onerror="this.src = '/preview/pr-27/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step.
+
+    </figcaption>
+  
+</figure>
   </section>
 
   
