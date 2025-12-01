@@ -1,5 +1,156 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1007/978-3-032-06878-1_2
+  title: "Subset Pretraining for\_Enhancing Neural Network Training Efficiency"
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - "Jan Sp\xF6rer"
+  - Siegfried Handschuh
+  publisher: Communications in Computer and Information Science
+  date: '2025-10-24'
+  link: https://doi.org/g974jf
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1109/sds66131.2025.00033
+  title: Integrating the Attention Mechanism Into State Space Models
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: 2025 IEEE Swiss Conference on Data Science (SDS)
+  date: '2025-06-26'
+  link: https://doi.org/g9xcn9
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1145/3677052.3698675
+  title: 'Is Small Really Beautiful for Central Bank Communication? Evaluating Language
+    Models for Finance: Llama-3-70B, GPT-4, FinBERT-FOMC, FinBERT, and VADER'
+  authors:
+  - Wonseong Kim
+  - "Jan Sp\xF6rer"
+  - Choong Lyol Lee
+  - Siegfried Handschuh
+  publisher: Proceedings of the 5th ACM International Conference on AI in Finance
+  date: '2024-11-14'
+  link: https://doi.org/g98xgc
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18755/iw.2024.3
+  title: Grosse Sprachmodelle
+  authors:
+  - Siegfried Handschuh
+  publisher: 'Informationswissenschaft: Theorie, Methode und Praxis'
+  date: '2024-05-06'
+  link: https://doi.org/g98xgd
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1007/s10849-023-09410-4
+  title: 'Capturing the Varieties of Natural Language Inference: A Systematic Survey
+    of Existing Datasets and Two Novel Benchmarks'
+  authors:
+  - Reto Gubelmann
+  - Ioannis Katis
+  - Christina Niklaus
+  - Siegfried Handschuh
+  publisher: Journal of Logic, Language and Information
+  date: '2023-11-20'
+  link: https://doi.org/g98xgf
+  orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.5220/0012893600003838
+  title: Efficient Neural Network Training via Subset Pretraining
+  authors:
+  - "Jan Sp\xF6rer"
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Niklas Limacher
+  - Siegfried Handschuh
+  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2024-01-01'
+  link: https://doi.org/g9k467
+  orcid: 0000-0002-2524-1850
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: The hypothesis that neural network training on small data subsets can
+    approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating
+    that comparable results to full training can be achieved with significantly reduced
+    computational cost.
+  image: images/cites/doi_10_5220_0012893600003838.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5220/0012893600003838
+  - text: arXiv
+    link: https://arxiv.org/abs/2410.16523
+  tags:
+  - paper
+  - qds
+  - transformers
+  - training
+  - neural-networks
+  repo: unisg-ics-dsnlp/qds
+  highlighted: true
+- id: doi:10.5220/0012891000003838
+  title: Reducing the Transformer Architecture to a Minimum
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Massimo Pavone
+  - Julianus Kath
+  - Siegfried Handschuh
+  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2024-01-01'
+  link: https://doi.org/g9k468
+  orcid: 0000-0002-2524-1850
+  plugin: sources.py
+  file: sources.yaml
+  type: paper
+  description: "Transformers, widely used in NLP and CV, rely on the attention mechanism\
+    \ to extract relevant context from sequences and scenes. While typically paired\
+    \ with Multi-Layer Perceptrons (MLPs) for modeling nonlinearity, the attention\
+    \ mechanism itself is inherently nonlinear. This raises the question of whether\
+    \ MLPs are necessary, especially since they hold most of the model\u2019s parameters.\
+    \ Simplifications such as removing MLPs, collapsing query/key and value/projection\
+    \ matrices, and using symmetric similarity measures can drastically reduce parameter\
+    \ count. Empirical tests on MNIST, CIFAR-10, and ImageNet show that these streamlined\
+    \ architectures maintain performance while cutting parameters by up to 90%."
+  image: images/cites/paper_ReducingTransformerArchitectureToAMinimum.png
+  buttons:
+  - text: DOI
+    link: https://doi.org/10.5220/0012891000003838
+  - text: arXiv
+    link: https://arxiv.org/abs/2410.13732
+  tags:
+  - paper
+  - qds
+  - transformers
+  - training
+  - neural-networks
+- id: doi:10.14393/LL63-v39-2022-03
+  title: EVOLVE
+  authors:
+  - Paula Tavares Pinto
+  - "Jos\xE9 Victor de Souza"
+  - Talita Serpa
+  - Francine de Assis Silveira
+  - Marcela Marques de Freitas Lima
+  - Reto Gubelmann
+  - Siegfried Handschuh
+  - Christina Marianne Niklaus
+  publisher: Letras &amp; Letras
+  date: '2023-05-03'
+  link: https://doi.org/g9k46x
+  orcid: 0000-0001-9344-8127
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1016/j.knosys.2023.110455
   title: 'A Canonical Context-Preserving Representation for Open IE: Extracting Semantically
     Typed Relational Tuples from Complex Sentences'
@@ -91,6 +242,19 @@
   orcid: 0000-0002-6195-9034
   plugin: orcid.py
   file: orcid.yaml
+- id: doi:10.5220/0012203800003598
+  title: Make Deep Networks Shallow Again
+  authors:
+  - Bernhard Bermeitinger
+  - Tomas Hrycej
+  - Siegfried Handschuh
+  publisher: Proceedings of the 15th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2023-01-01'
+  link: https://doi.org/g9k469
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1007/978-3-031-19074-2
   title: Mathematical Foundations of Data Science
   authors:
@@ -162,6 +326,21 @@
   date: '2023-01-01'
   link: https://doi.org/g9k44m
   orcid: 0000-0002-6195-9034
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.18653/v1/2023.starsem-1.4
+  title: When Truth Matters - Addressing Pragmatic Categories in Natural Language
+    Inference (NLI) by Large Language Models (LLMs)
+  authors:
+  - Reto Gubelmann
+  - Aikaterini-lida Kalouli
+  - Christina Niklaus
+  - Siegfried Handschuh
+  publisher: Proceedings of the 12th Joint Conference on Lexical and Computational
+    Semantics (*SEM 2023)
+  date: '2023-01-01'
+  link: https://doi.org/g9k462
+  orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
 - id: doi:10.48550/arXiv.2209.07221
@@ -2004,23 +2183,6 @@
   orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.14393/LL63-v39-2022-03
-  title: EVOLVE
-  authors:
-  - Paula Tavares Pinto
-  - "Jos\xE9 Victor de Souza"
-  - Talita Serpa
-  - Francine de Assis Silveira
-  - Marcela Marques de Freitas Lima
-  - Reto Gubelmann
-  - Siegfried Handschuh
-  - Christina Marianne Niklaus
-  publisher: Letras &amp; Letras
-  date: '2023-05-03'
-  link: https://doi.org/g9k46x
-  orcid: 0000-0001-9344-8127
-  plugin: orcid.py
-  file: orcid.yaml
 - id: doi:10.18653/v1/2023.bea-1.59
   title: 'Enhancing Educational Dialogues: A Reinforcement Learning Approach for Generating
     AI Teacher Responses'
@@ -2033,21 +2195,6 @@
   date: '2023-01-01'
   link: https://doi.org/g9k46z
   orcid: 0000-0002-1274-0925
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.18653/v1/2023.starsem-1.4
-  title: When Truth Matters - Addressing Pragmatic Categories in Natural Language
-    Inference (NLI) by Large Language Models (LLMs)
-  authors:
-  - Reto Gubelmann
-  - Aikaterini-lida Kalouli
-  - Christina Niklaus
-  - Siegfried Handschuh
-  publisher: Proceedings of the 12th Joint Conference on Lexical and Computational
-    Semantics (*SEM 2023)
-  date: '2023-01-01'
-  link: https://doi.org/g9k462
-  orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
 - id: doi:10.18653/v1/2022.acl-long.599
@@ -2135,19 +2282,6 @@
   orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.1007/978-3-032-06878-1_2
-  title: "Subset Pretraining for\_Enhancing Neural Network Training Efficiency"
-  authors:
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - "Jan Sp\xF6rer"
-  - Siegfried Handschuh
-  publisher: Communications in Computer and Information Science
-  date: '2025-10-24'
-  link: https://doi.org/g974jf
-  orcid: 0000-0002-2524-1850
-  plugin: orcid.py
-  file: orcid.yaml
 - id: doi:10.1016/j.ijmedinf.2025.106161
   title: 'Interpretable type 2 diabetes incidence prediction with AutoScore: A model
     based on standard clinical parameters'
@@ -2169,11 +2303,57 @@
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
-- id: handle:20.500.14171/123182
-  title: ''
-  authors: []
+- id: handle:20.500.14171/124178
+  title: A Convexity-dependent Two-Phase Training Algorithm for Deep Neural Networks
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Massimo Pavone
+  - "G\xF6tz-Henrik Wiegand"
+  - Siegfried Handschuh
   publisher: ''
-  date: ''
+  date: '2025-10-29'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/124178
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.5281/zenodo.17453563
+  title: A Convexity-dependent Two-Phase Training Algorithm for Deep Neural Networks
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Massimo Pavone
+  - "G\xF6tz-Henrik Wiegand"
+  - Siegfried Handschuh
+  publisher: Zenodo
+  date: '2025-10-27'
+  link: https://doi.org/g98xgg
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/124130
+  title: A Convexity-dependent Two-Phase Training Algorithm for Deep Neural Networks
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Massimo Pavone
+  - "G\xF6tz-Henrik Wiegand"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 17th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2025-10-27'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/124130
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/123182
+  title: Integrating the Attention Mechanism Into State Space Models
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Siegfried Handschuh
+  publisher: 2025 IEEE Swiss Conference on Data Science (SDS)
+  date: '2025-07-18'
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/123182
   orcid: 0000-0002-2524-1850
   plugin: sources.py
@@ -2363,96 +2543,12 @@
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
-- id: doi:10.5220/0012893600003838
-  title: Efficient Neural Network Training via Subset Pretraining
-  authors:
-  - "Jan Sp\xF6rer"
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Niklas Limacher
-  - Siegfried Handschuh
-  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
-    Knowledge Engineering and Knowledge Management
-  date: '2024-01-01'
-  link: https://doi.org/g9k467
-  orcid: 0000-0002-2524-1850
-  plugin: sources.py
-  file: sources.yaml
-  type: paper
-  description: The hypothesis that neural network training on small data subsets can
-    approximate full-set minima was tested using MNIST, CIFAR-10, and CIFAR-100, demonstrating
-    that comparable results to full training can be achieved with significantly reduced
-    computational cost.
-  image: images/cites/doi_10_5220_0012893600003838.png
-  buttons:
-  - text: DOI
-    link: https://doi.org/10.5220/0012893600003838
-  - text: arXiv
-    link: https://arxiv.org/abs/2410.16523
-  tags:
-  - paper
-  - qds
-  - transformers
-  - training
-  - neural-networks
-  repo: unisg-ics-dsnlp/qds
-  highlighted: true
-- id: doi:10.5220/0012891000003838
-  title: Reducing the Transformer Architecture to a Minimum
-  authors:
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Massimo Pavone
-  - Julianus Kath
-  - Siegfried Handschuh
-  publisher: Proceedings of the 16th International Joint Conference on Knowledge Discovery,
-    Knowledge Engineering and Knowledge Management
-  date: '2024-01-01'
-  link: https://doi.org/g9k468
-  orcid: 0000-0002-2524-1850
-  plugin: sources.py
-  file: sources.yaml
-  type: paper
-  description: "Transformers, widely used in NLP and CV, rely on the attention mechanism\
-    \ to extract relevant context from sequences and scenes. While typically paired\
-    \ with Multi-Layer Perceptrons (MLPs) for modeling nonlinearity, the attention\
-    \ mechanism itself is inherently nonlinear. This raises the question of whether\
-    \ MLPs are necessary, especially since they hold most of the model\u2019s parameters.\
-    \ Simplifications such as removing MLPs, collapsing query/key and value/projection\
-    \ matrices, and using symmetric similarity measures can drastically reduce parameter\
-    \ count. Empirical tests on MNIST, CIFAR-10, and ImageNet show that these streamlined\
-    \ architectures maintain performance while cutting parameters by up to 90%."
-  image: images/cites/paper_ReducingTransformerArchitectureToAMinimum.png
-  buttons:
-  - text: DOI
-    link: https://doi.org/10.5220/0012891000003838
-  - text: arXiv
-    link: https://arxiv.org/abs/2410.13732
-  tags:
-  - paper
-  - qds
-  - transformers
-  - training
-  - neural-networks
 - id: handle:20.500.14171/118790
   title: ''
   authors: []
   publisher: ''
   date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/118790
-  orcid: 0000-0002-2524-1850
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.5220/0012203800003598
-  title: Make Deep Networks Shallow Again
-  authors:
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Siegfried Handschuh
-  publisher: Proceedings of the 15th International Joint Conference on Knowledge Discovery,
-    Knowledge Engineering and Knowledge Management
-  date: '2023-01-01'
-  link: https://doi.org/g9k469
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
