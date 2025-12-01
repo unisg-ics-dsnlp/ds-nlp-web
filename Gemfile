@@ -2,9 +2,9 @@ source "https://rubygems.org"
 
 # jekyll
 gem "jekyll", "~> 4.3"
-gem "webrick", "~> 1.8"
+gem "webrick", "~> 1.9"
 
-gem "html-proofer", "~> 5.0"
+gem "html-proofer", "~> 5.1"
 
 # plugins
 group :jekyll_plugins do
