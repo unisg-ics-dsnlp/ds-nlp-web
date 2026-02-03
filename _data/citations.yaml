@@ -2298,8 +2298,17 @@
   - Marcus E. Kleber
   - Heinz Drexel
   publisher: International Journal of Medical Informatics
-  date: '2025-10-01'
+  date: '2026-02-01'
   link: https://doi.org/g97ckr
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
+- id: handle:20.500.14171/124964
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: http://hdl.handle.net/20.500.14171/124964
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2351,7 +2360,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123182
+  link: http://hdl.handle.net/20.500.14171/123182
   orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
@@ -2424,27 +2433,11 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/123089
-  title: '425-P: Machine Learning Identifies Glypican 4 as Key Predictor of Five-Year
-    Mortality in Heart Failure Patients with Prediabetes or Diabetes'
-  authors:
-  - Andreas Leiherer
-  - Axel Muendlein
-  - Laura Schnetzer
-  - Sylvia Mink
-  - Christine Heinzle
-  - Eva Maria Brandtner
-  - Stella Gaenger
-  - Bernhard Bermeitinger
-  - Thomas Plattner
-  - Alexander Vonbank
-  - Arthur Mader
-  - Barbara Larcher
-  - Christoph H. Saely
-  - Peter Fraunberger
-  - Heinz Drexel
-  publisher: Diabetes
-  date: '2025-06-20'
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123089
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: http://hdl.handle.net/20.500.14171/123089
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2486,8 +2479,8 @@
   title: 'Von Daten zu Taten: Nachhaltige Entscheidungen durch Smart Data'
   authors:
   - Bernhard Bermeitinger
-  publisher: ''
-  date: ''
+  publisher: Zenodo
+  date: '2024-10-18'
   link: https://doi.org/g9pm9q
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
@@ -2640,14 +2633,10 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/123065
-  title: Neoclassica - an open framework for research in Neoclassicism
-  authors:
-  - Simon Donig
-  - Maria Christoforaki
-  - Siegfried Handschuh
-  - Bernhard Bermeitinger
+  title: ''
+  authors: []
   publisher: ''
-  date: '2017-08-01'
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/123065
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
@@ -2716,6 +2705,33 @@
   - llm
   - open llm
   - proprietary llm
+- id: doi:10.5220/0013696100004000
+  title: A Convexity-Dependent Two-Phase Training Algorithm for Deep Neural Networks
+  authors:
+  - Tomas Hrycej
+  - Bernhard Bermeitinger
+  - Massimo Pavone
+  - "G\xF6tz-Henrik Wiegand"
+  - Siegfried Handschuh
+  publisher: Proceedings of the 17th International Joint Conference on Knowledge Discovery,
+    Knowledge Engineering and Knowledge Management
+  date: '2025-01-01'
+  link: https://doi.org/hbdtzh
+  orcid: 0009-0009-0392-056X
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.60643/URAI.V2024P41
+  title: Leveraging Generative AI for Enhancing Domain-Driven Software Design
+  authors:
+  - "G\xF6tz-Henrik Wiegand"
+  - Filip Stepniak
+  - Patrick Baier
+  publisher: Proceedings of the Upper-Rhine Artificial Intelligence Symposium
+  date: '2024-10-29'
+  link: https://doi.org/hbdtzj
+  orcid: 0009-0009-0392-056X
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1109/SDS66131.2025.00025
   title: Identification of the Most Frequently Asked Questions in Financial Analyst
     Reports to Automate Equity Research Using Llama 3 and GPT-4
