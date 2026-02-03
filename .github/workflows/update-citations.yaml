@@ -62,7 +62,7 @@ jobs:
 
       - name: Commit cache
         if: failure()
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           file_pattern: "**/.cache/**"
           commit_message: "Commit cache"
@@ -80,7 +80,7 @@ jobs:
           github.event.action != 'closed' &&
           steps.changed.outputs.files_changed == 'true' &&
           inputs.open-pr != true
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Update citations"
 
