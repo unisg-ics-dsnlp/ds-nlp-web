@@ -27,7 +27,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Checkout branch contents
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: SSH debug
         if: runner.debug == '1'
