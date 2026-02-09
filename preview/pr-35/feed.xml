@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/preview/pr-35/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-35/" rel="alternate" type="text/html" /><updated>2026-02-09T05:29:36+00:00</updated><id>/preview/pr-35/feed.xml</id><title type="html">DS-NLP Lab</title><subtitle>Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).</subtitle><entry><title type="html">Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test</title><link href="/preview/pr-35/2025/10/07/acm-icaif-2025.html" rel="alternate" type="text/html" title="Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test" /><published>2025-10-07T00:00:00+00:00</published><updated>2026-02-09T05:29:03+00:00</updated><id>/preview/pr-35/2025/10/07/acm-icaif-2025</id><content type="html" xml:base="/preview/pr-35/2025/10/07/acm-icaif-2025.html"><![CDATA[<h1 id="a-new-frontier-for-ai-in-finance-reading-annual-reports">A New Frontier for AI in Finance: Reading Annual Reports</h1>
+
+<p>For financial analysts, wading through hundreds of pages of dense annual reports is a fundamental, time-consuming part of the job. Investors read these reports directly, or read secondary equity research written by financial analysts [2]. These documents, which can exceed 700 pages, are packed with financial data, regulatory disclosures, and strategic narratives that drive investment decisions. The complexity is immense; analysts must connect hundreds of financial metrics, temporal data, and subtle narrative cues to form a coherent investment thesis and use the reports to set stock price targets [5, 11] and give investment recommendations [4, 27].</p>
+
+<p>This critical task seems ripe for AI automation, but a key question has remained: can AI systems truly comprehend these documents with the reliability required for high-stakes financial decisions? Our new paper, <strong>“Can AI Read Like a Financial Analyst?”</strong>, tackles this question head-on by conducting the most comprehensive open evaluation of leading AI models on financial document comprehension.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="putting-ai-to-the-test-with-financial-touchstone">Putting AI to the Test with Financial Touchstone</h2>
+
+<p>To create a fair and unbiased evaluation, we first had to address a major concern in AI research: <strong>training data contamination</strong>. We needed to ensure the models we tested had never seen our evaluation questions before.</p>
+
+<p>To do this, we introduced <strong>Financial Touchstone</strong>, a new large-scale benchmark guaranteed to be unseen by the models. It’s one of the largest and most diverse datasets of its kind:</p>
+<ul>
+  <li><strong>480 international annual reports</strong> from 22 countries, ensuring a global scope beyond just the US.</li>
+  <li><strong>2,878 question-context-answer triplets</strong>, focusing on the types of questions professional analysts ask most frequently [25].</li>
+  <li><strong>Over 83 million tokens</strong> of high-quality financial text, primarily from the years 2021-2023.</li>
+</ul>
+
+<p>Using this benchmark, we tested eleven of the world’s most advanced language models, including Google’s Gemini 2.5 Pro, OpenAI’s o3, Anthropic’s Claude 4 Opus, and xAI’s Grok 4. To handle the immense length of the documents, we used a standard Retrieval-Augmented Generation (RAG) architecture [15], which first finds relevant passages and then feeds them to the model to generate an answer.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-surprising-bottleneck-its-not-reasoning-its-retrieval">The Surprising Bottleneck: It’s Not Reasoning, It’s Retrieval</h2>
+
+<p>Our findings fundamentally reframe the challenge of automating financial analysis. The results show that the top “reasoning” models are remarkably capable of understanding complex financial text when given the correct information.</p>
+
+<p><strong>Google’s Gemini 2.5 Pro led the pack</strong>, achieving an impressive <strong>91.6% accuracy</strong> with a hallucination rate of just 3.2%. This performance actually surpasses the human baseline for accuracy (84.8%) we established in our study, though humans still make fewer unfounded claims (2.8% hallucination rate). Models like OpenAI’s o3 and Anthropic’s Claude 4 models also performed exceptionally well.</p>
+
+<p>However, this high accuracy comes with a huge caveat. The primary bottleneck is <strong>not the model’s comprehension ability, but the initial information retrieval step</strong>.</p>
+
+<p>When the RAG system failed to find and provide the correct context from the annual report, model accuracy plummeted to a staggering <strong>0.2%</strong>.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.">
+    <img src="/preview/pr-35/images/posts/2025-10-07-acm-icaif-2025-performance_barchart_sufficient_retrieval.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Model Performance Excluding Retriever Errors . Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context." loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Model Performance (Excluding Retriever Errors). Top reasoning models like Gemini 2.5 Pro achieve accuracy surpassing the human baseline when provided with the correct context.
+
+    </figcaption>
+  
+</figure>
+
+<p>Our failure analysis revealed that a shocking <strong>two-thirds (66.5%) of all errors stemmed from the retriever</strong> failing to find the “needle in the haystack” [21]. In contrast, true model comprehension errors accounted for only 3% of failures. This demonstrates that future progress hinges more on solving the challenge of targeted information retrieval than on incremental improvements in model reasoning alone.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages.">
+    <img src="/preview/pr-35/images/posts/2025-10-07-acm-icaif-2025-accuracy_by_question.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Failure analysis by question type. The retriever struggles most with broad questions like key financials, where information is often scattered across many pages." loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Failure analysis by question type. The retriever struggles most with broad questions like “key financials,” where information is often scattered across many pages.
+
+    </figcaption>
+  
+</figure>
+
+<p>As we have already seen in our prior research [25], models often have low error overlap, offering promising potential for LLM ensembles. LLMs can thus correct each other in some cases. This further strengthens the generative part of RAG pipelines, while making the need for better retrieval even more pressing.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step.">
+    <img src="/preview/pr-35/images/posts/2025-10-07-acm-icaif-2025-spider-chart.png" style="
+        width: 60%;
+        max-height: unset;
+      " alt="Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness i.e., inverse hallucination rate . Each circle layer is a 25 step." loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Multidimensional Performance Comparison of All Models: Each spider chart shows accuracy for industries, years, regions, and overall groundedness (i.e., inverse hallucination rate). Each circle layer is a 25% step.
+
+    </figcaption>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="key-insights-and-future-directions">Key Insights and Future Directions</h2>
+
+<p>Our study provides a clear roadmap for the future of AI in financial analysis.</p>
+
+<ul>
+  <li>
+    <b>Retrieval is the new frontier.</b> The central challenge isn't asking "Can AI read?" but rather, "Can AI find what it needs to read?". Building better retrievers—perhaps using advanced methods like GraphRAG [12]—is the most critical next step.
+  </li>
+  <li>
+    <b>Reasoning models are essential.</b> There is a significant performance gap between "reasoning" and "non-reasoning" models. The top models deliver a 15+ percentage point uplift in accuracy and are far better at avoiding hallucinations, making them a prerequisite for reliable financial tools.
+  </li>
+   <li>
+    <b>Model ensembling shows promise.</b> We found very low agreement between the different top models. This suggests that production systems could achieve higher reliability by combining the outputs of several diverse models, such as an ensemble of Gemini 2.5 Pro, OpenAI's o3, and Anthropic's Claude Sonnet 4.
+  </li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>So, can AI read like a financial analyst? Our research provides a qualified <strong>“yes”</strong>—but only if it’s given the right pages. The reasoning capabilities of today’s frontier models are largely sufficient for the task.</p>
+
+<p>The evidence is clear: the most direct path to unlocking the next generation of AI in finance is to solve the fundamental challenge of information retrieval. With the accuracy and reliability demonstrated by the top models, AI is poised to enhance trust and transparency in equity research, helping to address long-standing issues of analyst bias and conflicts of interest [20].</p>
+
+<p>To accelerate this effort, we are making the complete Financial Touchstone dataset, evaluation framework, and source code publicly available upon publication.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="link-to-the-paper">Link to the Paper</h2>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a class="citation-image" aria-label="citation link">
+        <img src="" alt="citation image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a class="citation-title">
+        [no title info]
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">[no publisher info]</span>
+        &nbsp;·&nbsp;
+        <span class="citation-date">[no date info]</span>
+        &nbsp;·&nbsp;
+        <span class="citation-id">[no id info]</span>
+      </div>
+
+      
+        
+
+        
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[2] Asquith, P., Mikhail, M., &amp; Au, A. (2005). Information Content of Equity Analyst Reports. <em>Journal of Financial Economics</em>, 75(2), 245-282.</p>
+
+<p>[4] Barber, B., Lehavy, R., McNichols, M., &amp; Trueman, B. (2001). Can Investors Profit From the Prophets? Security Analyst Recommendations and Stock Returns. <em>The Journal of Finance</em>, 56(2), 531-563.</p>
+
+<p>[5] Bonini, S., Zanetti, L., Bianchini, R., &amp; Salvi, A. (2010). Target Price Accuracy in Equity Research. <em>Journal of Business Finance &amp; Accounting</em>, 37(9-10), 1177-1217.</p>
+
+<p>[11] Gleason, C., Johnson, B., &amp; Li, H. (2013). Valuation Model Use and the Price Target Performance of Sell-Side Equity Analysts. <em>Contemporary Accounting Research</em>, 30(1), 80-115.</p>
+
+<p>[12] Han, H., Shomer, H., Wang, Y., Lei, Y., Guo, K., Hua, Z., Long, B., Liu, H., &amp; Tang, J. (2025). RAG vs. GraphRAG: A Systematic Evaluation and Key Insights. <em>arXiv</em>.</p>
+
+<p>[15] Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W.-T., Rocktäschel, T., Riedel, S., &amp; Kiela, D. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. <em>Advances in Neural Information Processing Systems (NIPS)</em>, 33, 9459-9474.</p>
+
+<p>[20] Michaely, R., &amp; Womack, K. (1999). Conflict of Interest and the Credibility of Underwriter Analyst Recommendations. <em>The Review of Financial Studies</em>, 12(4), 653-686.</p>
+
+<p>[21] Nelson, E., Kollias, G., Das, P., Chaudhury, S., &amp; Dan, S. (2024). Needle in the Haystack for Memory Based Large Language Models. <em>ICML 2024 Workshop-Next Generation of Sequence Modeling Architectures</em>.</p>
+
+<p>[25] Pop, A., &amp; Spörer, J. (2025). Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4. <em>IEEE Swiss Data Science Conference (SDS)</em>.</p>
+
+<p>[27] Womack, K. (1996). Do Brokerage Analysts’ Recommendations Have Investment Value? <em>The Journal of Finance</em>, 51(1), 137-167.</p>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="large-language-models" /><category term="machine-learning" /><category term="gemini-2.5-pro" /><category term="retrieval-augmented-generation" /><category term="graph-rag" /><category term="graphs" /><summary type="html"><![CDATA[A New Frontier for AI in Finance: Reading Annual Reports]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-35/images/posts/2025-10-07-acm-icaif-2025.jpg" /><media:content medium="image" url="/preview/pr-35/images/posts/2025-10-07-acm-icaif-2025.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4</title><link href="/preview/pr-35/2025/09/24/SDS2025-2.html" rel="alternate" type="text/html" title="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" /><published>2025-09-24T00:00:00+00:00</published><updated>2026-02-09T05:29:03+00:00</updated><id>/preview/pr-35/2025/09/24/SDS2025-2</id><content type="html" xml:base="/preview/pr-35/2025/09/24/SDS2025-2.html"><![CDATA[<h1 id="the-structure-of-financial-equity-research">The Structure of Financial Equity Research</h1>
+
+<p>Financial equity research reports (ERRs) are a means to communicate buy and sell recommendations about individual stocks. Banks and independent research firms write those reports to convince their clients to buy or sell stocks (earning the banks a brokerage commission), or to receive direct compensation for their research. Typically, financial experts, so-called “analysts,” cover a basket of stock-listed companies from one or two industries over a long period of time, and update their ERRs whenever important news come out (often after quarterly reports) [36].</p>
+
+<p>ERRs typically contain a stock price target (e.g., a forecasted stock price of $250 per share within the next 12 months) as well as a buy, hold, or sell recommendation.</p>
+
+<p>The banks’ clients and the general market use these reports to support investment decisions in the stocks (and, to a lesser extent, bonds) of these companies.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="financial-text--one-hard-nut-to-crack-for-automation">Financial Text – One Hard Nut to Crack for Automation</h2>
+
+<h3 id="relevance">Relevance</h3>
+
+<p>In the financial literature, ERRs are established as important sources of information [44, 45, 46, 47, 48]. They offer some empirically validated insights into the future stock performance of firms [49], so they may indeed help investors to make decisions.</p>
+
+<h3 id="issues-with-financial-equity-research-bias-and-cost">Issues With Financial Equity Research: Bias and Cost</h3>
+
+<p>But a problem remains: Many reports are written by banks, and banks have an inherent interest in earning commissions from trades placed by their clients. This means they often want to convince (potential) clients to buy stocks, possibly introducing a reluctance to publish negative coverage [42, 43]. [36] found that only 0.5% of all reports contained sell recommendations before the dot-com bubble burst. Prior research showed less extreme results, with 14% sell recommendations between 1989 and 1991 [49], but the direction is still clear: ERRs seem to be a tad to positive and not entirely unbiased.</p>
+
+<p>Another issue with ERRs are cost. As our results below show, much of equity research is just a presentation of financials. Overall, ERRs follow a mechanistic, descriptive pattern. It is thus questionable if significant human input is warranted and useful. Given the concerns around biasedness in equity research, the field may thus benefit from further automation. Our paper provides the groundwork for systematic automation of equity research.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-structure-of-equity-research">The Structure of Equity Research</h2>
+
+<p>While research about the relevance and biasedness of equity reports is plentiful, there is little understanding about what types of contents these reports cover and to what extent the context might be automated. So far, there was no systematic research into the structure of financial equity research reports – so that is where our research comes in. Based on 72 English equity research reports written between 2018 and 2022, covering a broad range of authors (banks) and covered companies, we empirically uncover how equity analysts write.</p>
+
+<p>Let’s start with the basics: Equity research reports are consistently short. Unlike annual reports, which usually have hundreds of pages, equity research is short and concise, and reports with 20 pages are long outliers already.</p>
+
+<p>The figures below illustrate that most reports have between 4 and 9 pages, and they do not contain more than 120 statements.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-page_counts_histogram.png" alt="Distribution of page counts of equity research reports. Most reports have between 4--9 pages. Including appendices." style="width: 30%; height: auto;" />
+    <img src="/images/posts/SDS-2025-2-statement_counts_histogram_binned.png" alt="Distribution of statement counts of equity research reports. Most reports have between 30--120 statements. Including appendices." style="width: 25%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Distribution of page counts and statement counts of equity research reports. Most reports have between 4--9 pages and 30--120 statements. Including appendices.</sup>
+  </p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-histogram_grouped_by_question_category_x_type_of_display_y_occurrences.png" alt="Different types of information are systematically presented with different modes of display. Financial information is often structured enough to be displayed in tables and diagrams, while company and market overviews are usually verbal." style="width: 50%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Different types of information are systematically presented with different modes of display. Financial information is often structured enough to be displayed in tables and diagrams, while company and market overviews are usually verbal.</sup>
+  </p>
+</div>
+
+<h2 id="how-do-banks-and-independent-analysts-present-their-analyses">How Do Banks and Independent Analysts Present Their Analyses?</h2>
+
+<p>In our study <a href="https://arxiv.org/abs/2407.18327">Pop &amp; Spörer (2025)</a>, we found that text and tables are the dominant ways of conveying information in equity research reports. Diagrams, which often come in the form of stock price charts, are less relevant overall. Custom diagrams that show complex business relationships, product specifications, or market dynamics, are an absolute exception.</p>
+
+<p>Textual and tabular statement can often be expressed in various ways, and analysts switch between textual and tabular modes. Different banks tend to have different styles. Some make heavy use of tables, while others present almost all information in text form. This heavy reliance on text and tables is a potential for LLMs, as text and tables are the native domain of language models. Today’s language models can write tables in Markdown or in other machine-readable formats.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-venn_diagram_modalities_in_equity_research_reports.png" alt="There is significant overlap between presentation modes for the same statements. Textual and tabular representation modes are dominant." style="width: 20%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">There is significant overlap between presentation modes for the same statements. Textual and tabular representation modes are dominant.</sup>
+  </p>
+</div>
+
+<p>Analysts have a strong bias in favor of the type of information that they know best: Financials. This is reflected in the following diagram, which shows that most statements fall into the “Financials” category. As mentioned above, analysts usually do not take the time to present product-specific diagrams or to display market dynamics or supply chains in graphical form. The category “Product”  illustrates.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-question_categories_bars.png" alt="Statements about the income statement (profit &amp; loss -- P&amp;L) are the most frequent question subcategory in our typology. Most of the other top subcategories also fall in the Financials subcategory. An exception is the Stock Price subcategory, which is the second most important subcategory by frequency." style="width: 45%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Statements about the income statement (profit &amp; loss -- P&amp;L) are the most frequent question subcategory in our typology. Most of the other top subcategories also fall in the Financials subcategory. An exception is the Stock Price subcategory, which is the second most important subcategory by frequency.</sup>
+  </p>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="how-large-is-the-dent-that-llms-can-make-in-automating-equity-research">How Large is the Dent That LLMs Can Make in Automating Equity Research?</h2>
+
+<p>According to our research, already 55% of the statements from equity research reports are automatable, even without any use of AI/LLMs. This is due to the comprehensive data coverage that financial databases such as Bloomberg provide. Executive changes, financials, and subsidiary structures are readily available in structured format in these databases.</p>
+
+<p>Thus, to evaluate the automation potential that LLMs can still have, we substracted this 55% from the overall pie, and ended up with 30% of automation potential for LLMs. Thus, only 15% of statements in ERRs cannot be automated.</p>
+
+<p>Of these 30%, 26 percentage points were answered correctly by GPT-4, and 27 percentage points were answered correctly by Llama-3. The error rate is reduced when a perfect ensemble of these two models is assumed, as we show below.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__pie_charts_correct_incorrect.png" alt="Language models can close a gap that financial databases leave open. Still, we think that human input is still required, as we assume non-fact based statements (opinions) and strategic outlooks cannot be automated by LLMs." style="width: 50%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Language models can close a gap that financial databases leave open. Still, we think that human input is still required, as we assume non-fact based statements (opinions) and strategic outlooks cannot be automated by LLMs.</sup>
+  </p>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="potential-for-model-ensembles">Potential for Model Ensembles</h2>
+
+<p>We found that GPT-4 and Llama-3 complement each other. In our small-scale analysis, when one of the models fails to answer a question correctly, the other model almost always is able to “help out.”</p>
+
+<p>This result shows that there is potential in multi-AI (or multi-agent) systems that outperform single-model inference.</p>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__bar_charts_correct_incorrect_counts_with_either_model_and_color.png" alt="Accuracy and error rate for GPT-4 and Llama-3. GPT-4: 52 right, 8 wrong. Llama-3: 54 right, 6 wrong. Ensemble: 59 right, 1 wrong. Shows that ensembles have promising potential." style="width: 50%; height: auto;" />
+  <img src="/images/posts/SDS-2025-2-evaluation_gpt4_llama3__grid_chart_correctness_when_both_models_used_in_conjunction.png" alt="The overlap diagram shows that there is almost no error overlap between GPT-4 and Llama-3." style="width: 20%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Ensembles of GPT-4 and Llama-3 have high potential as they show little error overlap.</sup>
+  </p>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The study shows some patterns in equity research worth pointing out:</p>
+
+<ul>
+
+  <li> 
+    Analysts usually do not create custom diagrams that deep-dive into product specifications, distribution or supply chains, market structures, or other complex relationships that underly the covered firms' business. In fact, only 15% of the statements financial analysts make are hard to automate by LLMs in principle, as these represent strategic outlooks or opinions. Thus, the automation potential of equity research is high, as their "human touch" is already minuscle today. 
+  </li>
+
+  <li>
+    Most of the statements in financial report relate to financial information -- which can already be found in financial databases and does not require LLMs to be extracted.
+  </li>
+
+  <li>
+    We still need to caution that analysts perform important roles that LLMs will not be able to replicate. For example, they personally meet management teams and may get subtle clues about the confidence and capabilities of these managers in these meetings.
+  </li>
+
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="outlook">Outlook</h2>
+
+<p>Today’s ERRs heavily focus on financials. This probably arises from the skill set of their authors. Most financial analysts have degrees in business and finance, and these analysts are usually no product or service experts in the industries that they cover. LLMs offer potential for more holistic coverage that takes product and service quality of the covered firms into account, introducing an underappreciated aspect to equity research.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="link-to-the-paper">Link to the Paper</h2>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/g9zqnv" class="citation-image" aria-label="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4">
+        <img src="/preview/pr-35/images/cites/SDS-2025-2-image.png" alt="Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+      </a>
+    
+
+    <div class="citation-text">
+      
+      <i class="icon fa-solid fa-scroll"></i>
+
+      <a href="https://doi.org/g9zqnv" class="citation-title">
+        Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Adria Pop, Jan Spörer
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">2025 IEEE Swiss Conference on Data Science (SDS)</span>
+        &nbsp;·&nbsp;
+        <span class="citation-date">26 Jun 2025</span>
+        &nbsp;·&nbsp;
+        <span class="citation-id">doi:10.1109/SDS66131.2025.00025</span>
+      </div>
+
+      
+        
+          <div class="citation-description">
+            This research dissects financial equity research reports (ERRs) by systematically mapping their content into categories. There is insufficient empirical analysis of the questions answered in ERRs. In particular, it is not understood how frequently certain information appears, what information is considered essential, and what information requires human judgment to distill into an ERR. The study analyzes 72 ERRs sentence-by-sentence, classifying their 4964 sentences into 169 unique question archetypes. We did not predefine the questions but derived them solely from the statements in the ERRs. This approach provides an unbiased view of the content of the observed ERRs. Subsequently, we used public corporate reports to classify the questions’ potential for automation. Answers were labeled “text-extractable” if the answers to the question were accessible in corporate reports. 75.15% of the questions in ERRs can be automated using text extraction from text sources. Those automatable questions consist of 51.91% text-extractable (suited to processing by large language models, LLMs) and 24.24% database-extractable questions. Only 24.85% of questions require human judgment to answer. We empirically validate, using Llama-3-70B and GPT-4-turbo-2024-04-09 that recent advances in language generation and infor- mation extraction enable the automation of approximately 80% of the statements in ERRs. Surprisingly, the models complement each other’s strengths and weaknesses well, indicating strong ensemble potential. The research confirms that the current writing process of ERRs can likely benefit from additional automation, improving quality and efficiency. The research thus allows us to quantify the potential impacts of introducing large language models in the ERR writing process. The full question list, including the archetypes and their frequency, are available online (link removed to preserve anonymity).
+
+          </div>
+        
+
+        
+          <div class="citation-buttons">
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://doi.org/10.1109/SDS66131.2025.00025" data-style="bare" aria-label="button">
+      
+      
+        <span>DOI</span>
+      
+    </a>
+  </div>
+
+
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ieeexplore.ieee.org/document/11081504" data-style="bare" aria-label="button">
+      
+      
+        <span>IEEE</span>
+      
+    </a>
+  </div>
+
+
+            
+          </div>
+        
+
+        
+          
+
+
+  <div class="tags">
+    
+      <a href="?search=&quot;tag: financial-ai&quot;" class="tag" data-tooltip="Show items with the tag &quot;financial-ai&quot;">
+        financial-ai
+      </a>
+    
+      <a href="?search=&quot;tag: annual-reports&quot;" class="tag" data-tooltip="Show items with the tag &quot;annual-reports&quot;">
+        annual-reports
+      </a>
+    
+      <a href="?search=&quot;tag: equity-research&quot;" class="tag" data-tooltip="Show items with the tag &quot;equity-research&quot;">
+        equity-research
+      </a>
+    
+      <a href="?search=&quot;tag: machine-learning&quot;" class="tag" data-tooltip="Show items with the tag &quot;machine-learning&quot;">
+        machine-learning
+      </a>
+    
+      <a href="?search=&quot;tag: gpt-4&quot;" class="tag" data-tooltip="Show items with the tag &quot;gpt-4&quot;">
+        gpt-4
+      </a>
+    
+      <a href="?search=&quot;tag: llama-3&quot;" class="tag" data-tooltip="Show items with the tag &quot;llama-3&quot;">
+        llama-3
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., et al. (2020). Language Models Are Few-Shot Learners. <em>Advances in Neural Information Processing Systems (NeurIPS).</em></p>
+
+<p>[2] Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT).</em></p>
+
+<p>[3] Fawcett, T. (2006). Introduction to Receiver Operator Curves. <em>Pattern Recognition Letters.</em></p>
+
+<p>[4] Gilbert, E. (2014). VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text. <em>International Conference on Weblogs and Social Media (ICWSM).</em></p>
+
+<p>[5] Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., &amp; Iwasawa, Y. (2022). Large Language Models Are Zero-Shot Reasoners. <em>Advances in Neural Information Processing Systems (NeurIPS).</em></p>
+
+<p>[6] Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., &amp; Neubig, G. (2023). Pre-Train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing. <em>ACM Computing Surveys.</em></p>
+
+<p>[7] Maia, M., Handschuh, S., Freitas, A., Davis, B., McDermott, R., Zarrouk, M., &amp; Balahur, A. (2018). WWW’18 Open Challenge: Financial Opinion Mining and Question Answering. <em>Companion Proceedings of the Web Conference.</em></p>
+
+<p>[8] Malo, P., Sinha, A., Korhonen, P., Wallenius, J., &amp; Takala, P. (2014). Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts. <em>Journal of the Association for Information Science and Technology.</em></p>
+
+<p>[9] Liu, Z., Huang, D., Huang, K., Li, Z., &amp; Zhao, J. (2021). FinBERT: A Pre-Trained Financial Language Representation Model for Financial Text Mining. <em>International Conference on Artificial Intelligence.</em></p>
+
+<p>[10] Woodford, M. (2005). Central Bank Communication and Policy Effectiveness. <em>National Bureau of Economic Research, Cambridge, MA, USA.</em></p>
+
+<p>[11] Hansen, S., McMahon, M., &amp; Tong, M. (2019). The Long-Run Information Effect of Central Bank Communication. <em>Journal of Monetary Economics.</em></p>
+
+<p>[12] Araci, D. (2019). FinBERT: Financial Sentiment Analysis with Pre-trained Language Models. <em>arXiv.</em></p>
+
+<p>[13] Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., &amp; Zettlemoyer, L. (2018). Deep Contextualized Word Representations. <em>Proceedings of the Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT).</em></p>
+
+<p>[14] Niklaus, C., Freitas, A., &amp; Handschuh, S. (2022). Shallow Discourse Parsing for Open Information Extraction and Text Simplification. <em>Workshop on Computational Approaches to Discourse, International Conference on Computer Linguistics.</em></p>
+
+<p>[15] Chatterjee, N., &amp; Agarwal, R. (2023). Studying the Effect of Syntactic Simplification on Text Summarization. <em>IETE Technical Review.</em></p>
+
+<p>[16] Cetto, M., Niklaus, C., Freitas, A., &amp; Handschuh, S. (2018). Graphene: A Context-Preserving Open Information Extraction System. <em>International Conference on Computational Linguistics: System Demonstrations.</em></p>
+
+<p>[17] Abdel-Nabi, H., Awajan, A., &amp; Ali, M. (2023). Deep Learning-Based Question Answering: A Survey. <em>Knowledge and Information Systems.</em></p>
+
+<p>[18] Izacard, G., Lewis, P., Lomeli, M., Hosseini, L., Petroni, F., Schick, T., Dwivedi-Yu, J., Joulin, A., Riedel, S., &amp; Grave, E. (2022). Atlas: Few-Shot Learning with Retrieval Augmented Language Models. <em>arXiv.</em></p>
+
+<p>[19] Guu, K., Lee, K., Tung, Z., Pasupat, P., &amp; Chang, M.-W. (2020). REALM: Retrieval-Augmented Language Model Pre-Training. <em>International Conference on Machine Learning (ICML), Proceedings of Machine Learning Research (PMLR).</em></p>
+
+<p>[20] Karpukhin, V., Oguz, B., Min, S., Lewis, P., Wu, L., Edunov, S., Chen, D., &amp; Yih, W.-T. (2020). Dense Passage Retrieval for Open-Domain Question Answering. <em>Conference on Empirical Methods in Natural Language Processing (EMNLP).</em></p>
+
+<p>[21] Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W.-T., Rocktäschel, T., Riedel, S., &amp; Kiela, D. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. <em>Advances in Neural Information Processing Systems.</em></p>
+
+<p>[22] Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F., et al. (2023). LLaMA: Open and Efficient Foundation Language Models. <em>arXiv.</em></p>
+
+<p>[23] Press, O., Smith, N., &amp; Lewis, M. (2022). Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation. <em>International Conference on Learning Representations (ICLR).</em></p>
+
+<p>[24] Antony, D., Abhishek, S., Singh, S., Kodagali, S., Darapaneni, N., Rao, M., Paduri, A. R., &amp; Bandalakunta Gururajarao, S. (2023). A Survey of Advanced Methods for Efficient Text Summarization. <em>IEEE Computing and Communication Workshop and Conference (CCWC).</em></p>
+
+<p>[25] Chen, S., Wong, S., Chen, L., &amp; Tian, Y. (2023). Extending Context Window of Large Language Models via Positional Interpolation. <em>arXiv.</em></p>
+
+<p>[26] Wu, S., Irsoy, O., Lu, S., Dabravolski, V., Dredze, M., Gehrmann, S., Kambadur, P., Rosenberg, D., &amp; Mann, G. (2023). BloombergGPT: A Large Language Model for Finance. <em>arXiv.</em></p>
+
+<p>[27] Fama, E., &amp; French, K. (2018). Choosing Factors. <em>Journal of Financial Economics.</em></p>
+
+<p>[28] Fama, E., &amp; French, K. (2015). A Five-Factor Asset Pricing Model. <em>Journal of Financial Economics.</em></p>
+
+<p>[29] Fama, E., &amp; French, K. (1995). Size and Book-to-Market Factors in Earnings and Returns. <em>The Journal of Finance.</em></p>
+
+<p>[30] Fama, E. (1965). The Behavior of Stock-Market Prices. <em>The Journal of Business.</em></p>
+
+<p>[31] Fama, E., &amp; French, K. (1992). The Cross-Section of Expected Stock Returns. <em>The Journal of Finance.</em></p>
+
+<p>[32] Carhart, M. (1997). On Persistence in Mutual Fund Performance. <em>The Journal of Finance.</em></p>
+
+<p>[33] Asness, C., Moskowitz, T., &amp; Pedersen, L. (2013). Value and Momentum Everywhere. <em>The Journal of Finance.</em></p>
+
+<p>[34] Dyer, T., &amp; Kim, E. (2021). Anonymous Equity Research. <em>Journal of Accounting Research.</em></p>
+
+<p>[35] Gleason, C., Johnson, B., &amp; Li, H. (2013). Valuation Model Use and the Price Target Performance of Sell-Side Equity Analysts. <em>Contemporary Accounting Research.</em></p>
+
+<p>[36] Asquith, P., Mikhail, M., &amp; Au, A. (2005). Information Content of Equity Analyst Reports. <em>Journal of Financial Economics.</em></p>
+
+<p>[37] Imam, S., Chan, J., &amp; Shah, S. (2013). Equity Valuation Models and Target Price Accuracy in Europe: Evidence From Equity Reports. <em>International Review of Financial Analysis.</em></p>
+
+<p>[38] Arand, D., Kerl, A., &amp; Walter, A. (2015). When Do Sell-Side Analyst Reports Really Matter? Shareholder Protection, Institutional Investors and the Informativeness of Equity Research. <em>European Financial Management.</em></p>
+
+<p>[39] Bonini, S., Zanetti, L., Bianchini, R., &amp; Salvi, A. (2010). Target Price Accuracy in Equity Research. <em>Journal of Business Finance &amp; Accounting.</em></p>
+
+<p>[40] Twedt, B., &amp; Rees, L. (2012). Reading Between the Lines: An Empirical Examination of Qualitative Attributes of Financial Analysts’ Reports. <em>Journal of Accounting and Public Policy.</em></p>
+
+<p>[41] Cheng, W., &amp; Ho, J. (2017). A Corpus Study of Bank Financial Analyst Reports: Semantic Fields and Metaphors. <em>International Journal of Business Communication.</em></p>
+
+<p>[42] Mikhail, M., Walther, B., &amp; Willis, R. (2004). Do Security Analysts Exhibit Persistent Differences in Stock Picking Ability? <em>Journal of Financial Economics.</em></p>
+
+<p>[43] Barber, B., Lehavy, R., McNichols, M., &amp; Trueman, B. (2001). Can Investors Profit From the Prophets? Security Analyst Recommendations and Stock Returns. <em>The Journal of Finance.</em></p>
+
+<p>[44] Bjerring, J., Lakonishok, J., &amp; Vermaelen, T. (1983). Stock Prices and Financial Analysts’ Recommendations. <em>The Journal of Finance.</em></p>
+
+<p>[45] Elton, E., Gruber, M., &amp; Grossman, S. (1986). Discrete Expectational Data and Portfolio Performance. <em>The Journal of Finance.</em></p>
+
+<p>[46] Liu, P., Smith, S., &amp; Syed, A. (1990). Stock Price Reactions to the Wall Street Journal’s Securities Recommendations. <em>Journal of Financial and Quantitative Analysis.</em></p>
+
+<p>[47] Beneish, M. (1991). Stock Prices and the Dissemination of Analysts’ Recommendation. <em>Journal of Business.</em></p>
+
+<p>[48] Stickel, S. (1995). The Anatomy of the Performance of Buy and Sell Recommendations. <em>Financial Analysts Journal.</em></p>
+
+<p>[49] Michaely, R., &amp; Womack, K. (1999). Conflict of Interest and the Credibility of Underwriter Analyst Recommendations. <em>The Review of Financial Studies.</em></p>
+
+<p>[50] Scao, T. L., Fan, A., Akiki, C., Pavlick, E., Ilić, S., Hesslow, D., Castagné, R., Luccioni, A. S., &amp; Yvon, F. (2022). Bloom: A 176b-Parameter Open-Access Multilingual Language Model. <em>arXiv.</em></p>
+
+<p>[51] Rae, J., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., et al. (2022). Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher. <em>arXiv.</em></p>
+
+<p>[52] Zhang, S., Roller, S., Goyal, N., Artetxe, M., Chen, M., Chen, S., Dewan, C., Diab, M., Li, X., &amp; Lin, X. V. (2022). OPT: Open Pre-Trained Transformer Language Models. <em>arXiv.</em></p>
+
+<p>[53] Desislavov, R., Martínez-Plumed, F., &amp; Hernández-Orallo, J. (2023). Trends in AI Inference Energy Consumption: Beyond the Performance-vs-Parameter Laws of Deep Learning. <em>Sustainable Computing: Informatics and Systems.</em></p>
+
+<p>[54] Chen, Z., Chen, W., Smiley, C., Shah, S., Borova, I., Langdon, D., Moussa, R., Beane, M., Huang, T.-H., Routledge, B., &amp; Wang, W. Y. (2021). FinQA: A Dataset of Numerical Reasoning over Financial Data. <em>Conference on Empirical Methods in Natural Language Processing (EMNLP).</em></p>
+
+<p>[55] Chen, Y., Fu, Q., Yuan, Y., Wen, Z., Fan, G., Liu, D., Zhang, D., Li, Z., &amp; Xiao, Y. (2023). Hallucination Detection: Robustly Discerning Reliable Answers in Large Language Models. <em>Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM ‘23).</em></p>
+
+<p>[56] Womack, K. (1996). Do Brokerage Analysts’ Recommendations Have Investment Value? <em>The Journal of Finance.</em></p>
+
+<p>[57] Bradshaw, M., Brown, L., &amp; Huang, K. (2013). Do Sell-Side Analysts Exhibit Differential Target Price Forecasting Ability? <em>Review of Accounting Studies.</em></p>
+
+<p>[58] Borgeaud, S., Mensch, A., Hoffmann, J., Cai, T., Rutherford, E., Millican, K., et al. (2021). Improving Language Models by Retrieving From Trillions of Tokens. <em>International Conference on Machine Learning (ICML), Proceedings of Machine Learning Research (PMLR).</em></p>
+
+<p>[59] Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y. J., Madotto, A., &amp; Fung, P. (2023). Survey of Hallucination in Natural Language Generation. <em>ACM Computing Surveys.</em></p>
+
+<p>[60] Zhu, F., Lei, W., Huang, Y., Wang, C., Zhang, S., Lv, J., Feng, F., &amp; Chua, T.-S. (2021). TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance. <em>Annual Meeting of the ACL and International Joint Conference on Natural Language Processing.</em></p>
+
+<p>[61] Coleman, B., Merkley, K., &amp; Pacelli, J. (2022). Human Versus Machine: A Comparison of Robo-Analyst and Traditional Research Analyst Investment Recommendations. <em>The Accounting Review.</em></p>
+
+<p>[62] Thai, V. T., Davis, B., O’Riain, S., O’Sullivan, D., &amp; Handschuh, S. (2008). Semantically Enhanced Passage Retrieval for Business Analysis Activity. <em>European Conference on Information Systems (ECIS).</em></p>
+
+<p>[63] Kim, A., Muhn, M., &amp; Nikolaev, V. (2024). Financial Statement Analysis with Large Language Models. <em>Chicago Booth Research Paper (forthcoming); Fama-Miller Working Paper.</em></p>
+
+<p>[64] Meta. (2024). The Llama 3 Herd of Models. <em>Technical Report.</em></p>
+
+<p>[65] OpenAI. (2023). GPT-4 Technical Report. <em>arXiv.</em></p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<div hidden="">
+  <figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/SDS-2025-2-cover.png" style="
+        width: 30%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+</div>
+
+<div style="text-align: center;">
+  <img src="/images/posts/SDS-2025-2-poster.jpg" alt="Our Ph.D. candidate Jan Spörer presented the paper." style="width: 50%; height: auto;" />
+  <p style="text-align: center;">
+    <sup style="text-align: center;">Our Ph.D. candidate Jan Spörer presented the paper.</sup>
+  </p>
+</div>]]></content><author><name>Jan Spörer</name></author><category term="finance" /><category term="finance-and-ai" /><category term="annual-reports" /><category term="equity-research" /><category term="machine-learning" /><category term="gpt-4" /><category term="llama-3" /><summary type="html"><![CDATA[The Structure of Financial Equity Research]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-35/images/posts/SDS-2025-2-cover.png" /><media:content medium="image" url="/preview/pr-35/images/posts/SDS-2025-2-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LLM Benchmark Evaluation - Apertus-8B</title><link href="/preview/pr-35/2025/09/05/ApertusBench.html" rel="alternate" type="text/html" title="LLM Benchmark Evaluation - Apertus-8B" /><published>2025-09-05T00:00:00+00:00</published><updated>2026-02-09T05:29:03+00:00</updated><id>/preview/pr-35/2025/09/05/ApertusBench</id><content type="html" xml:base="/preview/pr-35/2025/09/05/ApertusBench.html"><![CDATA[<h2 id="the-release">The Release</h2>
+<p>On September 2, 2025, the <strong>Swiss AI Initiative</strong> — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the <strong>Apertus model family</strong> in two sizes: <strong>8B</strong> and <strong>70B parameters</strong>.</p>
+
+<p>The larger variant, <strong>Apertus-70B</strong>, is the first fully open model trained at this scale, developed on 4,096 GPUs using 15 trillion tokens.</p>
+
+<p>The models are:</p>
+<ul>
+  <li>Trained solely on publicly available data</li>
+  <li>Respectful of robots.txt exclusions (retroactively)</li>
+  <li>Filtered for copyrighted, non-permissive, toxic, and personally identifiable content</li>
+  <li>Equipped with the <em>Goldfish</em> loss to limit verbatim memorization</li>
+</ul>
+
+<p>Apertus supports <strong>1,811 languages</strong>, including Swiss regional languages such as <em>Romansh</em> and <em>Schwiizerdütsch</em>. The release includes both the <strong>model weights</strong> and <strong>full reproduction artifacts</strong> for the research community.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-summary_average_performance_by_benchmark.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmarking-the-model">Benchmarking the Model</h2>
+<p>We took the opportunity to benchmark the model against other models using several industry-standard benchmarks.</p>
+
+<p>The <strong>technical report</strong>[1] already contains comparisons with common open weight and open source models. Our goal was to:</p>
+<ul>
+  <li>Get our own impressions of Apertus</li>
+  <li>Evaluate whether we could reproduce the benchmarks presented in the report</li>
+</ul>
+
+<p>At this point, we highly recommend everyone take a look at the technical report for the Apertus models. It is relatively rare to find such detailed insights into <strong>state-of-the-art LLM trainings</strong>.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<h2 id="open-weight-vs-open-models">Open Weight vs. Open Models</h2>
+<p>In this article, we follow the terminology used by the editors of the Technical Report and draw a clear distinction:</p>
+
+<h3 id="open-weight-models">Open Weight Models</h3>
+<ul>
+  <li>Weights and architectures are openly available</li>
+  <li>Training data, scripts, and reproducibility artifacts are not published</li>
+  <li><strong>Example:</strong> <em>Llama model family</em> from Meta</li>
+</ul>
+
+<h3 id="open-models">Open Models</h3>
+<ul>
+  <li>Strive to make <em>everything</em> open: data, scripts, training details</li>
+  <li>Aim for reproducibility and knowledge sharing in a scientific context</li>
+  <li><strong>Example:</strong> <em>OLMO model family</em> from the Allen Institute for AI</li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="why-open-models-matter">Why Open Models Matter</h2>
+<p>Although open models often lag behind open weight and closed models (e.g., GPT-5 from OpenAI, or Gemini) in performance, they provide:</p>
+
+<ul>
+  <li>Training on <strong>ethical datasets</strong></li>
+  <li>Development on a <strong>non-profit basis</strong></li>
+  <li>Opportunities for <strong>open research</strong> that is not profit-driven</li>
+</ul>
+
+<p>Despite their current limitations in quality compared to top-tier chat applications, open models are <strong>extremely important</strong> for society. They advance the entire field of <strong>LLM Foundation Training research</strong> through transparency, reproducibility, and community-driven progress.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<p><strong>Quicklinks to Alpertus Ressources:</strong></p>
+<ul>
+  <li><strong>Technical Report</strong>: <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a></li>
+  <li><strong>Model Hub</strong>: <a href="https://huggingface.co/swiss-ai/">Hugging Face - Swiss AI Models</a></li>
+  <li><strong>Official Blog</strong>: <a href="https://www.swiss-ai.org/apertus">Swiss AI Apertus Announcement</a></li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<p><strong>Important disclaimer:</strong> 
+The benchmarks were created using the Apertus-8B-Instruct from Hugging Face with a subset of the leaderboard evaluations from <a href="https://github.com/EleutherAI/lm-evaluation-harness">ElutherAI’s Language Model Evaluation Harness</a>. The raw results and benchmark logs can be found on our Github repository <a href="https://github.com/unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results">unisg-ics-dsnlp/Apertus8B-Instruct-Benchmark-Results</a>.</p>
+
+<p>The benchmarks presented here are not intended to be exhaustive and are intended only to provide an overview and initial, independent assessment of the model. For more comprehensive benchmarks, please refer to the <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a>.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="selected-benchmarks">Selected Benchmarks</h2>
+
+<p>We evaluated the model across four key benchmarks that test different aspects of language understanding and generation capabilities:</p>
+
+<h4 id="1-ifeval-instruction-following-evaluation">1. IFEval (Instruction Following Evaluation)</h4>
+<ul>
+  <li><strong>Task Type</strong>: 0-shot, generative</li>
+  <li><strong>Purpose</strong>: Measures the model’s ability to follow specific, verifiable instructions</li>
+  <li><strong>Examples</strong>: Tasks involving word count constraints, keyword usage, formatting requirements</li>
+  <li><strong>Why it matters</strong>: Instruction-following is crucial for practical applications where models must adhere to specific user requirements</li>
+</ul>
+
+<h4 id="2-math-lvl-5-mathematical-reasoning">2. MATH-lvl-5 (Mathematical Reasoning)</h4>
+<ul>
+  <li><strong>Task Type</strong>: 4-shot, generative</li>
+  <li><strong>Purpose</strong>: Tests mathematical problem-solving capabilities using challenging level-5 problems</li>
+  <li><strong>Examples</strong>: Complex algebraic equations, calculus problems, geometric reasoning</li>
+  <li><strong>Why it matters</strong>: Mathematical reasoning demonstrates logical thinking and step-by-step problem decomposition skills</li>
+</ul>
+
+<h4 id="3-mmlu-pro-enhanced-multi-task-language-understanding">3. MMLU-Pro (Enhanced Multi-task Language Understanding)</h4>
+<ul>
+  <li><strong>Task Type</strong>: 5-shot, multiple-choice</li>
+  <li><strong>Purpose</strong>: Comprehensive evaluation across diverse academic and professional domains</li>
+  <li><strong>Examples</strong>: Science, history, law, medicine, engineering questions with 10 answer choices</li>
+  <li><strong>Why it matters</strong>: Broad domain knowledge is essential for general-purpose language models</li>
+</ul>
+
+<h4 id="4-musr-multi-step-soft-reasoning">4. Musr (Multi-step Soft Reasoning)</h4>
+<ul>
+  <li><strong>Task Type</strong>: 0-shot, multiple-choice</li>
+  <li><strong>Purpose</strong>: Evaluates complex narrative reasoning across three sub-tasks:
+    <ul>
+      <li><strong>Murder Mysteries</strong>: Logical deduction from narrative clues</li>
+      <li><strong>Object Placements</strong>: Spatial and temporal reasoning</li>
+      <li><strong>Team Allocation</strong>: Constraint satisfaction and optimization</li>
+    </ul>
+  </li>
+  <li><strong>Why it matters</strong>: Tests the model’s ability to maintain context and reason through multi-step scenarios</li>
+</ul>
+
+<p>We might add more benchmarks in the future.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmark-results">Benchmark Results</h2>
+<p>Most of the Math-lvl-5 and MMLU-Pro benchmark results are still missing and will be updated gradually.</p>
+
+<h3 id="performance-comparison">Performance Comparison</h3>
+
+<p>The following table presents our benchmark results for Apertus-8B-Instruct compared to other open-weight and open models in similar parameter ranges:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>IFEval (0-shot) [3]</th>
+      <th>MMLU-Pro (5-shot) [5]</th>
+      <th>Math-lvl-5 (4-shot) [6]</th>
+      <th>Musr (0-shot) [4]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>44.18%</td>
+      <td>31.14%</td>
+      <td>5.29%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>57.67%</td>
+      <td>29.02%</td>
+      <td>11.71%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>44.73%</td>
+      <td>30.56%</td>
+      <td>2.95%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>29.39%</td>
+      <td>39.85%</td>
+      <td>16.99%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>58.04%</td>
+      <td>44.72%</td>
+      <td>37.08%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note: Values represent accuracy scores. Dashes (-) indicate pending or unavailable results.</em></p>
+
+<h3 id="detailed-ifeval-performance-breakdown">Detailed IFEval Performance Breakdown</h3>
+
+<p>The IFEval benchmark measures different aspects of instruction following capability. Here’s the detailed breakdown across all evaluated metrics:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Inst Level Loose</th>
+      <th>Inst Level Strict</th>
+      <th>Prompt Level Loose</th>
+      <th>Prompt Level Strict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>65.35%</td>
+      <td>57.55%</td>
+      <td>53.23%</td>
+      <td>44.18%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>72.42%</td>
+      <td>67.51%</td>
+      <td>62.85%</td>
+      <td>57.67%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>59.59%</td>
+      <td>56.35%</td>
+      <td>47.13%</td>
+      <td>44.73%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>44.36%</td>
+      <td>43.41%</td>
+      <td>30.50%</td>
+      <td>29.39%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>73.98%</td>
+      <td>68.82%</td>
+      <td>64.51%</td>
+      <td>58.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-benchmark_IFEval_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<h4 id="understanding-ifeval-metrics">Understanding IFEval Metrics:</h4>
+
+<ul>
+  <li><strong>Instruction Level</strong>: Evaluates individual instruction compliance within a prompt
+    <ul>
+      <li><em>Loose</em>: More lenient evaluation allowing minor deviations</li>
+      <li><em>Strict</em>: Rigorous evaluation requiring exact compliance</li>
+    </ul>
+  </li>
+  <li><strong>Prompt Level</strong>: Evaluates overall prompt-level instruction following
+    <ul>
+      <li><em>Loose</em>: Partial credit for partially followed instructions</li>
+      <li><em>Strict</em>: All-or-nothing evaluation requiring complete instruction compliance</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2311.07911v1">Zhou et al. 2023: Instruction-Following Evaluation for Large Language Models</a></p>
+
+<h3 id="detailed-math-hard">Detailed Math Hard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Overall</th>
+      <th>Algebra</th>
+      <th>Counting &amp; Prob</th>
+      <th>Geometry</th>
+      <th>Intermediate Algebra</th>
+      <th>Number Theory</th>
+      <th>Prealgebra</th>
+      <th>Precalculus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>5.29%</td>
+      <td>7.82%</td>
+      <td>3.25%</td>
+      <td>3.03%</td>
+      <td>1.43%</td>
+      <td>4.55%</td>
+      <td>13.47%</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>11.71%</td>
+      <td>25.41%</td>
+      <td>8.94%</td>
+      <td>6.82%</td>
+      <td>1.43%</td>
+      <td>5.84%</td>
+      <td>21.76%</td>
+      <td>1.48%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>2.95%</td>
+      <td>4.89%</td>
+      <td>1.63%</td>
+      <td>0.00%</td>
+      <td>0.71%</td>
+      <td>1.30%</td>
+      <td>7.77%</td>
+      <td>2.22%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct</td>
+      <td>16.99%</td>
+      <td>30.94%</td>
+      <td>12.20%</td>
+      <td>6.82%</td>
+      <td>2.86%</td>
+      <td>14.94%</td>
+      <td>36.27%</td>
+      <td>3.70%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>37.08%</td>
+      <td>61.89%</td>
+      <td>39.84%</td>
+      <td>26.52%</td>
+      <td>13.21%</td>
+      <td>37.01%</td>
+      <td>51.81%</td>
+      <td>17.04%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-benchmark_Math_Hard_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2103.03874">Hendrycks et al. 2021: Measuring Mathematical Problem Solving With the MATH Dataset</a></p>
+
+<h3 id="detailed-musr-sub-task-performance">Detailed Musr Sub-task Performance</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Murder Mysteries</th>
+      <th>Object Placements</th>
+      <th>Team Allocation</th>
+      <th>Overall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>56.00%</td>
+      <td>24.00%</td>
+      <td>28.00%</td>
+      <td>36.00%</td>
+    </tr>
+    <tr>
+      <td>OLMo-2 1124 7B Instruct</td>
+      <td>51.60%</td>
+      <td>36.72%</td>
+      <td>31.20%</td>
+      <td>39.81%</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B Instruct v0.3</td>
+      <td>49.00%</td>
+      <td>34.00%</td>
+      <td>50.00%</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 Mini 4k Instruct 4k</td>
+      <td>59.00%</td>
+      <td>35.00%</td>
+      <td>38.00%</td>
+      <td>44.00%</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5 7B Instruct</td>
+      <td>53.60%</td>
+      <td>36.33%</td>
+      <td>38.00%</td>
+      <td>42.59%</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-benchmark_MuSR_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p><strong>Paper:</strong> <a href="https://arxiv.org/pdf/2310.16049v2">Sprague et al. 2024: MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</a></p>
+
+<h3 id="comparison-with-official-benchmarks">Comparison with Official Benchmarks</h3>
+
+<p>To validate our results, we compared our IFEval benchmark results with those reported in the Apertus Technical Report:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Our IFEval Results</th>
+      <th>Tech Report IFEval Results</th>
+      <th>Difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Apertus 8B Instruct 2509**</td>
+      <td>53.23%</td>
+      <td>71.7%*</td>
+      <td>-18.47</td>
+    </tr>
+    <tr>
+      <td>**OLMo-2-1124-7B-Instruct**</td>
+      <td>57.67%</td>
+      <td>71.0%*</td>
+      <td>-13.33%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Tech Report: Post-training evaluation using prompt-level strict accuracy (Table 19)</p>
+
+<h4 id="important-notes-on-ifeval-comparison">Important Notes on IFEval Comparison:</h4>
+
+<p>The performance differences between our results and the Tech Report can be attributed to:</p>
+
+<ol>
+  <li><strong>Evaluation Implementation Differences</strong>:
+    <ul>
+      <li>Different prompt templates and formatting</li>
+      <li>Variations in instruction parsing and evaluation criteria</li>
+      <li>Potential differences in the lm-evaluation-harness versions (See <a href="https://github.com/swiss-ai/lm-evaluation-harness">github.com/swiss-ai/lm-evaluation-harness</a>)</li>
+    </ul>
+  </li>
+  <li><strong>Consistency Across Models</strong>:
+    <ul>
+      <li>Both Apertus-8B-Instruct and OLMo-2-7B-Instruct show lower scores in our evaluation</li>
+      <li>The consistent gap suggests systematic differences in evaluation methodology</li>
+      <li>This highlights the importance of using identical evaluation settings for fair comparisons</li>
+    </ul>
+  </li>
+</ol>
+
+<p>This may not necessarily mean that the results are directly comparable with the official benchmarks. However, this does not affect the comparability between the models in our benchmark.</p>
+
+<h3 id="key-observations">Key Observations</h3>
+
+<ul>
+  <li><strong>Instruction Following (IFEval)</strong>: Apertus-8B-Instruct shows competitive performance at 44.18%, though it trails behind models like OLMo-2 (57.67%) and Qwen2.5 (58.04%)</li>
+  <li><strong>Mathematical Reasoning</strong>: With 5.29% on Math-lvl-5, Apertus-8B-Instruct outperforms Mistral 7B (2.95%).</li>
+  <li><strong>Multi-domain Knowledge (MMLU-Pro)</strong>: Achieved 31.14% accuracy across 12,032 samples</li>
+  <li><strong>Multi-step Reasoning (Musr)</strong>: Shows room for improvement with 36.00% overall, particularly in object placement tasks (24.00%)</li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Swiss AI Initiative. (2025). <em>Apertus Technical Report</em>. GitHub Repository. <a href="https://github.com/swiss-ai/apertus-tech-report">https://github.com/swiss-ai/apertus-tech-report</a></p>
+
+<p>[2] Gao, L., Tow, J., Abbasi, B., Biderman, S., Black, S., DiPofi, A., Foster, C., Golding, L., Hsu, J., Le Noac’h, A., Li, H., McDonell, K., Muennighoff, N., Ociepa, C., Phang, J., Reynolds, L., Schoelkopf, H., Skowron, A., Sutawika, L., Tang, E., Thite, A., Wang, B., Wang, K., &amp; Zou, A. (2023). <em>A framework for few-shot language model evaluation</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.10256836">https://doi.org/10.5281/zenodo.10256836</a></p>
+
+<p>[3] Zhou, A., Yan, K., Shlapentokh-Rothman, M., Wang, H., &amp; Wang, Y. (2023). <em>Instruction-Following Evaluation for Large Language Models</em>. arXiv preprint. <a href="https://arxiv.org/abs/2311.07911">https://arxiv.org/abs/2311.07911</a></p>
+
+<p>[4] Sprague, C., Gao, L., Biderman, S., &amp; Sutawika, L. (2024). <em>MuSR: Testing the Limits of Chain-of-thought with Multistep Soft Reasoning</em>. arXiv preprint. <a href="https://arxiv.org/abs/2310.16049">https://arxiv.org/abs/2310.16049</a></p>
+
+<p>[5] Wang, Y., Ma, X., Zhang, G., Ni, Y., Chandra, A., Guo, S., Ren, W., Arulraj, A., He, X., Jiang, Z., Li, T., Ku, M., Wang, K., Zhuang, A., Fan, R., Yue, X., &amp; Chen, W. (2024). <em>MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</em>. arXiv preprint. <a href="https://arxiv.org/abs/2406.01574">https://arxiv.org/abs/2406.01574</a></p>
+
+<p>[6] Hendrycks, D., Burns, C., Kadavath, S., Arora, A., Basart, S., Tang, E., Song, D., &amp; Steinhardt, J. (2021). <em>Measuring Mathematical Problem Solving With the MATH Dataset</em>. arXiv preprint. <a href="https://arxiv.org/abs/2103.03874">https://arxiv.org/abs/2103.03874</a></p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/ApertusBench-Thumbnail.png" style="
+        width: 50%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>]]></content><author><name>[&quot;Götz-Henrik Wiegand&quot;, &quot;Michael Gaus&quot;, &quot;Siegfried Handschuh&quot;]</name></author><category term="transformers" /><category term="machine-learning" /><category term="large language models" /><category term="artificial intelligence" /><category term="switzerland" /><summary type="html"><![CDATA[The Release On September 2, 2025, the Swiss AI Initiative — a collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS) — released the Apertus model family in two sizes: 8B and 70B parameters.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-35/images/posts/ApertusBench-Thumbnail.png" /><media:content medium="image" url="/preview/pr-35/images/posts/ApertusBench-Thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bridging Attention and State Space Models - A Systems Theory Perspective</title><link href="/preview/pr-35/2025/08/19/SDS2025.html" rel="alternate" type="text/html" title="Bridging Attention and State Space Models - A Systems Theory Perspective" /><published>2025-08-19T00:00:00+00:00</published><updated>2026-02-09T05:29:03+00:00</updated><id>/preview/pr-35/2025/08/19/SDS2025</id><content type="html" xml:base="/preview/pr-35/2025/08/19/SDS2025.html"><![CDATA[<h1 id="bridging-attention-and-state-space-models-a-systems-theory-perspective">Bridging Attention and State Space Models: A Systems Theory Perspective</h1>
+
+<p>In the rapidly evolving landscape of natural language processing, two major paradigms have shaped how we build language models: the <strong>Attention Mechanism</strong> that powers Transformers [2], and the recently revived <strong>State Space Models</strong> (SSMs) [3,4]. While these approaches seem fundamentally different at first glance, our recent work “Integrating the Attention Mechanism Into State Space Models”[1] presented at the IEEE Swiss Conference on Data Science reveals surprising connections and proposes a way to combine their strengths.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/SDS-GroupPicPoster.jpg" style="
+        width: 50%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-tale-of-two-architectures">The Tale of Two Architectures</h2>
+
+<h3 id="attention-mechanisms-the-context-masters">Attention Mechanisms: The Context Masters</h3>
+
+<p>The attention mechanism, popularized by the “Attention is All You Need” paper [2], works by allowing each token in a sequence to “look at” all previous tokens and decide which ones are most relevant for the current prediction.</p>
+
+<p>Think of it like this: when you’re reading a sentence and trying to understand what “it” refers to, you automatically scan back through the text to find the most likely candidate. The attention mechanism does something similar - it computes similarity scores between tokens and uses these to create weighted combinations of past information.</p>
+
+<p>Mathematically, for a token at position i, attention computes:</p>
+
+<p>$$y_i = \sum_{j=1}^{i} a_{i,j} x_j W_V W_O$$</p>
+
+<p>Where $a_{i,j}$ represents how much attention token i pays to token j, computed using query-key similarity:</p>
+
+<p>$$a_{i,j} = \text{softmax}(x_j W_K W_Q^T x_i^T)$$</p>
+
+<h3 id="state-space-models-the-memory-keepers">State Space Models: The Memory Keepers</h3>
+
+<p>State Space Models take a different approach. Instead of looking back at all previous tokens directly, they maintain a “memory state” that gets updated as each new token arrives. This state vector acts like a continuously updating summary of everything seen so far.</p>
+
+<p>The SSM update equations are elegantly simple:</p>
+
+<p>$$h_i = h_{i-1} A + x_i B \quad \text{(update memory)}$$</p>
+
+<p>$$y_i = h_i C \quad \text{(generate output)}$$</p>
+
+<p>Here, $h_i$ is the memory state, and matrices $A$, $B$, $C$ control how information flows through the system.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-hidden-connection-two-sides-of-the-same-coin">The Hidden Connection: Two Sides of the Same Coin</h2>
+
+<p>Here’s where something truly remarkable emerges from our analysis. Despite looking completely different on the surface, attention mechanisms and state space models are actually solving the same problem in surprisingly similar ways.</p>
+
+<p>When we carefully expand the mathematical equations for both approaches, something amazing happens.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/SDS-PaperFormulars-AttentionVsSSM.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>
+
+<p>Both are saying: <strong>“Take each past token, multiply it by some weight, and add them all up.”</strong></p>
+
+<p>The profound realization is that both mechanisms are computing <strong>weighted averages</strong> of past information - they just calculate the weights differently:</p>
+
+<ul>
+  <li><strong>Attention weights</strong> ($W_{i,j}$): “How relevant is this past token to what I’m trying to understand right now?” (content-based)</li>
+  <li><strong>SSM weights</strong> ($V_{i,j}$): “How much should this past token influence me, given how long ago it was?” (position-based with exponential decay)</li>
+</ul>
+
+<p>Think of it like this:</p>
+<ul>
+  <li><strong>Attention</strong> is like a smart librarian who picks the most relevant books for your research question, regardless of when they were written</li>
+  <li><strong>SSMs</strong> are like your memory - recent events are vivid and influential, while older memories fade gradually but systematically</li>
+</ul>
+
+<p><strong>Why does this matter?</strong></p>
+
+<p>This connection reveals that the attention vs. SSM debate isn’t about choosing completely different approaches - it’s about choosing different strategies for the same fundamental task: <strong>deciding how much weight to give to different pieces of past information</strong>.</p>
+
+<p>Understanding this similarity opens up new possibilities: What if we could combine the best of both worlds? What if we could create systems that are both computationally efficient like SSMs AND contextually smart like attention?</p>
+
+<p>From a signal processing perspective:</p>
+<ul>
+  <li><strong>Attention behaves like a Finite Impulse Response (FIR) filter</strong>: It needs separate parameters for each possible input position</li>
+  <li><strong>SSMs behave like Infinite Impulse Response (IIR) filters</strong>: They use feedback and memory, making them more parameter-efficient</li>
+</ul>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="the-trade-off-context-vs-efficiency">The Trade-off: Context vs Efficiency</h2>
+
+<p>This reveals the fundamental trade-off:</p>
+
+<h3 id="attentions-strength-context-awareness">Attention’s Strength: Context Awareness</h3>
+<p>Attention excels at capturing which past tokens are contextually relevant, regardless of their position. If “John” appears 50 tokens back but is crucial for understanding the current sentence, attention can focus on it directly.</p>
+
+<h3 id="ssms-strength-computational-efficiency">SSM’s Strength: Computational Efficiency</h3>
+<p>SSMs process sequences in linear time and use far fewer parameters. Their memory state provides a compact summary of the entire past sequence, making them ideal for very long sequences where attention’s quadratic complexity becomes prohibitive. Recent advances like Mamba [5] have shown how to make SSMs even more efficient with selective state spaces.</p>
+
+<h3 id="the-limitation">The Limitation</h3>
+<p>SSMs struggle with explicit context modeling - they can’t easily decide that a distant token is more important than a recent one based on semantic similarity. This limitation has been a key motivator for recent work like Mamba [5] and other SSM variants [6,7].</p>
+
+<h2 id="our-proposed-solution-context-aware-ssms">Our Proposed Solution: Context-Aware SSMs</h2>
+
+<p>We propose enhancing SSMs with a similarity mechanism inspired by attention. Instead of measuring similarity between current and past tokens (like attention does), we measure similarity between the current token and the current memory state:</p>
+
+<p>$$g(x_i, h_{i-1}) = \sigma(x_i W_H h_{i-1}^T)$$</p>
+
+<p>This similarity score then weights the input:</p>
+
+<p>$$h_i = h_{i-1} A + x_i g(x_i, h_{i-1}) B$$</p>
+
+<p>$$y_i = h_i C$$</p>
+
+<h3 id="the-intuition">The Intuition</h3>
+
+<p>Think of the memory state $h_{i-1}$ as containing a compressed representation of all past context. When a new token $x_i$ arrives, we check how well it “fits” with this accumulated context. Tokens that are highly relevant to the current context get stronger weights in the state update.</p>
+
+<p>This is like having a conversation where you pay more attention to statements that connect well with the topic you’ve been discussing, while still maintaining a continuous thread of memory.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="dynamic-system-properties">Dynamic System Properties</h2>
+
+<p>An important insight from our analysis concerns the stability properties of SSMs. The eigenvalues of matrix $A$ determine the model’s behavior:</p>
+
+<ul>
+  <li><strong>Stable systems</strong> (eigenvalues ≤ 1): Information fades gracefully over time</li>
+  <li><strong>Unstable systems</strong> (eigenvalues &gt; 1): Information grows unboundedly, leading to numerical issues</li>
+  <li><strong>Oscillating systems</strong> (complex eigenvalues): Create periodic patterns in the output</li>
+</ul>
+
+<p>For language modeling, we want stable, non-oscillating behavior. This constrains $A$ to have real, positive eigenvalues bounded by 1, which can be achieved using diagonal matrices with sigmoid-activated elements. This insight has been crucial for modern SSM architectures like S4 [3], Mamba [5], and other recent developments [8,9].</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="looking-forward-implementation-challenges">Looking Forward: Implementation Challenges</h2>
+
+<p>While theoretically elegant, our proposed context-aware SSM extension faces several practical challenges:</p>
+
+<ol>
+  <li><strong>Training Complexity</strong>: The nonlinear similarity term may complicate gradient-based optimization</li>
+  <li><strong>Vanishing Gradients</strong>: Like other recurrent models, SSMs can suffer from vanishing gradients over long sequences</li>
+  <li><strong>Computational Overhead</strong>: Adding similarity computation increases the computational cost</li>
+</ol>
+
+<p>However, we believe the potential benefits - combining SSMs’ efficiency with attention’s context awareness - make this a promising research direction.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The relationship between attention mechanisms and state space models runs deeper than their surface-level differences suggest. Both are solving the same fundamental problem: how to selectively use past information for current predictions.</p>
+
+<p>Attention prioritizes semantic relevance, while SSMs prioritize computational efficiency. Our work suggests that we don’t have to choose - by integrating attention-like similarity measures into SSMs, we may be able to achieve the best of both worlds.</p>
+
+<p>As language models continue to handle longer and longer sequences, finding efficient ways to model context becomes increasingly critical. The marriage of attention and state space concepts may be key to building the next generation of language models that are both computationally efficient and contextually aware.</p>
+
+<p>The journey from attention to state space models and back again reminds us that in machine learning, the most powerful solutions often come from understanding and combining different perspectives on the same underlying problem.</p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="link-to-the-paper">Link to the Paper</h2>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/g9xcn9" class="citation-image" aria-label="Integrating the Attention Mechanism Into State Space Models">
+        <img src="" alt="Integrating the Attention Mechanism Into State Space Models" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/g9xcn9" class="citation-title">
+        Integrating the Attention Mechanism Into State Space Models
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Tomas Hrycej, Bernhard Bermeitinger, Siegfried Handschuh
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">2025 IEEE Swiss Conference on Data Science (SDS)</span>
+        &nbsp;·&nbsp;
+        <span class="citation-date">26 Jun 2025</span>
+        &nbsp;·&nbsp;
+        <span class="citation-id">doi:10.1109/sds66131.2025.00033</span>
+      </div>
+
+      
+        
+
+        
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Hrycej, T., Bermeitinger, B., &amp; Handschuh, S. (2025). Integrating the Attention Mechanism into State Space Models. <em>Proceedings of the 2025 IEEE Swiss Conference on Data Science (SDS)</em> Url: <a href="https://ieeexplore.ieee.org/document/11081496">ieeexplore.ieee.org/document/11081496</a>.</p>
+
+<p>[2] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in neural information processing systems</em>, 30, Url: <a href="https://arxiv.org/abs/1706.03762">arxiv.org/abs/1706.03762</a></p>
+
+<p>[3] Gu, A., Goel, K., &amp; Ré, C. (2021). Efficiently modeling long sequences with structured state spaces. <em>arXiv preprint arXiv:2111.00396</em>, Url: <a href="https://arxiv.org/abs/2111.00396">arxiv.org/abs/2111.00396</a></p>
+
+<p>[4] Gu, A., Johnson, I., Goel, K., Saab, K., Dao, T., Rudra, A., &amp; Ré, C. (2021). Combining recurrent, convolutional, and continuous-time models with linear state space layers. <em>Advances in neural information processing systems</em>, 34, Url: <a href="https://arxiv.org/abs/2110.13985">arxiv.org/abs/2110.13985</a></p>
+
+<p>[5] Gu, A., &amp; Dao, T. (2023). Mamba: Linear-time sequence modeling with selective state spaces. <em>arXiv preprint arXiv:2312.00752</em>, Url: <a href="https://arxiv.org/abs/2312.00752">arxiv.org/abs/2312.00752</a></p>
+
+<p>[6] Dao, T., Fu, D., Ermon, S., Rudra, A., &amp; Ré, C. (2022). FlashAttention: Fast and memory-efficient exact attention with IO-awareness. <em>Advances in Neural Information Processing Systems</em>, 35, <a href="https://arxiv.org/abs/2205.14135">arxiv.org/abs/2205.14135</a></p>
+
+<p>[7] Sieber, J., Alonso, C. A., Didier, A., Zeilinger, M. N., &amp; Orvieto, A. (2024). Understanding the differences in foundation models: Attention, state space models, and recurrent neural networks. <em>arXiv preprint arXiv:2405.15731</em>, Url: <a href="https://arxiv.org/abs/2405.15731">arxiv.org/abs/2405.15731</a></p>
+
+<p>[8] Smith, J., Warrington, A., &amp; Linderman, S. W. (2022). Simplified state space layers for sequence modeling. <em>arXiv preprint arXiv:2208.04933</em>, Url:  <a href="https://arxiv.org/abs/2208.04933">arxiv.org/abs/2208.04933</a></p>
+
+<p>[9] Mehta, H., Gupta, A., Cutkosky, A., &amp; Neyshabur, B. (2022). Long range language modeling via gated state spaces. <em>arXiv preprint arXiv:2206.13947</em>, Url: <a href="https://arxiv.org/abs/2206.13947">arxiv.org/abs/2206.13947</a></p>
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-35/images/posts/SDS-SSMAttentionFusion.png" style="
+        width: 30%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-35/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+</figure>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="attention-mechanism" /><category term="state-space-models" /><category term="transformers" /><category term="machine-learning" /><category term="systems-theory" /><summary type="html"><![CDATA[Bridging Attention and State Space Models: A Systems Theory Perspective]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-35/images/posts/SDS-SSMAttentionFusion.png" /><media:content medium="image" url="/preview/pr-35/images/posts/SDS-SSMAttentionFusion.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to the DS-NLP Lab Website!</title><link href="/preview/pr-35/2025/05/23/Hello-World.html" rel="alternate" type="text/html" title="Welcome to the DS-NLP Lab Website!" /><published>2025-05-23T00:00:00+00:00</published><updated>2026-02-09T05:29:03+00:00</updated><id>/preview/pr-35/2025/05/23/Hello-World</id><content type="html" xml:base="/preview/pr-35/2025/05/23/Hello-World.html"><![CDATA[<p>We’re excited to welcome you to the official website of our DS-NLP Lab.</p>
+
+<p>This platform marks a new chapter for us—one where we not only advance research behind the scenes, but also share our journey with the world. We created this website to offer a window into our ongoing work, discoveries, and collaborations. From academic findings to applied insights, this space will keep you up to date with the progress we’re making in the different fields we are currently working on.</p>
+
+<p>As a research lab and chair, we are committed to pushing the boundaries of what’s possible with language and data. But we’re equally committed to openness, communication, dialogue and teaching. Whether you’re a fellow researcher, a student, an industry partner, or just curious about what we do—we’re glad you’re here.</p>
+
+<p>You’ll find updates, research highlights, team news, and project showcases.</p>
+
+<p>Thanks for visiting—and stay tuned!</p>]]></content><author><name>Götz-Henrik Wiegand</name></author><category term="website" /><category term="chair" /><summary type="html"><![CDATA[We’re excited to welcome you to the official website of our DS-NLP Lab.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-35/images/HSG_Daten_01.png" /><media:content medium="image" url="/preview/pr-35/images/HSG_Daten_01.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
