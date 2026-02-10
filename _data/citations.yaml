@@ -2341,16 +2341,10 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/124130
-  title: A Convexity-dependent Two-Phase Training Algorithm for Deep Neural Networks
-  authors:
-  - Tomas Hrycej
-  - Bernhard Bermeitinger
-  - Massimo Pavone
-  - "G\xF6tz-Henrik Wiegand"
-  - Siegfried Handschuh
-  publisher: Proceedings of the 17th International Joint Conference on Knowledge Discovery,
-    Knowledge Engineering and Knowledge Management
-  date: '2025-10-27'
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/124130
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
