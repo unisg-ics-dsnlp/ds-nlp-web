@@ -40,7 +40,7 @@ jobs:
       - name: Get Pages url
         if: github.event.action != 'closed'
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: SSH debug
         if: runner.debug == '1'
