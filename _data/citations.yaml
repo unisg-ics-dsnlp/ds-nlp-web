@@ -2304,11 +2304,15 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/124964
-  title: ''
-  authors: []
+  title: 'BioMistral-Clinical: A Scalable Approach to Clinical LLMs via Incremental
+    Learning and RAG'
+  authors:
+  - Ziwei Chen
+  - Bernhard Bermeitinger
+  - Christina Niklaus
   publisher: ''
-  date: ''
-  link: http://hdl.handle.net/20.500.14171/124964
+  date: '2025-12-01'
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/124964
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2356,23 +2360,10 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/125065
-  title: Machine learning predicts type 2 diabetes incidence using basic clinical
-    and laboratory parameters
-  authors:
-  - A. Leiherer
-  - L. Schnetzer
-  - S. Mink
-  - A. Mader
-  - A. Muendlein
-  - Bernhard Bermeitinger
-  - T. Plattner
-  - A. Vonbank
-  - B. Larcher
-  - C. Saely
-  - P. Fraunberger
-  - H. Drexel
-  publisher: Diabetologia
-  date: '2025-08-26'
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/125065
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
@@ -2382,7 +2373,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: http://hdl.handle.net/20.500.14171/123182
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123182
   orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
@@ -2459,7 +2450,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: http://hdl.handle.net/20.500.14171/123089
+  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123089
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2486,13 +2477,10 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/122546
-  title: Is There an Optimal Depth of Residual Networks?
-  authors:
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Siegfried Handschuh
-  publisher: Communications in Computer and Information Science
-  date: '2025-05-03'
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/122546
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
@@ -2508,17 +2496,10 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/120866
-  title: Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing
-    Support
-  authors:
-  - Reto Gubelmann
-  - Michael Burkhard
-  - Rositsa Ivanova
-  - Christina Niklaus
-  - Bernhard Bermeitinger
-  - Siegfried Handschuh
+  title: ''
+  authors: []
   publisher: ''
-  date: '2024-07-02'
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/120866
   orcid: 0000-0002-2524-1850
   plugin: sources.py
@@ -2546,11 +2527,10 @@
   - llm
   - artist
 - id: handle:20.500.14171/120123
-  title: Investigating a Second-Order Optimization Strategy for Neural Networks
-  authors:
-  - Bernhard Bermeitinger
-  publisher: "Universit\xE4t Passau"
-  date: '2024-04-18'
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
   link: https://www.alexandria.unisg.ch/handle/20.500.14171/120123
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
