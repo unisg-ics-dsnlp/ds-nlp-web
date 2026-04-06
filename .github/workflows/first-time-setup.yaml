@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Debug dump
-        uses: crazy-max/ghaction-dump-context@v2
+        uses: crazy-max/ghaction-dump-context@v3
 
       - name: Create Pages branch
         uses: peterjgrainger/action-create-branch@v3.0.0
