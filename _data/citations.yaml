@@ -2282,6 +2282,15 @@
   orcid: 0000-0001-9344-8127
   plugin: orcid.py
   file: orcid.yaml
+- id: handle:20.500.14171/125600
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: http://hdl.handle.net/20.500.14171/125600
+  orcid: 0000-0002-2524-1850
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1016/j.ijmedinf.2025.106161
   title: 'Interpretable type 2 diabetes incidence prediction with AutoScore: A model
     based on standard clinical parameters'
@@ -2308,7 +2317,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: http://hdl.handle.net/20.500.14171/124964
+  link: https://alexandria.unisg.ch/handle/20.500.14171/124964
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2382,7 +2391,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: http://hdl.handle.net/20.500.14171/123182
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123182
   orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
@@ -2459,7 +2468,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: http://hdl.handle.net/20.500.14171/123089
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123089
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2486,14 +2495,11 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/122546
-  title: Is There an Optimal Depth of Residual Networks?
-  authors:
-  - Bernhard Bermeitinger
-  - Tomas Hrycej
-  - Siegfried Handschuh
-  publisher: Communications in Computer and Information Science
-  date: '2025-05-03'
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/122546
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://alexandria.unisg.ch/handle/20.500.14171/122546
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2508,18 +2514,11 @@
   plugin: orcid.py
   file: orcid.yaml
 - id: handle:20.500.14171/120866
-  title: Exploring the Usefulness of Open and Proprietary LLMs in Argumentative Writing
-    Support
-  authors:
-  - Reto Gubelmann
-  - Michael Burkhard
-  - Rositsa Ivanova
-  - Christina Niklaus
-  - Bernhard Bermeitinger
-  - Siegfried Handschuh
+  title: ''
+  authors: []
   publisher: ''
-  date: '2024-07-02'
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/120866
+  date: ''
+  link: https://alexandria.unisg.ch/handle/20.500.14171/120866
   orcid: 0000-0002-2524-1850
   plugin: sources.py
   file: sources.yaml
@@ -2546,12 +2545,11 @@
   - llm
   - artist
 - id: handle:20.500.14171/120123
-  title: Investigating a Second-Order Optimization Strategy for Neural Networks
-  authors:
-  - Bernhard Bermeitinger
-  publisher: "Universit\xE4t Passau"
-  date: '2024-04-18'
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/120123
+  title: ''
+  authors: []
+  publisher: ''
+  date: ''
+  link: https://alexandria.unisg.ch/handle/20.500.14171/120123
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2560,7 +2558,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/118790
+  link: https://alexandria.unisg.ch/handle/20.500.14171/118790
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2569,7 +2567,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123209
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123209
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2578,7 +2576,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/109017
+  link: https://alexandria.unisg.ch/handle/20.500.14171/109017
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2587,7 +2585,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/108192
+  link: https://alexandria.unisg.ch/handle/20.500.14171/108192
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2596,7 +2594,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/111574
+  link: https://alexandria.unisg.ch/handle/20.500.14171/111574
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2605,7 +2603,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/112398
+  link: https://alexandria.unisg.ch/handle/20.500.14171/112398
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2614,7 +2612,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98270
+  link: https://alexandria.unisg.ch/handle/20.500.14171/98270
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2623,7 +2621,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98459
+  link: https://alexandria.unisg.ch/handle/20.500.14171/98459
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2632,7 +2630,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/98861
+  link: https://alexandria.unisg.ch/handle/20.500.14171/98861
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2641,7 +2639,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123211
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123211
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2650,7 +2648,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/100778
+  link: https://alexandria.unisg.ch/handle/20.500.14171/100778
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2659,7 +2657,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123065
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123065
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2668,7 +2666,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/123210
+  link: https://alexandria.unisg.ch/handle/20.500.14171/123210
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2677,7 +2675,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/103662
+  link: https://alexandria.unisg.ch/handle/20.500.14171/103662
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
@@ -2686,7 +2684,7 @@
   authors: []
   publisher: ''
   date: ''
-  link: https://www.alexandria.unisg.ch/handle/20.500.14171/104368
+  link: https://alexandria.unisg.ch/handle/20.500.14171/104368
   orcid: 0000-0002-2524-1850
   plugin: orcid.py
   file: orcid.yaml
