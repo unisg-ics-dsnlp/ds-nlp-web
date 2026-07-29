@@ -5,7 +5,7 @@
 
   # unisg-ics-dsnlp's Website
 
-  Visit **[blog.nlp-lab.ai](https://blog.nlp-lab.ai)** 🚀
+  Visit **[blog.nlp-lab.ai](http://blog.nlp-lab.ai)** 🚀
 
 
   _Built with [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
