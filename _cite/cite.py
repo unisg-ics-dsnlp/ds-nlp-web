@@ -2,6 +2,18 @@
 cite process to convert sources and metasources into full citations
 """
 
+import os
+import sys
+
+
+# Pull request previews only need the existing citation data. Refreshing every
+# citation makes previews depend on third-party services and can exceed the
+# workflow timeout before the website build starts.
+if os.getenv("GITHUB_EVENT_NAME") == "pull_request_target":
+    print("Skipping citation refresh for pull request preview.")
+    sys.exit(0)
+
+
 import traceback
 from importlib import import_module
 from pathlib import Path
