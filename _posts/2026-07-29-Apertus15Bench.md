@@ -2,7 +2,7 @@
 title: LLM Benchmark Evaluation - Apertus 1.5-8B
 author:
   - Götz-Henrik Wiegand
-image: images/posts/Apertus15Bench-Thumbnail.png
+image: images/posts/Apertus15Bench-summary_average_performance.png
 date: 2026-07-29
 tags:
   - transformers
@@ -290,4 +290,4 @@ single score, but in the fact that anyone can reproduce it and build on it.
 
 {% include section.html %}
 
-{% include figure.html image="images/posts/Apertus15Bench-Thumbnail.png" width="50%" %}
+{% include figure.html image="images/posts/Apertus15Bench-summary_average_performance.png" width="50%" %}
