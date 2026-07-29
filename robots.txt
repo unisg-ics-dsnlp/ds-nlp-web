@@ -1,1 +1,1 @@
-Sitemap: https://blog.nlp-lab.ai/sitemap.xml
+Sitemap: http://blog.nlp-lab.ai/sitemap.xml
