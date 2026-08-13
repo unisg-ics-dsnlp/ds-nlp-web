@@ -31,3 +31,21 @@
   text-align: center;
   white-space: nowrap;
 }
+
+.post-info .post-info-published {
+  color: var(--text);
+  font-weight: var(--bold);
+}
+
+.post-info .post-info-published .icon {
+  color: var(--primary);
+}
+
+.post-info .post-info-label {
+  margin-right: 0.35em;
+}
+
+.post-info .post-info-updated {
+  color: var(--dark-gray);
+  font-size: 0.85em;
+}
