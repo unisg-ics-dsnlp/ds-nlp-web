@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>LLM Benchmark Evaluation - Apertus 1.5-8B | DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-41/images/icon.png">
+
+<meta name="title" content="LLM Benchmark Evaluation - Apertus 1.5-8B">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="LLM Benchmark Evaluation - Apertus 1.5-8B">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-41">
+<meta property="og:image" content="/preview/pr-41/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="LLM Benchmark Evaluation - Apertus 1.5-8B">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-41">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-41/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta name="author" content='["Götz-Henrik Wiegand"]'>
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2026-08-13T10:33:30+00:00">
+  <meta property="article:published_time" content="2026-07-29T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-13T10:33:30+00:00">
+  <meta name="revised" content="2026-08-13T10:33:30+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "LLM Benchmark Evaluation - Apertus 1.5-8B" },
+      "datePublished": "2026-07-29T00:00:00+00:00",
+      "dateModified": "2026-08-13T10:33:30+00:00",
+    
+    "name": "LLM Benchmark Evaluation - Apertus 1.5-8B",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "LLM Benchmark Evaluation - Apertus 1.5-8B",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-41/images/icon.png" }
+    },
+    "url": "/preview/pr-41"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-41/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-41/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-41/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-41/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-41/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-41/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-41/_scripts/search.js"></script>
+
+  <script src="/preview/pr-41/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-41/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-41/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-41/images/background.jpg')" data-dark="true">
+  <a href="/preview/pr-41/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-41/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-41/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-41/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-41/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-41/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-41/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1" style="--image: url('/preview/pr-41/images/posts/Apertus15Bench-summary_average_performance.png')">
+    <!--
+  <background>images/posts/Apertus15Bench-summary_average_performance.png</background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">LLM Benchmark Evaluation - Apertus 1.5-8B</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span class="post-info-published" data-tooltip="Publication date">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span class="post-info-label">Published</span>
+      <time datetime="2026-07-29T00:00:00+00:00">July 29, 2026</time>
+    </span>
+  
+
+  
+    <span class="post-info-updated" data-tooltip="Last updated date">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span class="post-info-label">Updated</span>
+      <time datetime="2026-08-13T10:33:30+00:00">August 13, 2026</time>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-41/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-41/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-41/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-41/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-41/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<h2 id="the-update">The Update</h2>
+
+<p>Last year we evaluated the newly released Apertus-8B-Instruct and shared our independent
+benchmark impressions in <a href="#">our first Apertus post</a>. Since then, the Swiss AI Initiative (a
+collaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre, CSCS) has
+continued to develop the model family, and the 8B checkpoint has received a substantial update:
+Apertus 1.5.</p>
+
+<p>The underlying philosophy has not changed. Apertus 1.5 is still a fully open model. It is trained
+on publicly available data, respects robots.txt, filters toxic and personally identifiable
+content, and ships with reproduction artifacts. What changed is capability. During our evaluation
+we observed three concrete additions in the 8B checkpoint (<code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-8B</code>):</p>
+
+<ul>
+  <li>A “thinking” (deliberation) mode. The model can reason at length before producing an answer,
+controlled through the chat template.</li>
+  <li>A longer context window of 262k tokens, up from 65k in the 1.0 instruct model.</li>
+  <li>Multimodal components in the weights (vision and audio tokenizers) and a tool-calling chat template.</li>
+</ul>
+
+<p>This post concentrates on two questions. First, how much does 1.5 improve over 1.0? Second, what
+does thinking mode actually contribute? Rather than a broad cross-model leaderboard, we present a
+generational study: Apertus 1.5 in normal and thinking mode, measured against the 1.0 instruct
+baseline from last year under identical settings.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-summary_average_performance.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="benchmarking-the-model">Benchmarking the Model</h2>
+
+<p>Our goals were the same as before, and deliberately modest. We wanted to form our own impression
+of the model and to check whether the reported improvements hold under a consistent, reproducible
+harness. We again used <a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI’s Language Model Evaluation Harness</a>,
+this time driven by vLLM through the official <a href="https://github.com/swiss-ai/vllm">Swiss-AI Apertus vLLM fork</a>. The image is required,
+because a stock installation of vLLM cannot yet serve the 1.5 architecture.</p>
+
+<p>All evaluations ran fully on one H100 GPU. Apertus 1.5 (normal and thinking) and the Apertus 1.0 baseline were evaluated
+with identical settings, so the comparison between them is fair.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="1" data-dark="true">
+    <!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<h2 id="open-models-and-open-weight-models">Open Models and Open Weight Models</h2>
+
+<p>We continue to use the terminology from the Technical Report. Open weight models publish their
+weights but not their data or training artifacts (for example, the Qwen family). Open models aim
+to make everything reproducible, including data-pipelines and training details (for example, OLMo, and
+Apertus).</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<p><strong>Quicklinks to Apertus Resources:</strong></p>
+<ul>
+  <li>
+<strong>Technical Report</strong>: <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a>
+</li>
+  <li>
+<strong>Model Hub</strong>: <a href="https://huggingface.co/swiss-ai/">Hugging Face: Swiss AI Models</a>
+</li>
+  <li>
+<strong>Official Blog</strong>: <a href="https://www.swiss-ai.org/apertus">Swiss AI Apertus Announcement</a>
+</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<p><strong>Important disclaimer:</strong>
+The benchmarks were produced with <code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-8B</code> and <code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-8B-Instruct-2509</code>
+from Hugging Face, using a subset of tasks from <a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI’s Language Model Evaluation Harness</a>
+served through the Swiss-AI vLLM image. The raw results and benchmark logs can be found in our
+GitHub repository <a href="https://github.com/unisg-ics-dsnlp/Apertus-1.5-Benchmark-Results">unisg-ics-dsnlp/Apertus-1.5-Benchmark-Results</a>.</p>
+
+<p>These benchmarks are not exhaustive and are intended only to provide an independent overview. For
+comprehensive, official numbers please refer to the <a href="https://github.com/swiss-ai/apertus-tech-report">Swiss-AI Apertus Technical Report</a>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="selected-benchmarks">Selected Benchmarks</h2>
+
+<p>We organized the evaluation into three parts, each addressing a different question.</p>
+
+<p><strong>Part 1, core text capabilities.</strong> Is 1.5 broadly better than 1.0? We used GPQA-Diamond (graduate
+science), Global-MMLU (knowledge), IFEval (instruction following), MMLU-Pro (multi-domain
+knowledge), LongBench (long context), and GSM8K (grade-school math).</p>
+
+<p><strong>Part 2, multilingual breadth.</strong> Does 1.5 improve across languages, and not only in English? We
+used four families covering up to 14 languages: Global-MMLU (knowledge), Belebele (reading
+comprehension), multilingual ARC-Challenge (reasoning), and multilingual HellaSwag (commonsense).</p>
+
+<p><strong>Part 3, thinking and reasoning.</strong> What does deliberation mode contribute? We assembled a
+generative reasoning suite in which step-by-step reasoning is expected to help: MATH-500, AIME 2024
+and 2025 (competition math), GPQA-main (science, chain-of-thought), and MGSM (multilingual
+grade-school math). We ran 1.5 in both normal and thinking mode, with 1.0 as the baseline.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="part-1-core-text-benchmarks">Part 1: Core Text Benchmarks</h2>
+
+<p>The following table compares Apertus 1.5 (normal), Apertus 1.5 thinking, and our re-measured 1.0
+baseline on the full test sets. The final column reproduces the published Apertus 1.0 Technical
+Report figure for the same 8B-Instruct model, where a comparable benchmark exists.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Benchmark</th>
+      <th>Metric</th>
+      <th style="text-align: right">Apertus <strong>1.5</strong>
+</th>
+      <th style="text-align: right">1.5 <strong>thinking</strong>
+</th>
+      <th style="text-align: right">Apertus <strong>1.0</strong> (ours)</th>
+      <th style="text-align: right">Apertus <strong>1.0</strong> (tech report)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GPQA-Diamond</td>
+      <td>acc, 0-shot</td>
+      <td style="text-align: right"><strong>29.8</strong></td>
+      <td style="text-align: right">26.3 ᵃ</td>
+      <td style="text-align: right">24.7</td>
+      <td style="text-align: right">27.0 ᵇ</td>
+    </tr>
+    <tr>
+      <td>Global-MMLU (en)</td>
+      <td>acc</td>
+      <td style="text-align: right"><strong>71.0</strong></td>
+      <td style="text-align: right">n/a ᶜ</td>
+      <td style="text-align: right">63.7</td>
+      <td style="text-align: right">55.7 ᵈ</td>
+    </tr>
+    <tr>
+      <td>IFEval</td>
+      <td>prompt-strict acc</td>
+      <td style="text-align: right"><strong>85.8</strong></td>
+      <td style="text-align: right">72.1</td>
+      <td style="text-align: right">68.9</td>
+      <td style="text-align: right">71.7 ᵉ</td>
+    </tr>
+    <tr>
+      <td>MMLU-Pro</td>
+      <td>exact-match, 5-shot</td>
+      <td style="text-align: right"><strong>45.9</strong></td>
+      <td style="text-align: right">45.5</td>
+      <td style="text-align: right">35.3</td>
+      <td style="text-align: right">n/a</td>
+    </tr>
+    <tr>
+      <td>LongBench</td>
+      <td>score</td>
+      <td style="text-align: right"><strong>44.2</strong></td>
+      <td style="text-align: right">43.4</td>
+      <td style="text-align: right">35.3</td>
+      <td style="text-align: right">n/a</td>
+    </tr>
+    <tr>
+      <td>GSM8K</td>
+      <td>exact-match (flexible)</td>
+      <td style="text-align: right">79.6</td>
+      <td style="text-align: right"><strong>85.3</strong></td>
+      <td style="text-align: right">60.2</td>
+      <td style="text-align: right">62.9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Footnotes</strong></p>
+<ul>
+  <li>ᵃ Thinking mode cannot run multiple-choice tasks, so GPQA here is the CoT-generative variant (<code class="language-plaintext highlighter-rouge">gpqa_diamond_cot_zeroshot</code>, exact-match). It is therefore not directly comparable to the 0-shot multiple-choice number in the other columns.</li>
+  <li>ᵇ The Technical Report uses GPQA Main (0-shot), a different and larger question subset than GPQA-Diamond.</li>
+  <li>ᶜ Global-MMLU is multiple-choice, so it was not run in thinking mode.</li>
+  <li>ᵈ The Report’s “Global-MMLU” is a multilingual average, whereas ours is English only.</li>
+  <li>ᵉ Our 1.0 prompt-loose IFEval is 71.7. Once the metric variant is matched, our number agrees with the Report.</li>
+</ul>
+
+<p>The generational improvement is large. In normal mode, Apertus 1.5 improves on 1.0 on every core
+benchmark: MMLU-Pro by 10.6 points, GSM8K by 19.4, IFEval by 16.9, LongBench by 8.9, Global-MMLU-en
+by 7.3, and GPQA by 5.1. The gains are consistent across quite different task types.</p>
+
+<p>One result is worth calling out as a validation check. Our re-measured 1.0 IFEval (68.9 strict,
+71.7 loose) now agrees closely with the Technical Report value of 71.7. In last year’s evaluation
+our IFEval score was well below the Report. The setup used here, the official vLLM image together
+with the model’s own chat template, closes that gap. This is a useful reminder that evaluation
+tooling has a measurable effect on results.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-core_results_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<h3 id="thinking-mode-in-the-core-set">Thinking mode in the core set</h3>
+
+<p>Thinking mode is not uniformly better. It helps math (GSM8K improves from 79.6 to 85.3). It is
+roughly flat on broad knowledge and long context (MMLU-Pro, LongBench). And it reduces strict
+instruction-following (IFEval falls from 85.8 to 72.1), because the model reasons at length instead
+of following the requested output format exactly. This pattern recurs throughout the study.
+Deliberation helps on hard multi-step problems, but it is not a free improvement on every task.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="1" data-dark="true">
+    <!--
+  <background></background>
+  <dark>true</dark>
+  <size>1</size>
+-->
+
+<h2 id="part-2-multilingual-breadth">Part 2: Multilingual Breadth</h2>
+
+<p>Apertus is designed for broad language coverage. To test whether 1.5 delivers this across
+languages, we ran four multiple-choice families. All values are accuracy. HellaSwag uses the
+standard length-normalized <code class="language-plaintext highlighter-rouge">acc_norm</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Family</th>
+      <th>Metric</th>
+      <th style="text-align: right">Languages</th>
+      <th style="text-align: right">Apertus <strong>1.5</strong>
+</th>
+      <th style="text-align: right">Apertus <strong>1.0</strong>
+</th>
+      <th style="text-align: right">Δ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Global-MMLU</td>
+      <td>acc</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right"><strong>62.1</strong></td>
+      <td style="text-align: right">56.9</td>
+      <td style="text-align: right">+5.2</td>
+    </tr>
+    <tr>
+      <td>Belebele (reading)</td>
+      <td>acc</td>
+      <td style="text-align: right">14</td>
+      <td style="text-align: right"><strong>77.6</strong></td>
+      <td style="text-align: right">67.5</td>
+      <td style="text-align: right">+10.1</td>
+    </tr>
+    <tr>
+      <td>ARC-Challenge (multilingual)</td>
+      <td>acc</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right"><strong>46.8</strong></td>
+      <td style="text-align: right">42.9</td>
+      <td style="text-align: right">+3.9</td>
+    </tr>
+    <tr>
+      <td>HellaSwag (multilingual)</td>
+      <td>acc_norm</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">53.6</td>
+      <td style="text-align: right"><strong>61.9</strong></td>
+      <td style="text-align: right">−8.3</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-multilingual_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p>Apertus 1.5 improves on knowledge, reading comprehension, and reasoning in every language we
+tested. The gains are broad rather than concentrated in a few high-resource languages. Belebele
+shows this most clearly, with an average improvement of 10 points over 14 languages and every
+language improving (for example, Arabic from 65 to 78, Italian from 69 to 80, and Hindi from 61 to
+69).</p>
+
+<p>Portuguese is a notable case. It was a weak point in 1.0 and is much stronger in 1.5. Global-MMLU
+Portuguese improves from 39.5 to 63.2, a gain of 23.7 points, and Belebele Portuguese from 57.2 to
+78.7, a gain of 21.4 points. These are the largest per-language changes in the study.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-multilingual_by_language.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p>HellaSwag is the exception. Here 1.0 scores higher than 1.5 in every language, with an average
+difference of 8.3 points on <code class="language-plaintext highlighter-rouge">acc_norm</code>. This is a consistent regression. One interpretation is that
+1.5 traded some surface-level sentence-completion performance for its gains in knowledge, reading,
+and reasoning. We report it directly rather than averaging it away.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="part-3-thinking-and-reasoning">Part 3: Thinking and Reasoning</h2>
+
+<p>The final question is what thinking mode contributes on problems that require multi-step reasoning.
+We built a generative suite in which deliberation is expected to help, and ran Apertus 1.5 in both
+normal and thinking mode, with 1.0 as the baseline (1.0 has no thinking mode). Normal mode was
+given a generation budget large enough that math solutions are not truncated.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Benchmark</th>
+      <th>Metric</th>
+      <th style="text-align: right">Apertus <strong>1.0</strong>
+</th>
+      <th style="text-align: right">1.5 <strong>normal</strong>
+</th>
+      <th style="text-align: right">1.5 <strong>thinking</strong>
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MATH-500</td>
+      <td>math_verify (symbolic)</td>
+      <td style="text-align: right">20.2</td>
+      <td style="text-align: right">54.0</td>
+      <td style="text-align: right"><strong>71.0</strong></td>
+    </tr>
+    <tr>
+      <td>AIME 2024</td>
+      <td>exact-match</td>
+      <td style="text-align: right">0.0</td>
+      <td style="text-align: right">10.0</td>
+      <td style="text-align: right"><strong>20.0</strong></td>
+    </tr>
+    <tr>
+      <td>AIME 2025</td>
+      <td>exact-match</td>
+      <td style="text-align: right">0.0</td>
+      <td style="text-align: right">13.3</td>
+      <td style="text-align: right"><strong>20.0</strong></td>
+    </tr>
+    <tr>
+      <td>GPQA-main</td>
+      <td>exact-match (CoT)</td>
+      <td style="text-align: right">26.3</td>
+      <td style="text-align: right"><strong>29.7</strong></td>
+      <td style="text-align: right">25.0</td>
+    </tr>
+    <tr>
+      <td>MGSM (avg, 7 languages)</td>
+      <td>exact-match</td>
+      <td style="text-align: right">50.4</td>
+      <td style="text-align: right">68.6</td>
+      <td style="text-align: right"><strong>79.1</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-reasoning_grouped.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p>Two observations follow.</p>
+
+<p>First, most of the improvement is already present in normal mode, before thinking is enabled. In
+normal mode, 1.5 substantially improves the model’s math ability. MATH-500 rises from 20.2 to 54.0,
+and MGSM from 50.4 to 68.6. On the AIME competition sets, 1.0 solves none of the problems in either
+year, whereas 1.5 solves 10 to 13 percent. The 1.0 instruct model could not solve competition math
+problems, and 1.5 can.</p>
+
+<p>Second, thinking mode adds a further, sizable gain on top. MATH-500 reaches 71.0, AIME roughly
+doubles to 20 percent, and MGSM reaches 79.1, improving in all seven languages (French by 17.6
+points, Russian by 17.2). For hard multi-step math, thinking mode is clearly the right setting.</p>
+
+<p>The exception is science knowledge. GPQA-main is flat to slightly lower under thinking, moving from
+29.7 to 25.0. Thinking mode helps reasoning rather than factual recall, which is consistent with
+MMLU-Pro being flat in Part 1.</p>
+
+<h3 id="a-metric-caveat">A metric caveat</h3>
+
+<p>On MATH-500, the strict <code class="language-plaintext highlighter-rouge">\boxed{}</code> answer-extraction metric falls to 2.8 percent in thinking mode.
+This is not because the answers are wrong. The longer deliberation output does not place the final
+answer where the rigid parser expects it. The symbolic-equivalence metric (<code class="language-plaintext highlighter-rouge">math_verify</code>) recovers
+the true score of 71.0 percent. This is the same effect as the IFEval drop in Part 1. Thinking mode
+can break brittle exact-format metrics while improving the underlying answer. When evaluating a
+reasoning model, it is important to use a semantics-aware metric. Otherwise the model’s capability
+is badly under-reported.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="apertus-15-in-context">Apertus 1.5 in Context</h2>
+
+<p>The results so far are generational, comparing 1.5 against 1.0. A natural follow-up question is how
+Apertus 1.5 stands among other openly available models of a similar size. The figure below places it
+next to a selection of open models, which publish their training data as well as their weights (for
+example OLMo), and open weight models, which publish weights only (for example Qwen, Llama, Gemma,
+and Nemotron), on four widely reported benchmarks.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-open_model_comparison.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+
+<p>Two cautions apply. First, only the Apertus numbers were produced by our harness. The other values
+are taken from public model cards, technical reports, and the Open LLM Leaderboard, and they were
+measured under different settings. Our own IFEval experience earlier in this post shows that tooling
+alone can shift a score by more than ten points, so the cross-model bars are indicative rather than
+definitive. Second, the ranking is mixed, which is what we expected. Apertus 1.5 is strong on
+instruction following and roughly mid-pack on grade-school math, and it trails the strongest open
+weight models such as Qwen2.5 on MMLU-Pro and GPQA. For a fully open model this is a reasonable
+position, and it fits the argument we started with. The value of an open model lies not only in a
+single score, but in the fact that anyone can reproduce it and build on it.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="key-observations">Key Observations</h2>
+
+<ul>
+  <li>
+<strong>A clear generational improvement.</strong> Across the core text benchmarks, Apertus 1.5 improves on
+1.0 by roughly 9 to 19 points on MMLU-Pro, GSM8K, IFEval, and LongBench. The gains are consistent
+across different task types.</li>
+  <li>
+<strong>Broadly multilingual.</strong> Reading comprehension (Belebele) and knowledge (Global-MMLU) improve in
+every language tested. Portuguese shows the single largest improvement.</li>
+  <li>
+<strong>Thinking mode is a targeted tool.</strong> It produces large gains on multi-step math (MATH-500 by 17
+points, AIME roughly doubled, MGSM by 10.5). It is neutral to slightly negative on knowledge and
+strict-format tasks. Enable it for reasoning, and disable it for instruction-following.</li>
+  <li>
+<strong>One regression.</strong> Multilingual HellaSwag falls by about 8 points. It is worth monitoring, but it
+is narrow compared to the breadth of the gains.</li>
+  <li>
+<strong>Evaluation tooling matters.</strong> Matching the model’s own chat template and using a semantics-aware
+metric moved our 1.0 IFEval into agreement with the Technical Report, and turned an apparent
+MATH-500 collapse back into a 71 percent result. A fair comparison depends on careful, identical
+settings.</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-summary_average_performance_by_benchmark.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="references">References</h2>
+
+<p>[1] Swiss AI Initiative. (2025). <em>Apertus Technical Report</em>. GitHub Repository. <a href="https://github.com/swiss-ai/apertus-tech-report">https://github.com/swiss-ai/apertus-tech-report</a></p>
+
+<p>[2] Gao, L., Tow, J., Biderman, S., et al. (2023). <em>A framework for few-shot language model evaluation</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.10256836">https://doi.org/10.5281/zenodo.10256836</a></p>
+
+<p>[3] Zhou, J., Lu, T., Mishra, S., et al. (2023). <em>Instruction-Following Evaluation for Large Language Models (IFEval)</em>. arXiv. <a href="https://arxiv.org/abs/2311.07911">https://arxiv.org/abs/2311.07911</a></p>
+
+<p>[4] Wang, Y., Ma, X., Zhang, G., et al. (2024). <em>MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</em>. arXiv. <a href="https://arxiv.org/abs/2406.01574">https://arxiv.org/abs/2406.01574</a></p>
+
+<p>[5] Bandarkar, L., Liang, D., Muller, B., et al. (2023). <em>The Belebele Benchmark: a Parallel Reading Comprehension Dataset in 122 Language Variants</em>. arXiv. <a href="https://arxiv.org/abs/2308.16884">https://arxiv.org/abs/2308.16884</a></p>
+
+<p>[6] Singh, S., Romanou, A., Fourrier, C., et al. (2024). <em>Global-MMLU: Understanding and Addressing Cultural and Linguistic Biases in Multilingual Evaluation</em>. arXiv. <a href="https://arxiv.org/abs/2412.03304">https://arxiv.org/abs/2412.03304</a></p>
+
+<p>[7] Hendrycks, D., Burns, C., Kadavath, S., et al. (2021). <em>Measuring Mathematical Problem Solving With the MATH Dataset</em>. arXiv. <a href="https://arxiv.org/abs/2103.03874">https://arxiv.org/abs/2103.03874</a></p>
+
+<p>[8] Shi, F., Suzgun, M., Freitag, M., et al. (2022). <em>Language Models are Multilingual Chain-of-Thought Reasoners (MGSM)</em>. arXiv. <a href="https://arxiv.org/abs/2210.03057">https://arxiv.org/abs/2210.03057</a></p>
+
+<p>[9] Rein, D., Hou, B. L., Stickland, A. C., et al. (2023). <em>GPQA: A Graduate-Level Google-Proof Q&amp;A Benchmark</em>. arXiv. <a href="https://arxiv.org/abs/2311.12022">https://arxiv.org/abs/2311.12022</a></p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<figure class="figure">
+  <a class="figure-image" aria-label="figure link">
+    <img src="/preview/pr-41/images/posts/Apertus15Bench-summary_average_performance.png" style="
+        width: 50%;
+        max-height: unset;
+      " alt="figure image" loading="lazy" onerror="this.src = '/preview/pr-41/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+</figure>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/preview/pr-41/2025/10/07/acm-icaif-2025.html">
+        Can AI Read Like a Financial Analyst? A New Study Puts Top LLMs to the Test
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-41/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-41/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2026
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
