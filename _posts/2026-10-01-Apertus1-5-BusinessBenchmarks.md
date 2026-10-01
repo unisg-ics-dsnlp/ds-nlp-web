@@ -394,8 +394,8 @@ These benchmarks are an independent snapshot, not an exhaustive evaluation. In p
 
 - All prompts are zero-shot. Few-shot prompting or fine-tuning would likely change the picture,
   especially for long category lists.
-- The instructions were in German and the documents in English, which reflects a typical Swiss setup but
-  may favour multilingual models.
+- The instructions were in German and the documents in English, which reflects a typical Swiss German
+  setup but may favour multilingual models.
 - Qwen 3.5 9B ran 4-bit quantised, all Apertus models in full precision.
 - We report a single run per model. GPT-5.6 cannot be run at temperature 0, so its numbers are one sample.
 - RAFT and DocILE results come from their public labelled splits, not their hidden test sets.
