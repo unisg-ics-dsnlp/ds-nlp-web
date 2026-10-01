@@ -30,12 +30,12 @@ make, and what can you do about them?
 
 If you are short on time, here is the summary:
 
-1. **Frontier models lead clearly.** GPT-5.6-Luna and Claude Haiku 4.5 are 14 to 16 points ahead of
-   Apertus 1.5 8B. Real business data is hard, but it is not unsolvable.
-2. **Apertus 1.5 8B is strong on documents.** On invoices it is level with Qwen 3.5 9B and with its own
-   70B sibling; on receipts it reads the date correctly 99 times out of 100.
-3. **It is weak on long category lists.** On contract clauses (42 categories) and banking intents (77
-   categories), it trails Qwen 3.5 9B by 16 points.
+1. **Against the frontier**, Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna's overall score, the 70B
+   model 83 percent. The gap is small on documents and social media, and large on long category lists.
+2. **Among open models of its size**, Apertus 1.5 8B ranks behind Qwen 3.5 9B, Qwen 2.5 7B and Llama 3.1
+   8B, and ahead of Apertus 1.0. It is the only fully open model in that group.
+3. **Its strength is documents.** On invoices it is level with Qwen 3.5 9B and with its own 70B sibling;
+   on receipts it reads the date correctly 99 times out of 100.
 4. **Its errors fall into three fixable types**: answers outside the allowed list, favourite labels, and
    inventing values when information is missing.
 5. **It runs on a Mac.** Apertus 1.5 8B ran locally on an Apple M5 Max, about 1.3 seconds per request,
@@ -121,17 +121,66 @@ without manual typing.* 150 documents.
 | **Apertus 1.5 8B** | 57.9 | 56 | 71 | 37 | 65 | 56 | 62 |
 | Apertus 1.0 8B | 55.3 | 56 | 64 | 46 | 57 | 52 | 56 |
 
-Three things stand out.
+The table answers two different questions, and it is worth keeping them apart: how far is Apertus from
+the frontier, and how does it compare to the open models it actually competes with?
 
-First, the frontier models are clearly ahead. In an earlier pilot with fewer, partly synthetic cases, we
-had seen frontier models at only about 60 percent and concluded that the tasks were "hard for everyone".
-That conclusion did not survive a larger and cleaner test set (more on this below).
+### Question 1: How far is Apertus from the frontier?
 
-Second, among the open models, Qwen 3.5 9B leads, and the gap to Apertus 1.5 8B (7.4 points) is
-statistically significant. Even Apertus 1.5 70B only matches Qwen 2.5 7B, a model that is two years older.
+Further than on academic benchmarks. Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna's overall score,
+the 70B model 83 percent. In absolute terms, that is a gap of 14 to 16 points for the 8B model and 11 to
+13 points for the 70B model, all clearly outside the statistical noise.
 
-Third, the generation step within Apertus is real but modest: Apertus 1.5 8B is 2.6 points ahead of
-Apertus 1.0. The interesting part is *where* it gains and loses, which brings us to the profile.
+The gap is very uneven across tasks, though:
+
+| Share of GPT-5.6-Luna's score | Banking77 | SROIE | CUAD | RAFT | TweetEval | DocILE | Overall |
+|---|--:|--:|--:|--:|--:|--:|--:|
+| Apertus 1.5 8B | 66 % | 88 % | 55 % | 89 % | 90 % | 85 % | **79 %** |
+| Apertus 1.5 70B | 74 % | 90 % | 63 % | 91 % | 99 % | 82 % | **83 %** |
+
+On receipts, back-office tasks, social media and invoices, Apertus gets within 10 to 15 percent of the
+frontier; the 70B model even matches GPT-5.6 on TweetEval. The real gap sits in the two tasks with long
+lists of fine-grained categories: contracts (42 types) and banking intents (77 types). That is the area to
+watch in the next release.
+
+As a side note, in an earlier pilot with fewer, partly synthetic cases, we had seen frontier models at only
+about 60 percent and concluded that the tasks were "hard for everyone". That conclusion did not survive a
+larger and cleaner test set (more on this below).
+
+### Question 2: How does Apertus do among open models of its size?
+
+Here the honest answer is: behind the pack, but with a clear strength. The table below compares Apertus
+1.5 8B to the other open models of similar size. Each difference comes from a paired comparison on the
+same cases, with a 95 percent bootstrap interval.
+
+| Compared to Apertus 1.5 8B | Overall | Difference | 95 % interval |
+|---|--:|--:|--:|
+| Qwen 3.5 9B (4-bit) | 65.3 | +7.4 | +5.8 to +9.0 |
+| Qwen 2.5 7B | 61.1 | +3.1 | +1.6 to +4.6 |
+| Llama 3.1 8B | 59.6 | +1.6 | +0.2 to +3.2 |
+| **Apertus 1.5 8B** | **57.9** |  |  |
+| Apertus 1.0 8B | 55.3 | −2.6 | −4.2 to −0.9 |
+
+All differences are significant. Overall, Apertus 1.5 8B ranks behind Qwen 3.5, Qwen 2.5 and Llama 3.1,
+and ahead of its predecessor. Per benchmark, the picture is more nuanced. Among these five models of
+similar size, Apertus 1.5 8B ranks:
+
+- **2nd on documents**: on DocILE (invoices) it is level with Qwen 3.5 (62.3 against 62.8), and on SROIE
+  (receipts) it beats Qwen 2.5 and Llama 3.1;
+- **4th** on RAFT, TweetEval and Banking77;
+- **5th on contracts**, even behind Apertus 1.0.
+
+The larger Apertus 1.5 70B does not change the overall picture: it is 4.3 points behind Qwen 3.5 9B,
+level with Qwen 2.5 7B (a model about two years older), and 1.4 points ahead of Llama 3.1 8B.
+
+One caveat on what "peer group" means. In [our previous post]({% link _posts/2026-07-29-Apertus15Bench.md %})
+we distinguished *open-weight* models (Qwen, Llama: weights published) from *fully open* models (Apertus,
+OLMo: weights, data and training pipeline published). All competitors in this table are open-weight.
+Apertus is the only fully open model in our comparison; a run with OLMo 3, its natural peer, is still
+missing. Being fully open is a cost that open-weight models do not pay, for example in which training
+data can be used, and it should be part of how these numbers are read.
+
+Finally, the generation step within Apertus is real but modest: 1.5 is 2.6 points ahead of 1.0 at 8B.
+The interesting part is *where* it gains and loses, which brings us to the profile.
 
 {% include section.html dark=true %}
 
