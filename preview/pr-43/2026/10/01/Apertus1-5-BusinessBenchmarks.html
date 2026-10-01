@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-01T13:36:31+00:00">
+  <meta property="og:updated_time" content="2026-10-01T18:44:51+00:00">
   <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-01T13:36:31+00:00">
-  <meta name="revised" content="2026-10-01T13:36:31+00:00">
+  <meta property="article:modified_time" content="2026-10-01T18:44:51+00:00">
+  <meta name="revised" content="2026-10-01T18:44:51+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Apertus 1.5 Under Test - Real Business Tasks" },
       "datePublished": "2026-10-01T00:00:00+00:00",
-      "dateModified": "2026-10-01T13:36:31+00:00",
+      "dateModified": "2026-10-01T18:44:51+00:00",
     
     "name": "Apertus 1.5 Under Test - Real Business Tasks",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -486,6 +486,18 @@
         benchmarks
       </a>
     
+      <a href='/preview/pr-43/blog?search="tag:%20vision"' class="tag" data-tooltip='Show items with the tag "vision"'>
+        vision
+      </a>
+    
+      <a href='/preview/pr-43/blog?search="tag:%20multimodal"' class="tag" data-tooltip='Show items with the tag "multimodal"'>
+        multimodal
+      </a>
+    
+      <a href='/preview/pr-43/blog?search="tag:%20document-understanding"' class="tag" data-tooltip='Show items with the tag "document-understanding"'>
+        document-understanding
+      </a>
+    
       <a href='/preview/pr-43/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
         artificial-intelligence
       </a>
@@ -509,40 +521,41 @@
 -->
 
 
-<h2 id="why-another-benchmark-post">Why Another Benchmark Post?</h2>
+<h2 id="from-exams-to-the-back-office">From Exams to the Back Office</h2>
 
-<p>In <a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our previous post</a>, we looked at Apertus 1.5 through the lens
-of academic benchmarks: MMLU-Pro, IFEval, GSM8K, multilingual reading comprehension, and so on. The
-generation step from 1.0 to 1.5 turned out to be substantial.</p>
+<p>Apertus 1.5 8B is a solid document model that you can deploy privately, on a single Mac if need be. Its
+weaknesses are specific, and they can be fixed. This post shows both, measured on real business data.</p>
 
-<p>But academic benchmarks answer a specific question: <em>what does the model know?</em> When companies ask us
-about Apertus, they usually ask a different one: <em>can it do the job?</em> Can it route a customer request
-to the right team, read the total off a receipt, pre-sort contract clauses for a legal review, or fill
-in an invoice form?</p>
+<p>We wrote it with the participants of <a href="https://hackapertus.ch/">«Hack Apertus»</a> in mind, who are building
+on Apertus 1.5 until 16 October. If you are looking for a project, the error types below are a good place
+to start, and the section <a href="#ideas-for-hack-apertus">Ideas for Hack Apertus</a> lists a few concrete ones.</p>
 
-<p>So, in this post, we take Apertus 1.5 into the back office. We ran six public benchmarks built from
-real business data, about 3,000 cases per model, against six other models, including two frontier
-systems. And since this is an Apertus post, we then take the model apart: which mistakes does it
-make, and what can you do about them?</p>
+<p>In <a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our previous post</a> we tested Apertus 1.5 on academic
+benchmarks such as MMLU-Pro, IFEval, GSM8K and multilingual reading comprehension. The step from 1.0 to
+1.5 was large.</p>
 
-<p>If you are short on time, here is the summary:</p>
+<p>Academic benchmarks measure what a model knows. Companies that ask us about Apertus mostly want to know
+something else: can it route a customer request to the right team, read the total off a receipt, sort
+contract clauses before a legal review, or fill in an invoice form?</p>
+
+<p>For this post we ran six public benchmarks built from real business data, roughly 3,000 cases per
+model, and compared Apertus with six other models, two of them frontier systems. Because this is an
+Apertus post, we then went through its mistakes one by one.</p>
+
+<p>The short version:</p>
 
 <ol>
-  <li>
-<strong>Against the frontier</strong>, Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna’s overall score, the 70B
-model 83 percent. The gap is small on documents and social media, and large on long category lists.</li>
-  <li>
-<strong>Among open models of its size</strong>, Apertus 1.5 8B ranks behind Qwen 3.5 9B, Qwen 2.5 7B and Llama 3.1
-8B, and ahead of Apertus 1.0. It is the only fully open model in that group.</li>
-  <li>
-<strong>Its strength is documents.</strong> On invoices it is level with Qwen 3.5 9B and with its own 70B sibling;
-on receipts it reads the date correctly 99 times out of 100.</li>
-  <li>
-<strong>Its errors fall into three fixable types</strong>: answers outside the allowed list, favourite labels, and
-inventing values when information is missing.</li>
-  <li>
-<strong>It runs on a Mac.</strong> Apertus 1.5 8B ran locally on an Apple M5 Max, about 1.3 seconds per request,
-without a single failed request.</li>
+  <li>Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna’s overall score, the 70B model 83 percent. On
+documents and social media the gap is small; on long category lists it is large.</li>
+  <li>Among open models of its size, Apertus 1.5 8B comes after Qwen 3.5 9B, Qwen 2.5 7B and Llama 3.1 8B,
+and before Apertus 1.0. It is the only fully open model in that group.</li>
+  <li>Documents are its strong side. On invoices it matches Qwen 3.5 9B and its own 70B sibling, and on
+receipts it gets the date right 99 times out of 100.</li>
+  <li>Most of its errors are of three kinds, all fixable: answers that are not on the allowed list,
+a few labels it uses far too often, and values it invents when information is missing.</li>
+  <li>It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests.</li>
+  <li>Given the scanned receipt instead of the OCR text, it does worse (62 instead of 71 percent of fields
+correct), while Qwen 3.5 9B and the frontier models do better. For now, run OCR first.</li>
 </ol>
   </section>
 
@@ -558,15 +571,15 @@ without a single failed request.</li>
 -->
 
 <figure class="figure">
-  <a class="figure-image" aria-label="Overall score across six business benchmarks. The line shows the 95 bootstrap interval; differences larger than about two points are real.">
+  <a class="figure-image" aria-label="Overall score across six business benchmarks. The line shows the 95 bootstrap interval; differences above about two points are real.">
     <img src="/preview/pr-43/images/posts/Apertus15Business-overall.png" style="
         width: auto;
         max-height: unset;
-      " alt="Overall score across six business benchmarks. The line shows the 95 bootstrap interval; differences larger than about two points are real." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+      " alt="Overall score across six business benchmarks. The line shows the 95 bootstrap interval; differences above about two points are real." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
   </a>
   
     <figcaption class="figure-caption">
-      Overall score across six business benchmarks. The line shows the 95 % bootstrap interval; differences larger than about two points are real.
+      Overall score across six business benchmarks. The line shows the 95 % bootstrap interval; differences above about two points are real.
 
     </figcaption>
   
@@ -584,28 +597,23 @@ without a single failed request.</li>
   <size></size>
 -->
 
-<h2 id="the-setup-in-brief">The Setup in Brief</h2>
+<h2 id="setup">Setup</h2>
 
 <p>We compared eight models: Apertus 1.5 8B and 70B, Apertus 1.0 8B, Qwen 3.5 9B, Qwen 2.5 7B, Llama 3.1 8B,
-and two frontier models via their APIs, GPT-5.6-Luna and Claude Haiku 4.5.</p>
+and, through their APIs, GPT-5.6-Luna and Claude Haiku 4.5.</p>
 
-<p>A few design choices are worth spelling out, because they matter for how to read the numbers:</p>
+<p>Some choices affect how the numbers should be read:</p>
 
 <ul>
-  <li>
-<strong>Zero-shot, one prompt per task, identical for all models.</strong> We did not tune prompts for any model.</li>
-  <li>
-<strong>Temperature 0</strong> wherever the API allows it. GPT-5.6 only accepts its default temperature.</li>
-  <li>
-<strong>Thinking modes off</strong> for every model. We come back to thinking at the end of the post.</li>
-  <li>
-<strong>Official metrics.</strong> Each benchmark is scored with the metric its authors defined (accuracy,
-macro-F1, F1 of the ironic class, and so on). The overall score is the mean of the six benchmarks.</li>
-  <li>
-<strong>Where the models ran.</strong> Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B
-ran locally on a Mac, because it was no longer served by any provider when we ran our tests (more on
-that below). Qwen 3.5 9B also ran locally, 4-bit quantised through Ollama, which if anything puts it at
-a disadvantage.</li>
+  <li>All tasks are zero-shot, with one prompt per task that is the same for every model. We did not tune
+prompts for anyone.</li>
+  <li>Temperature is 0 wherever the API allows it. GPT-5.6 only accepts its default temperature.</li>
+  <li>Thinking modes are off for all models. We look at thinking separately near the end.</li>
+  <li>Each benchmark is scored with its authors’ metric (accuracy, macro-F1, F1 of the ironic class and so
+on). The overall score is the mean over the six benchmarks.</li>
+  <li>Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B ran locally on a Mac,
+because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bit
+quantised through Ollama; if anything, that works against it.</li>
 </ul>
   </section>
 
@@ -622,44 +630,56 @@ a disadvantage.</li>
 
 <h2 id="six-benchmarks-six-business-questions">Six Benchmarks, Six Business Questions</h2>
 
-<p>Before looking at results, it helps to know what each benchmark actually asks. Here is a short tour,
-with one real example from each.</p>
+<p>Each benchmark asks a different practical question. Below is one real example per benchmark.</p>
 
-<p><strong>Banking77</strong> (PolyAI, 2020) contains 13,083 real customer requests to an online bank, each labelled with
-one of 77 intents. The difficulty is the neighbourhood: «My card hasn’t arrived yet» (<code class="language-plaintext highlighter-rouge">card_arrival</code>)
-and «Ordered awhile back, what is the ETA?» (<code class="language-plaintext highlighter-rouge">card_delivery_estimate</code>) are two different intents.
-<em>Business question: can the model route a request to the right process?</em> We used all 77 intents,
-616 requests.</p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The six benchmarks, each with one real example from our test set and the sample size we used.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-benchmarks.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="The six benchmarks, each with one real example from our test set and the sample size we used." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The six benchmarks, each with one real example from our test set and the sample size we used.
 
-<p><strong>SROIE</strong> (ICDAR 2019) consists of about 1,000 scanned receipts from Malaysian shops, run through OCR. The
-model extracts company, date, address and total from noisy text such as
-<code class="language-plaintext highlighter-rouge">... SUB-TOTAL 61.99 ... GST 3.72 ... TOTAL 65.70</code>, where it has to pick the amount actually paid.
-<em>Business question: expense booking from a photo.</em> All 361 test receipts.</p>
+    </figcaption>
+  
+</figure>
+
+<p><strong>Banking77</strong> (PolyAI, 2020) has 13,083 real customer requests to an online bank, each labelled with one
+of 77 intents. Many intents sit close together: «My card hasn’t arrived yet» (<code class="language-plaintext highlighter-rouge">card_arrival</code>) and
+«Ordered awhile back, what is the ETA?» (<code class="language-plaintext highlighter-rouge">card_delivery_estimate</code>) count as different. In business terms:
+can the model send a request to the right process? We used all 77 intents and 616 requests.</p>
+
+<p><strong>SROIE</strong> (ICDAR 2019) has about 1,000 scanned receipts from Malaysian shops, passed through OCR. The
+model reads company, date, address and total from noisy text like
+<code class="language-plaintext highlighter-rouge">... SUB-TOTAL 61.99 ... GST 3.72 ... TOTAL 65.70</code> and has to pick the amount actually paid. Think expense
+booking from a photo. We used all 361 test receipts.</p>
 
 <p><strong>CUAD</strong> (The Atticus Project and UC Berkeley, NeurIPS 2021) covers 510 commercial contracts filed with the
-US SEC, annotated by lawyers in 41 clause types. We give the model a marked clause and ask for its type,
-for example «… governed by the laws … of the State of Florida …» → <code class="language-plaintext highlighter-rouge">Governing Law</code>. <em>Business
-question: pre-sorting contracts for a legal review.</em> 294 clauses.</p>
+US SEC, annotated by lawyers in 41 clause types. We show the model a marked clause and ask for its type,
+for example «… governed by the laws … of the State of Florida …» → <code class="language-plaintext highlighter-rouge">Governing Law</code>. This is the
+first pass of a legal review. 294 clauses.</p>
 
-<p><strong>RAFT</strong> (Ought and partners, NeurIPS 2021) bundles eleven classification jobs that organisations actually
-pay people to do: is a tweet a complaint, does a sentence overrule a precedent, is a clause in the terms
-of service unfair to consumers? <em>Business question: how well does the model handle a new back-office
-task on day one?</em> All 11 tasks, 50 labelled cases each.</p>
+<p><strong>RAFT</strong> (Ought and partners, NeurIPS 2021) collects eleven classification jobs that organisations pay
+people to do: is this tweet a complaint, does this sentence overrule a precedent, is this clause in the
+terms of service unfair to consumers? It shows how a model copes with an unfamiliar back-office task on
+the first day. All 11 tasks, 50 labelled cases each.</p>
 
-<p><strong>TweetEval</strong> (Cardiff University and Snap, EMNLP Findings 2020) collects seven SemEval tasks on tweets:
+<p><strong>TweetEval</strong> (Cardiff University and Snap, Findings of EMNLP 2020) gathers seven SemEval tasks on tweets:
 irony, emotion, hate speech, offensive language, sentiment, stance and emoji prediction. «Leaving whilst
-its dark is fun. #not» is irony. <em>Business question: social media and customer-voice monitoring.</em>
-150 tweets per task.</p>
+its dark is fun. #not» is irony. Use case: monitoring social media and customer feedback. 150 tweets per
+task.</p>
 
-<p><strong>DocILE</strong> (Rossum with the Czech Technical University, ICDAR 2023) contains about 6,700 real business
-documents, mostly invoices and orders. The model fills fifteen fields: vendor and customer, document and
-order numbers, dates, payment terms, net, tax, gross and amount due. <em>Business question: invoice capture
-without manual typing.</em> 150 documents.</p>
+<p><strong>DocILE</strong> (Rossum with the Czech Technical University, ICDAR 2023) has about 6,700 real business documents,
+mostly invoices and orders. The model fills in fifteen fields: vendor and customer, document and order
+numbers, dates, payment terms, net, tax, gross and amount due. This is invoice capture without typing.
+150 documents.</p>
 
 <blockquote>
-  <p><strong>Note:</strong> Two benchmarks keep their test labels private (RAFT and DocILE), so we used their public
-labelled splits. And we test CUAD as classification of a marked clause, while the original task asks
-models to <em>find</em> the clause in a full contract.</p>
+  <p><strong>Note:</strong> RAFT and DocILE keep their test labels private, so we used their public labelled splits. For
+CUAD we classify a marked clause; the original task asks models to <em>find</em> the clause in a full contract.</p>
 </blockquote>
   </section>
 
@@ -674,7 +694,7 @@ models to <em>find</em> the clause in a full contract.</p>
   <size></size>
 -->
 
-<h2 id="the-results">The Results</h2>
+<h2 id="results">Results</h2>
 
 <table>
   <thead>
@@ -773,138 +793,94 @@ models to <em>find</em> the clause in a full contract.</p>
   </tbody>
 </table>
 
-<p>The table answers two different questions, and it is worth keeping them apart: how far is Apertus from
-the frontier, and how does it compare to the open models it actually competes with?</p>
+<p>We read this table in two ways: against the frontier, and against the open models Apertus competes with
+directly.</p>
 
-<h3 id="question-1-how-far-is-apertus-from-the-frontier">Question 1: How far is Apertus from the frontier?</h3>
+<h3 id="distance-to-the-frontier">Distance to the frontier</h3>
 
-<p>Further than on academic benchmarks. Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna’s overall score,
-the 70B model 83 percent. In absolute terms, that is a gap of 14 to 16 points for the 8B model and 11 to
-13 points for the 70B model, all clearly outside the statistical noise.</p>
+<p>The distance is larger than on academic benchmarks. Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna’s
+overall score and the 70B model 83 percent, a gap of 14 to 16 points for the 8B model and 11 to 13 points
+for the 70B model. These differences are well outside the statistical noise.</p>
 
-<p>The gap is very uneven across tasks, though:</p>
+<p>How large the gap is depends very much on the task:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Share of GPT-5.6-Luna’s score</th>
-      <th style="text-align: right">Banking77</th>
-      <th style="text-align: right">SROIE</th>
-      <th style="text-align: right">CUAD</th>
-      <th style="text-align: right">RAFT</th>
-      <th style="text-align: right">TweetEval</th>
-      <th style="text-align: right">DocILE</th>
-      <th style="text-align: right">Overall</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Apertus 1.5 8B</td>
-      <td style="text-align: right">66 %</td>
-      <td style="text-align: right">88 %</td>
-      <td style="text-align: right">55 %</td>
-      <td style="text-align: right">89 %</td>
-      <td style="text-align: right">90 %</td>
-      <td style="text-align: right">85 %</td>
-      <td style="text-align: right"><strong>79 %</strong></td>
-    </tr>
-    <tr>
-      <td>Apertus 1.5 70B</td>
-      <td style="text-align: right">74 %</td>
-      <td style="text-align: right">90 %</td>
-      <td style="text-align: right">63 %</td>
-      <td style="text-align: right">91 %</td>
-      <td style="text-align: right">99 %</td>
-      <td style="text-align: right">82 %</td>
-      <td style="text-align: right"><strong>83 %</strong></td>
-    </tr>
-  </tbody>
-</table>
+<figure class="figure">
+  <a class="figure-image" aria-label="Apertus as a share of GPT-5.6-Luna s score, per benchmark. Close on receipts, back-office tasks, social media and invoices; far behind on the long category lists of Banking77 and CUAD.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-frontier-share.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Apertus as a share of GPT-5.6-Luna s score, per benchmark. Close on receipts, back-office tasks, social media and invoices; far behind on the long category lists of Banking77 and CUAD." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Apertus as a share of GPT-5.6-Luna’s score, per benchmark. Close on receipts, back-office tasks, social media and invoices; far behind on the long category lists of Banking77 and CUAD.
 
-<p>On receipts, back-office tasks, social media and invoices, Apertus gets within 10 to 15 percent of the
-frontier; the 70B model even matches GPT-5.6 on TweetEval. The real gap sits in the two tasks with long
-lists of fine-grained categories: contracts (42 types) and banking intents (77 types). That is the area to
-watch in the next release.</p>
+    </figcaption>
+  
+</figure>
 
-<p>As a side note, in an earlier pilot with fewer, partly synthetic cases, we had seen frontier models at only
-about 60 percent and concluded that the tasks were “hard for everyone”. That conclusion did not survive a
-larger and cleaner test set (more on this below).</p>
+<p>On receipts, back-office tasks, social media and invoices, Apertus is within 10 to 15 percent of the
+frontier, and on TweetEval the 70B model is level with GPT-5.6. Most of the gap comes from the two tasks
+with long lists of fine-grained categories, contracts with 42 types and banking intents with 77. We
+would watch these two in the next release.</p>
 
-<h3 id="question-2-how-does-apertus-do-among-open-models-of-its-size">Question 2: How does Apertus do among open models of its size?</h3>
+<p>In an earlier pilot with fewer, partly synthetic cases, frontier models scored only about 60 percent, and
+we concluded that the tasks were “hard for everyone”. With a larger and cleaner test set, that no longer
+holds (see the section on evaluation below).</p>
 
-<p>Here the honest answer is: behind the pack, but with a clear strength. The table below compares Apertus
-1.5 8B to the other open models of similar size. Each difference comes from a paired comparison on the
-same cases, with a 95 percent bootstrap interval.</p>
+<h3 id="among-open-models-of-similar-size">Among open models of similar size</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Compared to Apertus 1.5 8B</th>
-      <th style="text-align: right">Overall</th>
-      <th style="text-align: right">Difference</th>
-      <th style="text-align: right">95 % interval</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Qwen 3.5 9B (4-bit)</td>
-      <td style="text-align: right">65.3</td>
-      <td style="text-align: right">+7.4</td>
-      <td style="text-align: right">+5.8 to +9.0</td>
-    </tr>
-    <tr>
-      <td>Qwen 2.5 7B</td>
-      <td style="text-align: right">61.1</td>
-      <td style="text-align: right">+3.1</td>
-      <td style="text-align: right">+1.6 to +4.6</td>
-    </tr>
-    <tr>
-      <td>Llama 3.1 8B</td>
-      <td style="text-align: right">59.6</td>
-      <td style="text-align: right">+1.6</td>
-      <td style="text-align: right">+0.2 to +3.2</td>
-    </tr>
-    <tr>
-      <td><strong>Apertus 1.5 8B</strong></td>
-      <td style="text-align: right"><strong>57.9</strong></td>
-      <td style="text-align: right"> </td>
-      <td style="text-align: right"> </td>
-    </tr>
-    <tr>
-      <td>Apertus 1.0 8B</td>
-      <td style="text-align: right">55.3</td>
-      <td style="text-align: right">−2.6</td>
-      <td style="text-align: right">−4.2 to −0.9</td>
-    </tr>
-  </tbody>
-</table>
+<p>Here Apertus 1.5 8B is at the back of the group, with one clear strength. The chart compares it with the
+other open models of similar size, each difference measured on the same cases with a 95 percent
+bootstrap interval.</p>
 
-<p>All differences are significant. Overall, Apertus 1.5 8B ranks behind Qwen 3.5, Qwen 2.5 and Llama 3.1,
-and ahead of its predecessor. Per benchmark, the picture is more nuanced. Among these five models of
-similar size, Apertus 1.5 8B ranks:</p>
+<figure class="figure">
+  <a class="figure-image" aria-label="Open models of similar size compared with Apertus 1.5 8B on the same cases. Qwen 3.5 9B leads by 7.4 points; Apertus 1.5 is 2.6 points ahead of its predecessor.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-peers.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Open models of similar size compared with Apertus 1.5 8B on the same cases. Qwen 3.5 9B leads by 7.4 points; Apertus 1.5 is 2.6 points ahead of its predecessor." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Open models of similar size compared with Apertus 1.5 8B on the same cases. Qwen 3.5 9B leads by 7.4 points; Apertus 1.5 is 2.6 points ahead of its predecessor.
+
+    </figcaption>
+  
+</figure>
+
+<p>All of these differences are significant. Overall, Apertus 1.5 8B comes after Qwen 3.5, Qwen 2.5 and
+Llama 3.1 and before its predecessor. Benchmark by benchmark it looks different. Among the five models of
+similar size, Apertus 1.5 8B is</p>
 
 <ul>
-  <li>
-<strong>2nd on documents</strong>: on DocILE (invoices) it is level with Qwen 3.5 (62.3 against 62.8), and on SROIE
-(receipts) it beats Qwen 2.5 and Llama 3.1;</li>
-  <li>
-<strong>4th</strong> on RAFT, TweetEval and Banking77;</li>
-  <li>
-<strong>5th on contracts</strong>, even behind Apertus 1.0.</li>
+  <li>second on documents: on DocILE (invoices) it is level with Qwen 3.5 (62.3 against 62.8), and on SROIE
+(receipts) it is ahead of Qwen 2.5 and Llama 3.1;</li>
+  <li>fourth on RAFT, TweetEval and Banking77;</li>
+  <li>last on contracts, behind Apertus 1.0 as well.</li>
 </ul>
 
-<p>The larger Apertus 1.5 70B does not change the overall picture: it is 4.3 points behind Qwen 3.5 9B,
-level with Qwen 2.5 7B (a model about two years older), and 1.4 points ahead of Llama 3.1 8B.</p>
+<p>The 70B model does not change this much. It is 4.3 points behind Qwen 3.5 9B, level with Qwen 2.5 7B (a
+model about two years older) and 1.4 points ahead of Llama 3.1 8B.</p>
 
-<p>One caveat on what “peer group” means. In <a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our previous post</a>
-we distinguished <em>open-weight</em> models (Qwen, Llama: weights published) from <em>fully open</em> models (Apertus,
-OLMo: weights, data and training pipeline published). All competitors in this table are open-weight.
-Apertus is the only fully open model in our comparison; a run with OLMo 3, its natural peer, is still
-missing. Being fully open is a cost that open-weight models do not pay, for example in which training
-data can be used, and it should be part of how these numbers are read.</p>
+<p>What counts as a peer matters here. In <a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our previous post</a>
+we separated <em>open-weight</em> models such as Qwen and Llama, which publish their weights, from <em>fully open</em>
+models such as Apertus and OLMo, which also publish data and training pipeline. Every competitor in this
+comparison is open-weight; Apertus is the only fully open model, and a run with OLMo 3, its natural peer,
+is still missing. Full openness has a cost that open-weight models avoid, for example in which training
+data can be used, and the numbers should be read with that in mind.</p>
 
-<p>Finally, the generation step within Apertus is real but modest: 1.5 is 2.6 points ahead of 1.0 at 8B.
-The interesting part is <em>where</em> it gains and loses, which brings us to the profile.</p>
+<p>Size needs a second look as well. Apertus 1.5 is the first Apertus that takes images and audio as input,
+and part of its 8.9 billion parameters serve those: a vision tokenizer, an audio tokenizer and the
+embeddings for image and audio tokens, about 0.85 billion in all. That leaves about 8 billion for text.
+Qwen 3.5 9B reads images but not audio, and its text path has roughly 9 billion parameters. This explains
+part of the 7.4-point gap, but not all of it: Llama 3.1 8B, a text-only model of similar size, is also
+ahead of Apertus 1.5 8B. Training may matter more. Apertus 1.5 continued pretraining on 4 trillion tokens
+of mixed text, images and audio, and a text benchmark only sees one part of what it learned. Our image
+test further down shows that, at least for reading receipts, the image side does not make up the gap.</p>
+
+<p>Within the Apertus family, 1.5 is 2.6 points ahead of 1.0 at 8B. The more useful information is where it
+gains and where it loses.</p>
   </section>
 
   
@@ -921,26 +897,26 @@ The interesting part is <em>where</em> it gains and loses, which brings us to th
 <h2 id="apertus-15-8b-at-a-glance">Apertus 1.5 8B at a Glance</h2>
 
 <figure class="figure">
-  <a class="figure-image" aria-label="Apertus 1.5 8B blue against Qwen 3.5 9B of the same size class orange and GPT-5.6-Luna as the ceiling dashed . The bottom axis shows how often a model answers null when we delete the date or total from a receipt.">
+  <a class="figure-image" aria-label="Apertus 1.5 8B blue against Qwen 3.5 9B of the same size class orange and GPT-5.6-Luna dashed . The bottom axis shows how often a model answers null when we delete the date or total from a receipt.">
     <img src="/preview/pr-43/images/posts/Apertus15Business-radar.png" style="
         width: auto;
         max-height: unset;
-      " alt="Apertus 1.5 8B blue against Qwen 3.5 9B of the same size class orange and GPT-5.6-Luna as the ceiling dashed . The bottom axis shows how often a model answers null when we delete the date or total from a receipt." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+      " alt="Apertus 1.5 8B blue against Qwen 3.5 9B of the same size class orange and GPT-5.6-Luna dashed . The bottom axis shows how often a model answers null when we delete the date or total from a receipt." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
   </a>
   
     <figcaption class="figure-caption">
-      Apertus 1.5 8B (blue) against Qwen 3.5 9B of the same size class (orange) and GPT-5.6-Luna as the ceiling (dashed). The bottom axis shows how often a model answers null when we delete the date or total from a receipt.
+      Apertus 1.5 8B (blue) against Qwen 3.5 9B of the same size class (orange) and GPT-5.6-Luna (dashed). The bottom axis shows how often a model answers null when we delete the date or total from a receipt.
 
     </figcaption>
   
 </figure>
 
-<p>The radar chart tells the story in one picture. At the top, invoices and receipts: Apertus is level with
-Qwen 3.5 and not far from GPT. On the left, the long category lists: contracts and customer requests,
-where the gap is largest. And at the bottom, an axis that matters a lot in practice: does the model say
-<code class="language-plaintext highlighter-rouge">null</code> when a piece of information is missing? Apertus 1.5 8B never does.</p>
+<p>At the top of the chart are invoices and receipts, where Apertus is level with Qwen 3.5 and not far from
+GPT. On the left are the long category lists, contracts and customer requests, where the gap is widest.
+The axis at the bottom matters a lot in practice: does the model answer <code class="language-plaintext highlighter-rouge">null</code> when information is
+missing? Apertus 1.5 8B never does.</p>
 
-<p>Let’s make this concrete with five real cases.</p>
+<p>The following five cases from the data show what this looks like.</p>
   </section>
 
   
@@ -958,39 +934,45 @@ where the gap is largest. And at the bottom, an axis that matters a lot in pract
 
 <h3 id="1-customer-requests-clear-ones-work-look-alikes-do-not">1. Customer requests: clear ones work, look-alikes do not</h3>
 
-<p>Apertus 1.5 8B routes requests with a clear, unique reason perfectly. Every test case for intents such as
-«Please terminate my account» (<code class="language-plaintext highlighter-rouge">terminate_account</code>), «How old do I have to be?» (<code class="language-plaintext highlighter-rouge">age_limit</code>) or «What can
-I do if contactless doesn’t work?» (<code class="language-plaintext highlighter-rouge">contactless_not_working</code>) was correct.</p>
+<p>Requests with one clear reason are routed perfectly. Every test case for intents such as «Please
+terminate my account» (<code class="language-plaintext highlighter-rouge">terminate_account</code>), «How old do I have to be?» (<code class="language-plaintext highlighter-rouge">age_limit</code>) or «What can I do if
+contactless doesn’t work?» (<code class="language-plaintext highlighter-rouge">contactless_not_working</code>) came back correct.</p>
 
-<p>But Banking77 has three intents about identity checks: <code class="language-plaintext highlighter-rouge">verify_my_identity</code>, <code class="language-plaintext highlighter-rouge">why_verify_identity</code> and
-<code class="language-plaintext highlighter-rouge">unable_to_verify_identity</code>. Apertus puts all 24 such requests into the first one. «I’d rather not verify
-my identity» and «I can’t verify my ID» both end up as <code class="language-plaintext highlighter-rouge">verify_my_identity</code>. Qwen 3.5 separates them
+<p>Banking77 also has three intents about identity checks: <code class="language-plaintext highlighter-rouge">verify_my_identity</code>, <code class="language-plaintext highlighter-rouge">why_verify_identity</code> and
+<code class="language-plaintext highlighter-rouge">unable_to_verify_identity</code>. Apertus put all 24 of these requests into the first one, so «I’d rather not
+verify my identity» and «I can’t verify my ID» both became <code class="language-plaintext highlighter-rouge">verify_my_identity</code>. Qwen 3.5 keeps them apart
 much better.</p>
 
-<p><strong>Tip:</strong> if your categories are distinct, Apertus 8B is a good router. If several sound alike, merge them
-or put one example per category into the prompt.</p>
+<p>In practice, Apertus 8B works well as a router when the categories are clearly distinct. When several
+categories sound alike, merge them or add one example per category to the prompt.</p>
 
-<h3 id="2-a-purchase-order-numbers-yes-roles-no">2. A purchase order: numbers yes, roles no</h3>
+<h3 id="2-a-purchase-order-right-numbers-wrong-roles">2. A purchase order: right numbers, wrong roles</h3>
 
-<p>Here is the OCR text of a real purchase order from DocILE, sent by a small media company to a radio
-station:</p>
+<p>This is a real purchase order from DocILE, sent by a small media company to a radio station, together
+with what Apertus 1.5 8B extracted:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Neighborhood Research and Media
-PO BOX297, RODANTHE, NC 27968 US
-Purchase Order
-VENDOR ... P.O.NO. 7601
-Mark Turcotte · WSB · DATE 08/06/2020
-...
-TOTAL $3,485.00
-</code></pre></div></div>
+<figure class="figure">
+  <a class="figure-image" aria-label="A real purchase order from DocILE OCR text, shortened . Green: read correctly. Red: the letterhead taken as the vendor, and the words Purchase Order returned as the order number.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-purchase-order.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="A real purchase order from DocILE OCR text, shortened . Green: read correctly. Red: the letterhead taken as the vendor, and the words Purchase Order returned as the order number." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      A real purchase order from DocILE (OCR text, shortened). Green: read correctly. Red: the letterhead taken as the vendor, and the words Purchase Order returned as the order number.
 
-<p>Apertus 1.5 8B extracts the date and the total exactly right. That is typical: on invoices it gets the
-net, tax and due amounts right in 83 to 94 percent of cases. But it takes the letterhead as the vendor.
-On a purchase order, the letterhead is the <em>buyer</em>; the vendor is listed under «VENDOR». And as the order
-number, it returns the words «Purchase Order» instead of 7601.</p>
+    </figcaption>
+  
+</figure>
 
-<p><strong>Tip:</strong> amounts and dates you can largely trust. Roles need a hint about the document type in the
-prompt, or a rule that checks them.</p>
+<p>The date and the total are exactly right, which is typical. On invoices the model gets net, tax and due
+amounts right in 83 to 94 percent of cases. It took the letterhead for the vendor, though. On a purchase
+order the letterhead belongs to the <em>buyer</em>, and the vendor is the one listed under «VENDOR». As the order
+number it returned the words «Purchase Order» rather than 7601.</p>
+
+<p>Dates and amounts can mostly be trusted. For roles, tell the model what kind of document it is reading,
+or check the result with a rule.</p>
 
 <h3 id="3-contracts-one-label-for-everything">3. Contracts: one label for everything</h3>
 
@@ -999,79 +981,70 @@ prompt, or a rule that checks them.</p>
 as sub-distributors and/or selling agents of the Products in the Territory.»</p>
 </blockquote>
 
-<p>In CUAD, this is an <code class="language-plaintext highlighter-rouge">Affiliate License-Licensee</code> clause. Apertus 1.5 70B gets it right. Apertus 1.5 8B
-answers <code class="language-plaintext highlighter-rouge">License Grant</code>, the most general licence category. This is a pattern: across 294 clauses, the 8B
-model says <code class="language-plaintext highlighter-rouge">License Grant</code> 62 times, for only six real license grants. Occasionally it also invents types
-that are not on the list, such as «Severability» or «Limited Liability».</p>
+<p>CUAD labels this clause <code class="language-plaintext highlighter-rouge">Affiliate License-Licensee</code>. Apertus 1.5 70B gets it; Apertus 1.5 8B answers
+<code class="language-plaintext highlighter-rouge">License Grant</code>, the most general licence category. That happens a lot: across 294 clauses the 8B model
+says <code class="language-plaintext highlighter-rouge">License Grant</code> 62 times, while only six clauses are actual license grants. Now and then it also
+invents types that are not on the list, such as «Severability» or «Limited Liability».</p>
 
-<p><strong>Tip:</strong> with 40+ categories, classify in two steps (first «licence, liability, termination?», then the
-fine type), and never pass a label on without checking it against the list.</p>
+<figure class="figure">
+  <a class="figure-image" aria-label="How often Apertus 1.5 8B gives an answer blue against how often that answer is actually correct grey . When unsure, it falls back on a general category.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-favourite-labels.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="How often Apertus 1.5 8B gives an answer blue against how often that answer is actually correct grey . When unsure, it falls back on a general category." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      How often Apertus 1.5 8B gives an answer (blue) against how often that answer is actually correct (grey). When unsure, it falls back on a general category.
 
-<h3 id="4-irony-it-understands-but-uses-its-own-word">4. Irony: it understands, but uses its own word</h3>
+    </figcaption>
+  
+</figure>
+
+<p>With 40 or more categories it helps to classify in two steps, first the broad area (licence, liability,
+termination), then the exact type. And any label should be checked against the list before it is used.</p>
+
+<h3 id="4-irony-understood-but-not-in-the-expected-words">4. Irony: understood, but not in the expected words</h3>
 
 <blockquote>
   <p>«Just paid $2.59 for gas! #ThanksObama #sarcasm»</p>
 </blockquote>
 
-<p>The allowed answers are <code class="language-plaintext highlighter-rouge">irony</code> and <code class="language-plaintext highlighter-rouge">non_irony</code>. Apertus 1.5 8B answers <code class="language-plaintext highlighter-rouge">sarcasm</code>. It clearly understood
-the tweet; it just did not use a word from the list. This happened in 9 of 150 irony cases, and each one
-counts as wrong. Apertus 70B answers <code class="language-plaintext highlighter-rouge">irony</code> in all nine.</p>
+<p>The allowed answers are <code class="language-plaintext highlighter-rouge">irony</code> and <code class="language-plaintext highlighter-rouge">non_irony</code>. Apertus 1.5 8B answers <code class="language-plaintext highlighter-rouge">sarcasm</code>. It understood the
+tweet, but the word is not on the list, so the answer is scored as wrong. This happened in 9 of 150 irony
+cases. Apertus 70B answered <code class="language-plaintext highlighter-rouge">irony</code> in all nine.</p>
 
-<p><strong>Tip:</strong> this is the cheapest error to fix. Map obvious synonyms in code, or use constrained decoding so
-the model can only produce allowed labels.</p>
+<p>This is the cheapest error to fix: map obvious synonyms in code, or use constrained decoding so the model
+can only produce allowed labels.</p>
 
 <h3 id="5-the-deleted-date-apertus-8b-makes-one-up">5. The deleted date: Apertus 8B makes one up</h3>
 
-<p>To test how models handle missing information, we took 80 real receipts and deleted the date or the total
-from the text. The correct answer is <code class="language-plaintext highlighter-rouge">null</code>.</p>
+<p>To see how models deal with missing information, we took 80 real receipts and deleted either the date or
+the total from the text. The correct answer is <code class="language-plaintext highlighter-rouge">null</code>.</p>
 
-<p>On a bakery receipt from 2017 with the date removed, Apertus 1.5 8B answered <code class="language-plaintext highlighter-rouge">10/04/2024</code>, a date that
-appears nowhere in the document. On other receipts it returned the time of purchase as the date, or a
-cash amount as the total. It never answered <code class="language-plaintext highlighter-rouge">null</code>.</p>
+<p>On a bakery receipt from 2017 without its date, Apertus 1.5 8B answered <code class="language-plaintext highlighter-rouge">10/04/2024</code>, a date that appears
+nowhere in the document. On other receipts it gave the time of purchase as the date, or a cash amount as
+the total. It did not answer <code class="language-plaintext highlighter-rouge">null</code> once.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th style="text-align: right">Correct <code class="language-plaintext highlighter-rouge">null</code> when data is missing</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Claude Haiku 4.5</td>
-      <td style="text-align: right">53 %</td>
-    </tr>
-    <tr>
-      <td>GPT-5.6-Luna</td>
-      <td style="text-align: right">49 %</td>
-    </tr>
-    <tr>
-      <td>Qwen 3.5 9B</td>
-      <td style="text-align: right">40 %</td>
-    </tr>
-    <tr>
-      <td>Apertus 1.5 70B</td>
-      <td style="text-align: right">34 %</td>
-    </tr>
-    <tr>
-      <td>Llama 3.1 8B</td>
-      <td style="text-align: right">0 %</td>
-    </tr>
-    <tr>
-      <td>Apertus 1.5 8B</td>
-      <td style="text-align: right">0 %</td>
-    </tr>
-    <tr>
-      <td>Apertus 1.0 8B</td>
-      <td style="text-align: right">0 %</td>
-    </tr>
-  </tbody>
-</table>
+<figure class="figure">
+  <a class="figure-image" aria-label="Share of 80 receipts with a deleted date or total where the model correctly answered null. The small Apertus models, Llama 3.1 and Qwen 2.5 almost never do.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-null.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Share of 80 receipts with a deleted date or total where the model correctly answered null. The small Apertus models, Llama 3.1 and Qwen 2.5 almost never do." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Share of 80 receipts with a deleted date or total where the model correctly answered null. The small Apertus models, Llama 3.1 and Qwen 2.5 almost never do.
 
-<p>Interestingly, Qwen 3.5 9B, the same size as Apertus 8B, gets it right in 40 percent of cases. So this is
-not a hard size limit; it is something a small model can learn.</p>
+    </figcaption>
+  
+</figure>
 
-<p><strong>Tip:</strong> in a booking workflow, a confident wrong value is worse than an empty field. Check every
+<p>Qwen 3.5 9B, which is about the same size as Apertus 8B, gets this right in 40 percent of cases. So it is
+not a hard limit of small models; it can be learned.</p>
+
+<p>In a booking workflow, a confidently wrong value does more damage than an empty field. Check every
 extracted value against the source document before it is booked.</p>
   </section>
 
@@ -1086,7 +1059,7 @@ extracted value against the source document before it is booked.</p>
   <size>1</size>
 -->
 
-<h2 id="what-does-the-70b-model-add">What Does the 70B Model Add?</h2>
+<h2 id="the-70b-model-compared-with-the-8b">The 70B Model Compared with the 8B</h2>
 
 <figure class="figure">
   <a class="figure-image" aria-label="Apertus 1.5 8B blue against Apertus 1.5 70B orange .">
@@ -1103,17 +1076,17 @@ extracted value against the source document before it is booked.</p>
   
 </figure>
 
-<p>Nine times the parameters, and on everyday document work surprisingly little difference: on invoices,
-receipts and the RAFT back-office tasks, 8B and 70B are about two points apart, and on invoices the small
-model is even slightly ahead.</p>
+<p>The 70B model has about nine times the parameters, yet on routine document work the two are close. On
+invoices, receipts and the RAFT back-office tasks they are about two points apart, and on invoices the 8B
+model is slightly ahead.</p>
 
-<p>What the large model adds is <em>judgement</em>: it answers <code class="language-plaintext highlighter-rouge">null</code> when information is missing (34 % against
-0 %), it recognises irony and uses the right word (78 against 61 on the irony task), and it picks finer
-contract categories instead of the general one.</p>
+<p>The 70B model is better at judgement calls. It answers <code class="language-plaintext highlighter-rouge">null</code> when information is missing (34 percent
+against 0), it recognises irony and uses the right word (78 against 61 on the irony task), and it picks
+the specific contract category more often than the general one.</p>
 
-<p><strong>Rule of thumb:</strong> for extraction and routing with clear categories, start with the 8B model. For tasks
-where the model has to notice what is <em>absent</em> or read between the lines, use the 70B model or add
-explicit checks.</p>
+<p>For extraction and routing with clear categories we would start with the 8B model. Where the model has to
+notice that something is <em>absent</em>, or read between the lines, the 70B model or explicit checks are the
+safer choice.</p>
   </section>
 
   
@@ -1129,9 +1102,9 @@ explicit checks.</p>
 
 <h2 id="bonus-the-small-apertus-runs-on-a-mac">Bonus: The Small Apertus Runs on a Mac</h2>
 
-<p>When we reran our tests on 30 September, Apertus 1.5 8B was no longer served by any Hugging Face Inference
-Provider. Standard <code class="language-plaintext highlighter-rouge">transformers</code> and MLX releases do not support the 1.5 architecture yet either. What
-does work is the Swiss AI fork of <code class="language-plaintext highlighter-rouge">transformers</code>, which the model card points to:</p>
+<p>When we reran our tests on 30 September, no Hugging Face Inference Provider served Apertus 1.5 8B any
+more, and the standard <code class="language-plaintext highlighter-rouge">transformers</code> and MLX releases do not support the 1.5 architecture yet. The Swiss
+AI fork of <code class="language-plaintext highlighter-rouge">transformers</code>, which the model card points to, does work:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="s2">"transformers[torch,vision,audio] @ git+https://github.com/swiss-ai/transformers.git@3797303dda74844e3d1f8977ff5518bb91f818b4"</span>
 </code></pre></div></div>
@@ -1154,10 +1127,70 @@ does work is the Swiss AI fork of <code class="language-plaintext highlighter-ro
 <span class="nf">print</span><span class="p">(</span><span class="n">processor</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="sh">"</span><span class="s">input_ids</span><span class="sh">"</span><span class="p">].</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p>On an Apple M5 Max with 128 GB of memory, in bf16, the model handled about 3,100 benchmark cases with a
-median of 1.3 seconds per request and not a single failed request. No API cost, and no document leaves the
-machine, which, for banks, insurers and public administrations, is exactly the argument for an open Swiss
-model. Note that we only tested text; image and audio input on Apple Silicon remains untested.</p>
+<p>On an Apple M5 Max with 128 GB of memory, in bf16, the model processed about 3,100 benchmark cases with a
+median of 1.3 seconds per request and no failed requests. There is no API cost, and no document leaves
+the machine. For banks, insurers and public administrations, that is the main reason to consider an open
+Swiss model. Image input works on the Mac as well, as the next section shows; audio we have not tested.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="reading-the-scan-instead-of-the-text">Reading the Scan Instead of the Text</h2>
+
+<p>Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without the OCR text.
+Same 361 SROIE receipts, same four fields, same scoring. We ran it on the Mac and compared it with Qwen 3.5
+9B, which also reads images and runs on the same machine, and with the two frontier models.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="The same 361 receipts as OCR text hollow and as a scanned image filled . Qwen 3.5 9B and the frontier models gain from the scan, mostly on the address; Apertus 1.5 8B loses on dates and totals.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-scan.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="The same 361 receipts as OCR text hollow and as a scanned image filled . Qwen 3.5 9B and the frontier models gain from the scan, mostly on the address; Apertus 1.5 8B loses on dates and totals." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The same 361 receipts as OCR text (hollow) and as a scanned image (filled). Qwen 3.5 9B and the frontier models gain from the scan, mostly on the address; Apertus 1.5 8B loses on dates and totals.
+
+    </figcaption>
+  
+</figure>
+
+<p>What we found:</p>
+
+<ol>
+  <li>For Apertus, the scan is worse than the text: 61.6 percent of fields correct instead of 70.7. Dates
+fall from 99 to 71 percent and totals from 81 to 64. The model misreads digits: 15/01/2019 becomes
+13/01/2019, and a total of 193.00 becomes 198. It never answers null for these fields. It returns a
+plausible wrong number, which is harder to catch than an empty field.</li>
+  <li>The other three models gain from the scan, mostly on the address, where the layout shows which lines
+belong together. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
+40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;
+Apertus gets 17 percent.</li>
+  <li>Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac it needed about
+9 seconds per receipt, Qwen about 3. The two ran on different software (our <code class="language-plaintext highlighter-rouge">transformers</code> server and
+Ollama), so take the speed difference as a rough guide.</li>
+</ol>
+
+<p>Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen saw these receipts during
+training; a test on fresh receipts would settle that. It would not explain the Apertus result, though.
+And Qwen ran 4-bit quantised, Apertus in full precision.</p>
+
+<p>One practical note if you try this yourself: our first run sent four scans to the model at once, memory
+grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared after each
+batch, fixed it.</p>
+
+<p>For document work with Apertus 1.5 8B today, run OCR first and give Apertus the text. If the layout
+matters, use the scan for fields such as the address, and check dates and totals against the OCR text.</p>
   </section>
 
   
@@ -1173,29 +1206,44 @@ model. Note that we only tested text; image and audio input on Apple Silicon rem
 
 <h2 id="a-quick-look-at-thinking-mode">A Quick Look at Thinking Mode</h2>
 
-<p>Apertus 1.5 has a thinking mode. Does reasoning before answering fix the error types above? We ran a
-targeted test on 409 hard cases (look-alike banking intents, contract clauses, irony, missing data), with
-and without thinking. Two observations surprised us.</p>
+<p>Apertus 1.5 has a thinking mode, so we tested whether reasoning before answering removes the errors
+described above. We used 409 hard cases (look-alike banking intents, contract clauses, irony and missing
+data) and ran them with and without thinking.</p>
 
-<p>First, <strong>Apertus decides for itself whether to think</strong>, and a strict format instruction («answer only with
-the category») suppresses reasoning even when thinking is enabled. We had to add a sentence asking the
-model to think step by step first.</p>
+<p>The first finding was that Apertus decides on its own whether to think. A strict format instruction such
+as «answer only with the category» suppressed reasoning even with thinking enabled, and we had to add a
+sentence asking the model to think step by step first.</p>
 
-<p>Second, <strong>for Apertus 1.5 70B, thinking barely helps in our benchmark setting</strong>: between −4 and +5 points
-depending on the task (−1 to +5 if we only count answers where the reasoning finished),
-while the answer time on contract clauses grows from 1.5 to 27 seconds, and in one of nine contract
-cases the reasoning did not finish within 3,072 tokens. GPT-5.6 and Claude Haiku 4.5 benefit more,
-mainly on irony (+5 to +12 points).</p>
+<p>The second was that thinking barely helps Apertus 1.5 70B in this setting. The change ranges from −4 to
++5 points depending on the task (−1 to +5 if we only count answers where the reasoning finished). The
+answer time for contract clauses grows from 1.5 to 27 seconds, and in one of nine contract cases the
+reasoning did not finish within 3,072 tokens. GPT-5.6 and Claude Haiku 4.5 gain more, mostly on irony
+(+5 to +12 points).</p>
 
-<p>This should not be read as “thinking is useless”. Our tasks are short classification and extraction
-problems, where the answer depends on recognising a pattern rather than on several steps of inference.
-Where a task does require multi-step reasoning, thinking pays off clearly: in
-<a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our academic evaluation</a>, thinking mode lifted Apertus 1.5 8B
-by 17 points on MATH-500 and by 10.5 points on multilingual grade-school math (MGSM).</p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The same hard cases with thinking off hollow and on filled . Thinking helps the frontier models on irony and missing data; for Apertus 1.5 70B it changes little.">
+    <img src="/preview/pr-43/images/posts/Apertus15Business-thinking.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="The same hard cases with thinking off hollow and on filled . Thinking helps the frontier models on irony and missing data; for Apertus 1.5 70B it changes little." loading="lazy" onerror="this.src = '/preview/pr-43/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The same hard cases with thinking off (hollow) and on (filled). Thinking helps the frontier models on irony and missing data; for Apertus 1.5 70B it changes little.
 
-<p>We did not complete the run for Apertus 1.5 8B: with thinking, it needed 15 to 50 seconds per case on our
-Mac, which made the full test impractical. Whether thinking fixes the small model’s error types remains
-an open question, and a good one for anyone with a GPU and an afternoon to spare.</p>
+    </figcaption>
+  
+</figure>
+
+<p>Thinking still has its uses. Our tasks are short classification and extraction problems, where the answer
+comes from recognising a pattern rather than from several steps of inference. On multi-step tasks the
+picture is different: in <a href="/preview/pr-43/2026/07/29/Apertus15Bench.html">our academic evaluation</a>,
+thinking mode raised Apertus 1.5 8B by 17 points on MATH-500 and by 10.5 points on multilingual
+grade-school math (MGSM).</p>
+
+<p>We did not finish the run for Apertus 1.5 8B. With thinking it needed 15 to 50 seconds per case on our Mac,
+which made the full test impractical. Whether thinking fixes the small model’s errors is still open, and a
+good project for anyone with a GPU and an afternoon.</p>
   </section>
 
   
@@ -1209,28 +1257,75 @@ an open question, and a good one for anyone with a GPU and an afternoon to spare
   <size></size>
 -->
 
-<h2 id="lessons-about-evaluation-itself">Lessons About Evaluation Itself</h2>
+<h2 id="ideas-for-hack-apertus">Ideas for Hack Apertus</h2>
 
-<p>Building this benchmark taught us as much about evaluation as about models. Four things moved our
+<p>We did not build this benchmark for the hackathon, but some of its findings connect to the challenges.
+The document results fit 2B and parts of 2A directly; for 1A and 1B they are starting points rather than
+finished findings.</p>
+
+<p><strong>Challenge 1A, Red-Teaming.</strong> The missing-data test is a small red-team probe: delete a field and see
+whether the model admits that it does not know. Apertus 1.5 8B filled in a value every time, in one case a
+date that appears nowhere on the receipt. In a booking workflow that means wrong entries and possible
+financial loss, which counts for severity in the rubric. A second lead is content moderation: in the RAFT
+hate-speech task, Apertus 1.5 8B answered «not hate speech» for 13 of the 21 tweets that annotators had
+labelled as hate speech. A third lead comes from images: on scanned receipts Apertus 1.5 8B misreads dates
+and totals and returns the wrong number rather than null. Our setup also matches what the rubric rewards
+under reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech, which
+the challenge also accepts, we have not tested.</p>
+
+<p><strong>Challenge 1B, Swiss Voices.</strong> All our documents were in English. For the <em>core task intelligence</em>
+dimension, a question set on Swiss legal, administrative or business knowledge, scored as correct,
+incorrect or not attempted, would test Apertus where its multilingual training should help. Watch the
+«not attempted» share: our results suggest the 8B model rarely declines to answer, and that is worth
+measuring on Swiss facts too.</p>
+
+<p><strong>Challenge 2A, Academia.</strong> The extraction results are relevant to the document challenges, for example
+OpenParlData’s task of turning parliamentary PDFs into one common structure. Apertus 1.5 8B reads dates and
+amounts reliably but confuses roles and fills in missing fields, so a solution should give it the document
+type and check every extracted value against the source. Wherever the answer comes from a fixed set, such as
+a verdict in a fact check, validate it against the allowed set before using it.</p>
+
+<p><strong>Challenge 2B, Own Project.</strong> Invoice and receipt capture with Apertus 1.5 8B on a local machine, so that
+no document leaves the company, together with the checks from this post. Customer-request routing works as
+well if look-alike categories are merged. Three research questions are also open: does thinking mode fix
+the 8B model’s error types, how much does constrained decoding recover on CUAD and Banking77, and how does
+Apertus compare with OLMo 3, the other fully open model?</p>
+
+<p>For the hackathon, both 1.5 models (8B and 70B) are provided through the partners CSCS and Phoeniqs; the
+Getting Started Guide explains access under «Resources &amp; Tools». If you also want to run the 8B model on
+your own machine, for example to show that documents never leave it, use the Swiss AI fork of
+<code class="language-plaintext highlighter-rouge">transformers</code> as in the bonus section. If you would like our task definitions and scoring code as a
+starting point, get in touch.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="what-we-learned-about-evaluation">What We Learned About Evaluation</h2>
+
+<p>Building this benchmark taught us about evaluation as much as about the models. Four things moved our
 numbers by more than many of the gaps between models:</p>
 
 <ol>
-  <li>
-<strong>Scoring.</strong> In our pilot we compared extracted amounts as strings, so <code class="language-plaintext highlighter-rouge">133.7</code> did not match
-<code class="language-plaintext highlighter-rouge">"133.70"</code>. Comparing amounts as numbers and dates as dates moved Llama 3.1 by twelve points.</li>
-  <li>
-<strong>Data.</strong> A support-ticket dataset we initially treated as real turned out to be synthetic. We removed
-it.</li>
-  <li>
-<strong>Providers.</strong> One hosting provider silently dropped tokens from Gemma 2 outputs (<code class="language-plaintext highlighter-rouge">declinedard_payment</code>
-instead of <code class="language-plaintext highlighter-rouge">declined_card_payment</code>, <code class="language-plaintext highlighter-rouge">8480</code> instead of <code class="language-plaintext highlighter-rouge">84.80</code>). The model was fine; the serving stack
-was not. Gemma is therefore not in our table.</li>
-  <li>
-<strong>Gold labels.</strong> SROIE receipts often lack part of the address in the OCR text, and DocILE does not
-annotate every printed field. We adapted the scoring to what is actually reachable from the text.</li>
+  <li>Scoring. In the pilot we compared extracted amounts as strings, so <code class="language-plaintext highlighter-rouge">133.7</code> did not match <code class="language-plaintext highlighter-rouge">"133.70"</code>.
+Comparing amounts as numbers and dates as dates moved Llama 3.1 by twelve points.</li>
+  <li>Data. A support-ticket dataset we had treated as real turned out to be synthetic, and we removed it.</li>
+  <li>Providers. One hosting provider silently dropped tokens from Gemma 2 outputs (<code class="language-plaintext highlighter-rouge">declinedard_payment</code>
+instead of <code class="language-plaintext highlighter-rouge">declined_card_payment</code>, <code class="language-plaintext highlighter-rouge">8480</code> instead of <code class="language-plaintext highlighter-rouge">84.80</code>). The model was fine and the serving stack
+was not, so Gemma is not in our table.</li>
+  <li>Gold labels. SROIE receipts often lack part of the address in the OCR text, and DocILE does not annotate
+every printed field. We adjusted the scoring to what can actually be read from the text.</li>
 </ol>
 
-<p>If there is one general lesson, it is this: <em>read the raw outputs before you trust the score</em>.</p>
+<p>Our main advice: look at the raw outputs before trusting a score.</p>
   </section>
 
   
@@ -1246,16 +1341,17 @@ annotate every printed field. We adapted the scoring to what is actually reachab
 
 <h2 id="limitations">Limitations</h2>
 
-<p>These benchmarks are an independent snapshot, not an exhaustive evaluation. In particular:</p>
+<p>This is an independent snapshot, not an exhaustive evaluation:</p>
 
 <ul>
-  <li>All prompts are zero-shot. Few-shot prompting or fine-tuning would likely change the picture,
+  <li>All prompts are zero-shot. Few-shot prompting or fine-tuning would probably change the results,
 especially for long category lists.</li>
-  <li>The instructions were in German and the documents in English, which reflects a typical Swiss German
-setup but may favour multilingual models.</li>
+  <li>Instructions were in German and documents in English. That is a common Swiss setup, but it may favour
+multilingual models.</li>
+  <li>We tested images only on SROIE receipts, with four models, and audio not at all.</li>
   <li>Qwen 3.5 9B ran 4-bit quantised, all Apertus models in full precision.</li>
-  <li>We report a single run per model. GPT-5.6 cannot be run at temperature 0, so its numbers are one sample.</li>
-  <li>RAFT and DocILE results come from their public labelled splits, not their hidden test sets.</li>
+  <li>Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample.</li>
+  <li>RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.</li>
 </ul>
   </section>
 
@@ -1270,25 +1366,18 @@ setup but may favour multilingual models.</li>
   <size></size>
 -->
 
-<h2 id="key-takeaways">Key Takeaways</h2>
+<h2 id="summary">Summary</h2>
 
-<ul>
-  <li>
-<strong>Apertus 1.5 8B is a solid, privately deployable document model.</strong> Dates and amounts on invoices and
-receipts are its strength, and it runs on a single Mac.</li>
-  <li>
-<strong>Its weaknesses are specific and fixable.</strong> Validate labels against the allowed list, split long
-category lists into two steps, and never trust a filled field without checking it against the source.</li>
-  <li>
-<strong>Size buys judgement, not reading.</strong> The 70B model mainly adds the ability to notice what is missing.</li>
-  <li>
-<strong>The open-model gap is real.</strong> Qwen 3.5 9B shows what is possible at the same size, which is good news:
-it means there is headroom for the next Apertus release.</li>
-</ul>
+<p>Apertus 1.5 8B is a solid document model that you can run privately on a single Mac; it reads dates and
+amounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: check
+labels against the allowed list, split long category lists into two steps, and verify every extracted
+field against the source. The 70B model mainly adds the ability to notice what is missing. Reading scans
+directly is its weakest point so far: give it OCR text instead. Qwen 3.5 9B shows that open models of this
+size can do better, on text and even more on images, which leaves room for the next Apertus release.</p>
 
-<p>We are presenting these results at the «Hack Apertus» session on 2 October 2026. If you are working on any of
-the open questions above, such as format guards, null handling or thinking mode, we would be happy to hear
-from you.</p>
+<p>We are presenting these results at the «Hack Apertus» online session on 2 October 2026. If you pick up one of
+the open questions during the hackathon, whether format guards, null handling, thinking mode, Swiss
+languages, reading scans or audio input, we would like to hear what you find.</p>
 
 <p><strong>Quicklinks:</strong></p>
 <ul>
