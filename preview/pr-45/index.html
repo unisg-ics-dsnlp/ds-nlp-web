@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-45/images/icon.png">
+
+<meta name="title" content="">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-45">
+<meta property="og:image" content="/preview/pr-45/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-45">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-45/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta property="og:type" content="website">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "WebSite",
+    
+    "name": "",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-45/images/icon.png" }
+    },
+    "url": "/preview/pr-45"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-45/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-45/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-45/_styles/util.css" rel="stylesheet">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-45/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-45/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-45/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-45/_scripts/search.js"></script>
+
+  <script src="/preview/pr-45/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-45/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-45/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-45/images/background.jpg')" data-dark="true" data-big>
+  <a href="/preview/pr-45/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-45/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-45/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-45/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-45/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-45/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-45/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!-- # DS-NLP Lab Blog and Research Website -->
+
+<p>The Data Science and Natural Language Processing (DS-NLP) Lab at the University of St. Gallen, led by Professor Siegfried Handschuh, pioneers research at the intersection of artificial intelligence, data science, and Natural Language Processing technologies. Our team focuses on advancing knowledge extraction, semantic representation, Argumentation and the societal impacts of AI-driven language systems. Through innovative projects and scholarly publications, we aim to bridge the gap between complex data and meaningful human understanding.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="latest-blog-posts">Latest Blog Posts</h2>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/preview/pr-45/2026/10/01/Apertus1-5-BusinessBenchmarks.html" class="post-excerpt-image" aria-label="Apertus 1.5 Under Test - Real Business Tasks">
+        <img src="/preview/pr-45/images/posts/Apertus15Business-radar.png" alt="Apertus 1.5 Under Test - Real Business Tasks" loading="lazy" onerror="this.src = '/preview/pr-45/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/preview/pr-45/2026/10/01/Apertus1-5-BusinessBenchmarks.html">Apertus 1.5 Under Test - Real Business Tasks</a>
+
+      <div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>siegfried handschuh</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>October 01, 2026</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-45/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20evaluation"' class="tag" data-tooltip='Show items with the tag "evaluation"'>
+        evaluation
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20benchmarks"' class="tag" data-tooltip='Show items with the tag "benchmarks"'>
+        benchmarks
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20vision"' class="tag" data-tooltip='Show items with the tag "vision"'>
+        vision
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20multimodal"' class="tag" data-tooltip='Show items with the tag "multimodal"'>
+        multimodal
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20document-understanding"' class="tag" data-tooltip='Show items with the tag "document-understanding"'>
+        document-understanding
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="From Exams to the Back OfficeApertus 1.5 8B is a solid document model that you can deploy privately, on a single Mac if need be. Itsweaknesses are specific, and they can be fixed. This post shows both, measured on real business data.We wrote it with the participants of Hack Apertus in mind, who are buildingon Apertus 1.5 until 16 October. If you are looking for a project, the error types below are a good placeto start, and the section Ideas for Hack Apertus lists a few concrete ones.In our previous post we tested Apertus 1.5 on academicbenchmarks such as MMLU-Pro, IFEval, GSM8K and multilingual reading comprehension. The step from 1.0 to1.5 was large.Academic benchmarks measure what a model knows. Companies that ask us about Apertus mostly want to knowsomething else: can it route a customer request to the right team, read the total off a receipt, sortcontract clauses before a legal review, or fill in an invoice form For this post we ran six public benchmarks built from real business data, roughly 3,000 cases permodel, and compared Apertus with six other models, two of them frontier systems. Because this is anApertus post, we then went through its mistakes one by one.The short version: Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna s overall score, the 70B model 83 percent. Ondocuments and social media the gap is small; on long category lists it is large. Among open models of its size, Apertus 1.5 8B comes after Qwen 3.5 9B, Qwen 2.5 7B and Llama 3.1 8B,and before Apertus 1.0. It is the only fully open model in that group. Documents are its strong side. On invoices it matches Qwen 3.5 9B and its own 70B sibling, and onreceipts it gets the date right 99 times out of 100. Most of its errors are of three kinds, all fixable: answers that are not on the allowed list,a few labels it uses far too often, and values it invents when information is missing. It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests. Reading scanned receipts directly is its weak spot: it misreads dates and totals, which Qwen 3.5 9Breads almost without error. Overall score across six business benchmarks. The line shows the 95 bootstrap interval; differences above about two points are real. SetupWe compared eight models: Apertus 1.5 8B and 70B, Apertus 1.0 8B, Qwen 3.5 9B, Qwen 2.5 7B, Llama 3.1 8B,and, through their APIs, GPT-5.6-Luna and Claude Haiku 4.5.Some choices affect how the numbers should be read: All tasks are zero-shot, with one prompt per task that is the same for every model. We did not tuneprompts for anyone. Temperature is 0 wherever the API allows it. GPT-5.6 only accepts its default temperature. Thinking modes are off for all models. We look at thinking separately near the end. Each benchmark is scored with its authors metric accuracy, macro-F1, F1 of the ironic class and soon . The overall score is the mean over the six benchmarks. Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B ran locally on a Mac,because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bitquantised through Ollama; if anything, that works against it.Six Benchmarks, Six Business QuestionsEach benchmark asks a different practical question. Below is one real example per benchmark. The six benchmarks, each with one real example from our test set and the sample size we used. Banking77 PolyAI, 2020 has 13,083 real customer requests to an online bank, each labelled with oneof 77 intents. Many intents sit close together: My card hasn t arrived yet card arrival and Ordered awhile back, what is the ETA card delivery estimate count as different. In business terms:can the model send a request to the right process We used all 77 intents and 616 requests.SROIE ICDAR 2019 has about 1,000 scanned receipts from Malaysian shops, passed through OCR. Themodel reads company, date, address and total from noisy text like... SUB-TOTAL 61.99 ... GST 3.72 ... TOTAL 65.70 and has to pick the amount actually paid. Think expensebooking from a photo. We used all 361 test receipts.CUAD The Atticus Project and UC Berkeley, NeurIPS 2021 covers 510 commercial contracts filed with theUS SEC, annotated by lawyers in 41 clause types. We show the model a marked clause and ask for its type,for example governed by the laws of the State of Florida Governing Law. This is thefirst pass of a legal review. 294 clauses.RAFT Ought and partners, NeurIPS 2021 collects eleven classification jobs that organisations paypeople to do: is this tweet a complaint, does this sentence overrule a precedent, is this clause in theterms of service unfair to consumers It shows how a model copes with an unfamiliar back-office task onthe first day. All 11 tasks, 50 labelled cases each.TweetEval Cardiff University and Snap, Findings of EMNLP 2020 gathers seven SemEval tasks on tweets:irony, emotion, hate speech, offensive language, sentiment, stance and emoji prediction. Leaving whilstits dark is fun. not is irony. Use case: monitoring social media and customer feedback. 150 tweets pertask.DocILE Rossum with the Czech Technical University, ICDAR 2023 has about 6,700 real business documents,mostly invoices and orders. The model fills in fifteen fields: vendor and customer, document and ordernumbers, dates, payment terms, net, tax, gross and amount due. This is invoice capture without typing.150 documents. Note: RAFT and DocILE keep their test labels private, so we used their public labelled splits. ForCUAD we classify a marked clause; the original task asks models to find the clause in a full contract.Results Model Overall Banking77 SROIE CUAD RAFT TweetEval DocILE GPT-5.6-Luna 73.5 85 80 67 74 62 73 Claude Haiku 4.5 71.8 78 80 61 76 65 71 Qwen 3.5 9B 4-bit 65.3 72 74 54 71 58 63 Qwen 2.5 7B 61.1 65 69 47 68 60 56 Apertus 1.5 70B 61.0 62 73 42 67 62 60 Llama 3.1 8B 59.6 64 68 44 69 58 56 Apertus 1.5 8B 57.9 56 71 37 65 56 62 Apertus 1.0 8B 55.3 56 64 46 57 52 56 We read this table in two ways: against the frontier, and against the open models Apertus competes withdirectly.Distance to the frontierThe distance is larger than on academic benchmarks. Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna soverall score and the 70B model 83 percent, a gap of 14 to 16 points for the 8B model and 11 to 13 pointsfor the 70B model. These differences are well outside the statistical noise.How large the gap is depends very much on the task: Apertus as a share of GPT-5.6-Luna s score, per benchmark. Close on receipts, back-office tasks, social media and invoices; far behind on the long category lists of Banking77 and CUAD. On receipts, back-office tasks, social media and invoices, Apertus is within 10 to 15 percent of thefrontier, and on TweetEval the 70B model is level with GPT-5.6. Most of the gap comes from the two taskswith long lists of fine-grained categories, contracts with 42 types and banking intents with 77. Wewould watch these two in the next release.In an earlier pilot with fewer, partly synthetic cases, frontier models scored only about 60 percent, andwe concluded that the tasks were hard for everyone . With a larger and cleaner test set, that no longerholds see the section on evaluation below .Among open models of similar sizeHere Apertus 1.5 8B is at the back of the group, with one clear strength. The chart compares it with theother open models of similar size, each difference measured on the same cases with a 95 percentbootstrap interval. Open models of similar size compared with Apertus 1.5 8B on the same cases. Qwen 3.5 9B leads by 7.4 points; Apertus 1.5 is 2.6 points ahead of its predecessor. All of these differences are significant. Overall, Apertus 1.5 8B comes after Qwen 3.5, Qwen 2.5 andLlama 3.1 and before its predecessor. Benchmark by benchmark it looks different. Among the five models ofsimilar size, Apertus 1.5 8B is second on documents: on DocILE invoices it is level with Qwen 3.5 62.3 against 62.8 , and on SROIE receipts it is ahead of Qwen 2.5 and Llama 3.1; fourth on RAFT, TweetEval and Banking77; last on contracts, behind Apertus 1.0 as well.The 70B model does not change this much. It is 4.3 points behind Qwen 3.5 9B, level with Qwen 2.5 7B amodel about two years older and 1.4 points ahead of Llama 3.1 8B.What counts as a peer matters here. In our previous postwe separated open-weight models such as Qwen and Llama, which publish their weights, from fully openmodels such as Apertus and OLMo, which also publish data and training pipeline. Every competitor in thiscomparison is open-weight; Apertus is the only fully open model, and a run with OLMo 3, its natural peer,is still missing. Full openness has a cost that open-weight models avoid, for example in which trainingdata can be used, and the numbers should be read with that in mind.Size needs a second look as well. Apertus 1.5 is the first Apertus that takes images and audio as input,and part of its 8.9 billion parameters serve those: a vision tokenizer, an audio tokenizer and theembeddings for image and audio tokens, about 0.85 billion in all. That leaves about 8 billion for text.Qwen 3.5 9B reads images but not audio, and its text path has roughly 9 billion parameters. This explainspart of the 7.4-point gap, but not all of it: Llama 3.1 8B, a text-only model of similar size, is alsoahead of Apertus 1.5 8B. Training may matter more. Apertus 1.5 continued pretraining on 4 trillion tokensof mixed text, images and audio, and a text benchmark only sees one part of what it learned. Our imagetest further down shows that, at least for reading receipts, the image side does not make up the gap.Within the Apertus family, 1.5 is 2.6 points ahead of 1.0 at 8B. The more useful information is where itgains and where it loses.Apertus 1.5 8B at a Glance Apertus 1.5 8B blue against Qwen 3.5 9B of the same size class orange and GPT-5.6-Luna dashed . The bottom axis shows how often a model answers null when we delete the date or total from a receipt. At the top of the chart are invoices and receipts, where Apertus is level with Qwen 3.5 and not far fromGPT. On the left are the long category lists, contracts and customer requests, where the gap is widest.The axis at the bottom matters a lot in practice: does the model answer null when information ismissing Apertus 1.5 8B never does.The following five cases from the data show what this looks like.Five Cases from the Data1. Customer requests: clear ones work, look-alikes do notRequests with one clear reason are routed perfectly. Every test case for intents such as Pleaseterminate my account terminate account , How old do I have to be age limit or What can I do ifcontactless doesn t work contactless not working came back correct.Banking77 also has three intents about identity checks: verify my identity, why verify identity andunable to verify identity. Apertus put all 24 of these requests into the first one, so I d rather notverify my identity and I can t verify my ID both became verify my identity. Qwen 3.5 keeps them apartmuch better.In practice, Apertus 8B works well as a router when the categories are clearly distinct. When severalcategories sound alike, merge them or add one example per category to the prompt.2. A purchase order: right numbers, wrong rolesThis is a real purchase order from DocILE, sent by a small media company to a radio station, togetherwith what Apertus 1.5 8B extracted: A real purchase order from DocILE OCR text, shortened . Green: read correctly. Red: the letterhead taken as the vendor, and the words Purchase Order returned as the order number. The date and the total are exactly right, which is typical. On invoices the model gets net, tax and dueamounts right in 83 to 94 percent of cases. It took the letterhead for the vendor, though. On a purchaseorder the letterhead belongs to the buyer, and the vendor is the one listed under VENDOR . As the ordernumber it returned the words Purchase Order rather than 7601.Dates and amounts can mostly be trusted. For roles, tell the model what kind of document it is reading,or check the result with a rule.3. Contracts: one label for everything The Reseller shall be entitled to enter into agreements with its subsidiaries and affiliates to actas sub-distributors and or selling agents of the Products in the Territory. CUAD labels this clause Affiliate License-Licensee. Apertus 1.5 70B gets it; Apertus 1.5 8B answersLicense Grant, the most general licence category. That happens a lot: across 294 clauses the 8B modelsays License Grant 62 times, while only six clauses are actual license grants. Now and then it alsoinvents types that are not on the list, such as Severability or Limited Liability . How often Apertus 1.5 8B gives an answer blue against how often that answer is actually correct grey . When unsure, it falls back on a general category. With 40 or more categories it helps to classify in two steps, first the broad area licence, liability,termination , then the exact type. And any label should be checked against the list before it is used.4. Irony: understood, but not in the expected words Just paid 2.59 for gas ThanksObama sarcasm The allowed answers are irony and non irony. Apertus 1.5 8B answers sarcasm. It understood thetweet, but the word is not on the list, so the answer is scored as wrong. This happened in 9 of 150 ironycases. Apertus 70B answered irony in all nine.This is the cheapest error to fix: map obvious synonyms in code, or use constrained decoding so the modelcan only produce allowed labels.5. The deleted date: Apertus 8B makes one upTo see how models deal with missing information, we took 80 real receipts and deleted either the date orthe total from the text. The correct answer is null.On a bakery receipt from 2017 without its date, Apertus 1.5 8B answered 10 04 2024, a date that appearsnowhere in the document. On other receipts it gave the time of purchase as the date, or a cash amount asthe total. It did not answer null once. Share of 80 receipts with a deleted date or total where the model correctly answered null. The small Apertus models, Llama 3.1 and Qwen 2.5 almost never do. Qwen 3.5 9B, which is about the same size as Apertus 8B, gets this right in 40 percent of cases. So it isnot a hard limit of small models; it can be learned.In a booking workflow, a confidently wrong value does more damage than an empty field. Check everyextracted value against the source document before it is booked.The 70B Model Compared with the 8B Apertus 1.5 8B blue against Apertus 1.5 70B orange . The 70B model has about nine times the parameters, yet on routine document work the two are close. Oninvoices, receipts and the RAFT back-office tasks they are about two points apart, and on invoices the 8Bmodel is slightly ahead.The 70B model is better at judgement calls. It answers null when information is missing 34 percentagainst 0 , it recognises irony and uses the right word 78 against 61 on the irony task , and it picksthe specific contract category more often than the general one.For extraction and routing with clear categories we would start with the 8B model. Where the model has tonotice that something is absent, or read between the lines, the 70B model or explicit checks are thesafer choice.Bonus: The Small Apertus Runs on a MacWhen we reran our tests on 30 September, no Hugging Face Inference Provider served Apertus 1.5 8B anymore, and the standard transformers and MLX releases do not support the 1.5 architecture yet. The SwissAI fork of transformers, which the model card points to, does work:pip install transformers torch,vision,audio git https: github.com swiss-ai transformers.git 3797303dda74844e3d1f8977ff5518bb91f818b4 import torchfrom transformers import AutoModelForMultimodalLM, AutoProcessormodel id swiss-ai Apertus-v1.5-8B processor AutoProcessor.from pretrained model id model AutoModelForMultimodalLM.from pretrained model id, dtype auto .to mps .eval messages role : user , content : Which department handles a lost card inputs processor.apply chat template messages, add generation prompt True, tokenize True, return dict True, return tensors pt , enable thinking False, .to model.device with torch.inference mode : out model.generate inputs, max new tokens 64, do sample False print processor.decode out 0, inputs input ids .shape -1 : , skip special tokens True On an Apple M5 Max with 128 GB of memory, in bf16, the model processed about 3,100 benchmark cases with amedian of 1.3 seconds per request and no failed requests. There is no API cost, and no document leavesthe machine. For banks, insurers and public administrations, that is the main reason to consider an openSwiss model. Image input works on the Mac as well, as the next section shows; audio we have not tested.Reading the Scan Instead of the TextApertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.Same 361 SROIE receipts, same four fields, same scoring. We ran it on the Mac and compared it with Qwen 3.59B, which also reads images and runs on the same machine, and with the two frontier models.As a reference we show the text results from above. That text is the transcript that comes with thedataset, made as ground truth for an OCR competition. Its characters are clean, but it is flat, a run ofwords without layout, and it is incomplete: on a typical receipt almost a third of the address words aremissing. The scan holds more information than the transcript, and a model that reads it well can do betterthan with the text. The same 361 receipts as the dataset s reference transcript hollow and as a scanned image filled . Qwen 3.5 9B and the frontier models read the scan well, Apertus 1.5 8B misreads dates and totals. What we found: From the scan, Apertus gets 61.6 percent of fields right, with dates at 71 percent and totals at 64.The model misreads digits: 15 01 2019 becomes 13 01 2019, and a total of 193.00 becomes 198. It neveranswers null for these fields. It returns a plausible wrong number, which is harder to catch than anempty field. The other three models do better from the scan than from the transcript, mostly on the address, wherethe layout shows which lines belong together and nothing is missing. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;Apertus gets 17 percent. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac it needed about9 seconds per receipt, Qwen about 3. The two ran on different software our transformers server andOllama , so take the speed difference as a rough guide.Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen saw these receipts duringtraining; a test on fresh receipts would settle that. It would not explain the Apertus result, though.And Qwen ran 4-bit quantised, Apertus in full precision.One practical note if you try this yourself: our first run sent four scans to the model at once, memorygrew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared after eachbatch, fixed it.If you build document capture on Apertus 1.5 8B, check every date and total it reads from a scan, forexample against the sum of the line items, or let a model that reads scans well do that part. Whether aclassic OCR step in front of Apertus works better, we have not tested.A Quick Look at Thinking ModeApertus 1.5 has a thinking mode, so we tested whether reasoning before answering removes the errorsdescribed above. We used 409 hard cases look-alike banking intents, contract clauses, irony and missingdata and ran them with and without thinking.The first finding was that Apertus decides on its own whether to think. A strict format instruction suchas answer only with the category suppressed reasoning even with thinking enabled, and we had to add asentence asking the model to think step by step first.The second was that thinking barely helps Apertus 1.5 70B in this setting. The change ranges from 4 to 5 points depending on the task 1 to 5 if we only count answers where the reasoning finished . Theanswer time for contract clauses grows from 1.5 to 27 seconds, and in one of nine contract cases thereasoning did not finish within 3,072 tokens. GPT-5.6 and Claude Haiku 4.5 gain more, mostly on irony 5 to 12 points . The same hard cases with thinking off hollow and on filled . Thinking helps the frontier models on irony and missing data; for Apertus 1.5 70B it changes little. Thinking still has its uses. Our tasks are short classification and extraction problems, where the answercomes from recognising a pattern rather than from several steps of inference. On multi-step tasks thepicture is different: in our academic evaluation,thinking mode raised Apertus 1.5 8B by 17 points on MATH-500 and by 10.5 points on multilingualgrade-school math MGSM .We did not finish the run for Apertus 1.5 8B. With thinking it needed 15 to 50 seconds per case on our Mac,which made the full test impractical. Whether thinking fixes the small model s errors is still open, and agood project for anyone with a GPU and an afternoon.Ideas for Hack ApertusWe did not build this benchmark for the hackathon, but some of its findings connect to the challenges.The document results fit 2B and parts of 2A directly; for 1A and 1B they are starting points rather thanfinished findings.Challenge 1A, Red-Teaming. The missing-data test is a small red-team probe: delete a field and seewhether the model admits that it does not know. Apertus 1.5 8B filled in a value every time, in one case adate that appears nowhere on the receipt. In a booking workflow that means wrong entries and possiblefinancial loss, which counts for severity in the rubric. A second lead is content moderation: in the RAFThate-speech task, Apertus 1.5 8B answered not hate speech for 13 of the 21 tweets that annotators hadlabelled as hate speech. A third lead comes from images: on scanned receipts Apertus 1.5 8B misreads datesand totals and returns the wrong number rather than null. Our setup also matches what the rubric rewardsunder reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech, whichthe challenge also accepts, we have not tested.Challenge 1B, Swiss Voices. All our documents were in English. For the core task intelligencedimension, a question set on Swiss legal, administrative or business knowledge, scored as correct,incorrect or not attempted, would test Apertus where its multilingual training should help. Watch the not attempted share: our results suggest the 8B model rarely declines to answer, and that is worthmeasuring on Swiss facts too.Challenge 2A, Academia. The extraction results are relevant to the document challenges, for exampleOpenParlData s task of turning parliamentary PDFs into one common structure. Apertus 1.5 8B reads dates andamounts reliably but confuses roles and fills in missing fields, so a solution should give it the documenttype and check every extracted value against the source. Wherever the answer comes from a fixed set, such asa verdict in a fact check, validate it against the allowed set before using it.Challenge 2B, Own Project. Invoice and receipt capture with Apertus 1.5 8B on a local machine, so thatno document leaves the company, together with the checks from this post. Customer-request routing works aswell if look-alike categories are merged. Three research questions are also open: does thinking mode fixthe 8B model s error types, how much does constrained decoding recover on CUAD and Banking77, and how doesApertus compare with OLMo 3, the other fully open model For the hackathon, both 1.5 models 8B and 70B are provided through the partners CSCS and Phoeniqs; theGetting Started Guide explains access under Resources amp; Tools . If you also want to run the 8B model onyour own machine, for example to show that documents never leave it, use the Swiss AI fork oftransformers as in the bonus section. If you would like our task definitions and scoring code as astarting point, get in touch.What We Learned About EvaluationBuilding this benchmark taught us about evaluation as much as about the models. Four things moved ournumbers by more than many of the gaps between models: Scoring. In the pilot we compared extracted amounts as strings, so 133.7 did not match 133.70 .Comparing amounts as numbers and dates as dates moved Llama 3.1 by twelve points. Data. A support-ticket dataset we had treated as real turned out to be synthetic, and we removed it. Providers. One hosting provider silently dropped tokens from Gemma 2 outputs declinedard paymentinstead of declined card payment, 8480 instead of 84.80 . The model was fine and the serving stackwas not, so Gemma is not in our table. Gold labels. SROIE receipts often lack part of the address in the OCR text, and DocILE does not annotateevery printed field. We adjusted the scoring to what can actually be read from the text.Our main advice: look at the raw outputs before trusting a score.LimitationsThis is an independent snapshot, not an exhaustive evaluation: All prompts are zero-shot. Few-shot prompting or fine-tuning would probably change the results,especially for long category lists. Instructions were in German and documents in English. That is a common Swiss setup, but it may favourmultilingual models. We tested images only on SROIE receipts, with four models, and audio not at all. Qwen 3.5 9B ran 4-bit quantised, all Apertus models in full precision. Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample. RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.SummaryApertus 1.5 8B is a solid document model that you can run privately on a single Mac; it reads dates andamounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: checklabels against the allowed list, split long category lists into two steps, and verify every extractedfield against the source. The 70B model mainly adds the ability to notice what is missing. Reading scansdirectly is its weakest point so far: it misreads digits, so check every date and total. Qwen 3.5 9B shows that open models of thissize can do better, on text and even more on images, which leaves room for the next Apertus release.We are presenting these results at the Hack Apertus online session on 2 October 2026. If you pick up one ofthe open questions during the hackathon, whether format guards, null handling, thinking mode, Swisslanguages, reading scans or audio input, we would like to hear what you find.Quicklinks: Our academic benchmark post: LLM Benchmark Evaluation - Apertus 1.5-8B Model Hub: Hugging Face: Swiss AI Models Benchmarks: Banking77 SROIE CUAD RAFT TweetEval DocILE">
+        From Exams to the Back Office
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+
+    <div class="post-excerpt-text">
+      <a href="/preview/pr-45/2026/10/01/Apertus15GettingStarted.html">Getting Started with Apertus 1.5: Architecture, API, and Local Deployment</a>
+
+      <div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>October 01, 2026</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-45/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="You have an idea for Hack Apertus. Now you need a model endpoint, a working prompt, and a way toconnect the two. This post introduces Apertus 1.5 and takes you through the practical steps: callinga hosted API, running the model on your own hardware, and enabling its thinking mode.It accompanies our hackathon presentation on benchmarking Apertus. For the evaluation results,see our Apertus 1.5 benchmark post. Here, we focus ongetting the model into your application.Version note: The deployment instructions and provider details below were checked on1 October 2026. Apertus 1.5 integrations are still being upstreamed, so use the linked officialinstructions when updating your environment.What Is Apertus Apertus is a family of open models developed by the Swiss AI Initiative, a collaboration betweenETH Zurich, EPFL, and the Swiss National Supercomputing Centre CSCS . Its defining ambition istransparency across the model s development: weights, data sources, training recipes, and theprinciples used to align its behavior. The original models were trained on the Alps supercomputer.The official overview explains the project and its goals.For developers, that openness makes it possible to inspect, adapt, and host the model yourself.Multilingual representation is another central design choice. The original training mixturecontained approximately 40 non-English data, including FineWeb-2 s coverage of 1,811 languages.That describes the breadth of the data, rather than a guarantee of equal performance in everylanguage. See the Apertus 1.0 technical report for theunderlying architecture and training recipe.What Changes in 1.5 Apertus 1.5 continues pretraining the original models and adds a new post-training pipeline. Itcomes in two sizes: Model Hugging Face checkpoint Starting point 8B swiss-ai Apertus-v1.5-8B https: huggingface.co swiss-ai Apertus-v1.5-8B Local experiments and applications with smaller compute budgets 70B swiss-ai Apertus-v1.5-70B https: huggingface.co swiss-ai Apertus-v1.5-70B Hosted APIs or server hardware with more memory The main additions are image and audio inputs, optional thinking mode, improved instructionfollowing and tool use, and a 262,144-token context window, up from 65,536 tokens. The outputis text; Apertus 1.5 does not generate images or audio. Audio understanding remains experimental.The 1.5 release announcement describes thesechanges and the continued-pretraining stage: an additional 4T tokens for 8B and 2T for 70B, bringingthe reported totals to 19T and 17T respectively.Useful official entry points are the Apertus website,documentation, and Swiss AI model hub.For available hosted services, consult theinference ecosystem overview.How Does the Architecture Differ from Llama and Qwen Apertus uses a dense decoder-only Transformer. Like familiar Llama and Qwen models, it generatestokens autoregressively and uses grouped-query attention GQA , rotary positional embeddings RoPE , and RMSNorm. It is not a mixture-of-experts model: the dense language backbone is activefor each token.The following comparison expands the table from our presentation. It includes both architectureand training choices; an optimizer or alignment method affects how the model is trained, but isnot a component you run during inference. Llama and Qwen also span several generations, so themiddle column is a broad reference rather than a specification for every release. Component Typical Llama Qwen-style choice Apertus choice Feed-forward activation SwiGLU, a gated activation xIELU , a non-gated activation extending Squared ReLU to negative inputs, with learned coefficients Pretraining optimizer AdamW is a common baseline AdEMAMix , combining gradient averages at different timescales Attention GQA and RoPE; some newer models also use QK normalization GQA scaled RoPE QK-Norm , normalizing queries and keys to stabilize attention logits Alignment Methods such as RLHF or DPO, depending on the release QRPO Quantile Reward Policy Optimization in the published Apertus 1.0 recipe; 1.5 adds second-generation post-training Text vocabulary Model-dependent, often roughly 32k 150k tokens 131,072 text tokens , based on a multilingual byte-level BPE tokenizer The architecture and QRPO entries are documented in theoriginal technical report. The QRPO row describes that publishedrecipe; it should not be read as a complete account of the newer 1.5 alignment pipeline.The change you will encounter most directly when deploying 1.5 is its multimodal input processing.Images and audio are converted into discrete tokens and fed into the language backbone alongsidetext. The Transformers integration proposalidentifies Emu3.5 for image tokenization and WavTokenizer for audio. This is why a runtime thatsupports text-only Apertus 1.0 does not automatically support the complete 1.5 checkpoint.The 131,072-token text vocabulary should also be distinguished from the 266,752-token totalvocabulary in the multimodal checkpoint. The latter includes input tokens for other modalities;generation is restricted to text tokens. These details are recorded in the1.5 model card.Use Apertus Through a Hosted APIA hosted endpoint is a convenient first step for a hackathon: you can build your applicationbefore setting up a GPU. The presentation uses Public AI as an example.Its gateway exposes an OpenAI-compatible API, so existing chat-completion clients need only adifferent base URL, key, and model identifier.Create an account and API key through the Public AI developer portal.Check the portal for current credits and rate limits. Its documentation requires both a bearertoken and a User-Agent header.Set your key in the shell where you will run the examples:export PUBLICAI API KEY your-api-key First, list the available models:curl https: api.publicai.co v1 models -H Authorization: Bearer PUBLICAI API KEY -H User-Agent: HackApertusDemo 1.0 Provider model names can differ from Hugging Face repository names. Public AI s documented exampleuses the lowercase identifier swiss-ai apertus-v1.5-8b. Use the catalog response to select theexact identifier for another size or configuration.curl https: api.publicai.co v1 chat completions -H Authorization: Bearer PUBLICAI API KEY -H User-Agent: HackApertusDemo 1.0 -H Content-Type: application json -d model : swiss-ai apertus-v1.5-8b , messages : role : system , content : Give concise, practical answers. , role : user , content : Suggest a multilingual hackathon project using Apertus. , max tokens : 512 For a Python application, install the client with pip install openai and save this as chat.py:import osfrom openai import OpenAIclient OpenAI base url https: api.publicai.co v1 , api key os.environ PUBLICAI API KEY , default headers User-Agent : HackApertusDemo 1.0 , result client.chat.completions.create model swiss-ai apertus-v1.5-8b , messages role : system , content : Give concise, practical answers. , role : user , content : Explain retrieval-augmented generation in German. , , max tokens 512, print result.choices 0 .message.content Run it with python chat.py. Your application sends structured messages; the server applies themodel s chat template. Support for images, audio, tools, and thinking controls depends on theprovider s deployment, even when the underlying model supports them. Check those capabilitiesbefore choosing an endpoint for a multimodal or agent project.Deploy Apertus LocallyThere are two useful development paths: vLLM gives your application a local API server;Transformers lets you work directly with the model and processor in Python. For a laptop textdemo, there is also a community GGUF option below.Plan for Memory, Not Just Parameter CountAs a rough lower bound, two bytes per parameter means approximately 16 GB for 8B or 140 GBfor 70B in BF16. These are arithmetic estimates for weights, not total memory requirements.The full deployment also needs memory for multimodal components, runtime buffers, and thekey-value KV cache used to retain previous tokens attention state.Longer contexts and concurrent requests increase KV-cache demand. A model s advertised 262kcontext does not mean you should reserve that capacity for your first demo. Start with a shorterserver limit, such as 8,192 tokens, and increase it when your workload and hardware require it.Quantization can reduce weight memory, but support must match the checkpoint and runtime.Option 1: Serve the Model with vLLMAs of the version date above, the official instructions recommend the Swiss AI integration andprebuilt container for Apertus 1.5. Support for a parser or the original Apertus architecture inupstream vLLM is not sufficient evidence of full multimodal 1.5 support. Follow theofficial vLLM guide for the supported setup.The example below targets a Linux NVIDIA GPU machine with a compatible driver, Docker, andthe NVIDIA Container Toolkit configured. The currentimage builduses CUDA 13. Check driver compatibility with the image you pull. The ARM64 image is for ARMmachines with compatible NVIDIA hardware; Docker on an Apple Silicon laptop does not providethis CUDA setup.The Hugging Face repositories currently require accepting the access conditions on the modelpage. Do that first, then supply a Hugging Face read token with access to the checkpoint:export HF TOKEN your-hugging-face-read-token docker pull ghcr.io swiss-ai vllm apertus 1.5 release:latest-amd64Start an 8B server:docker run --rm --gpus all --ipc host -p 127.0.0.1:8000:8000 -e HF TOKEN -v HOME .cache huggingface: root .cache huggingface ghcr.io swiss-ai vllm apertus 1.5 release:latest-amd64 vllm serve swiss-ai Apertus-v1.5-8B --host 0.0.0.0 --port 8000 --chat-template-content-format string --gpu-memory-utilization 0.9 --max-model-len 8192The cache mount keeps downloaded weights between runs. Port 8000 is exposed on your machine sloopback interface. The memory utilization setting lets vLLM budget 90 of GPU memory; this isa starting configuration for a dedicated GPU, not a guarantee that the model fits.Once the server has loaded the checkpoint, verify the endpoint:curl http: localhost:8000 v1 modelsYou can now use the same Python client pattern as above:client OpenAI base url http: localhost:8000 v1 , api key local In chat.completions.create, use model swiss-ai Apertus-v1.5-8B .The local key is a client placeholder; the command above does not enable server authentication.For the official 70B example, switch the checkpoint to swiss-ai Apertus-v1.5-70B and add--tensor-parallel-size 4 to split it across four GPUs. The required GPU memory still depends onprecision, context, and concurrency. For repeatable experiments, record the container digest andmodel revision rather than relying indefinitely on a moving latest tag.If startup fails with an unknown apertus1p5 architecture, check that you are running the Swiss AIimage. If vLLM cannot allocate a KV cache, reduce --max-model-len; if the weights themselves donot fit, a shorter context alone will not solve the problem.Option 2: Run Inference Directly with TransformersUse a separate Python environment so that the Apertus integration does not replace a libraryversion needed by another project. The official model card pins this Transformers revision:python3 -m venv .venv-apertussource .venv-apertus bin activatepip install acceleratepip install transformers torch,vision,audio git https: github.com swiss-ai transformers.git 3797303dda74844e3d1f8977ff5518bb91f818b4 With HF TOKEN set as above, save the following as local apertus.py. It follows theofficial Transformers guide and uses theprocessor to prepare the model input:import torchfrom transformers import AutoModelForMultimodalLM, AutoProcessorMODEL ID swiss-ai Apertus-v1.5-8B processor AutoProcessor.from pretrained MODEL ID model AutoModelForMultimodalLM.from pretrained MODEL ID, dtype auto , device map auto .eval def answer messages, thinking False, budget 512 : batch processor.apply chat template messages, enable thinking thinking, add generation prompt True, tokenize True, return dict True, return tensors pt , .to model.device with torch.inference mode : generated model.generate batch, max new tokens budget new tokens generated 0, batch input ids .shape -1 : return processor.decode new tokens, skip special tokens True messages role : user , content : Explain xIELU in one sentence. print answer messages Run python local apertus.py. The slicing step removes the input prompt from the decoded output.device map auto selects device placement; it does not guarantee that the model fits entirelyon your GPU, and offloading can be slow.To try an image, replace messages with:messages role : user , content : type : image , path : diagram.png , type : text , text : Explain the main components in this diagram. , , Supply a real local diagram.png. For an audio experiment, use an audio block such as type : audio , path : recording.wav and a text instruction to transcribe or summarize it.The processor handles media loading. Avoid calling .half on the entire loaded model: theimage and audio tokenizers retain FP32 precision deliberately. Themodel card s media examplesdocument the accepted inputs and precision requirements.A Laptop Option: Text-Only GGUFThe official Ollama guide lists community conversions,including Andreas Martin s Apertus 1.5 8B text-only build. ItsQ8 0 model cardprovides this llama.cpp route for macOS and Linux:brew install llama.cppllama-server --hf-repo andreasmartin apertus-v1.5-8b-text-Q8 0-GGUF --hf-file apertus-v1.5-8b-text-q8 0.gguf -c 2048The model file is approximately 8.57 GB, with additional memory needed at runtime. This is acommunity text-only conversion: use it for a text demo, and use the Swiss AI stack above whenyour hack needs the original checkpoint s image or audio processing. Check the conversion schat template and reasoning support before depending on thinking mode.Thinking Mode and the Chat TemplateThinking mode is selected through the chat template. The template serializes your messagesand configuration into the token sequence the model was trained to interpret. Asking it to think carefully in an ordinary user message is not the same configuration switch.From Alpaca Instructions to Structured ConversationsThe familiar Stanford Alpaca formatuses readable headings for an instruction, optional input, and response. A shortened example is: Instruction:Summarize this document. Input: document text Response:Apertus instead uses special tokens to delimit roles and carries deliberation and toolconfiguration in a developer block. For a simple text conversation, the structure looks likethis, with a leading beginning-of-sequence token omitted and spacing added for readability: lt; system start gt;Give concise, practical answers. lt; system end gt; lt; developer start gt;Deliberation: disabledTool Capabilities: disabled lt; developer end gt; lt; user start gt;Summarize this document: document text lt; user end gt; lt; assistant start gt;The assistant s reply ends with lt; assistant end gt;. Unlike Alpaca s single instruction inputpair, these role boundaries can represent a conversation with multiple turns. The developer blockalso gives model behavior an explicit configuration location. Let apply chat template or yourAPI server produce this sequence; do not wrap it again in Alpaca headings.With thinking enabled, the developer line becomes Deliberation: enabled. The assistant can thengenerate a reasoning span before its final answer: lt; assistant start gt; lt; inner prefix gt; generated reasoning lt; inner suffix gt; final answer lt; assistant end gt;These delimiters are Apertus-specific; a parser expecting Qwen-style lt;think gt; tags will not matchthem. The canonical chat templatedefines the role blocks, reasoning markers, media placeholders, and tool serialization.Enable Thinking in Python or vLLMUsing the Transformers helper from above:messages role : user , content : Find all positive integers n for which n squared plus n equals 210. , print answer messages, thinking True, budget 2048 This passes enable thinking True to the template. Give generation enough tokens for bothdeliberation and the final answer. If it exhausts the budget during reasoning, your applicationmay receive no completed answer. The model card notes that the reasoning markers remain indecoded text even with skip special tokens True, so handle that span explicitly when displayingthe result.For vLLM, stop the previous container and repeat its launch command with these additional flagsafter --max-model-len 8192:--served-model-name swiss-ai Apertus-v1.5-8B-thinking --reasoning-parser apertus --default-chat-template-kwargs.enable thinking trueUse swiss-ai Apertus-v1.5-8B-thinking as the model name in subsequent API requests and increasemax tokens, for example to 2048. The alias identifies this server configuration; it does notdownload a different set of weights. The template flag enables deliberation, while the reasoningparser separates the reasoning span from the answer. See theofficial thinking-mode setup.What About Tools For a tool-enabled, non-thinking vLLM server, add these flags to the original launch command:--enable-auto-tool-choice --tool-call-parser apertusYour application supplies function definitions in the request s tools field. The templateserializes their schemas into the developer block. The model proposes a call; your applicationexecutes the function and sends its result back as a tool message before requesting the nextresponse. Serving a model with a tool parser does not execute application functions by itself.The current official setup does not support tool calling in thinking mode. Choose thenon-thinking configuration for a tool-based agent, or use separate requests for reasoning andtool execution. The model cardexplicitly omits tool flags from its thinking examples.A Starting Point for Your HackStart with a hosted API if you want to concentrate on your application, or the 8B vLLM server ifyou need local control. Use the model s own chat template throughout. Enable thinking for tasksthat benefit from a longer reasoning process, and budget for the additional generation time.For a tool-based workflow, begin with the supported non-thinking configuration.Before building a larger interface, try a small set of real examples from your intended task:your target languages, your documents or images, and the output format your code expects. Thatwill tell you more about the fit for your hack than parameter count alone.What Matters in Each TrackTrack 1A, Red-Teaming: Read the chat template section carefully. System prompt, developer blockand thinking mode all influence how the model responds, and many interesting behaviors only appearunder specific configurations. A finding is only useful to the Apertus team if others can reproduceit, so record the exact model, template settings and sampling parameters for every result, andcompare 8B and 70B where you can.Track 1B, Swiss Voices: If your project works with spoken Swiss German or other audio, keep inmind that audio understanding is still experimental in 1.5. Test a handful of your own recordingson day one, before you commit to an audio-based design, and have a text-based fallback ready. Fortext-based dialect work, check early how the model handles your target dialects in both inputand output.Track 2, Adoption Academia and Own Project : Decide early whether your application needsthinking mode or tool calling, because the current setup does not combine the two. Agents thatcall tools should use the non-thinking configuration. If your task benefits from longer reasoning,budget enough output tokens and handle the reasoning span explicitly in your interface.For our measured comparison of Apertus 1.5, Apertus 1.0, and thinking mode, continue withLLM Benchmark Evaluation - Apertus 1.5-8B.">
+        You have an idea for Hack Apertus. Now you need a model endpoint, a working prompt, and a way to
+connect the two. This post introduces Apertus 1.5 and takes you through the practical steps: calling
+a hosted API, running the model on your own hardware, and enabling its thinking mode.
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/preview/pr-45/2026/07/29/Apertus15Bench.html" class="post-excerpt-image" aria-label="LLM Benchmark Evaluation - Apertus 1.5-8B">
+        <img src="/preview/pr-45/images/posts/Apertus15Bench-summary_average_performance.png" alt="LLM Benchmark Evaluation - Apertus 1.5-8B" loading="lazy" onerror="this.src = '/preview/pr-45/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/preview/pr-45/2026/07/29/Apertus15Bench.html">LLM Benchmark Evaluation - Apertus 1.5-8B</a>
+
+      <div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>July 29, 2026</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>October 01, 2026</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-45/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-45/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="The UpdateLast year we evaluated the newly released Apertus-8B-Instruct and shared our independentbenchmark impressions in our first Apertus post. Since then, the Swiss AI Initiative acollaboration between ETH Zurich, EPFL, and the Swiss National Supercomputing Centre, CSCS hascontinued to develop the model family, and the 8B checkpoint has received a substantial update:Apertus 1.5.The underlying philosophy has not changed. Apertus 1.5 is still a fully open model. It is trainedon publicly available data, respects robots.txt, filters toxic and personally identifiablecontent, and ships with reproduction artifacts. What changed is capability. During our evaluationwe observed three concrete additions in the 8B checkpoint swiss-ai Apertus-v1.5-8B : A thinking deliberation mode. The model can reason at length before producing an answer,controlled through the chat template. A longer context window of 262k tokens, up from 65k in the 1.0 instruct model. Multimodal components in the weights vision and audio tokenizers and a tool-calling chat template.This post concentrates on two questions. First, how much does 1.5 improve over 1.0 Second, whatdoes thinking mode actually contribute Rather than a broad cross-model leaderboard, we present agenerational study: Apertus 1.5 in normal and thinking mode, measured against the 1.0 instructbaseline from last year under identical settings. Benchmarking the ModelOur goals were the same as before, and deliberately modest. We wanted to form our own impressionof the model and to check whether the reported improvements hold under a consistent, reproducibleharness. We again used EleutherAI s Language Model Evaluation Harness,this time driven by vLLM through the official Swiss-AI Apertus vLLM fork. The image is required,because a stock installation of vLLM cannot yet serve the 1.5 architecture.All evaluations ran fully on one H100 GPU. Apertus 1.5 normal and thinking and the Apertus 1.0 baseline were evaluatedwith identical settings, so the comparison between them is fair.Open Models and Open Weight ModelsWe continue to use the terminology from the Technical Report. Open weight models publish theirweights but not their data or training artifacts for example, the Qwen family . Open models aimto make everything reproducible, including data-pipelines and training details for example, OLMo, andApertus .Quicklinks to Apertus Resources: Technical Report: Swiss-AI Apertus Technical Report Model Hub: Hugging Face: Swiss AI Models Official Blog: Swiss AI Apertus AnnouncementImportant disclaimer:The benchmarks were produced with swiss-ai Apertus-v1.5-8B and swiss-ai Apertus-8B-Instruct-2509from Hugging Face, using a subset of tasks from EleutherAI s Language Model Evaluation Harnessserved through the Swiss-AI vLLM image. The raw results and benchmark logs can be found in ourGitHub repository unisg-ics-dsnlp Apertus-1.5-Benchmark-Results.These benchmarks are not exhaustive and are intended only to provide an independent overview. Forcomprehensive, official numbers please refer to the Swiss-AI Apertus Technical Report.Selected BenchmarksWe organized the evaluation into three parts, each addressing a different question.Part 1, core text capabilities. Is 1.5 broadly better than 1.0 We used GPQA-Diamond graduatescience , Global-MMLU knowledge , IFEval instruction following , MMLU-Pro multi-domainknowledge , LongBench long context , and GSM8K grade-school math .Part 2, multilingual breadth. Does 1.5 improve across languages, and not only in English Weused four families covering up to 14 languages: Global-MMLU knowledge , Belebele readingcomprehension , multilingual ARC-Challenge reasoning , and multilingual HellaSwag commonsense .Part 3, thinking and reasoning. What does deliberation mode contribute We assembled agenerative reasoning suite in which step-by-step reasoning is expected to help: MATH-500, AIME 2024and 2025 competition math , GPQA-main science, chain-of-thought , and MGSM multilingualgrade-school math . We ran 1.5 in both normal and thinking mode, with 1.0 as the baseline.Part 1: Core Text BenchmarksThe following table compares Apertus 1.5 normal , Apertus 1.5 thinking, and our re-measured 1.0baseline on the full test sets. The final column reproduces the published Apertus 1.0 TechnicalReport figure for the same 8B-Instruct model, where a comparable benchmark exists. Benchmark Metric Apertus 1.5 1.5 thinking Apertus 1.0 ours Apertus 1.0 tech report GPQA-Diamond acc, 0-shot 29.8 26.3 ᵃ 24.7 27.0 ᵇ Global-MMLU en acc 71.0 n a ᶜ 63.7 55.7 ᵈ IFEval prompt-strict acc 85.8 72.1 68.9 71.7 ᵉ MMLU-Pro exact-match, 5-shot 45.9 45.5 35.3 n a LongBench score 44.2 43.4 35.3 n a GSM8K exact-match flexible 79.6 85.3 60.2 62.9 Footnotes ᵃ Thinking mode cannot run multiple-choice tasks, so GPQA here is the CoT-generative variant gpqa diamond cot zeroshot, exact-match . It is therefore not directly comparable to the 0-shot multiple-choice number in the other columns. ᵇ The Technical Report uses GPQA Main 0-shot , a different and larger question subset than GPQA-Diamond. ᶜ Global-MMLU is multiple-choice, so it was not run in thinking mode. ᵈ The Report s Global-MMLU is a multilingual average, whereas ours is English only. ᵉ Our 1.0 prompt-loose IFEval is 71.7. Once the metric variant is matched, our number agrees with the Report.The generational improvement is large. In normal mode, Apertus 1.5 improves on 1.0 on every corebenchmark: MMLU-Pro by 10.6 points, GSM8K by 19.4, IFEval by 16.9, LongBench by 8.9, Global-MMLU-enby 7.3, and GPQA by 5.1. The gains are consistent across quite different task types.One result is worth calling out as a validation check. Our re-measured 1.0 IFEval 68.9 strict,71.7 loose now agrees closely with the Technical Report value of 71.7. In last year s evaluationour IFEval score was well below the Report. The setup used here, the official vLLM image togetherwith the model s own chat template, closes that gap. This is a useful reminder that evaluationtooling has a measurable effect on results. Thinking mode in the core setThinking mode is not uniformly better. It helps math GSM8K improves from 79.6 to 85.3 . It isroughly flat on broad knowledge and long context MMLU-Pro, LongBench . And it reduces strictinstruction-following IFEval falls from 85.8 to 72.1 , because the model reasons at length insteadof following the requested output format exactly. This pattern recurs throughout the study.Deliberation helps on hard multi-step problems, but it is not a free improvement on every task.Part 2: Multilingual BreadthApertus is designed for broad language coverage. To test whether 1.5 delivers this acrosslanguages, we ran four multiple-choice families. All values are accuracy. HellaSwag uses thestandard length-normalized acc norm. Family Metric Languages Apertus 1.5 Apertus 1.0 Δ Global-MMLU acc 10 62.1 56.9 5.2 Belebele reading acc 14 77.6 67.5 10.1 ARC-Challenge multilingual acc 10 46.8 42.9 3.9 HellaSwag multilingual acc norm 9 53.6 61.9 8.3 Apertus 1.5 improves on knowledge, reading comprehension, and reasoning in every language wetested. The gains are broad rather than concentrated in a few high-resource languages. Belebeleshows this most clearly, with an average improvement of 10 points over 14 languages and everylanguage improving for example, Arabic from 65 to 78, Italian from 69 to 80, and Hindi from 61 to69 .Portuguese is a notable case. It was a weak point in 1.0 and is much stronger in 1.5. Global-MMLUPortuguese improves from 39.5 to 63.2, a gain of 23.7 points, and Belebele Portuguese from 57.2 to78.7, a gain of 21.4 points. These are the largest per-language changes in the study. HellaSwag is the exception. Here 1.0 scores higher than 1.5 in every language, with an averagedifference of 8.3 points on acc norm. This is a consistent regression. One interpretation is that1.5 traded some surface-level sentence-completion performance for its gains in knowledge, reading,and reasoning. We report it directly rather than averaging it away.Part 3: Thinking and ReasoningThe final question is what thinking mode contributes on problems that require multi-step reasoning.We built a generative suite in which deliberation is expected to help, and ran Apertus 1.5 in bothnormal and thinking mode, with 1.0 as the baseline 1.0 has no thinking mode . Normal mode wasgiven a generation budget large enough that math solutions are not truncated. Benchmark Metric Apertus 1.0 1.5 normal 1.5 thinking MATH-500 math verify symbolic 20.2 54.0 71.0 AIME 2024 exact-match 0.0 10.0 20.0 AIME 2025 exact-match 0.0 13.3 20.0 GPQA-main exact-match CoT 26.3 29.7 25.0 MGSM avg, 7 languages exact-match 50.4 68.6 79.1 Two observations follow.First, most of the improvement is already present in normal mode, before thinking is enabled. Innormal mode, 1.5 substantially improves the model s math ability. MATH-500 rises from 20.2 to 54.0,and MGSM from 50.4 to 68.6. On the AIME competition sets, 1.0 solves none of the problems in eitheryear, whereas 1.5 solves 10 to 13 percent. The 1.0 instruct model could not solve competition mathproblems, and 1.5 can.Second, thinking mode adds a further, sizable gain on top. MATH-500 reaches 71.0, AIME roughlydoubles to 20 percent, and MGSM reaches 79.1, improving in all seven languages French by 17.6points, Russian by 17.2 . For hard multi-step math, thinking mode is clearly the right setting.The exception is science knowledge. GPQA-main is flat to slightly lower under thinking, moving from29.7 to 25.0. Thinking mode helps reasoning rather than factual recall, which is consistent withMMLU-Pro being flat in Part 1.A metric caveatOn MATH-500, the strict boxed answer-extraction metric falls to 2.8 percent in thinking mode.This is not because the answers are wrong. The longer deliberation output does not place the finalanswer where the rigid parser expects it. The symbolic-equivalence metric math verify recoversthe true score of 71.0 percent. This is the same effect as the IFEval drop in Part 1. Thinking modecan break brittle exact-format metrics while improving the underlying answer. When evaluating areasoning model, it is important to use a semantics-aware metric. Otherwise the model s capabilityis badly under-reported.Apertus 1.5 in ContextThe results so far are generational, comparing 1.5 against 1.0. A natural follow-up question is howApertus 1.5 stands among other openly available models of a similar size. The figure below places itnext to a selection of open models, which publish their training data as well as their weights forexample OLMo , and open weight models, which publish weights only for example Qwen, Llama, Gemma,and Nemotron , on four widely reported benchmarks. Two cautions apply. First, only the Apertus numbers were produced by our harness. The other valuesare taken from public model cards, technical reports, and the Open LLM Leaderboard, and they weremeasured under different settings. Our own IFEval experience earlier in this post shows that toolingalone can shift a score by more than ten points, so the cross-model bars are indicative rather thandefinitive. Second, the ranking is mixed, which is what we expected. Apertus 1.5 is strong oninstruction following and roughly mid-pack on grade-school math, and it trails the strongest openweight models such as Qwen2.5 on MMLU-Pro and GPQA. For a fully open model this is a reasonableposition, and it fits the argument we started with. The value of an open model lies not only in asingle score, but in the fact that anyone can reproduce it and build on it.Key Observations A clear generational improvement. Across the core text benchmarks, Apertus 1.5 improves on1.0 by roughly 9 to 19 points on MMLU-Pro, GSM8K, IFEval, and LongBench. The gains are consistentacross different task types. Broadly multilingual. Reading comprehension Belebele and knowledge Global-MMLU improve inevery language tested. Portuguese shows the single largest improvement. Thinking mode is a targeted tool. It produces large gains on multi-step math MATH-500 by 17points, AIME roughly doubled, MGSM by 10.5 . It is neutral to slightly negative on knowledge andstrict-format tasks. Enable it for reasoning, and disable it for instruction-following. One regression. Multilingual HellaSwag falls by about 8 points. It is worth monitoring, but itis narrow compared to the breadth of the gains. Evaluation tooling matters. Matching the model s own chat template and using a semantics-awaremetric moved our 1.0 IFEval into agreement with the Technical Report, and turned an apparentMATH-500 collapse back into a 71 percent result. A fair comparison depends on careful, identicalsettings. References 1 Swiss AI Initiative. 2025 . Apertus Technical Report. GitHub Repository. https: github.com swiss-ai apertus-tech-report 2 Gao, L., Tow, J., Biderman, S., et al. 2023 . A framework for few-shot language model evaluation. Zenodo. https: doi.org 10.5281 zenodo.10256836 3 Zhou, J., Lu, T., Mishra, S., et al. 2023 . Instruction-Following Evaluation for Large Language Models IFEval . arXiv. https: arxiv.org abs 2311.07911 4 Wang, Y., Ma, X., Zhang, G., et al. 2024 . MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark. arXiv. https: arxiv.org abs 2406.01574 5 Bandarkar, L., Liang, D., Muller, B., et al. 2023 . The Belebele Benchmark: a Parallel Reading Comprehension Dataset in 122 Language Variants. arXiv. https: arxiv.org abs 2308.16884 6 Singh, S., Romanou, A., Fourrier, C., et al. 2024 . Global-MMLU: Understanding and Addressing Cultural and Linguistic Biases in Multilingual Evaluation. arXiv. https: arxiv.org abs 2412.03304 7 Hendrycks, D., Burns, C., Kadavath, S., et al. 2021 . Measuring Mathematical Problem Solving With the MATH Dataset. arXiv. https: arxiv.org abs 2103.03874 8 Shi, F., Suzgun, M., Freitag, M., et al. 2022 . Language Models are Multilingual Chain-of-Thought Reasoners MGSM . arXiv. https: arxiv.org abs 2210.03057 9 Rein, D., Hou, B. L., Stickland, A. C., et al. 2023 . GPQA: A Graduate-Level Google-Proof Q amp;A Benchmark. arXiv. https: arxiv.org abs 2311.12022">
+        The Update
+
+      </p>
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="highlights">Highlights</h2>
+
+<div class="feature">
+  <a href="/preview/pr-45/research" class="feature-image" aria-label="Our Research">
+    <img src="/preview/pr-45/images/HSG_Daten_01.png" loading="lazy" alt="Our Research" onerror="this.src = '/preview/pr-45/images/fallback.svg'; this.onerror = null;">
+  </a>
+  <div class="feature-text">
+    
+      <p class="feature-title">Our Research</p>
+    
+    
+<p>The DS NLP Lab has already published various papers and publications. An overview of all publications and a few highlights can be found in the publications tab.</p>
+
+<div class="button-wrapper">
+    <a class="button" href="/preview/pr-45/research" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
+      <i class="icon fa-solid fa-arrow-right"></i>
+      
+        <span>See our publications</span>
+      
+    </a>
+  </div>
+
+
+  </div>
+</div>
+
+<div class="feature" data-flip="">
+  <a href="/preview/pr-45/projects" class="feature-image" aria-label="Our Projects">
+    <img src="/preview/pr-45/images/cites/book_generativeK%C3%BCnstlicheIntelligenz.jpg" loading="lazy" alt="Our Projects" onerror="this.src = '/preview/pr-45/images/fallback.svg'; this.onerror = null;">
+  </a>
+  <div class="feature-text">
+    
+      <p class="feature-title">Our Projects</p>
+    
+    
+<p>Explore the books authored by the DS-NLP Lab team, showcasing our contributions to the fields of Artificial Intelligence, Data Science, and their societal impacts.</p>
+
+<div class="button-wrapper">
+    <a class="button" href="/preview/pr-45/books" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
+      <i class="icon fa-solid fa-arrow-right"></i>
+      
+        <span>See our recent books</span>
+      
+    </a>
+  </div>
+
+
+  </div>
+</div>
+
+<div class="feature">
+  <a href="/preview/pr-45/team" class="feature-image" aria-label="Our Team">
+    <img src="/preview/pr-45/images/HSG_Illustration_Lecure.png" loading="lazy" alt="Our Team" onerror="this.src = '/preview/pr-45/images/fallback.svg'; this.onerror = null;">
+  </a>
+  <div class="feature-text">
+    
+      <p class="feature-title">Our Team</p>
+    
+    
+<p>We are a steadily growing motivated team that aims to explore the world of data science and natural language processing.</p>
+
+<div class="button-wrapper">
+    <a class="button" href="/preview/pr-45/team" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
+      <i class="icon fa-solid fa-arrow-right"></i>
+      
+        <span>Meet our team</span>
+      
+    </a>
+  </div>
+
+
+  </div>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-45/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-45/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2026
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
