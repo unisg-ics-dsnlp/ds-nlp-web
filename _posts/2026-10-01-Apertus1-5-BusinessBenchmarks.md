@@ -351,11 +351,17 @@ First, **Apertus decides for itself whether to think**, and a strict format inst
 the category») suppresses reasoning even when thinking is enabled. We had to add a sentence asking the
 model to think step by step first.
 
-Second, **for Apertus 1.5 70B, thinking barely helps**: between −4 and +5 points depending on the task
-(−1 to +5 if we only count answers where the reasoning finished),
+Second, **for Apertus 1.5 70B, thinking barely helps in our benchmark setting**: between −4 and +5 points
+depending on the task (−1 to +5 if we only count answers where the reasoning finished),
 while the answer time on contract clauses grows from 1.5 to 27 seconds, and in one of nine contract
 cases the reasoning did not finish within 3,072 tokens. GPT-5.6 and Claude Haiku 4.5 benefit more,
 mainly on irony (+5 to +12 points).
+
+This should not be read as "thinking is useless". Our tasks are short classification and extraction
+problems, where the answer depends on recognising a pattern rather than on several steps of inference.
+Where a task does require multi-step reasoning, thinking pays off clearly: in
+[our academic evaluation]({% link _posts/2026-07-29-Apertus15Bench.md %}), thinking mode lifted Apertus 1.5 8B
+by 17 points on MATH-500 and by 10.5 points on multilingual grade-school math (MGSM).
 
 We did not complete the run for Apertus 1.5 8B: with thinking, it needed 15 to 50 seconds per case on our
 Mac, which made the full test impractical. Whether thinking fixes the small model's error types remains
