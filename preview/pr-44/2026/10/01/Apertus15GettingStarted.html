@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Götz-Henrik Wiegand"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-01T14:54:12+00:00">
+  <meta property="og:updated_time" content="2026-10-01T15:11:14+00:00">
   <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-01T14:54:12+00:00">
-  <meta name="revised" content="2026-10-01T14:54:12+00:00">
+  <meta property="article:modified_time" content="2026-10-01T15:11:14+00:00">
+  <meta name="revised" content="2026-10-01T15:11:14+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Getting Started with Apertus 1.5: Architecture, API, and Local Deployment" },
       "datePublished": "2026-10-01T00:00:00+00:00",
-      "dateModified": "2026-10-01T14:54:12+00:00",
+      "dateModified": "2026-10-01T15:11:14+00:00",
     
     "name": "Getting Started with Apertus 1.5: Architecture, API, and Local Deployment",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -1061,6 +1061,25 @@ For a tool-based workflow, begin with the supported non-thinking configuration.<
 <p>Before building a larger interface, try a small set of real examples from your intended task:
 your target languages, your documents or images, and the output format your code expects. That
 will tell you more about the fit for your hack than parameter count alone.</p>
+
+<h3 id="what-matters-in-each-track">What Matters in Each Track</h3>
+
+<p><strong>Track 1A, Red-Teaming:</strong> Read the chat template section carefully. System prompt, developer block
+and thinking mode all influence how the model responds, and many interesting behaviors only appear
+under specific configurations. A finding is only useful to the Apertus team if others can reproduce
+it, so record the exact model, template settings and sampling parameters for every result, and
+compare 8B and 70B where you can.</p>
+
+<p><strong>Track 1B, Swiss Voices:</strong> If your project works with spoken Swiss German or other audio, keep in
+mind that audio understanding is still experimental in 1.5. Test a handful of your own recordings
+on day one, before you commit to an audio-based design, and have a text-based fallback ready. For
+text-based dialect work, check early how the model handles your target dialects in both input
+and output.</p>
+
+<p><strong>Track 2, Adoption (Academia and Own Project):</strong> Decide early whether your application needs
+thinking mode or tool calling, because the current setup does not combine the two. Agents that
+call tools should use the non-thinking configuration. If your task benefits from longer reasoning,
+budget enough output tokens and handle the reasoning span explicitly in your interface.</p>
 
 <p>For our measured comparison of Apertus 1.5, Apertus 1.0, and thinking mode, continue with
 <a href="/preview/pr-44/2026/07/29/Apertus15Bench.html"><strong>LLM Benchmark Evaluation - Apertus 1.5-8B</strong></a>.</p>
