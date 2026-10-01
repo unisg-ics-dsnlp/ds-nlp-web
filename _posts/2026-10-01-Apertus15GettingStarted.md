@@ -471,5 +471,24 @@ Before building a larger interface, try a small set of real examples from your i
 your target languages, your documents or images, and the output format your code expects. That
 will tell you more about the fit for your hack than parameter count alone.
 
+### What Matters in Each Track
+
+**Track 1A, Red-Teaming:** Read the chat template section carefully. System prompt, developer block
+and thinking mode all influence how the model responds, and many interesting behaviors only appear
+under specific configurations. A finding is only useful to the Apertus team if others can reproduce
+it, so record the exact model, template settings and sampling parameters for every result, and
+compare 8B and 70B where you can.
+
+**Track 1B, Swiss Voices:** If your project works with spoken Swiss German or other audio, keep in
+mind that audio understanding is still experimental in 1.5. Test a handful of your own recordings
+on day one, before you commit to an audio-based design, and have a text-based fallback ready. For
+text-based dialect work, check early how the model handles your target dialects in both input
+and output.
+
+**Track 2, Adoption (Academia and Own Project):** Decide early whether your application needs
+thinking mode or tool calling, because the current setup does not combine the two. Agents that
+call tools should use the non-thinking configuration. If your task benefits from longer reasoning,
+budget enough output tokens and handle the reasoning span explicitly in your interface.
+
 For our measured comparison of Apertus 1.5, Apertus 1.0, and thinking mode, continue with
 [**LLM Benchmark Evaluation - Apertus 1.5-8B**]({% post_url 2026-07-29-Apertus15Bench %}).
