@@ -47,8 +47,8 @@ The short version:
 4. Most of its errors are of three kinds, all fixable: answers that are not on the allowed list,
    a few labels it uses far too often, and values it invents when information is missing.
 5. It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests.
-6. Given the scanned receipt instead of the OCR text, it does worse (62 instead of 71 percent of fields
-   correct), while Qwen 3.5 9B and the frontier models do better. For now, run OCR first.
+6. Reading scanned receipts directly is its weak spot: it misreads dates and totals, which Qwen 3.5 9B
+   reads almost without error.
 
 {% include section.html %}
 
@@ -337,20 +337,26 @@ Swiss model. Image input works on the Mac as well, as the next section shows; au
 
 ## Reading the Scan Instead of the Text
 
-Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without the OCR text.
+Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.
 Same 361 SROIE receipts, same four fields, same scoring. We ran it on the Mac and compared it with Qwen 3.5
 9B, which also reads images and runs on the same machine, and with the two frontier models.
 
-{% include figure.html image="images/posts/Apertus15Business-scan.png" caption="The same 361 receipts as OCR text (hollow) and as a scanned image (filled). Qwen 3.5 9B and the frontier models gain from the scan, mostly on the address; Apertus 1.5 8B loses on dates and totals." %}
+As a reference we show the text results from above. That text is the transcript that comes with the
+dataset, made as ground truth for an OCR competition. Its characters are clean, but it is flat, a run of
+words without layout, and it is incomplete: on a typical receipt almost a third of the address words are
+missing. The scan holds more information than the transcript, and a model that reads it well can do better
+than with the text.
+
+{% include figure.html image="images/posts/Apertus15Business-scan.png" caption="The same 361 receipts as the dataset's reference transcript (hollow) and as a scanned image (filled). Qwen 3.5 9B and the frontier models read the scan well, Apertus 1.5 8B misreads dates and totals." %}
 
 What we found:
 
-1. For Apertus, the scan is worse than the text: 61.6 percent of fields correct instead of 70.7. Dates
-   fall from 99 to 71 percent and totals from 81 to 64. The model misreads digits: 15/01/2019 becomes
-   13/01/2019, and a total of 193.00 becomes 198. It never answers null for these fields. It returns a
-   plausible wrong number, which is harder to catch than an empty field.
-2. The other three models gain from the scan, mostly on the address, where the layout shows which lines
-   belong together. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
+1. From the scan, Apertus gets 61.6 percent of fields right, with dates at 71 percent and totals at 64.
+   The model misreads digits: 15/01/2019 becomes 13/01/2019, and a total of 193.00 becomes 198. It never
+   answers null for these fields. It returns a plausible wrong number, which is harder to catch than an
+   empty field.
+2. The other three models do better from the scan than from the transcript, mostly on the address, where
+   the layout shows which lines belong together and nothing is missing. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
    40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;
    Apertus gets 17 percent.
 3. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac it needed about
@@ -365,8 +371,9 @@ One practical note if you try this yourself: our first run sent four scans to th
 grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared after each
 batch, fixed it.
 
-For document work with Apertus 1.5 8B today, run OCR first and give Apertus the text. If the layout
-matters, use the scan for fields such as the address, and check dates and totals against the OCR text.
+If you build document capture on Apertus 1.5 8B, check every date and total it reads from a scan, for
+example against the sum of the line items, or let a model that reads scans well do that part. Whether a
+classic OCR step in front of Apertus works better, we have not tested.
 
 {% include section.html dark=true %}
 
@@ -481,7 +488,7 @@ Apertus 1.5 8B is a solid document model that you can run privately on a single 
 amounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: check
 labels against the allowed list, split long category lists into two steps, and verify every extracted
 field against the source. The 70B model mainly adds the ability to notice what is missing. Reading scans
-directly is its weakest point so far: give it OCR text instead. Qwen 3.5 9B shows that open models of this
+directly is its weakest point so far: it misreads digits, so check every date and total. Qwen 3.5 9B shows that open models of this
 size can do better, on text and even more on images, which leaves room for the next Apertus release.
 
 We are presenting these results at the «Hack Apertus» online session on 2 October 2026. If you pick up one of
