@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-02T00:19:45+00:00">
+  <meta property="og:updated_time" content="2026-10-02T00:32:01+00:00">
   <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-02T00:19:45+00:00">
-  <meta name="revised" content="2026-10-02T00:19:45+00:00">
+  <meta property="article:modified_time" content="2026-10-02T00:32:01+00:00">
+  <meta name="revised" content="2026-10-02T00:32:01+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Can Apertus Do Your Business Tasks?" },
       "datePublished": "2026-10-01T00:00:00+00:00",
-      "dateModified": "2026-10-02T00:19:45+00:00",
+      "dateModified": "2026-10-02T00:32:01+00:00",
     
     "name": "Can Apertus Do Your Business Tasks?",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -1559,7 +1559,28 @@ starting point, get in touch.</p>
   <size></size>
 -->
 
-<h2 id="what-we-learned-about-evaluation">What We Learned About Evaluation</h2>
+<h2 id="what-we-learned">What We Learned</h2>
+
+<h3 id="about-apertus">About Apertus</h3>
+
+<ol>
+  <li>On text, Apertus 1.5 is a solid mid-field model. It reads documents well and stands roughly where
+OpenAI stood in 2023. Its weak spots are narrow and known: long category lists, answers off the allowed
+list, and the small model never saying «I don’t know».</li>
+  <li>The 70B model buys judgment more than reading skill. It notices what is missing and reads irony
+better, but it extracts receipts and invoices hardly better than the 8B model.</li>
+  <li>The image and audio results point to the same gap. Apertus perceives the input: it transcribes calls
+and reads most of a receipt. What it does not yet do reliably is connect what it perceived with the
+task it was given. Asking it to write the call down first lifts routing from 11 to 76 percent. That
+is our reading of the pattern, not a proven cause.</li>
+  <li>Thinking mode rarely pays off on tasks like these. They are pattern recognition, not chains of
+reasoning, and thinking costs seconds per case and sometimes does not finish.</li>
+  <li>Openness has a cost, but probably not the obvious one. Apertus did not see much less data than Llama 3.
+The language mix and the gap in structured formats are more likely suspects, and both are open
+research questions.</li>
+</ol>
+
+<h3 id="about-evaluation">About evaluation</h3>
 
 <p>Building this benchmark taught us about evaluation as much as about the models. Four things moved our
 numbers by more than many of the gaps between models:</p>
@@ -1575,7 +1596,21 @@ was not, so Gemma is not in our table.</li>
 every printed field. We adjusted the scoring to what can actually be read from the text.</li>
 </ol>
 
-<p>Our main advice: look at the raw outputs before trusting a score.</p>
+<p>The image and audio tests added three more lessons:</p>
+
+<ol>
+  <li>Ask what a comparison actually isolates. Twice our reference was not what we first took it for. The
+«text» version of the receipts was a flat, incomplete transcript, not a real OCR pipeline, so «read the
+text instead of the scan» was not a conclusion we could draw. And routing calls from a transcript tests
+reading, not listening.</li>
+  <li>Break a task into steps to find where it fails. A single score for «route this call» showed only that
+Apertus fails. Splitting it into listening, transcribing and sorting showed where.</li>
+  <li>A fair comparison is rare; an honest one is possible. Model size (unknown for GPT-3.5-turbo),
+quantisation, temperature, modalities, possible overlap with training data (SROIE has been public since
+2019) and openness all differ between the models we tested. Every number needs that context.</li>
+</ol>
+
+<p>Our main advice: look at the raw outputs before trusting a score, and say what each number measures.</p>
   </section>
 
   
