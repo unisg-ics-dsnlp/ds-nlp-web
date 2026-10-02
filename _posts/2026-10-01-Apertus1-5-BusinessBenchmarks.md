@@ -552,7 +552,26 @@ starting point, get in touch.
 
 {% include section.html %}
 
-## What We Learned About Evaluation
+## What We Learned
+
+### About Apertus
+
+1. On text, Apertus 1.5 is a solid mid-field model. It reads documents well and stands roughly where
+   OpenAI stood in 2023. Its weak spots are narrow and known: long category lists, answers off the allowed
+   list, and the small model never saying «I don't know».
+2. The 70B model buys judgment more than reading skill. It notices what is missing and reads irony
+   better, but it extracts receipts and invoices hardly better than the 8B model.
+3. The image and audio results point to the same gap. Apertus perceives the input: it transcribes calls
+   and reads most of a receipt. What it does not yet do reliably is connect what it perceived with the
+   task it was given. Asking it to write the call down first lifts routing from 11 to 76 percent. That
+   is our reading of the pattern, not a proven cause.
+4. Thinking mode rarely pays off on tasks like these. They are pattern recognition, not chains of
+   reasoning, and thinking costs seconds per case and sometimes does not finish.
+5. Openness has a cost, but probably not the obvious one. Apertus did not see much less data than Llama 3.
+   The language mix and the gap in structured formats are more likely suspects, and both are open
+   research questions.
+
+### About evaluation
 
 Building this benchmark taught us about evaluation as much as about the models. Four things moved our
 numbers by more than many of the gaps between models:
@@ -566,7 +585,19 @@ numbers by more than many of the gaps between models:
 4. Gold labels. SROIE receipts often lack part of the address in the OCR text, and DocILE does not annotate
    every printed field. We adjusted the scoring to what can actually be read from the text.
 
-Our main advice: look at the raw outputs before trusting a score.
+The image and audio tests added three more lessons:
+
+5. Ask what a comparison actually isolates. Twice our reference was not what we first took it for. The
+   «text» version of the receipts was a flat, incomplete transcript, not a real OCR pipeline, so «read the
+   text instead of the scan» was not a conclusion we could draw. And routing calls from a transcript tests
+   reading, not listening.
+6. Break a task into steps to find where it fails. A single score for «route this call» showed only that
+   Apertus fails. Splitting it into listening, transcribing and sorting showed where.
+7. A fair comparison is rare; an honest one is possible. Model size (unknown for GPT-3.5-turbo),
+   quantisation, temperature, modalities, possible overlap with training data (SROIE has been public since
+   2019) and openness all differ between the models we tested. Every number needs that context.
+
+Our main advice: look at the raw outputs before trusting a score, and say what each number measures.
 
 {% include section.html dark=true %}
 
