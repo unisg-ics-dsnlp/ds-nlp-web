@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Getting Started with Apertus 1.5: Architecture, API, and Local Deployment | DS-NLP Lab</title>
+
+<link rel="icon" href="/preview/pr-48/images/icon.png">
+
+<meta name="title" content="Getting Started with Apertus 1.5: Architecture, API, and Local Deployment">
+<meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+
+<meta property="og:title" content="Getting Started with Apertus 1.5: Architecture, API, and Local Deployment">
+<meta property="og:site_title" content="DS-NLP Lab">
+<meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="og:url" content="/preview/pr-48">
+<meta property="og:image" content="/preview/pr-48/images/ICS_HSG-LogoWithWhiteBackground.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Getting Started with Apertus 1.5: Architecture, API, and Local Deployment">
+<meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
+<meta property="twitter:url" content="/preview/pr-48">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/preview/pr-48/images/ICS_HSG-LogoWithWhiteBackground.png">
+
+
+  <meta name="author" content='["Götz-Henrik Wiegand"]'>
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2026-10-02T00:31:12+00:00">
+  <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-10-02T00:31:12+00:00">
+  <meta name="revised" content="2026-10-02T00:31:12+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Getting Started with Apertus 1.5: Architecture, API, and Local Deployment" },
+      "datePublished": "2026-10-01T00:00:00+00:00",
+      "dateModified": "2026-10-02T00:31:12+00:00",
+    
+    "name": "Getting Started with Apertus 1.5: Architecture, API, and Local Deployment",
+    "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
+    "headline": "Getting Started with Apertus 1.5: Architecture, API, and Local Deployment",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/preview/pr-48/images/icon.png" }
+    },
+    "url": "/preview/pr-48"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/preview/pr-48/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/preview/pr-48/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/preview/pr-48/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/preview/pr-48/_scripts/anchors.js"></script>
+
+  <script src="/preview/pr-48/_scripts/dark-mode.js"></script>
+
+  <script src="/preview/pr-48/_scripts/fetch-tags.js"></script>
+
+  <script src="/preview/pr-48/_scripts/search.js"></script>
+
+  <script src="/preview/pr-48/_scripts/site-search.js"></script>
+
+  <script src="/preview/pr-48/_scripts/table-wrap.js"></script>
+
+  <script src="/preview/pr-48/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/preview/pr-48/images/background.jpg')" data-dark="true">
+  <a href="/preview/pr-48/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 100" style="enable-background:new 0 0 90 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00802F;}
+</style>
+<g>
+	<path class="st0" d="M90,70L54.6,57.12c-1.22-0.44-2.15-1.45-2.49-2.71l-0.6-2.19c-0.62-2.27,0.85-4.58,3.16-4.99L90,41V70z
+		 M40.96,56.63L38.6,54c-1.26-1.4-3.34-1.73-4.97-0.79L8.1,67.94l4.46,25.28l9.96,0.87L41.46,61.3
+		C42.32,59.8,42.12,57.91,40.96,56.63z M35.91,27.5c-0.51-1.48-1.84-2.52-3.4-2.66L0,22l7.05,39.97l32.54-18.79
+		c0.83-0.48,1.2-1.48,0.88-2.38c-0.2-0.55-0.63-0.99-1.18-1.19c-2.5-0.9-4.29-3.3-4.29-6.12c0-1.02,0.24-1.99,0.66-2.85
+		C36.14,29.67,36.26,28.54,35.91,27.5 M90,0L41.73,22.51c-1.03,0.48-1.5,1.67-1.08,2.73l0.21,0.52c0.29,0.73,0.96,1.2,1.73,1.34
+		c2.03,0.35,3.87,1.65,4.81,3.66c1.1,2.36,0.66,5.04-0.91,6.92c-0.38,0.45-0.49,1.07-0.27,1.61c0.32,0.8,1.22,1.21,2.03,0.91L90,25
+		V0z M56.12,65.28c-3.85-2.7-9.19-1.51-11.53,2.57L29.18,94.68L90,100V89L56.12,65.28z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">DS-NLP Lab</span>
+        
+        
+          <span class="subtitle">Chair of Siegfried Handschuh | Data Science in Natural Language Processing</span>
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/preview/pr-48/research/" data-tooltip="Published works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/preview/pr-48/books/" data-tooltip="Published books">
+          Books
+        </a>
+      
+    
+      
+        <a href="/preview/pr-48/projects/" data-tooltip="Software, datasets, and more">
+          Projects
+        </a>
+      
+    
+      
+        <a href="/preview/pr-48/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/preview/pr-48/blog/" data-tooltip="Musings and miscellany">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/preview/pr-48/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">Getting Started with Apertus 1.5: Architecture, API, and Local Deployment</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        <span data-tooltip="Author">
+          <i class="icon fa-solid fa-feather-pointed"></i>
+          <span>götz-henrik wiegand</span>
+        </span>
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>October 01, 2026</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>October 02, 2026</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/preview/pr-48/blog?search="tag:%20transformers"' class="tag" data-tooltip='Show items with the tag "transformers"'>
+        transformers
+      </a>
+    
+      <a href='/preview/pr-48/blog?search="tag:%20machine-learning"' class="tag" data-tooltip='Show items with the tag "machine-learning"'>
+        machine-learning
+      </a>
+    
+      <a href='/preview/pr-48/blog?search="tag:%20large-language-models"' class="tag" data-tooltip='Show items with the tag "large-language-models"'>
+        large-language-models
+      </a>
+    
+      <a href='/preview/pr-48/blog?search="tag:%20artificial-intelligence"' class="tag" data-tooltip='Show items with the tag "artificial-intelligence"'>
+        artificial-intelligence
+      </a>
+    
+      <a href='/preview/pr-48/blog?search="tag:%20switzerland"' class="tag" data-tooltip='Show items with the tag "switzerland"'>
+        switzerland
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<p>You have an idea for Hack Apertus. Now you need a model endpoint, a working prompt, and a way to
+connect the two. This post introduces Apertus 1.5 and takes you through the practical steps: calling
+a hosted API, running the model on your own hardware, and enabling its thinking mode.</p>
+
+<p>It accompanies our hackathon presentation on benchmarking Apertus. For the evaluation results,
+see <a href="/preview/pr-48/2026/07/29/Apertus15Bench.html">our Apertus 1.5 benchmark post</a>. Here, we focus on
+getting the model into your application.</p>
+
+<p><strong>Version note:</strong> The deployment instructions and provider details below were checked on
+1 October 2026. Apertus 1.5 integrations are still being upstreamed, so use the linked official
+instructions when updating your environment.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="what-is-apertus">What Is Apertus?</h2>
+
+<p>Apertus is a family of open models developed by the Swiss AI Initiative, a collaboration between
+ETH Zurich, EPFL, and the Swiss National Supercomputing Centre (CSCS). Its defining ambition is
+transparency across the model’s development: weights, data sources, training recipes, and the
+principles used to align its behavior. The original models were trained on the Alps supercomputer.
+The <a href="https://apertus-ai.org/docs/overview/">official overview</a> explains the project and its goals.</p>
+
+<p>For developers, that openness makes it possible to inspect, adapt, and host the model yourself.
+Multilingual representation is another central design choice. The original training mixture
+contained approximately 40% non-English data, including FineWeb-2’s coverage of 1,811 languages.
+That describes the breadth of the data, rather than a guarantee of equal performance in every
+language. See the <a href="https://arxiv.org/html/2509.14233v1">Apertus 1.0 technical report</a> for the
+underlying architecture and training recipe.</p>
+
+<h3 id="what-changes-in-15">What Changes in 1.5?</h3>
+
+<p>Apertus 1.5 continues pretraining the original models and adds a new post-training pipeline. It
+comes in two sizes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Hugging Face checkpoint</th>
+      <th>Starting point</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8B</td>
+      <td><a href="https://huggingface.co/swiss-ai/Apertus-v1.5-8B"><code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-8B</code></a></td>
+      <td>Local experiments and applications with smaller compute budgets</td>
+    </tr>
+    <tr>
+      <td>70B</td>
+      <td><a href="https://huggingface.co/swiss-ai/Apertus-v1.5-70B"><code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-70B</code></a></td>
+      <td>Hosted APIs or server hardware with more memory</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The main additions are <strong>image and audio inputs</strong>, <strong>optional thinking mode</strong>, <strong>improved instruction
+following and tool use</strong>, and a <strong>262,144-token context window</strong>, up from 65,536 tokens. The output
+is text; Apertus 1.5 does not generate images or audio. Audio understanding remains experimental.
+The <a href="https://apertus-ai.org/articles/2026-07-apertus-1-5/">1.5 release announcement</a> describes these
+changes and the continued-pretraining stage: an additional 4T tokens for 8B and 2T for 70B, bringing
+the reported totals to 19T and 17T respectively.</p>
+
+<p>Useful official entry points are the <a href="https://apertus-ai.org/">Apertus website</a>,
+<a href="https://apertus-ai.org/docs/">documentation</a>, and <a href="https://huggingface.co/swiss-ai">Swiss AI model hub</a>.
+For available hosted services, consult the
+<a href="https://apertus-ai.org/articles/2026-09-apertus-1-5-ga/">inference ecosystem overview</a>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="how-does-the-architecture-differ-from-llama-and-qwen">How Does the Architecture Differ from Llama and Qwen?</h2>
+
+<p>Apertus uses a <strong>dense decoder-only Transformer</strong>. Like familiar Llama and Qwen models, it generates
+tokens autoregressively and uses grouped-query attention (GQA), rotary positional embeddings
+(RoPE), and RMSNorm. It is not a mixture-of-experts model: the dense language backbone is active
+for each token.</p>
+
+<p>The following comparison expands the table from our presentation. It includes both architecture
+and training choices; an optimizer or alignment method affects how the model is trained, but is
+not a component you run during inference. Llama and Qwen also span several generations, so the
+middle column is a broad reference rather than a specification for every release.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Typical Llama/Qwen-style choice</th>
+      <th>Apertus choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Feed-forward activation</td>
+      <td>SwiGLU, a gated activation</td>
+      <td>
+<strong>xIELU</strong>, a non-gated activation extending Squared ReLU to negative inputs, with learned coefficients</td>
+    </tr>
+    <tr>
+      <td>Pretraining optimizer</td>
+      <td>AdamW is a common baseline</td>
+      <td>
+<strong>AdEMAMix</strong>, combining gradient averages at different timescales</td>
+    </tr>
+    <tr>
+      <td>Attention</td>
+      <td>GQA and RoPE; some newer models also use QK normalization</td>
+      <td>
+<strong>GQA + scaled RoPE + QK-Norm</strong>, normalizing queries and keys to stabilize attention logits</td>
+    </tr>
+    <tr>
+      <td>Alignment</td>
+      <td>Methods such as RLHF or DPO, depending on the release</td>
+      <td>
+<strong>QRPO</strong> (Quantile Reward Policy Optimization) in the published Apertus 1.0 recipe; 1.5 adds second-generation post-training</td>
+    </tr>
+    <tr>
+      <td>Text vocabulary</td>
+      <td>Model-dependent, often roughly 32k–150k tokens</td>
+      <td>
+<strong>131,072 text tokens</strong>, based on a multilingual byte-level BPE tokenizer</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The architecture and QRPO entries are documented in the
+<a href="https://arxiv.org/html/2509.14233v1">original technical report</a>. The QRPO row describes that published
+recipe; it should not be read as a complete account of the newer 1.5 alignment pipeline.</p>
+
+<p>The change you will encounter most directly when deploying 1.5 is its multimodal input processing.
+Images and audio are converted into discrete tokens and fed into the language backbone alongside
+text. The <a href="https://github.com/huggingface/transformers/pull/47662">Transformers integration proposal</a>
+identifies Emu3.5 for image tokenization and WavTokenizer for audio. This is why a runtime that
+supports text-only Apertus 1.0 does not automatically support the complete 1.5 checkpoint.</p>
+
+<p>The <strong>131,072-token text vocabulary</strong> should also be distinguished from the <strong>266,752-token total
+vocabulary</strong> in the multimodal checkpoint. The latter includes input tokens for other modalities;
+generation is restricted to text tokens. These details are recorded in the
+<a href="https://huggingface.co/swiss-ai/Apertus-v1.5-8B#input-notes">1.5 model card</a>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="use-apertus-through-a-hosted-api">Use Apertus Through a Hosted API</h2>
+
+<p>A hosted endpoint is a convenient first step for a hackathon: you can build your application
+before setting up a GPU. The presentation uses <a href="https://publicai.co/">Public AI</a> as an example.
+Its gateway exposes an OpenAI-compatible API, so existing chat-completion clients need only a
+different base URL, key, and model identifier.</p>
+
+<p>Create an account and API key through the <a href="https://platform.publicai.co/docs">Public AI developer portal</a>.
+Check the portal for current credits and rate limits. Its documentation requires both a bearer
+token and a <code class="language-plaintext highlighter-rouge">User-Agent</code> header.</p>
+
+<p>Set your key in the shell where you will run the examples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PUBLICAI_API_KEY</span><span class="o">=</span><span class="s2">"your-api-key"</span>
+</code></pre></div></div>
+
+<p>First, list the available models:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://api.publicai.co/v1/models <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$PUBLICAI_API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"User-Agent: HackApertusDemo/1.0"</span>
+</code></pre></div></div>
+
+<p>Provider model names can differ from Hugging Face repository names. Public AI’s documented example
+uses the lowercase identifier <code class="language-plaintext highlighter-rouge">swiss-ai/apertus-v1.5-8b</code>. Use the catalog response to select the
+exact identifier for another size or configuration.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://api.publicai.co/v1/chat/completions <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$PUBLICAI_API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"User-Agent: HackApertusDemo/1.0"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "model": "swiss-ai/apertus-v1.5-8b",
+    "messages": [
+      {"role": "system", "content": "Give concise, practical answers."},
+      {"role": "user", "content": "Suggest a multilingual hackathon project using Apertus."}
+    ],
+    "max_tokens": 512
+  }'</span>
+</code></pre></div></div>
+
+<p>For a Python application, install the client with <code class="language-plaintext highlighter-rouge">pip install openai</code> and save this as <code class="language-plaintext highlighter-rouge">chat.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="nc">OpenAI</span><span class="p">(</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="sh">"</span><span class="s">https://api.publicai.co/v1</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="sh">"</span><span class="s">PUBLICAI_API_KEY</span><span class="sh">"</span><span class="p">],</span>
+    <span class="n">default_headers</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">User-Agent</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">HackApertusDemo/1.0</span><span class="sh">"</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">chat</span><span class="p">.</span><span class="n">completions</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">swiss-ai/apertus-v1.5-8b</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Give concise, practical answers.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Explain retrieval-augmented generation in German.</span><span class="sh">"</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">message</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Run it with <code class="language-plaintext highlighter-rouge">python chat.py</code>. Your application sends structured messages; the server applies the
+model’s chat template. Support for images, audio, tools, and thinking controls depends on the
+provider’s deployment, even when the underlying model supports them. Check those capabilities
+before choosing an endpoint for a multimodal or agent project.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="deploy-apertus-locally">Deploy Apertus Locally</h2>
+
+<p>There are two useful development paths: <strong>vLLM</strong> gives your application a local API server;
+<strong>Transformers</strong> lets you work directly with the model and processor in Python. For a laptop text
+demo, there is also a community GGUF option below.</p>
+
+<h3 id="plan-for-memory-not-just-parameter-count">Plan for Memory, Not Just Parameter Count</h3>
+
+<p>As a rough lower bound, two bytes per parameter means approximately <strong>16 GB for 8B</strong> or <strong>140 GB
+for 70B</strong> in BF16. These are arithmetic estimates for weights, not total memory requirements.
+The full deployment also needs memory for multimodal components, runtime buffers, and the
+key-value (KV) cache used to retain previous tokens’ attention state.</p>
+
+<p>Longer contexts and concurrent requests increase KV-cache demand. A model’s advertised 262k
+context does not mean you should reserve that capacity for your first demo. Start with a shorter
+server limit, such as 8,192 tokens, and increase it when your workload and hardware require it.
+Quantization can reduce weight memory, but support must match the checkpoint and runtime.</p>
+
+<h3 id="option-1-serve-the-model-with-vllm">Option 1: Serve the Model with vLLM</h3>
+
+<p>As of the version date above, the official instructions recommend the Swiss AI integration and
+prebuilt container for Apertus 1.5. Support for a parser or the original Apertus architecture in
+upstream vLLM is not sufficient evidence of full multimodal 1.5 support. Follow the
+<a href="https://apertus-ai.org/docs/guides/vllm/">official vLLM guide</a> for the supported setup.</p>
+
+<p>The example below targets a <strong>Linux NVIDIA GPU machine</strong> with a compatible driver, Docker, and
+the NVIDIA Container Toolkit configured. The current
+<a href="https://github.com/swiss-ai/model-launch/blob/main/images/vllm_apertus_1.5_release/Dockerfile">image build</a>
+uses CUDA 13. Check driver compatibility with the image you pull. The ARM64 image is for ARM
+machines with compatible NVIDIA hardware; Docker on an Apple Silicon laptop does not provide
+this CUDA setup.</p>
+
+<p>The Hugging Face repositories currently require accepting the access conditions on the model
+page. Do that first, then supply a Hugging Face read token with access to the checkpoint:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">HF_TOKEN</span><span class="o">=</span><span class="s2">"your-hugging-face-read-token"</span>
+docker pull ghcr.io/swiss-ai/vllm_apertus_1.5_release:latest-amd64
+</code></pre></div></div>
+
+<p>Start an 8B server:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">--gpus</span> all <span class="nt">--ipc</span><span class="o">=</span>host <span class="se">\</span>
+  <span class="nt">-p</span> 127.0.0.1:8000:8000 <span class="se">\</span>
+  <span class="nt">-e</span> HF_TOKEN <span class="se">\</span>
+  <span class="nt">-v</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.cache/huggingface:/root/.cache/huggingface"</span> <span class="se">\</span>
+  ghcr.io/swiss-ai/vllm_apertus_1.5_release:latest-amd64 <span class="se">\</span>
+  vllm serve swiss-ai/Apertus-v1.5-8B <span class="se">\</span>
+    <span class="nt">--host</span> 0.0.0.0 <span class="se">\</span>
+    <span class="nt">--port</span> 8000 <span class="se">\</span>
+    <span class="nt">--chat-template-content-format</span> string <span class="se">\</span>
+    <span class="nt">--gpu-memory-utilization</span> 0.9 <span class="se">\</span>
+    <span class="nt">--max-model-len</span> 8192
+</code></pre></div></div>
+
+<p>The cache mount keeps downloaded weights between runs. Port 8000 is exposed on your machine’s
+loopback interface. The memory utilization setting lets vLLM budget 90% of GPU memory; this is
+a starting configuration for a dedicated GPU, not a guarantee that the model fits.</p>
+
+<p>Once the server has loaded the checkpoint, verify the endpoint:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://localhost:8000/v1/models
+</code></pre></div></div>
+
+<p>You can now use the same Python client pattern as above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">client</span> <span class="o">=</span> <span class="nc">OpenAI</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="sh">"</span><span class="s">http://localhost:8000/v1</span><span class="sh">"</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="sh">"</span><span class="s">local</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># In chat.completions.create, use model="swiss-ai/Apertus-v1.5-8B".
+</span></code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">local</code> key is a client placeholder; the command above does not enable server authentication.
+For the official 70B example, switch the checkpoint to <code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-70B</code> and add
+<code class="language-plaintext highlighter-rouge">--tensor-parallel-size 4</code> to split it across four GPUs. The required GPU memory still depends on
+precision, context, and concurrency. For repeatable experiments, record the container digest and
+model revision rather than relying indefinitely on a moving <code class="language-plaintext highlighter-rouge">latest</code> tag.</p>
+
+<p>If startup fails with an unknown <code class="language-plaintext highlighter-rouge">apertus1p5</code> architecture, check that you are running the Swiss AI
+image. If vLLM cannot allocate a KV cache, reduce <code class="language-plaintext highlighter-rouge">--max-model-len</code>; if the weights themselves do
+not fit, a shorter context alone will not solve the problem.</p>
+
+<h3 id="option-2-run-inference-directly-with-transformers">Option 2: Run Inference Directly with Transformers</h3>
+
+<p>Use a separate Python environment so that the Apertus integration does not replace a library
+version needed by another project. The official model card pins this Transformers revision:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> venv .venv-apertus
+<span class="nb">source</span> .venv-apertus/bin/activate
+pip <span class="nb">install </span>accelerate
+pip <span class="nb">install</span> <span class="s2">"transformers[torch,vision,audio] @ git+https://github.com/swiss-ai/transformers.git@3797303dda74844e3d1f8977ff5518bb91f818b4"</span>
+</code></pre></div></div>
+
+<p>With <code class="language-plaintext highlighter-rouge">HF_TOKEN</code> set as above, save the following as <code class="language-plaintext highlighter-rouge">local_apertus.py</code>. It follows the
+<a href="https://apertus-ai.org/docs/guides/transformers/">official Transformers guide</a> and uses the
+processor to prepare the model input:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">torch</span>
+<span class="kn">from</span> <span class="n">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForMultimodalLM</span><span class="p">,</span> <span class="n">AutoProcessor</span>
+
+<span class="n">MODEL_ID</span> <span class="o">=</span> <span class="sh">"</span><span class="s">swiss-ai/Apertus-v1.5-8B</span><span class="sh">"</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="n">AutoProcessor</span><span class="p">.</span><span class="nf">from_pretrained</span><span class="p">(</span><span class="n">MODEL_ID</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForMultimodalLM</span><span class="p">.</span><span class="nf">from_pretrained</span><span class="p">(</span>
+    <span class="n">MODEL_ID</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="sh">"</span><span class="s">auto</span><span class="sh">"</span><span class="p">,</span> <span class="n">device_map</span><span class="o">=</span><span class="sh">"</span><span class="s">auto</span><span class="sh">"</span>
+<span class="p">).</span><span class="nf">eval</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">answer</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">thinking</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">budget</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">processor</span><span class="p">.</span><span class="nf">apply_chat_template</span><span class="p">(</span>
+        <span class="n">messages</span><span class="p">,</span>
+        <span class="n">enable_thinking</span><span class="o">=</span><span class="n">thinking</span><span class="p">,</span>
+        <span class="n">add_generation_prompt</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">tokenize</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">return_dict</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">return_tensors</span><span class="o">=</span><span class="sh">"</span><span class="s">pt</span><span class="sh">"</span><span class="p">,</span>
+    <span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="nf">inference_mode</span><span class="p">():</span>
+        <span class="n">generated</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">generate</span><span class="p">(</span><span class="o">**</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">budget</span><span class="p">)</span>
+    <span class="n">new_tokens</span> <span class="o">=</span> <span class="n">generated</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="sh">"</span><span class="s">input_ids</span><span class="sh">"</span><span class="p">].</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:]</span>
+    <span class="k">return</span> <span class="n">processor</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">new_tokens</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Explain xIELU in one sentence.</span><span class="sh">"</span><span class="p">}]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">answer</span><span class="p">(</span><span class="n">messages</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">python local_apertus.py</code>. The slicing step removes the input prompt from the decoded output.
+<code class="language-plaintext highlighter-rouge">device_map="auto"</code> selects device placement; it does not guarantee that the model fits entirely
+on your GPU, and offloading can be slow.</p>
+
+<p>To try an image, replace <code class="language-plaintext highlighter-rouge">messages</code> with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">image</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">path</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">diagram.png</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Explain the main components in this diagram.</span><span class="sh">"</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">}]</span>
+</code></pre></div></div>
+
+<p>Supply a real local <code class="language-plaintext highlighter-rouge">diagram.png</code>. For an audio experiment, use an audio block such as
+<code class="language-plaintext highlighter-rouge">{"type": "audio", "path": "recording.wav"}</code> and a text instruction to transcribe or summarize it.
+The processor handles media loading. Avoid calling <code class="language-plaintext highlighter-rouge">.half()</code> on the entire loaded model: the
+image and audio tokenizers retain FP32 precision deliberately. The
+<a href="https://huggingface.co/swiss-ai/Apertus-v1.5-8B#image">model card’s media examples</a>
+document the accepted inputs and precision requirements.</p>
+
+<h3 id="a-laptop-option-text-only-gguf">A Laptop Option: Text-Only GGUF</h3>
+
+<p>The <a href="https://apertus-ai.org/docs/guides/ollama/">official Ollama guide</a> lists community conversions,
+including Andreas Martin’s Apertus 1.5 8B text-only build. Its
+<a href="https://huggingface.co/andreasmartin/apertus-v1.5-8b-text-Q8_0-GGUF">Q8_0 model card</a>
+provides this llama.cpp route for macOS and Linux:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>llama.cpp
+llama-server <span class="se">\</span>
+  <span class="nt">--hf-repo</span> andreasmartin/apertus-v1.5-8b-text-Q8_0-GGUF <span class="se">\</span>
+  <span class="nt">--hf-file</span> apertus-v1.5-8b-text-q8_0.gguf <span class="se">\</span>
+  <span class="nt">-c</span> 2048
+</code></pre></div></div>
+
+<p>The model file is approximately 8.57 GB, with additional memory needed at runtime. This is a
+community text-only conversion: use it for a text demo, and use the Swiss AI stack above when
+your hack needs the original checkpoint’s image or audio processing. Check the conversion’s
+chat template and reasoning support before depending on thinking mode.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="thinking-mode-and-the-chat-template">Thinking Mode and the Chat Template</h2>
+
+<p>Thinking mode is selected through the <strong>chat template</strong>. The template serializes your messages
+and configuration into the token sequence the model was trained to interpret. Asking it to
+“think carefully” in an ordinary user message is not the same configuration switch.</p>
+
+<h3 id="from-alpaca-instructions-to-structured-conversations">From Alpaca Instructions to Structured Conversations</h3>
+
+<p>The familiar <a href="https://github.com/tatsu-lab/stanford_alpaca#data-release">Stanford Alpaca format</a>
+uses readable headings for an instruction, optional input, and response. A shortened example is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>### Instruction:
+Summarize this document.
+
+### Input:
+[document text]
+
+### Response:
+</code></pre></div></div>
+
+<p>Apertus instead uses special tokens to delimit roles and carries deliberation and tool
+configuration in a developer block. For a simple text conversation, the structure looks like
+this, with a leading beginning-of-sequence token omitted and spacing added for readability:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;|system_start|&gt;
+Give concise, practical answers.
+&lt;|system_end|&gt;
+&lt;|developer_start|&gt;
+Deliberation: disabled
+Tool Capabilities: disabled
+&lt;|developer_end|&gt;
+&lt;|user_start|&gt;
+Summarize this document: [document text]
+&lt;|user_end|&gt;
+&lt;|assistant_start|&gt;
+</code></pre></div></div>
+
+<p>The assistant’s reply ends with <code class="language-plaintext highlighter-rouge">&lt;|assistant_end|&gt;</code>. Unlike Alpaca’s single instruction/input
+pair, these role boundaries can represent a conversation with multiple turns. The developer block
+also gives model behavior an explicit configuration location. Let <code class="language-plaintext highlighter-rouge">apply_chat_template</code> or your
+API server produce this sequence; do not wrap it again in Alpaca headings.</p>
+
+<p>With thinking enabled, the developer line becomes <code class="language-plaintext highlighter-rouge">Deliberation: enabled</code>. The assistant can then
+generate a reasoning span before its final answer:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;|assistant_start|&gt;
+&lt;|inner_prefix|&gt;
+[generated reasoning]
+&lt;|inner_suffix|&gt;
+[final answer]
+&lt;|assistant_end|&gt;
+</code></pre></div></div>
+
+<p>These delimiters are Apertus-specific; a parser expecting Qwen-style <code class="language-plaintext highlighter-rouge">&lt;think&gt;</code> tags will not match
+them. The <a href="https://github.com/swiss-ai/apertus-omni-tokenizer/blob/main/chat_templates/Apertus_1p5/chat_template.jinja">canonical chat template</a>
+defines the role blocks, reasoning markers, media placeholders, and tool serialization.</p>
+
+<h3 id="enable-thinking-in-python-or-vllm">Enable Thinking in Python or vLLM</h3>
+
+<p>Using the Transformers helper from above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Find all positive integers n for which n squared plus n equals 210.</span><span class="sh">"</span><span class="p">,</span>
+<span class="p">}]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">answer</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">thinking</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">budget</span><span class="o">=</span><span class="mi">2048</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>This passes <code class="language-plaintext highlighter-rouge">enable_thinking=True</code> to the template. Give generation enough tokens for both
+deliberation and the final answer. If it exhausts the budget during reasoning, your application
+may receive no completed answer. The model card notes that the reasoning markers remain in
+decoded text even with <code class="language-plaintext highlighter-rouge">skip_special_tokens=True</code>, so handle that span explicitly when displaying
+the result.</p>
+
+<p>For vLLM, stop the previous container and repeat its launch command with these additional flags
+after <code class="language-plaintext highlighter-rouge">--max-model-len 8192</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--served-model-name</span> swiss-ai/Apertus-v1.5-8B-thinking <span class="se">\</span>
+<span class="nt">--reasoning-parser</span> apertus <span class="se">\</span>
+<span class="nt">--default-chat-template-kwargs</span>.enable_thinking <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">swiss-ai/Apertus-v1.5-8B-thinking</code> as the model name in subsequent API requests and increase
+<code class="language-plaintext highlighter-rouge">max_tokens</code>, for example to 2048. The alias identifies this server configuration; it does not
+download a different set of weights. The template flag enables deliberation, while the reasoning
+parser separates the reasoning span from the answer. See the
+<a href="https://apertus-ai.org/docs/guides/vllm/#thinking-mode">official thinking-mode setup</a>.</p>
+
+<h3 id="what-about-tools">What About Tools?</h3>
+
+<p>For a tool-enabled, non-thinking vLLM server, add these flags to the original launch command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--enable-auto-tool-choice</span> <span class="nt">--tool-call-parser</span> apertus
+</code></pre></div></div>
+
+<p>Your application supplies function definitions in the request’s <code class="language-plaintext highlighter-rouge">tools</code> field. The template
+serializes their schemas into the developer block. The model proposes a call; your application
+executes the function and sends its result back as a tool message before requesting the next
+response. Serving a model with a tool parser does not execute application functions by itself.</p>
+
+<p><strong>The current official setup does not support tool calling in thinking mode.</strong> Choose the
+non-thinking configuration for a tool-based agent, or use separate requests for reasoning and
+tool execution. The <a href="https://huggingface.co/swiss-ai/Apertus-v1.5-8B#vllm">model card</a>
+explicitly omits tool flags from its thinking examples.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="a-starting-point-for-your-hack">A Starting Point for Your Hack</h2>
+
+<p>Start with a hosted API if you want to concentrate on your application, or the 8B vLLM server if
+you need local control. Use the model’s own chat template throughout. Enable thinking for tasks
+that benefit from a longer reasoning process, and budget for the additional generation time.
+For a tool-based workflow, begin with the supported non-thinking configuration.</p>
+
+<p>Before building a larger interface, try a small set of real examples from your intended task:
+your target languages, your documents or images, and the output format your code expects. That
+will tell you more about the fit for your hack than parameter count alone.</p>
+
+<h3 id="what-matters-in-each-track">What Matters in Each Track</h3>
+
+<p><strong>Track 1A, Red-Teaming:</strong> Read the chat template section carefully. System prompt, developer block
+and thinking mode all influence how the model responds, and many interesting behaviors only appear
+under specific configurations. A finding is only useful to the Apertus team if others can reproduce
+it, so record the exact model, template settings and sampling parameters for every result, and
+compare 8B and 70B where you can.</p>
+
+<p><strong>Track 1B, Swiss Voices:</strong> If your project works with spoken Swiss German or other audio, keep in
+mind that audio understanding is still experimental in 1.5. Test a handful of your own recordings
+on day one, before you commit to an audio-based design, and have a text-based fallback ready. For
+text-based dialect work, check early how the model handles your target dialects in both input
+and output.</p>
+
+<p><strong>Track 2, Adoption (Academia and Own Project):</strong> Decide early whether your application needs
+thinking mode or tool calling, because the current setup does not combine the two. Agents that
+call tools should use the non-thinking configuration. If your task benefits from longer reasoning,
+budget enough output tokens and handle the reasoning span explicitly in your interface.</p>
+
+<p>For our measured comparison of Apertus 1.5, Apertus 1.0, and thinking mode, continue with
+<a href="/preview/pr-48/2026/07/29/Apertus15Bench.html"><strong>LLM Benchmark Evaluation - Apertus 1.5-8B</strong></a>.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/preview/pr-48/2026/10/01/Apertus1-5-BusinessBenchmarks.html">
+        Can Apertus Do Your Business Tasks?
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/preview/pr-48/images/background.jpg')" data-dark="true" data-size="wide">
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/" data-tooltip="Website" data-style="bare" aria-label="Website">
+      <i class="icon fa-solid fa-globe"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:siegfried.handschuh@unisg.ch" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://orcid.org/0000-0002-6195-9034" data-tooltip="ORCID" data-style="bare" aria-label="ORCID">
+      <i class="icon fa-brands fa-orcid"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=zl_3HgQAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+      
+    <!-- | &nbsp;
+  <img 
+    src="/preview/pr-48/images/ICS_HSG-LogoWithWhiteBackground.png" 
+    alt="Lab Logo" 
+    style="max-height: 42px; width: auto; max-width: 100%; vertical-align: middle;"
+  >
+  &nbsp;   -->
+  
+</div>
+
+
+
+
+  <div style="text-align: center;">
+    © 2026
+    by <a href="https://ics.unisg.ch/chairs/siegfried-handschuh-data-science-and-natural-language-processing/"> 
+      Data Science and Natural Language Processing
+    </a> at HSG
+      |  
+    <a href="https://github.com/unisg-ics-dsnlp">
+    DS-NLP GitHub
+    </a>
+     
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
