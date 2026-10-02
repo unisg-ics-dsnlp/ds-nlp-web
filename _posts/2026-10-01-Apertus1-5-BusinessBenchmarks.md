@@ -1,5 +1,5 @@
 ---
-title: Apertus 1.5 Under Test - Real Business Tasks
+title: Can Apertus Do Your Business Tasks?
 author:
   - Siegfried Handschuh
 image: images/posts/Apertus15Business-radar.png
@@ -201,7 +201,9 @@ gains and where it loses.
 
 To place Apertus in time, we also ran two older OpenAI models through the same 3,021 cases, at
 temperature 0 like the open models: GPT-3.5-turbo, the model behind ChatGPT in 2023, and GPT-4o-mini
-from 2024. Both are still available through OpenAI's API.
+from 2024. Both are still available through OpenAI's API. Neither is a direct match for Apertus: GPT-3.5-turbo
+reads text only, with no images, no audio and no thinking mode, and GPT-4o-mini adds images but no
+thinking mode. Apertus 1.5 has all three, and part of its parameters serve images and audio.
 
 {% include figure.html image="images/posts/Apertus15Business-openai.png" caption="Overall score of three generations of OpenAI models against the two Apertus 1.5 models, on the same 3,021 cases." %}
 
@@ -219,9 +221,13 @@ open model in our test.
 | DocILE | **62** | 60 | 61 | 61 |
 | **Overall** | 57.9 | 61.0 | 63.2 | **65.8** |
 
+{% include figure.html image="images/posts/Apertus15Business-gpt35-radar.png" caption="Apertus 1.5 8B (blue) and 70B (orange) against GPT-3.5-turbo (dashed), the model behind ChatGPT in 2023. The bottom axis shows how often a model answers null when we delete the date or total from a receipt." %}
+
 The pattern is the same as against the frontier. On invoices (DocILE) Apertus 1.5 8B is slightly ahead of
 both older OpenAI models, and on social media (TweetEval) the 70B model is. The gap comes from the long
-category lists: contracts (CUAD) and banking intents (Banking77).
+category lists: contracts (CUAD) and banking intents (Banking77). GPT-3.5-turbo also answers null in 39
+percent of the receipts with a deleted date or total, where Apertus 1.5 8B never does and the 70B model
+does in 34 percent.
 
 On business tasks, then, Apertus 1.5 stands roughly where OpenAI stood in 2023. Two things put that in
 perspective. OpenAI has never published the size of GPT-3.5-turbo. Its predecessor GPT-3 had 175 billion
@@ -621,7 +627,7 @@ the open questions during the hackathon, whether format guards, null handling, t
 languages, reading scans or listening to calls, we would like to hear what you find.
 
 **Quicklinks:**
-- **Our academic benchmark post**: [LLM Benchmark Evaluation - Apertus 1.5-8B]({% link _posts/2026-07-29-Apertus15Bench.md %})
+- **Our academic benchmark post**: [Apertus 1.5 on academic benchmarks]({% link _posts/2026-07-29-Apertus15Bench.md %})
 - **Model Hub**: [Hugging Face: Swiss AI Models](https://huggingface.co/swiss-ai/)
 - **Benchmarks**: [Banking77](https://huggingface.co/datasets/legacy-datasets/banking77) ·
   [SROIE](https://huggingface.co/datasets/jsdnrs/ICDAR2019-SROIE) ·
