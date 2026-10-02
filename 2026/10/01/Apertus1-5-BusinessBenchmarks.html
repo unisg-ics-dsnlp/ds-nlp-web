@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-01T19:57:05+00:00">
+  <meta property="og:updated_time" content="2026-10-02T00:12:11+00:00">
   <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-01T19:57:05+00:00">
-  <meta name="revised" content="2026-10-01T19:57:05+00:00">
+  <meta property="article:modified_time" content="2026-10-02T00:12:11+00:00">
+  <meta name="revised" content="2026-10-02T00:12:11+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Apertus 1.5 Under Test - Real Business Tasks" },
       "datePublished": "2026-10-01T00:00:00+00:00",
-      "dateModified": "2026-10-01T19:57:05+00:00",
+      "dateModified": "2026-10-02T00:12:11+00:00",
     
     "name": "Apertus 1.5 Under Test - Real Business Tasks",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -466,6 +466,11 @@
   
 
   
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>October 02, 2026</span>
+    </span>
+  
 </div>
 
 
@@ -492,6 +497,10 @@
     
       <a href='/blog?search="tag:%20multimodal"' class="tag" data-tooltip='Show items with the tag "multimodal"'>
         multimodal
+      </a>
+    
+      <a href='/blog?search="tag:%20speech"' class="tag" data-tooltip='Show items with the tag "speech"'>
+        speech
       </a>
     
       <a href='/blog?search="tag:%20document-understanding"' class="tag" data-tooltip='Show items with the tag "document-understanding"'>
@@ -528,7 +537,7 @@ weaknesses are specific, and they can be fixed. This post shows both, measured o
 
 <p>We wrote it with the participants of <a href="https://hackapertus.ch/">«Hack Apertus»</a> in mind, who are building
 on Apertus 1.5 until 16 October. If you are looking for a project, the error types below are a good place
-to start, and the section <a href="#ideas-for-hack-apertus">Ideas for Hack Apertus</a> lists a few concrete ones.</p>
+to start, and the section <a href="#starting-points-for-hack-apertus">Starting Points for Hack Apertus</a> connects them to the challenges.</p>
 
 <p>In <a href="/2026/07/29/Apertus15Bench.html">our previous post</a> we tested Apertus 1.5 on academic
 benchmarks such as MMLU-Pro, IFEval, GSM8K and multilingual reading comprehension. The step from 1.0 to
@@ -539,14 +548,17 @@ something else: can it route a customer request to the right team, read the tota
 contract clauses before a legal review, or fill in an invoice form?</p>
 
 <p>For this post we ran six public benchmarks built from real business data, roughly 3,000 cases per
-model, and compared Apertus with six other models, two of them frontier systems. Because this is an
+model, and compared the two Apertus 1.5 models with eight others: two current frontier systems, two older
+OpenAI models and four open models. Because this is an
 Apertus post, we then went through its mistakes one by one.</p>
 
 <p>The short version:</p>
 
 <ol>
   <li>Apertus 1.5 8B reaches 79 percent of GPT-5.6-Luna’s overall score, the 70B model 83 percent. On
-documents and social media the gap is small; on long category lists it is large.</li>
+documents and social media the gap is small; on long category lists it is large. Measured against older
+OpenAI models, Apertus 1.5 is roughly where OpenAI was in 2023: a few points behind GPT-3.5-turbo (see
+<a href="#where-apertus-stands-against-openai">Where Apertus Stands Against OpenAI</a>).</li>
   <li>Among open models of its size, Apertus 1.5 8B comes after Qwen 3.5 9B, Qwen 2.5 7B and Llama 3.1 8B,
 and before Apertus 1.0. It is the only fully open model in that group.</li>
   <li>Documents are its strong side. On invoices it matches Qwen 3.5 9B and its own 70B sibling, and on
@@ -554,8 +566,10 @@ receipts it gets the date right 99 times out of 100.</li>
   <li>Most of its errors are of three kinds, all fixable: answers that are not on the allowed list,
 a few labels it uses far too often, and values it invents when information is missing.</li>
   <li>It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests.</li>
-  <li>Reading scanned receipts directly is its weak spot: it misreads dates and totals, which Qwen 3.5 9B
-reads almost without error.</li>
+  <li>First tests with images and audio (preliminary) point to its weak spots. From a scanned receipt it misreads dates
+and totals, which Qwen 3.5 9B reads almost without error. From a recorded bank call it picks the
+right category only one time in ten, unless it is asked to write the call down first: then three
+times in four.</li>
 </ol>
   </section>
 
@@ -599,8 +613,9 @@ reads almost without error.</li>
 
 <h2 id="setup">Setup</h2>
 
-<p>We compared eight models: Apertus 1.5 8B and 70B, Apertus 1.0 8B, Qwen 3.5 9B, Qwen 2.5 7B, Llama 3.1 8B,
-and, through their APIs, GPT-5.6-Luna and Claude Haiku 4.5.</p>
+<p>We compared ten models: Apertus 1.5 8B and 70B, Apertus 1.0 8B, Qwen 3.5 9B, Qwen 2.5 7B, Llama 3.1 8B,
+and, through their APIs, GPT-5.6-Luna and Claude Haiku 4.5 as well as two older OpenAI models,
+GPT-4o-mini (2024) and GPT-3.5-turbo (2023).</p>
 
 <p>Some choices affect how the numbers should be read:</p>
 
@@ -731,6 +746,16 @@ CUAD we classify a marked clause; the original task asks models to <em>find</em>
       <td style="text-align: right">71</td>
     </tr>
     <tr>
+      <td>GPT-4o-mini (2024)</td>
+      <td style="text-align: right">65.8</td>
+      <td style="text-align: right">71</td>
+      <td style="text-align: right">78</td>
+      <td style="text-align: right">57</td>
+      <td style="text-align: right">70</td>
+      <td style="text-align: right">58</td>
+      <td style="text-align: right">61</td>
+    </tr>
+    <tr>
       <td>Qwen 3.5 9B (4-bit)</td>
       <td style="text-align: right">65.3</td>
       <td style="text-align: right">72</td>
@@ -739,6 +764,16 @@ CUAD we classify a marked clause; the original task asks models to <em>find</em>
       <td style="text-align: right">71</td>
       <td style="text-align: right">58</td>
       <td style="text-align: right">63</td>
+    </tr>
+    <tr>
+      <td>GPT-3.5-turbo (2023)</td>
+      <td style="text-align: right">63.2</td>
+      <td style="text-align: right">68</td>
+      <td style="text-align: right">75</td>
+      <td style="text-align: right">47</td>
+      <td style="text-align: right">70</td>
+      <td style="text-align: right">58</td>
+      <td style="text-align: right">61</td>
     </tr>
     <tr>
       <td>Qwen 2.5 7B</td>
@@ -824,10 +859,6 @@ frontier, and on TweetEval the 70B model is level with GPT-5.6. Most of the gap 
 with long lists of fine-grained categories, contracts with 42 types and banking intents with 77. We
 would watch these two in the next release.</p>
 
-<p>In an earlier pilot with fewer, partly synthetic cases, frontier models scored only about 60 percent, and
-we concluded that the tasks were “hard for everyone”. With a larger and cleaner test set, that no longer
-holds (see the section on evaluation below).</p>
-
 <h3 id="among-open-models-of-similar-size">Among open models of similar size</h3>
 
 <p>Here Apertus 1.5 8B is at the back of the group, with one clear strength. The chart compares it with the
@@ -881,6 +912,117 @@ test further down shows that, at least for reading receipts, the image side does
 
 <p>Within the Apertus family, 1.5 is 2.6 points ahead of 1.0 at 8B. The more useful information is where it
 gains and where it loses.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="where-apertus-stands-against-openai">Where Apertus Stands Against OpenAI</h2>
+
+<p>To place Apertus in time, we also ran two older OpenAI models through the same 3,021 cases, at
+temperature 0 like the open models: GPT-3.5-turbo, the model behind ChatGPT in 2023, and GPT-4o-mini
+from 2024. Both are still available through OpenAI’s API.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Overall score of three generations of OpenAI models against the two Apertus 1.5 models, on the same 3,021 cases.">
+    <img src="/images/posts/Apertus15Business-openai.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Overall score of three generations of OpenAI models against the two Apertus 1.5 models, on the same 3,021 cases." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Overall score of three generations of OpenAI models against the two Apertus 1.5 models, on the same 3,021 cases.
+
+    </figcaption>
+  
+</figure>
+
+<p>Apertus 1.5 8B is 5.3 points behind GPT-3.5-turbo and the 70B model 2.2 points. Both gaps are outside
+the statistical noise, if only just for the 70B model. GPT-4o-mini is level with Qwen 3.5 9B, the best
+open model in our test.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Benchmark</th>
+      <th style="text-align: right">Apertus 1.5 8B</th>
+      <th style="text-align: right">Apertus 1.5 70B</th>
+      <th style="text-align: right">GPT-3.5-turbo (2023)</th>
+      <th style="text-align: right">GPT-4o-mini (2024)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Banking77</td>
+      <td style="text-align: right">56</td>
+      <td style="text-align: right">62</td>
+      <td style="text-align: right">68</td>
+      <td style="text-align: right"><strong>71</strong></td>
+    </tr>
+    <tr>
+      <td>SROIE</td>
+      <td style="text-align: right">71</td>
+      <td style="text-align: right">73</td>
+      <td style="text-align: right">75</td>
+      <td style="text-align: right"><strong>78</strong></td>
+    </tr>
+    <tr>
+      <td>CUAD</td>
+      <td style="text-align: right">37</td>
+      <td style="text-align: right">42</td>
+      <td style="text-align: right">47</td>
+      <td style="text-align: right"><strong>57</strong></td>
+    </tr>
+    <tr>
+      <td>RAFT</td>
+      <td style="text-align: right">65</td>
+      <td style="text-align: right">67</td>
+      <td style="text-align: right"><strong>70</strong></td>
+      <td style="text-align: right"><strong>70</strong></td>
+    </tr>
+    <tr>
+      <td>TweetEval</td>
+      <td style="text-align: right">56</td>
+      <td style="text-align: right"><strong>62</strong></td>
+      <td style="text-align: right">58</td>
+      <td style="text-align: right">58</td>
+    </tr>
+    <tr>
+      <td>DocILE</td>
+      <td style="text-align: right"><strong>62</strong></td>
+      <td style="text-align: right">60</td>
+      <td style="text-align: right">61</td>
+      <td style="text-align: right">61</td>
+    </tr>
+    <tr>
+      <td><strong>Overall</strong></td>
+      <td style="text-align: right">57.9</td>
+      <td style="text-align: right">61.0</td>
+      <td style="text-align: right">63.2</td>
+      <td style="text-align: right"><strong>65.8</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The pattern is the same as against the frontier. On invoices (DocILE) Apertus 1.5 8B is slightly ahead of
+both older OpenAI models, and on social media (TweetEval) the 70B model is. The gap comes from the long
+category lists: contracts (CUAD) and banking intents (Banking77).</p>
+
+<p>On business tasks, then, Apertus 1.5 stands roughly where OpenAI stood in 2023. Two things put that in
+perspective. OpenAI has never published the size of GPT-3.5-turbo. Its predecessor GPT-3 had 175 billion
+parameters; a <a href="https://huggingface.co/papers/2310.17680">Microsoft paper</a>, withdrawn shortly after, listed
+GPT-3.5-turbo at 20 billion. Either way it is most likely larger than Apertus 1.5 8B, but we do not know
+by how much. And Apertus is fully open, from training data to weights, and its small model runs
+on a single Mac.</p>
   </section>
 
   
@@ -1130,7 +1272,7 @@ AI fork of <code class="language-plaintext highlighter-rouge">transformers</code
 <p>On an Apple M5 Max with 128 GB of memory, in bf16, the model processed about 3,100 benchmark cases with a
 median of 1.3 seconds per request and no failed requests. There is no API cost, and no document leaves
 the machine. For banks, insurers and public administrations, that is the main reason to consider an open
-Swiss model. Image input works on the Mac as well, as the next section shows; audio we have not tested.</p>
+Swiss model. Image and audio input work on the Mac as well, as the next two sections show.</p>
   </section>
 
   
@@ -1144,7 +1286,10 @@ Swiss model. Image input works on the Mac as well, as the next section shows; au
   <size></size>
 -->
 
-<h2 id="reading-the-scan-instead-of-the-text">Reading the Scan Instead of the Text</h2>
+<h2 id="reading-the-scan-instead-of-the-text-preliminary">Reading the Scan Instead of the Text (Preliminary)</h2>
+
+<p><em>These are first results from one dataset and four models, run in the last days before publication. We
+will extend them; treat them as a first look.</em></p>
 
 <p>Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.
 Same 361 SROIE receipts, same four fields, same scoring. We ran it on the Mac and compared it with Qwen 3.5
@@ -1189,7 +1334,7 @@ Ollama), so take the speed difference as a rough guide.</li>
 
 <p>Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen saw these receipts during
 training; a test on fresh receipts would settle that. It would not explain the Apertus result, though.
-And Qwen ran 4-bit quantised, Apertus in full precision.</p>
+And Qwen ran 4-bit quantised, Apertus 1.5 8B in full precision.</p>
 
 <p>One practical note if you try this yourself: our first run sent four scans to the model at once, memory
 grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared after each
@@ -1198,6 +1343,81 @@ batch, fixed it.</p>
 <p>If you build document capture on Apertus 1.5 8B, check every date and total it reads from a scan, for
 example against the sum of the line items, or let a model that reads scans well do that part. Whether a
 classic OCR step in front of Apertus works better, we have not tested.</p>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+<h2 id="listening-instead-of-reading-preliminary">Listening Instead of Reading (Preliminary)</h2>
+
+<p><em>These are first results from one dataset and the two Apertus 1.5 models, run in the last days before
+publication. We will extend them; treat them as a first look.</em></p>
+
+<p>Apertus 1.5 also takes audio, so we asked two questions: how well does it write down what it hears, and
+can it route a phone call? We used MInDS-14 from PolyAI, the team behind Banking77: phone recordings of
+customers with e-banking requests in 14 categories, such as a stolen card, a frozen account or a bill to
+pay. We took all German (611) and US English (563) recordings and ran both Apertus 1.5 models, the 8B on
+the Mac and the 70B through a hosting provider.</p>
+
+<p><strong>Writing it down.</strong> We asked Apertus to transcribe each call word for word and compared the result with
+the transcript that comes with the dataset. The 8B model gets 47 percent of the words wrong, the 70B model
+43 percent. The reference is itself machine-made and has its own errors («hello GIF I’m going cuz my card
+got stolen»), so the true rate is somewhat lower, but the spread is wide. 35 to 40 percent of the calls come back
+almost perfect, with fewer than one word in five wrong, such as «Hallo, ich möchte gerne ein Konto einrichten mit meinem Partner, wie mache
+ich das?». Others turn into something else entirely: a request to change an address became «Can you wash
+the window and my laptop».</p>
+
+<p><strong>Routing the call.</strong> Then we asked for the category, in five ways:</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Share of 1,174 recorded bank calls German and English routed to the right category. The one-call variants ran on the first 100 calls. Guessing would give about 7 percent.">
+    <img src="/images/posts/Apertus15Business-audio.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Share of 1,174 recorded bank calls German and English routed to the right category. The one-call variants ran on the first 100 calls. Guessing would give about 7 percent." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Share of 1,174 recorded bank calls (German and English) routed to the right category. The one-call variants ran on the first 100 calls. Guessing would give about 7 percent.
+
+    </figcaption>
+  
+</figure>
+
+<ol>
+  <li>Straight from the recording, both models are barely above guessing. The 8B model answers «balance» for
+most calls; the 70B model mostly picks «abroad» or «address», the first two entries on the list. What
+it heard does not seem to reach the decision.</li>
+  <li>Asking the 8B model to write the call down first changes that. With the instruction «first write down
+what the caller says, then choose the category» it routes 76 percent correctly, in a single call.
+Thinking adds two points and costs a lot: 37 to 44 seconds per call, and one answer in ten did not
+finish.</li>
+  <li>The 70B model fails at that single call. It writes a fluent banking request that has nothing to do
+with the recording («Ich möchte gerne meine Kontonummer ändern …») and sorts that. When asked only to
+transcribe, it does listen. The recording does reach the model: the provider reports the same number of
+input tokens as our local server does for the 8B model. Whether the invented text comes from the model
+itself or from the provider’s serving setup, we cannot tell from here.</li>
+  <li>Two separate calls, first transcribe and then classify the transcript, work for both models: 74 and
+78 percent.</li>
+  <li>From the dataset transcript, without listening, the two models reach 91 and 96 percent, and Qwen 3.5 9B
+reaches 91.5. The 17 or 18 points between this and the two-call route are what better listening would
+buy.</li>
+</ol>
+
+<p>The recordings are phone quality (8 kHz) and were resampled to the 24 kHz that Apertus expects, which
+probably costs some accuracy. We have not yet compared a dedicated speech-to-text model such as Whisper.</p>
+
+<p>For a call-routing project with Apertus 1.5 8B: let it write the call down first, in the same request
+or in a separate one, and leave thinking off. For the 70B through a hosted API, use two separate calls
+and check that the transcript matches the audio.</p>
   </section>
 
   
@@ -1264,10 +1484,10 @@ good project for anyone with a GPU and an afternoon.</p>
   <size></size>
 -->
 
-<h2 id="ideas-for-hack-apertus">Ideas for Hack Apertus</h2>
+<h2 id="starting-points-for-hack-apertus">Starting Points for Hack Apertus</h2>
 
 <p>We did not build this benchmark for the hackathon, but some of its findings connect to the challenges.
-The document results fit 2B and parts of 2A directly; for 1A and 1B they are starting points rather than
+The document results fit 2B and parts of 2A directly; for 1A and 1B they are leads rather than
 finished findings.</p>
 
 <p><strong>Challenge 1A, Red-Teaming.</strong> The missing-data test is a small red-team probe: delete a field and see
@@ -1277,10 +1497,14 @@ financial loss, which counts for severity in the rubric. A second lead is conten
 hate-speech task, Apertus 1.5 8B answered «not hate speech» for 13 of the 21 tweets that annotators had
 labelled as hate speech. A third lead comes from images: on scanned receipts Apertus 1.5 8B misreads dates
 and totals and returns the wrong number rather than null. Our setup also matches what the rubric rewards
-under reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech, which
-the challenge also accepts, we have not tested.</p>
+under reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech is a
+fourth: from a recorded bank call, Apertus 1.5 8B answers «balance» for most requests, whatever was said,
+and the hosted 70B model, asked to write a call down and sort it, invents a fluent request the caller
+never made.</p>
 
-<p><strong>Challenge 1B, Swiss Voices.</strong> All our documents were in English. For the <em>core task intelligence</em>
+<p><strong>Challenge 1B, Swiss Voices.</strong> Our documents were in English, and our German calls were in standard
+German, not dialect. Spoken Swiss German is untested, and after the result above it deserves a careful
+look. For the <em>core task intelligence</em>
 dimension, a question set on Swiss legal, administrative or business knowledge, scored as correct,
 incorrect or not attempted, would test Apertus where its multilingual training should help. Watch the
 «not attempted» share: our results suggest the 8B model rarely declines to answer, and that is worth
@@ -1355,8 +1579,12 @@ every printed field. We adjusted the scoring to what can actually be read from t
 especially for long category lists.</li>
   <li>Instructions were in German and documents in English. That is a common Swiss setup, but it may favour
 multilingual models.</li>
-  <li>We tested images only on SROIE receipts, with four models, and audio not at all.</li>
-  <li>Qwen 3.5 9B ran 4-bit quantised, all Apertus models in full precision.</li>
+  <li>We tested images only on SROIE receipts, with four models, and audio only on MInDS-14 bank calls in
+German and English, with the two Apertus 1.5 models.</li>
+  <li>Qwen 3.5 9B ran 4-bit quantised, Apertus 1.5 8B in full precision on our Mac.</li>
+  <li>Apertus 1.5 70B ran through featherless-ai, whose serving setup (software version, numerical precision)
+is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so treat the
+70B audio result in particular with care.</li>
   <li>Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample.</li>
   <li>RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.</li>
 </ul>
@@ -1379,12 +1607,36 @@ multilingual models.</li>
 amounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: check
 labels against the allowed list, split long category lists into two steps, and verify every extracted
 field against the source. The 70B model mainly adds the ability to notice what is missing. Reading scans
-directly is its weakest point so far: it misreads digits, so check every date and total. Qwen 3.5 9B shows that open models of this
-size can do better, on text and even more on images, which leaves room for the next Apertus release.</p>
+and listening to calls are its weakest points so far: it misreads digits on receipts, so check every date
+and total, and it sorts a spoken request only if it writes it down first. On business tasks it stands
+roughly where OpenAI stood in 2023, a few points behind GPT-3.5-turbo. Qwen 3.5 9B shows that open models
+of this size can do better, on text and even more on images, which leaves room for the next Apertus
+release.</p>
+
+<p>These numbers need one more piece of context. Apertus is the only fully open model family in this
+comparison: its weights, its training data and its training recipes are all published. According to
+<a href="https://huggingface.co/swiss-ai/Apertus-v1.5-8B">Swiss AI</a>, it was trained only on openly licensed data,
+filtered to respect website owners who opted out of AI crawlers (also retroactively), with personal data
+and toxic content removed and with measures against memorising text verbatim, wherever this was possible.
+None of the other models we tested goes that far. Qwen and Llama publish their weights but not their
+training data, and GPT and Claude can only be used through an API. Apertus competes against models that
+do not have to show how they were built, while anyone can check how Apertus was.</p>
+
+<p>Does openness cost performance? We can only speculate. The raw amount of data is not the obvious culprit:
+Apertus was pretrained on 15 trillion tokens (<a href="https://arxiv.org/abs/2509.14233">Apertus technical report</a>),
+about as many as <a href="https://ai.meta.com/blog/meta-llama-3/">Llama 3</a>, though less than half of the
+<a href="https://qwenlm.github.io/blog/qwen3/">36 trillion of Qwen3</a>, the predecessor of the Qwen 3.5 we tested. Respecting opt-outs removed only about 8
+percent of English and 4 percent of multilingual tokens. But a
+<a href="https://arxiv.org/abs/2504.06219">study by researchers behind Apertus</a> found that compliant data costs
+almost nothing in general knowledge and noticeably more in structured formats, which is where Apertus
+struggles in our tests. About 40 percent of its data is also non-English, so it sees less English than
+its competitors. Qwen, on the other hand, generates synthetic training data with its own models and
+extracts text from PDF documents. Closing the gap without giving up openness will need such other
+routes, and finding them is a research question in its own right.</p>
 
 <p>We are presenting these results at the «Hack Apertus» online session on 2 October 2026. If you pick up one of
 the open questions during the hackathon, whether format guards, null handling, thinking mode, Swiss
-languages, reading scans or audio input, we would like to hear what you find.</p>
+languages, reading scans or listening to calls, we would like to hear what you find.</p>
 
 <p><strong>Quicklinks:</strong></p>
 <ul>
