@@ -43,21 +43,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Apertus 1.5 Under Test - Real Business Tasks | DS-NLP Lab</title>
+<title>Can Apertus Do Your Business Tasks? | DS-NLP Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="Apertus 1.5 Under Test - Real Business Tasks">
+<meta name="title" content="Can Apertus Do Your Business Tasks?">
 <meta name="description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
 
-<meta property="og:title" content="Apertus 1.5 Under Test - Real Business Tasks">
+<meta property="og:title" content="Can Apertus Do Your Business Tasks?">
 <meta property="og:site_title" content="DS-NLP Lab">
 <meta property="og:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
 <meta property="og:url" content="http://blog.nlp-lab.ai">
 <meta property="og:image" content="/images/ICS_HSG-LogoWithWhiteBackground.png">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="Apertus 1.5 Under Test - Real Business Tasks">
+<meta property="twitter:title" content="Can Apertus Do Your Business Tasks?">
 <meta property="twitter:description" content="Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).">
 <meta property="twitter:url" content="http://blog.nlp-lab.ai">
 <meta property="twitter:card" content="summary_large_image">
@@ -66,10 +66,10 @@
 
   <meta name="author" content='["Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-02T00:12:11+00:00">
+  <meta property="og:updated_time" content="2026-10-02T00:19:45+00:00">
   <meta property="article:published_time" content="2026-10-01T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-02T00:12:11+00:00">
-  <meta name="revised" content="2026-10-02T00:12:11+00:00">
+  <meta property="article:modified_time" content="2026-10-02T00:19:45+00:00">
+  <meta name="revised" content="2026-10-02T00:19:45+00:00">
 
 
 <script type="application/ld+json">
@@ -77,13 +77,13 @@
     "@context": "https://schema.org",
     
       "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "Apertus 1.5 Under Test - Real Business Tasks" },
+      "author": { "@type": "Person", "name": "Can Apertus Do Your Business Tasks?" },
       "datePublished": "2026-10-01T00:00:00+00:00",
-      "dateModified": "2026-10-02T00:12:11+00:00",
+      "dateModified": "2026-10-02T00:19:45+00:00",
     
-    "name": "Apertus 1.5 Under Test - Real Business Tasks",
+    "name": "Can Apertus Do Your Business Tasks?",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
-    "headline": "Apertus 1.5 Under Test - Real Business Tasks",
+    "headline": "Can Apertus Do Your Business Tasks?",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -439,7 +439,7 @@
 -->
 
 
-<h1 class="center">Apertus 1.5 Under Test - Real Business Tasks</h1>
+<h1 class="center">Can Apertus Do Your Business Tasks?</h1>
 
 <div class="post-info">
   
@@ -929,7 +929,9 @@ gains and where it loses.</p>
 
 <p>To place Apertus in time, we also ran two older OpenAI models through the same 3,021 cases, at
 temperature 0 like the open models: GPT-3.5-turbo, the model behind ChatGPT in 2023, and GPT-4o-mini
-from 2024. Both are still available through OpenAI’s API.</p>
+from 2024. Both are still available through OpenAI’s API. Neither is a direct match for Apertus: GPT-3.5-turbo
+reads text only, with no images, no audio and no thinking mode, and GPT-4o-mini adds images but no
+thinking mode. Apertus 1.5 has all three, and part of its parameters serve images and audio.</p>
 
 <figure class="figure">
   <a class="figure-image" aria-label="Overall score of three generations of OpenAI models against the two Apertus 1.5 models, on the same 3,021 cases.">
@@ -1013,9 +1015,26 @@ open model in our test.</p>
   </tbody>
 </table>
 
+<figure class="figure">
+  <a class="figure-image" aria-label="Apertus 1.5 8B blue and 70B orange against GPT-3.5-turbo dashed , the model behind ChatGPT in 2023. The bottom axis shows how often a model answers null when we delete the date or total from a receipt.">
+    <img src="/images/posts/Apertus15Business-gpt35-radar.png" style="
+        width: auto;
+        max-height: unset;
+      " alt="Apertus 1.5 8B blue and 70B orange against GPT-3.5-turbo dashed , the model behind ChatGPT in 2023. The bottom axis shows how often a model answers null when we delete the date or total from a receipt." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Apertus 1.5 8B (blue) and 70B (orange) against GPT-3.5-turbo (dashed), the model behind ChatGPT in 2023. The bottom axis shows how often a model answers null when we delete the date or total from a receipt.
+
+    </figcaption>
+  
+</figure>
+
 <p>The pattern is the same as against the frontier. On invoices (DocILE) Apertus 1.5 8B is slightly ahead of
 both older OpenAI models, and on social media (TweetEval) the 70B model is. The gap comes from the long
-category lists: contracts (CUAD) and banking intents (Banking77).</p>
+category lists: contracts (CUAD) and banking intents (Banking77). GPT-3.5-turbo also answers null in 39
+percent of the receipts with a deleted date or total, where Apertus 1.5 8B never does and the 70B model
+does in 34 percent.</p>
 
 <p>On business tasks, then, Apertus 1.5 stands roughly where OpenAI stood in 2023. Two things put that in
 perspective. OpenAI has never published the size of GPT-3.5-turbo. Its predecessor GPT-3 had 175 billion
@@ -1641,7 +1660,7 @@ languages, reading scans or listening to calls, we would like to hear what you f
 <p><strong>Quicklinks:</strong></p>
 <ul>
   <li>
-<strong>Our academic benchmark post</strong>: <a href="/2026/07/29/Apertus15Bench.html">LLM Benchmark Evaluation - Apertus 1.5-8B</a>
+<strong>Our academic benchmark post</strong>: <a href="/2026/07/29/Apertus15Bench.html">Apertus 1.5 on academic benchmarks</a>
 </li>
   <li>
 <strong>Model Hub</strong>: <a href="https://huggingface.co/swiss-ai/">Hugging Face: Swiss AI Models</a>
