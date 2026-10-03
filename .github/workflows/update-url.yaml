@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Debug dump
-        uses: crazy-max/ghaction-dump-context@v2
+        uses: crazy-max/ghaction-dump-context@v3
 
       - name: Get Pages url
         id: pages
