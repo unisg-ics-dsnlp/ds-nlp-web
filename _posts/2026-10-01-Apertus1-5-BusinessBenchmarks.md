@@ -77,7 +77,7 @@ Some choices affect how the numbers should be read:
 - Each benchmark is scored with its authors' metric (accuracy, macro-F1, F1 of the ironic class and so
   on). The overall score is the mean over the six benchmarks.
 - Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B ran locally on our own
-  hardware ([how we set it up]({% post_url 2026-09-30-Apertus15OnAMac %})), because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bit
+  hardware ([how we set it up]({% post_url 2026-10-01-Apertus15OnAMac %})), because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bit
   quantised through Ollama; if anything, that works against it.
 
 {% include section.html dark=true %}
@@ -524,7 +524,7 @@ Apertus compare with OLMo 3, the other fully open model?
 For the hackathon, both 1.5 models (8B and 70B) are provided through the partners CSCS and Phoeniqs; the
 Getting Started Guide explains access under «Resources & Tools». If you also want to run the 8B model on
 your own machine, for example to show that documents never leave it, use the Swiss AI fork of
-`transformers`; [our setup post]({% post_url 2026-09-30-Apertus15OnAMac %}) shows how. If you would like our task definitions and scoring code as a
+`transformers`; [our setup post]({% post_url 2026-10-01-Apertus15OnAMac %}) shows how. If you would like our task definitions and scoring code as a
 starting point, get in touch.
 
 {% include section.html %}
