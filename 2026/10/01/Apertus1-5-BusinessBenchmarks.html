@@ -64,10 +64,10 @@
 
   <meta name="author" content='["Siegfried Handschuh"]'>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-10-03T15:49:52+00:00">
+  <meta property="og:updated_time" content="2026-10-03T17:45:04+00:00">
   <meta property="article:published_time" content="2026-10-01T16:00:00+00:00">
-  <meta property="article:modified_time" content="2026-10-03T15:49:52+00:00">
-  <meta name="revised" content="2026-10-03T15:49:52+00:00">
+  <meta property="article:modified_time" content="2026-10-03T17:45:04+00:00">
+  <meta name="revised" content="2026-10-03T17:45:04+00:00">
 
 
 <script type="application/ld+json">
@@ -77,7 +77,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Can Apertus Do Your Business Tasks?" },
       "datePublished": "2026-10-01T16:00:00+00:00",
-      "dateModified": "2026-10-03T15:49:52+00:00",
+      "dateModified": "2026-10-03T17:45:04+00:00",
     
     "name": "Can Apertus Do Your Business Tasks?",
     "description": "Chair of Siegfried Handschuh | Data Science in Natural Language Processing. Chair of Siegfried Handschuh for Data Science in Natural Language Processing at the University of St. Gallen (HSG).",
@@ -1262,7 +1262,8 @@ safer choice.</p>
 <h2 id="reading-the-scan-instead-of-the-text-preliminary">Reading the Scan Instead of the Text (Preliminary)</h2>
 
 <p><em>These are first results from one dataset and five models. We will extend them; treat them as a first
-look. Update, 3 October 2026: we added Apertus 1.5 70B.</em></p>
+look. Update, 3 October 2026: we added Apertus 1.5 70B and a test that asks the model to
+copy the receipt first.</em></p>
 
 <p>Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.
 Same 361 SROIE receipts, same four fields, same scoring. We ran the 8B model locally and compared it with
@@ -1315,6 +1316,43 @@ needed about 9 seconds per receipt, Qwen about 3. The two ran on different softw
 about 5 seconds on the rented GPUs.</li>
 </ol>
 
+<p><strong>Copying the receipt first.</strong> For phone calls, asking Apertus to write down what it hears before it
+decides made a large difference (see the next section). We tried the same with the scans, on the first
+100 receipts: once in a single request («first copy the text of the receipt line by line, then give the
+fields as JSON») and once in two requests (copy the text, then extract the fields from that copy).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fields correct (%), first 100 receipts</th>
+      <th>Directly</th>
+      <th>One request, copy first</th>
+      <th>Two requests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apertus 1.5 8B</td>
+      <td>68.5</td>
+      <td>76.0</td>
+      <td>74.5</td>
+    </tr>
+    <tr>
+      <td>Apertus 1.5 70B</td>
+      <td>68.2</td>
+      <td>71.8</td>
+      <td>71.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The step clearly helps the 8B model: totals go from 64 to 80 percent, and almost twice as many receipts
+come out fully right (48 against 26 percent). For the 70B model the gain is smaller (totals from 73 to 83
+percent) and within chance on 100 receipts. A second request adds nothing for either model, so unlike with
+the calls there is no need to split reading and deciding. Dates do not improve, because the wrong digits
+are already in the copy. Copying first makes a request two to three times slower: about 20 seconds per
+receipt for the 8B model locally, 15 for the 70B.</p>
+
 <p>Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen saw these receipts during
 training; a test on fresh receipts would settle that. It would not explain the Apertus result, though.
 And Qwen ran 4-bit quantised, both Apertus models in full precision.</p>
@@ -1326,8 +1364,8 @@ also when it got one request at a time, and had to restart. We ran the test in s
 repeated only the failed requests. The hosted 70B model at featherless-ai, which we used for the text
 benchmarks, was often at capacity during those days.</p>
 
-<p>If you build document capture on Apertus 1.5, with either model, check every date and total it reads from a scan, for
-example against the sum of the line items, or let a model that reads scans well do that part. Whether a
+<p>If you build document capture on Apertus 1.5, with either model, ask it to copy the receipt first in the
+same request, and check every date and total it reads from a scan, for example against the sum of the line items, or let a model that reads scans well do that part. Whether a
 classic OCR step in front of Apertus works better, we have not tested.</p>
   </section>
 
@@ -1539,7 +1577,8 @@ better, but it extracts receipts and invoices hardly better than the 8B model, a
 hardly better either.</li>
   <li>The image and audio results point to the same gap. Apertus perceives the input: it transcribes calls
 and reads most of a receipt. What it does not yet do reliably is connect what it perceived with the
-task it was given. Asking it to write the call down first lifts routing from 11 to 76 percent. That
+task it was given. Asking it to write the call down first lifts routing from 11 to 76 percent, and copying a receipt first
+lifts the small model’s totals from 64 to 80 percent. That
 is our reading of the pattern, not a proven cause.</li>
   <li>Thinking mode rarely pays off on tasks like these. They are pattern recognition, not chains of
 reasoning, and thinking costs seconds per case and sometimes does not finish.</li>
