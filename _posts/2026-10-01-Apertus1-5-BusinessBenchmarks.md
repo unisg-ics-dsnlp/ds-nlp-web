@@ -424,7 +424,8 @@ classic OCR step in front of Apertus works better, we have not tested.
 ## Listening Instead of Reading (Preliminary)
 
 *These are first results from one dataset and the two Apertus 1.5 models, run in the last days before
-publication. We will extend them; treat them as a first look.*
+publication. We will extend them; treat them as a first look. Update, 3 October 2026: we repeated the 70B
+single-call test on our own server (point 3).*
 
 Apertus 1.5 also takes audio, so we asked two questions: how well does it write down what it hears, and
 can it route a phone call? We used MInDS-14 from PolyAI, the team behind Banking77: phone recordings of
@@ -454,8 +455,13 @@ the window and my laptop».
 3. The 70B model fails at that single call. It writes a fluent banking request that has nothing to do
    with the recording («Ich möchte gerne meine Kontonummer ändern …») and sorts that. When asked only to
    transcribe, it does listen. The recording does reach the model: the provider reports the same number of
-   input tokens as our local server does for the 8B model. Whether the invented text comes from the model
-   itself or from the provider's serving setup, we cannot tell from here.
+   input tokens as our local server does for the 8B model. To rule out the provider, we repeated the test
+   on the first 100 calls on our own server, with the original weights in full precision. The result was
+   the same: 31 percent routed correctly (22 at the provider), and in 79 of 100 calls the transcript was
+   mostly invented. Transcribing alone works there as well as for the 8B model. The behaviour is therefore
+   not specific to one provider. Both 70B runs used Swiss AI's modified vLLM, while the 8B model ran with
+   `transformers`, so whether the cause lies in the 70B model or in that serving software we cannot
+   separate.
 4. Two separate calls, first transcribe and then classify the transcript, work for both models: 74 and
    78 percent.
 5. From the dataset transcript, without listening, the two models reach 91 and 96 percent, and Qwen 3.5 9B
@@ -466,7 +472,7 @@ The recordings are phone quality (8 kHz) and were resampled to the 24 kHz that A
 probably costs some accuracy. We have not yet compared a dedicated speech-to-text model such as Whisper.
 
 For a call-routing project with Apertus 1.5 8B: let it write the call down first, in the same request
-or in a separate one, and leave thinking off. For the 70B through a hosted API, use two separate calls
+or in a separate one, and leave thinking off. For the 70B model, use two separate calls
 and check that the transcript matches the audio.
 
 {% include section.html dark=true %}
@@ -516,7 +522,7 @@ labelled as hate speech. A third lead comes from images: on scanned receipts bot
 dates and totals and return the wrong number rather than null. Our setup also matches what the rubric rewards
 under reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech is a
 fourth: from a recorded bank call, Apertus 1.5 8B answers «balance» for most requests, whatever was said,
-and the hosted 70B model, asked to write a call down and sort it, invents a fluent request the caller
+and the 70B model, asked to write a call down and sort it, invents a fluent request the caller
 never made.
 
 **Challenge 1B, Swiss Voices.** Our documents were in English, and our German calls were in standard
@@ -610,9 +616,9 @@ This is an independent snapshot, not an exhaustive evaluation:
   German and English, with the two Apertus 1.5 models.
 - Qwen 3.5 9B ran 4-bit quantised, Apertus 1.5 8B in full precision, both locally.
 - Apertus 1.5 70B ran through featherless-ai, whose serving setup (software version, numerical precision)
-  is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so treat the
-  70B audio result in particular with care. The 70B image test is the exception: it ran in full precision
-  on a server we rented, with Swiss AI's modified vLLM.
+  is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so we repeated
+  two 70B tests in full precision on a server we rented, with Swiss AI's modified vLLM: the image test and
+  the single-call audio test. The audio result was the same as at the provider.
 - Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample.
 - RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.
 
