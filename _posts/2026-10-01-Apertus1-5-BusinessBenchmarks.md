@@ -3,7 +3,7 @@ title: Can Apertus Do Your Business Tasks?
 author:
   - Siegfried Handschuh
 image: images/posts/Apertus15Business-radar.png
-date: 2026-10-01
+date: 2026-10-01 18:00:00 +0200
 tags:
   - large language models
   - evaluation
@@ -18,7 +18,7 @@ tags:
 
 ## From Exams to the Back Office
 
-Apertus 1.5 8B is a solid document model that you can deploy privately, on a single Mac if need be. Its
+Apertus 1.5 8B is a solid document model that you can deploy privately, on your own hardware. Its
 weaknesses are specific, and they can be fixed. This post shows both, measured on real business data.
 
 We wrote it with the participants of [«Hack Apertus»](https://hackapertus.ch/) in mind, who are building
@@ -50,8 +50,7 @@ The short version:
    receipts it gets the date right 99 times out of 100.
 4. Most of its errors are of three kinds, all fixable: answers that are not on the allowed list,
    a few labels it uses far too often, and values it invents when information is missing.
-5. It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests.
-6. First tests with images and audio (preliminary) point to its weak spots. From a scanned receipt it misreads dates
+5. First tests with images and audio (preliminary) point to its weak spots. From a scanned receipt it misreads dates
    and totals, which Qwen 3.5 9B reads almost without error; the 70B model does hardly better than the
    8B. From a recorded bank call it picks the
    right category only one time in ten, unless it is asked to write the call down first: then three
@@ -77,8 +76,8 @@ Some choices affect how the numbers should be read:
 - Thinking modes are off for all models. We look at thinking separately near the end.
 - Each benchmark is scored with its authors' metric (accuracy, macro-F1, F1 of the ironic class and so
   on). The overall score is the mean over the six benchmarks.
-- Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B ran locally on a Mac,
-  because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bit
+- Most open models ran through Hugging Face Inference Providers. Apertus 1.5 8B ran locally on our own
+  hardware ([how we set it up]({% post_url 2026-09-30-Apertus15OnAMac %})), because no provider served it any more when we ran the tests. Qwen 3.5 9B also ran locally, 4-bit
   quantised through Ollama; if anything, that works against it.
 
 {% include section.html dark=true %}
@@ -235,7 +234,7 @@ perspective. OpenAI has never published the size of GPT-3.5-turbo. Its predecess
 parameters; a [Microsoft paper](https://huggingface.co/papers/2310.17680), withdrawn shortly after, listed
 GPT-3.5-turbo at 20 billion. Either way it is most likely larger than Apertus 1.5 8B, but we do not know
 by how much. And Apertus is fully open, from training data to weights, and its small model runs
-on a single Mac.
+on a single machine.
 
 {% include section.html dark=true %}
 
@@ -346,50 +345,14 @@ safer choice.
 
 {% include section.html %}
 
-## Bonus: The Small Apertus Runs on a Mac
-
-When we reran our tests on 30 September, no Hugging Face Inference Provider served Apertus 1.5 8B any
-more, and the standard `transformers` and MLX releases do not support the 1.5 architecture yet. The Swiss
-AI fork of `transformers`, which the model card points to, does work:
-
-```bash
-pip install "transformers[torch,vision,audio] @ git+https://github.com/swiss-ai/transformers.git@3797303dda74844e3d1f8977ff5518bb91f818b4"
-```
-
-```python
-import torch
-from transformers import AutoModelForMultimodalLM, AutoProcessor
-
-model_id = "swiss-ai/Apertus-v1.5-8B"
-processor = AutoProcessor.from_pretrained(model_id)
-model = AutoModelForMultimodalLM.from_pretrained(model_id, dtype="auto").to("mps").eval()
-
-messages = [{"role": "user", "content": "Which department handles a lost card?"}]
-inputs = processor.apply_chat_template(
-    messages, add_generation_prompt=True, tokenize=True,
-    return_dict=True, return_tensors="pt", enable_thinking=False,
-).to(model.device)
-
-with torch.inference_mode():
-    out = model.generate(**inputs, max_new_tokens=64, do_sample=False)
-print(processor.decode(out[0, inputs["input_ids"].shape[-1]:], skip_special_tokens=True))
-```
-
-On an Apple M5 Max with 128 GB of memory, in bf16, the model processed about 3,100 benchmark cases with a
-median of 1.3 seconds per request and no failed requests. There is no API cost, and no document leaves
-the machine. For banks, insurers and public administrations, that is the main reason to consider an open
-Swiss model. Image and audio input work on the Mac as well, as the next two sections show.
-
-{% include section.html %}
-
 ## Reading the Scan Instead of the Text (Preliminary)
 
 *These are first results from one dataset and five models. We will extend them; treat them as a first
 look. Update, 3 October 2026: we added Apertus 1.5 70B.*
 
 Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.
-Same 361 SROIE receipts, same four fields, same scoring. We ran the 8B model on the Mac and compared it with
-Qwen 3.5 9B, which also reads images and runs on the same machine, and with the two frontier models. The
+Same 361 SROIE receipts, same four fields, same scoring. We ran the 8B model locally and compared it with
+Qwen 3.5 9B, which also reads images and ran on the same machine, and with the two frontier models. The
 70B model ran in full precision on a GPU server we rented for the purpose (four Nvidia A100, through
 Hugging Face Inference Endpoints).
 
@@ -418,7 +381,7 @@ What we found:
    the layout shows which lines belong together and nothing is missing. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
    40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;
    Apertus gets 17 percent.
-4. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac the 8B model
+4. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. Locally the 8B model
    needed about 9 seconds per receipt, Qwen about 3. The two ran on different software (our
    `transformers` server and Ollama), so take the speed difference as a rough guide. The 70B model needed
    about 5 seconds on the rented GPUs.
@@ -427,9 +390,7 @@ Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen
 training; a test on fresh receipts would settle that. It would not explain the Apertus result, though.
 And Qwen ran 4-bit quantised, both Apertus models in full precision.
 
-Two practical notes if you try this yourself. On the Mac, our first run sent four scans to the model at
-once, memory grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared
-after each batch, fixed it. Running the 70B model with images on your own server takes more work for now.
+One practical note if you try this yourself: running the 70B model with images on your own server takes more work for now.
 The standard release of vLLM, the usual serving software, does not support Apertus 1.5 yet; Swiss AI
 provides a modified version as a Docker image. In our runs that server crashed every 50 to 170 scans,
 also when it got one request at a time, and had to restart. We ran the test in several passes and
@@ -450,8 +411,8 @@ publication. We will extend them; treat them as a first look.*
 Apertus 1.5 also takes audio, so we asked two questions: how well does it write down what it hears, and
 can it route a phone call? We used MInDS-14 from PolyAI, the team behind Banking77: phone recordings of
 customers with e-banking requests in 14 categories, such as a stolen card, a frozen account or a bill to
-pay. We took all German (611) and US English (563) recordings and ran both Apertus 1.5 models, the 8B on
-the Mac and the 70B through a hosting provider.
+pay. We took all German (611) and US English (563) recordings and ran both Apertus 1.5 models, the 8B
+locally and the 70B through a hosting provider.
 
 **Writing it down.** We asked Apertus to transcribe each call word for word and compared the result with
 the transcript that comes with the dataset. The 8B model gets 47 percent of the words wrong, the 70B model
@@ -516,7 +477,7 @@ picture is different: in [our academic evaluation]({% link _posts/2026-07-29-Ape
 thinking mode raised Apertus 1.5 8B by 17 points on MATH-500 and by 10.5 points on multilingual
 grade-school math (MGSM).
 
-We did not finish the run for Apertus 1.5 8B. With thinking it needed 15 to 50 seconds per case on our Mac,
+We did not finish the run for Apertus 1.5 8B. With thinking it needed 15 to 50 seconds per case on our hardware,
 which made the full test impractical. Whether thinking fixes the small model's errors is still open, and a
 good project for anyone with a GPU and an afternoon.
 
@@ -563,7 +524,7 @@ Apertus compare with OLMo 3, the other fully open model?
 For the hackathon, both 1.5 models (8B and 70B) are provided through the partners CSCS and Phoeniqs; the
 Getting Started Guide explains access under «Resources & Tools». If you also want to run the 8B model on
 your own machine, for example to show that documents never leave it, use the Swiss AI fork of
-`transformers` as in the bonus section. If you would like our task definitions and scoring code as a
+`transformers`; [our setup post]({% post_url 2026-09-30-Apertus15OnAMac %}) shows how. If you would like our task definitions and scoring code as a
 starting point, get in touch.
 
 {% include section.html %}
@@ -628,7 +589,7 @@ This is an independent snapshot, not an exhaustive evaluation:
   multilingual models.
 - We tested images only on SROIE receipts, with five models, and audio only on MInDS-14 bank calls in
   German and English, with the two Apertus 1.5 models.
-- Qwen 3.5 9B ran 4-bit quantised, Apertus 1.5 8B in full precision on our Mac.
+- Qwen 3.5 9B ran 4-bit quantised, Apertus 1.5 8B in full precision, both locally.
 - Apertus 1.5 70B ran through featherless-ai, whose serving setup (software version, numerical precision)
   is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so treat the
   70B audio result in particular with care. The 70B image test is the exception: it ran in full precision
@@ -640,7 +601,7 @@ This is an independent snapshot, not an exhaustive evaluation:
 
 ## Summary
 
-Apertus 1.5 8B is a solid document model that you can run privately on a single Mac; it reads dates and
+Apertus 1.5 8B is a solid document model that you can run privately on your own hardware; it reads dates and
 amounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: check
 labels against the allowed list, split long category lists into two steps, and verify every extracted
 field against the source. The 70B model mainly adds the ability to notice what is missing. Reading scans
