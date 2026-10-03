@@ -52,7 +52,8 @@ The short version:
    a few labels it uses far too often, and values it invents when information is missing.
 5. It runs on a Mac: about 1.3 seconds per request on an Apple M5 Max, with no failed requests.
 6. First tests with images and audio (preliminary) point to its weak spots. From a scanned receipt it misreads dates
-   and totals, which Qwen 3.5 9B reads almost without error. From a recorded bank call it picks the
+   and totals, which Qwen 3.5 9B reads almost without error; the 70B model does hardly better than the
+   8B. From a recorded bank call it picks the
    right category only one time in ten, unless it is asked to write the call down first: then three
    times in four.
 
@@ -383,12 +384,14 @@ Swiss model. Image and audio input work on the Mac as well, as the next two sect
 
 ## Reading the Scan Instead of the Text (Preliminary)
 
-*These are first results from one dataset and four models, run in the last days before publication. We
-will extend them; treat them as a first look.*
+*These are first results from one dataset and five models. We will extend them; treat them as a first
+look. Update, 3 October 2026: we added Apertus 1.5 70B.*
 
 Apertus 1.5 accepts images, so we gave it the receipts a second time: only the scan, without any text.
-Same 361 SROIE receipts, same four fields, same scoring. We ran it on the Mac and compared it with Qwen 3.5
-9B, which also reads images and runs on the same machine, and with the two frontier models.
+Same 361 SROIE receipts, same four fields, same scoring. We ran the 8B model on the Mac and compared it with
+Qwen 3.5 9B, which also reads images and runs on the same machine, and with the two frontier models. The
+70B model ran in full precision on a GPU server we rented for the purpose (four Nvidia A100, through
+Hugging Face Inference Endpoints).
 
 As a reference we show the text results from above. That text is the transcript that comes with the
 dataset, made as ground truth for an OCR competition. Its characters are clean, but it is flat, a run of
@@ -396,7 +399,7 @@ words without layout, and it is incomplete: on a typical receipt almost a third 
 missing. The scan holds more information than the transcript, and a model that reads it well can do better
 than with the text.
 
-{% include figure.html image="images/posts/Apertus15Business-scan.png" caption="The same 361 receipts as the dataset's reference transcript (hollow) and as a scanned image (filled). Qwen 3.5 9B and the frontier models read the scan well, Apertus 1.5 8B misreads dates and totals." %}
+{% include figure.html image="images/posts/Apertus15Business-scan.png" caption="The same 361 receipts as the dataset's reference transcript (hollow) and as a scanned image (filled). Qwen 3.5 9B and the frontier models read the scan well, both Apertus 1.5 models misread dates and totals." %}
 
 What we found:
 
@@ -404,23 +407,36 @@ What we found:
    The model misreads digits: 15/01/2019 becomes 13/01/2019, and a total of 193.00 becomes 198. It never
    answers null for these fields. It returns a plausible wrong number, which is harder to catch than an
    empty field.
-2. The other three models do better from the scan than from the transcript, mostly on the address, where
+2. Apertus 1.5 70B does hardly better: 63.3 percent of fields, and 22 percent of receipts fully right.
+   Compared receipt by receipt, it reads the address clearly better than the 8B model (46 against 37
+   percent) and the date slightly worse (66 against 71); for company and total the difference is within
+   chance. It often makes the very same mistake: on the first receipt both models read 15/01/2019 as
+   13/01/2019. Both turn a scan into the same number of tokens, so they probably share the image
+   encoding, and a larger language model on top does not recover the digits lost there. That is our
+   reading, not a proven cause.
+3. The other three models do better from the scan than from the transcript, mostly on the address, where
    the layout shows which lines belong together and nothing is missing. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
    40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;
    Apertus gets 17 percent.
-3. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac it needed about
-   9 seconds per receipt, Qwen about 3. The two ran on different software (our `transformers` server and
-   Ollama), so take the speed difference as a rough guide.
+4. Apertus uses about 5,800 input tokens per scan, four times as many as Qwen. On our Mac the 8B model
+   needed about 9 seconds per receipt, Qwen about 3. The two ran on different software (our
+   `transformers` server and Ollama), so take the speed difference as a rough guide. The 70B model needed
+   about 5 seconds on the rented GPUs.
 
 Two cautions. SROIE has been public since 2019, and we cannot rule out that Qwen saw these receipts during
 training; a test on fresh receipts would settle that. It would not explain the Apertus result, though.
-And Qwen ran 4-bit quantised, Apertus 1.5 8B in full precision.
+And Qwen ran 4-bit quantised, both Apertus models in full precision.
 
-One practical note if you try this yourself: our first run sent four scans to the model at once, memory
-grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared after each
-batch, fixed it.
+Two practical notes if you try this yourself. On the Mac, our first run sent four scans to the model at
+once, memory grew past 100 GB and the Mac started swapping. One image per batch, with the GPU cache cleared
+after each batch, fixed it. Running the 70B model with images on your own server takes more work for now.
+The standard release of vLLM, the usual serving software, does not support Apertus 1.5 yet; Swiss AI
+provides a modified version as a Docker image. In our runs that server crashed every 50 to 170 scans,
+also when it got one request at a time, and had to restart. We ran the test in several passes and
+repeated only the failed requests. The hosted 70B model at featherless-ai, which we used for the text
+benchmarks, was often at capacity during those days.
 
-If you build document capture on Apertus 1.5 8B, check every date and total it reads from a scan, for
+If you build document capture on Apertus 1.5, with either model, check every date and total it reads from a scan, for
 example against the sum of the line items, or let a model that reads scans well do that part. Whether a
 classic OCR step in front of Apertus works better, we have not tested.
 
@@ -517,8 +533,8 @@ whether the model admits that it does not know. Apertus 1.5 8B filled in a value
 date that appears nowhere on the receipt. In a booking workflow that means wrong entries and possible
 financial loss, which counts for severity in the rubric. A second lead is content moderation: in the RAFT
 hate-speech task, Apertus 1.5 8B answered «not hate speech» for 13 of the 21 tweets that annotators had
-labelled as hate speech. A third lead comes from images: on scanned receipts Apertus 1.5 8B misreads dates
-and totals and returns the wrong number rather than null. Our setup also matches what the rubric rewards
+labelled as hate speech. A third lead comes from images: on scanned receipts both Apertus 1.5 models misread
+dates and totals and return the wrong number rather than null. Our setup also matches what the rubric rewards
 under reproducibility: fixed prompts, temperature 0 and a scripted run over many variations. Speech is a
 fourth: from a recorded bank call, Apertus 1.5 8B answers «balance» for most requests, whatever was said,
 and the hosted 70B model, asked to write a call down and sort it, invents a fluent request the caller
@@ -560,7 +576,8 @@ starting point, get in touch.
    OpenAI stood in 2023. Its weak spots are narrow and known: long category lists, answers off the allowed
    list, and the small model never saying «I don't know».
 2. The 70B model buys judgment more than reading skill. It notices what is missing and reads irony
-   better, but it extracts receipts and invoices hardly better than the 8B model.
+   better, but it extracts receipts and invoices hardly better than the 8B model, and it reads scans
+   hardly better either.
 3. The image and audio results point to the same gap. Apertus perceives the input: it transcribes calls
    and reads most of a receipt. What it does not yet do reliably is connect what it perceived with the
    task it was given. Asking it to write the call down first lifts routing from 11 to 76 percent. That
@@ -609,12 +626,13 @@ This is an independent snapshot, not an exhaustive evaluation:
   especially for long category lists.
 - Instructions were in German and documents in English. That is a common Swiss setup, but it may favour
   multilingual models.
-- We tested images only on SROIE receipts, with four models, and audio only on MInDS-14 bank calls in
+- We tested images only on SROIE receipts, with five models, and audio only on MInDS-14 bank calls in
   German and English, with the two Apertus 1.5 models.
 - Qwen 3.5 9B ran 4-bit quantised, Apertus 1.5 8B in full precision on our Mac.
 - Apertus 1.5 70B ran through featherless-ai, whose serving setup (software version, numerical precision)
   is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so treat the
-  70B audio result in particular with care.
+  70B audio result in particular with care. The 70B image test is the exception: it ran in full precision
+  on a server we rented, with Swiss AI's modified vLLM.
 - Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample.
 - RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.
 
@@ -626,8 +644,8 @@ Apertus 1.5 8B is a solid document model that you can run privately on a single 
 amounts on invoices and receipts reliably. Its weak spots are specific and can be worked around: check
 labels against the allowed list, split long category lists into two steps, and verify every extracted
 field against the source. The 70B model mainly adds the ability to notice what is missing. Reading scans
-and listening to calls are its weakest points so far: it misreads digits on receipts, so check every date
-and total, and it sorts a spoken request only if it writes it down first. On business tasks it stands
+and listening to calls are the weakest points of both models so far: they misread digits on receipts, so
+check every date and total, and they sort a spoken request only if they write it down first. On business tasks it stands
 roughly where OpenAI stood in 2023, a few points behind GPT-3.5-turbo. Qwen 3.5 9B shows that open models
 of this size can do better, on text and even more on images, which leaves room for the next Apertus
 release.
