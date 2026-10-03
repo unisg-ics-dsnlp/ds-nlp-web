@@ -26,16 +26,18 @@
   {% assign updated = include.updated | date: "%B %d, %Y" %}
 
   {% if published %}
-    <span data-tooltip="Originally published on">
+    <span class="post-info-published" data-tooltip="Publication date">
       {% include icon.html icon="fa-regular fa-calendar" %}
-      <span>{{ published }}</span>
+      <span class="post-info-label">Published</span>
+      <time datetime="{{ include.published | date_to_xmlschema }}">{{ published }}</time>
     </span>
   {% endif %}
 
   {% if updated and updated != "" and updated != published %}
-    <span data-tooltip="Last updated on">
+    <span class="post-info-updated" data-tooltip="Last updated date">
       {% include icon.html icon="fa-solid fa-clock-rotate-left" %}
-      <span>{{ updated }}</span>
+      <span class="post-info-label">Updated</span>
+      <time datetime="{{ include.updated | date_to_xmlschema }}">{{ updated }}</time>
     </span>
   {% endif %}
 </div>

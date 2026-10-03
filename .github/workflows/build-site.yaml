@@ -25,6 +25,10 @@ jobs:
 
       - name: Checkout branch contents
         uses: actions/checkout@v5
+        with:
+          # Required by jekyll-last-modified-at to find the commit that
+          # actually last changed each post instead of using the build commit.
+          fetch-depth: 0
 
       - name: Install Ruby packages
         uses: ruby/setup-ruby@v1
