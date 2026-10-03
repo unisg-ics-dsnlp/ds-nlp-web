@@ -25,6 +25,9 @@ jobs:
 
       - name: Checkout branch contents
         uses: actions/checkout@v5
+        with:
+          # full history, so jekyll-last-modified-at sees each post's own last commit
+          fetch-depth: 0
 
       - name: Install Ruby packages
         uses: ruby/setup-ruby@v1
