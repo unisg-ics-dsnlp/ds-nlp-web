@@ -2,7 +2,7 @@
 title: Running Apertus 1.5 8B on a Mac
 author:
   - Siegfried Handschuh
-date: 2026-09-30
+date: 2026-10-01 12:00:00 +0200
 tags:
   - large language models
   - local deployment
