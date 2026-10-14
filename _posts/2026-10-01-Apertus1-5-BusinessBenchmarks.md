@@ -18,6 +18,11 @@ tags:
 
 ## From Exams to the Back Office
 
+*Update, 14 October 2026: Swiss AI has published the
+[Apertus 1.5 technical report](https://arxiv.org/abs/2610.15542). It explains several of our findings,
+and we added them in the sections on scans, calls and thinking, and in a new section,
+[What the Technical Report Adds](#what-the-technical-report-adds).*
+
 Apertus 1.5 8B is a solid document model that you can deploy privately, on your own hardware. Its
 weaknesses are specific, and they can be fixed. This post shows both, measured on real business data.
 
@@ -377,7 +382,12 @@ What we found:
    chance. It often makes the very same mistake: on the first receipt both models read 15/01/2019 as
    13/01/2019. Both turn a scan into the same number of tokens, so they probably share the image
    encoding, and a larger language model on top does not recover the digits lost there. That is our
-   reading, not a proven cause.
+   reading, not a proven cause. *Update, 14 October:* the technical report confirms the shared encoding.
+   Apertus has no image encoder of the usual kind; a tokenizer turns every block of 16 × 16 pixels into
+   one of 131,072 codes, and that tokenizer was trained only to reproduce pixels, not to capture what
+   the image shows. Small printed digits have to survive that step. The report also notes that the 70B
+   training run stopped before it had seen all of its image and audio data, so the 70B model had less
+   chance to learn from them.
 3. The other three models do better from the scan than from the transcript, mostly on the address, where
    the layout shows which lines belong together and nothing is missing. Qwen 3.5 9B goes from 29 to 93 percent on the address, GPT-5.6 and Haiku from under
    40 to about 80. Qwen 3.5 reaches 94.4 percent overall and gets 81 percent of receipts fully right;
@@ -461,7 +471,11 @@ the window and my laptop».
    mostly invented. Transcribing alone works there as well as for the 8B model. The behaviour is therefore
    not specific to one provider. Both 70B runs used Swiss AI's modified vLLM, while the 8B model ran with
    `transformers`, so whether the cause lies in the 70B model or in that serving software we cannot
-   separate.
+   separate. *Update, 14 October:* the technical report makes the model the more likely cause. The 70B
+   training run stopped before it had used all of its image and audio data, because the compute was
+   needed for the next Apertus generation, and the learning rate it inherited left little room to adapt.
+   In the report's own tests the 70B model also does worse than the 8B on long recordings (47 against
+   36 percent of words wrong) and on classifying sounds (5 against 16 percent).
 4. Two separate calls, first transcribe and then classify the transcript, work for both models: 74 and
    78 percent.
 5. From the dataset transcript, without listening, the two models reach 91 and 96 percent, and Qwen 3.5 9B
@@ -470,6 +484,11 @@ the window and my laptop».
 
 The recordings are phone quality (8 kHz) and were resampled to the 24 kHz that Apertus expects, which
 probably costs some accuracy. We have not yet compared a dedicated speech-to-text model such as Whisper.
+According to the technical report, Apertus turns a second of sound into 40 tokens from a vocabulary of
+4,096, and most of its training audio is parliamentary, broadcast and read speech. On clean speech
+benchmarks the report measures 14 to 18 percent of words wrong in English and German (FLEURS), about a
+third of what we see on phone calls, while sound classification beyond speech stays at chance level. Phone calls
+are clearly unfamiliar ground.
 
 For a call-routing project with Apertus 1.5 8B: let it write the call down first, in the same request
 or in a separate one, and leave thinking off. For the 70B model, use two separate calls
@@ -492,6 +511,11 @@ The second was that thinking barely helps Apertus 1.5 70B in this setting. The c
 answer time for contract clauses grows from 1.5 to 27 seconds, and in one of nine contract cases the
 reasoning did not finish within 3,072 tokens. GPT-5.6 and Claude Haiku 4.5 gain more, mostly on irony
 (+5 to +12 points).
+
+*Update, 14 October:* the technical report evaluates thinking with a budget of 32,768 tokens, ten times
+ours, so some of our unfinished answers are probably a matter of budget. Its results fit our reading,
+though: thinking helps most on mathematics and multi-step reasoning and costs points on extraction, for
+example on reading values off charts (ChartQA, 78.7 to 66.0 for the 8B model).
 
 {% include figure.html image="images/posts/Apertus15Business-thinking.png" caption="The same hard cases with thinking off (hollow) and on (filled). Thinking helps the frontier models on irony and missing data; for Apertus 1.5 70B it changes little." %}
 
@@ -550,6 +574,54 @@ Getting Started Guide explains access under «Resources & Tools». If you also w
 your own machine, for example to show that documents never leave it, use the Swiss AI fork of
 `transformers`; [our setup post]({% post_url 2026-10-01-Apertus15OnAMac %}) shows how. If you would like our task definitions and scoring code as a
 starting point, get in touch.
+
+{% include section.html %}
+
+## What the Technical Report Adds
+
+*Added 14 October 2026.*
+
+The [Apertus 1.5 technical report](https://arxiv.org/abs/2610.15542) evaluates the models on about 50
+text benchmarks plus image, audio, long-context and tool-use suites. These benchmarks test knowledge,
+mathematics, code and general instruction following, mostly in English. Ours test business data with a
+fixed list of allowed answers. On the overlap, the two pictures agree: Qwen 3.5 9B is clearly ahead on
+English knowledge (MMLU 83.7 against 70.5), Llama 3.1 8B is ahead on several reasoning and mathematics
+benchmarks, and among fully open models Apertus reads document images best (DocVQA). Six points go beyond our
+tests or explain them.
+
+1. **Following instructions is not the same as staying on a list.** The report finds Apertus 1.5 8B
+   better at following instructions than every model it compares, including Qwen 3.5 9B (IFEval 87.1).
+   Those benchmarks check formal rules such as a word count or no commas. Picking exactly one of 77
+   allowed labels is a different skill, and there we see answers off the list. The report itself
+   contains a hint in the same direction: the external security testers write that the model has
+   «insufficient structured output compliance» to automate attacks. That is good news for safety and the
+   same gap we measured.
+2. **Missing information is a case of its own.** The report measures two kinds of hallucination.
+   Apertus 1.5 now declines far more often to describe people or things that do not exist (8B: 27 to 87
+   percent), but on short factual questions it still answers wrongly about seven times in ten, as before.
+   Our test with deleted dates and totals is a third case: the information is missing from the document
+   in front of the model. The report does not cover it, and here the 8B model never answered `null`.
+3. **Caution can turn into refusal.** On a benchmark of harmless prompts that sound harmful (OR-Bench,
+   hard subset), the 8B model's refusal rate rises from 3.6 to 81.5 percent through the safety training,
+   the 70B model's from 2.9 to 67.6. Part of that benchmark can legitimately be refused, so these are not
+   absolute rates. We did not test this, but anyone routing insurance claims, legal questions or medical
+   requests should.
+4. **Long documents are a weak spot.** On retrieval across 256,000 tokens the 8B model finds about half
+   of what it should, Qwen 3.5 9B 94 percent (RULER), and on realistic long-document tasks at 128,000
+   tokens the gap is 23 against 55 percent (HELMET). We gave the model single clauses. The original CUAD
+   task, finding clauses in a whole contract, would be harder for Apertus.
+5. **The national languages are its best ground.** The report's gap to Qwen 3.5 9B shrinks from 13 points
+   on English knowledge to two or three on multilingual and cultural benchmarks. Our documents were all
+   English. Business tasks in German, French and Italian are the test most likely to show Apertus in a
+   better light.
+6. **Hosting matters, and nobody has measured it fully.** The report measures speed at five providers of
+   the 70B model and finds a factor of more than two in latency, but calls a quality comparison between
+   providers «open». It also reports that its own checkpoint conversion silently dropped a setting and
+   made the model look worse. Our two 70B audio runs, 22 percent correct at a provider and 31 on our own
+   server, are one data point for that comparison.
+
+One more result is useful for document capture: in the pre-release tests the models did not follow
+instructions hidden in images as white text on a white background.
 
 {% include section.html %}
 
@@ -619,6 +691,7 @@ This is an independent snapshot, not an exhaustive evaluation:
   is not documented. With another model we saw one provider artefact, Gemma 2 losing tokens, so we repeated
   two 70B tests in full precision on a server we rented, with Swiss AI's modified vLLM: the image test and
   the single-call audio test. The audio result was the same as at the provider.
+- Our thinking test used a budget of 3,072 tokens; the technical report uses 32,768.
 - Each model ran once. GPT-5.6 cannot run at temperature 0, so its numbers are a single sample.
 - RAFT and DocILE results come from their public labelled splits, not from the hidden test sets.
 
